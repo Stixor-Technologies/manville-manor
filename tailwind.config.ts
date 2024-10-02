@@ -15,6 +15,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-sand": "linear-gradient(90deg, #E5C39F66 0% ,#7F6C58 100%)",
       },
 
       colors: {
@@ -22,6 +23,9 @@ const config: Config = {
         secondary: "#E8CFB5",
         accent: "#74604B",
         white: "#ffffff",
+        gray: "#929292",
+        "dark-gray": "#282828",
+        sand: "#877663",
       },
 
       fontFamily: {
@@ -32,7 +36,7 @@ const config: Config = {
         hero: ["4rem", "4.8rem"],
         title: ["3rem", "3.6rem"],
         subtitle: ["2.25rem", "0px"],
-        "body-lg": ["1.375rem", "25.78px"],
+        "body-lg": ["1.375rem", "2.0625rem"],
         body: ["1rem", "0rem"],
       },
     },
