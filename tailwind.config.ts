@@ -53,8 +53,8 @@ const config: Config = {
           marginRight: "auto",
           "@screen sm": {
             maxWidth: "100%",
-            paddingLeft: "2rem",
-            paddingRight: "2rem",
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
           },
           "@screen md": {
             maxWidth: "100%",
