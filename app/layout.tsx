@@ -26,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoCondensed.className} ${cormorant.variable}`}>
+      <body
+        className={`${robotoCondensed.className} ${cormorant.variable} bg-primary`}
+      >
         <main>{children}</main>
         <Footer />
       </body>

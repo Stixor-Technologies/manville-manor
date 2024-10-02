@@ -25,6 +25,7 @@ const config: Config = {
         white: "#ffffff",
         gray: "#929292",
         "dark-gray": "#282828",
+        milk: "#F8F8F8",
         sand: "#877663",
       },
 
@@ -65,8 +66,8 @@ const config: Config = {
           },
           "@screen xl": {
             maxWidth: "100%",
-            paddingLeft: "5.9375rem",
-            paddingRight: "5.9375rem",
+            paddingLeft: "2.5625rem",
+            paddingRight: "2.5625rem",
           },
           "@screen 2xl": {
             maxWidth: "1536px",

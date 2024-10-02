@@ -1,4 +1,4 @@
-import { Menu, SocialLinks } from "./types/types";
+import { Faq, Menu, SocialLinks } from "./types/types";
 import Instagram from "@/public/assets/icons/instagram.svg";
 import Facebook from "@/public/assets/icons/facebook.svg";
 import Linkedin from "@/public/assets/icons/linkedin.svg";
@@ -67,4 +67,56 @@ const socialLink: SocialLinks[] = [
   },
 ];
 
-export { navBarLinks, socialLink };
+const faqItems: Faq[] = [
+  {
+    title: "max guest capacity?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+
+  {
+    title: "can i bring my own food?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+
+  {
+    title: "is alcohol allowed",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+
+  {
+    title:
+      "how much extra time do i get for decorating/setting up for my event?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+
+  {
+    title: "am i required to cleanup after my event?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+
+  {
+    title: "what decor items are prohibited?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+
+  {
+    title:
+      "can i select my own unique hours outside of the cool venue time blocks?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+
+  {
+    title: "do you provide decor? how do i book it?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+  },
+];
+
+export { navBarLinks, socialLink, faqItems };

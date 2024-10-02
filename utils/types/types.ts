@@ -6,4 +6,9 @@ type Menu = {
 
 type SocialLinks = Omit<Menu, "id"> & { iconPath: string };
 
-export type { Menu, SocialLinks };
+type Faq = {
+  title: string;
+  content: string;
+};
+
+export type { Menu, SocialLinks, Faq };
