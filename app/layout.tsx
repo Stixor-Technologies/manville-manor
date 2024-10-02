@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed, Cormorant } from "next/font/google";
+import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "./globals.css";
 
@@ -29,7 +30,8 @@ export default function RootLayout({
       <body
         className={`${robotoCondensed.className} ${cormorant.variable} bg-primary`}
       >
-        <main>{children}</main>
+        <Header />
+        <main className="pt-[5.4375rem]">{children}</main>
         <Footer />
       </body>
     </html>
