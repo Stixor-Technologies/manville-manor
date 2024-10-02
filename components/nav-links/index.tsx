@@ -18,7 +18,7 @@ const NavLinks: FC<NavLinkProps> = ({ fromFooter = false }) => {
         "flex gap-12",
         fromFooter
           ? "my-8 lg:my-16"
-          : "gap-4 text-sm sm:gap-6 md:gap-6 lg:gap-12 lg:text-base",
+          : "hidden gap-4 text-sm sm:gap-6 md:flex md:gap-6 lg:gap-12 lg:text-base",
       )}
     >
       {navBarLinks?.map((link) => (

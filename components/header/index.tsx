@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/logo.svg";
+import Hamburger from "@/public/assets/icons/hamburger.svg";
 import NavLinks from "../nav-links";
 import { Button } from "../button";
 
@@ -16,8 +17,15 @@ const Header = () => {
           </Link>
 
           <NavLinks />
+          <Button className="hidden md:inline-flex">Booking</Button>
 
-          <Button>Booking</Button>
+          <Button
+            size={"icon"}
+            variant={"icon"}
+            className="inline-flex md:hidden"
+          >
+            <Image src={Hamburger} alt="hamburger-menu" />
+          </Button>
         </div>
       </div>
 
