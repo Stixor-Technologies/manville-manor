@@ -8,7 +8,7 @@ import { Button } from "../button";
 
 const Header = () => {
   return (
-    <header className="fixed w-full">
+    <header className="fixed z-50 w-full">
       <div className="mx-5 bg-[#2B2A26] py-[1.1875rem]">
         <div className="container flex  items-center justify-between">
           <Link href={"/"}>

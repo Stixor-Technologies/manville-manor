@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, MouseEvent } from "react";
 import Image from "next/image";
 import Add from "@/public/assets/icons/add.svg";
 import { faqItems } from "@/utils/utils";
+import SectionHeader from "../shared/section-header";
 
 const FaqItem = ({
   title,
@@ -66,12 +67,14 @@ const FaqItem = ({
 
 const Faqs = () => {
   return (
-    <section className="">
-      <h2 className="text-center text-xl text-secondary">FAQ&apos;S</h2>
+    <section>
+      {/* <h2 className="text-center text-xl text-secondary">FAQ&apos;S</h2>
 
       <p className="mt-4 text-center font-cormorant text-5xl font-bold text-white">
         Frequently Asked Questions
-      </p>
+      </p> */}
+
+      <SectionHeader header="FAQ'S" description="Frequently Asked Questions" />
 
       <div className="mt-16 flex flex-col">
         {faqItems?.map((item, index) => (

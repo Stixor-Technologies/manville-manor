@@ -34,7 +34,7 @@ const config: Config = {
       },
 
       fontSize: {
-        hero: ["4rem", "4.8rem"],
+        lg: ["4rem", "4.8rem"],
         title: ["3rem", "3.6rem"],
         subtitle: ["2.25rem", "0px"],
         "body-lg": ["1.375rem", "2.0625rem"],

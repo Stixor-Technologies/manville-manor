@@ -11,4 +11,10 @@ type Faq = {
   content: string;
 };
 
-export type { Menu, SocialLinks, Faq };
+type EventPackage = {
+  weekDaysPrice: string;
+  weekEndPrices: string;
+  packageFeatures: string[];
+};
+
+export type { Menu, SocialLinks, Faq, EventPackage };

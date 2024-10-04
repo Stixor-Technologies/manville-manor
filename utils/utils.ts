@@ -1,4 +1,4 @@
-import { Faq, Menu, SocialLinks } from "./types/types";
+import { EventPackage, Faq, Menu, SocialLinks } from "./types/types";
 import Instagram from "@/public/assets/icons/instagram.svg";
 import Facebook from "@/public/assets/icons/facebook.svg";
 import Linkedin from "@/public/assets/icons/linkedin.svg";
@@ -119,4 +119,38 @@ const faqItems: Faq[] = [
   },
 ];
 
-export { navBarLinks, socialLink, faqItems };
+const venuePackage: EventPackage = {
+  weekDaysPrice: "$1000",
+  weekEndPrices: "$1395",
+  packageFeatures: [
+    "Access to eight 10 feet rectangular tables or eight 5 foot round tables",
+    "Two 4 feet tables",
+    "Up to 81 chairs",
+    "Venue Uplights",
+    "Venue Uplights",
+    "Venue Uplights",
+    "Access to eight 10 feet rectangular tables or eight 5 foot round tables",
+    "Two 4 feet tables",
+    "Up to 81 chairs",
+    "Venue Uplights",
+  ],
+};
+
+const decorPackage: EventPackage = {
+  weekDaysPrice: "$1500",
+  weekEndPrices: "$1995",
+  packageFeatures: [
+    "Access to eight 10 feet rectangular tables or eight 5 foot round tables",
+    "Two 4 feet tables",
+    "Up to 81 chairs",
+    "Venue Uplights",
+    "Venue Uplights",
+    "Venue Uplights",
+    "Access to eight 10 feet rectangular tables or eight 5 foot round tables",
+    "Two 4 feet tables",
+    "Up to 81 chairs",
+    "Venue Uplights",
+  ],
+};
+
+export { navBarLinks, socialLink, faqItems, venuePackage, decorPackage };
