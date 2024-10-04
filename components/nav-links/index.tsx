@@ -12,7 +12,6 @@ interface NavLinkProps {
 const NavLinks: FC<NavLinkProps> = ({ fromFooter = false }) => {
   const path = usePathname();
   return (
-    // <ul className={cn("flex gap-12", fromFooter && "my-16")}>
     <ul
       className={cn(
         "flex gap-12",

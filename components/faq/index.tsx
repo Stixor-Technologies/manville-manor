@@ -37,7 +37,7 @@ const FaqItem = ({
       >
         <div className="flex gap-[3.25rem] text-4xl uppercase">
           <span
-            className={`text-[4rem] font-bold ${isOpen ? "text-white" : "text-accent"} transition-all duration-300`}
+            className={`text-[4rem] font-bold ${isOpen ? "text-white" : "text-accent"} mt-2 transition-all duration-300`}
           >
             {String(index).padStart(2, "0")}
           </span>
