@@ -68,12 +68,6 @@ const FaqItem = ({
 const Faqs = () => {
   return (
     <section>
-      {/* <h2 className="text-center text-xl text-secondary">FAQ&apos;S</h2>
-
-      <p className="mt-4 text-center font-cormorant text-5xl font-bold text-white">
-        Frequently Asked Questions
-      </p> */}
-
       <SectionHeader header="FAQ'S" description="Frequently Asked Questions" />
 
       <div className="mt-16 flex flex-col">

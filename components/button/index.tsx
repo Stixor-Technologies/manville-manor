@@ -10,13 +10,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         // default: "bg-white/10 text-white hover:bg-white/30",
-        default: "bg-accent text-white hover:bg-accent/70",
+        default: "bg-accent text-white hover:bg-accent/90",
         black: "bg-black hover:bg-black/80",
         icon: "bg-transparent",
       },
       size: {
         default: "h-10 w-[7.5rem]",
         sm: "h-9 rounded-md px-3",
+        md: "h-[4.625rem] w-[18.5rem]",
         lg: "h-11 rounded-md px-8",
         full: "w-full h-[4rem]",
         icon: "h-auto w-auto",
