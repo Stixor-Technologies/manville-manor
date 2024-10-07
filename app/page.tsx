@@ -1,4 +1,5 @@
 import Faqs from "@/components/faq";
+import OfficeLocation from "@/components/home-page/office-location";
 import SportsArticle from "@/components/home-page/sports-article";
 import { PackageCard } from "@/components/package-card";
 import Packages from "@/components/packages";
@@ -14,6 +15,7 @@ export default function Home() {
       <div className="container px-[8.125rem]">
         <Packages />
         <SportsArticle />
+        <OfficeLocation />
       </div>
     </main>
   );
