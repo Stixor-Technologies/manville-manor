@@ -2,7 +2,7 @@ import Contact from "@/components/shared/contact";
 import HomeFaqs from "@/components/home-page/home-faq";
 import OfficeLocation from "@/components/home-page/office-location";
 import SportsArticle from "@/components/home-page/sports-article";
-import Packages from "@/components/packages";
+import EventPackages from "@/components/event-packages";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <HomeFaqs />
         <Contact />
 
-        <Packages />
+        <EventPackages fromHome />
         <SportsArticle />
         <OfficeLocation />
       </div>

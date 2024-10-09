@@ -1,12 +1,22 @@
-import React from "react";
+import React, { FC } from "react";
 import { PackageCard } from "../package-card";
 import SectionHeader from "../shared/section-header";
 import { venuePackage, decorPackage } from "@/utils/utils";
 
-const Packages = () => {
+interface EventPackages {
+  fromHome?: boolean;
+}
+
+const EventPackages: FC<EventPackages> = ({ fromHome }) => {
   return (
     <div className="my-10">
-      <SectionHeader header="Pricing" description="Event Packages" />
+      {fromHome ? (
+        <SectionHeader header="Pricing" description="Event Packages" />
+      ) : (
+        <h2 className="text-center text-5xl text-secondary">
+          Best Plans For Events
+        </h2>
+      )}
 
       <div className="mt-16 flex justify-center gap-9">
         <PackageCard variant={"decor"} eventPackage={venuePackage}>
@@ -32,4 +42,4 @@ const Packages = () => {
   );
 };
 
-export default Packages;
+export default EventPackages;
