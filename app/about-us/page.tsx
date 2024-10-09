@@ -10,6 +10,7 @@ import BoxFeature from "@/public/assets/icons/feature-box.svg";
 import Star from "@/public/assets/icons/star.svg";
 import Quality from "@/public/assets/icons/quality.svg";
 import Security from "@/public/assets/icons/security.svg";
+import Hero from "@/components/shared/hero";
 
 const About = () => {
   const features = [
@@ -30,14 +31,16 @@ const About = () => {
 
   return (
     <>
-      <div className="relative mb-[4.375rem] mt-12 flex items-center justify-center">
+      {/* <div className="relative mb-[4.375rem] mt-12 flex items-center justify-center">
         <Image src={AboutHero} alt="about-hero" />
         <h2 className="absolute font-cormorant text-[4rem] font-bold text-white">
           About Us
         </h2>
-      </div>
+      </div> */}
 
-      <section className="container flex flex-col items-center gap-8 px-8 lg:flex-row lg:gap-16 lg:px-16 xl:px-[8.125rem]">
+      <Hero heroImage={AboutHero} heroHeading="About us" />
+
+      <section className="container mt-[4.375rem] flex flex-col items-center gap-8 px-8 lg:flex-row lg:gap-16 lg:px-16 xl:px-[8.125rem]">
         <div className="">
           <Image src={AboutUs} alt="about-us" />
         </div>

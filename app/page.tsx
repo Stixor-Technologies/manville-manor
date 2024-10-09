@@ -1,4 +1,4 @@
-import Contact from "@/components/home-page/contact";
+import Contact from "@/components/shared/contact";
 import HomeFaqs from "@/components/home-page/home-faq";
 import OfficeLocation from "@/components/home-page/office-location";
 import SportsArticle from "@/components/home-page/sports-article";
