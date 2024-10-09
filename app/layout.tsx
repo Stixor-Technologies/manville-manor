@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${robotoCondensed.className} ${cormorant.variable} bg-primary`}
       >
         <Header />
-        <main className="pt-[5.4375rem]">{children}</main>
+        <main className="pt-[8.875rem]">{children}</main>
         <Footer />
       </body>
     </html>

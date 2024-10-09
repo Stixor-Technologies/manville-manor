@@ -2,8 +2,8 @@
 import { useState, useRef, useEffect, MouseEvent } from "react";
 import Image from "next/image";
 import Add from "@/public/assets/icons/add.svg";
-import { faqItems } from "@/utils/utils";
-import SectionHeader from "../shared/section-header";
+import { homefaqItems } from "@/utils/utils";
+import SectionHeader from "@/components/shared/section-header";
 
 const FaqItem = ({
   title,
@@ -65,13 +65,13 @@ const FaqItem = ({
   );
 };
 
-const Faqs = () => {
+const HomeFaqs = () => {
   return (
     <section>
       <SectionHeader header="FAQ'S" description="Frequently Asked Questions" />
 
       <div className="mt-16 flex flex-col">
-        {faqItems?.map((item, index) => (
+        {homefaqItems?.map((item, index) => (
           <FaqItem
             key={index}
             index={index + 1}
@@ -83,4 +83,4 @@ const Faqs = () => {
     </section>
   );
 };
-export default Faqs;
+export default HomeFaqs;
