@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero: FC<HeroProps> = ({ heroImage, heroHeading }) => {
   return (
-    <div className="relative mt-12 flex items-center justify-center">
+    <div className="main_clip relative flex items-center justify-center md:mt-12">
       <Image src={heroImage} alt="about-hero" />
       <h2 className="absolute font-cormorant text-[4rem] font-bold text-white">
         {heroHeading}

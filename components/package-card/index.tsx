@@ -5,7 +5,7 @@ import { Button } from "../button";
 import { EventPackage } from "@/utils/types/types";
 
 const cardVariants = cva(
-  "transition-all max-w-[373px] w-full text-white rounded-sm px-6 py-5 relative z-10",
+  "transition-all max-w-[23.3125rem] w-full text-white rounded-sm px-3 xs:px-5 py-5 relative z-10",
   {
     variants: {
       variant: {
@@ -43,7 +43,7 @@ const PackageCard: React.FC<CardProps> = ({
         className={cn(
           "relative",
           variant === "decor" &&
-            "before:package-clip before:absolute before:-top-12 before:left-1/2 before:h-9 before:w-[176px] before:-translate-x-1/2 before:bg-accent before:pt-1 before:text-center before:text-white before:content-['Most_Purchased']",
+            "before:package-clip before:xs:w-full before:absolute before:-top-12 before:left-1/2 before:h-9 before:w-[80%] before:max-w-[12.375rem] before:-translate-x-1/2 before:bg-accent before:pt-1 before:text-center before:text-white before:content-['Most_Purchased']",
         )}
       >
         {variant !== "decor" && (
@@ -52,12 +52,12 @@ const PackageCard: React.FC<CardProps> = ({
           </p>
         )}
 
-        <div className="flex justify-between pt-[2.4375rem]">
+        <div className="xs:pt-[2.4375rem] flex justify-between pt-4">
           {children}
 
           <div className="text-right text-xs font-normal">
             <h4>
-              <span className="text-[1.375rem] font-bold">
+              <span className="xs:text-[1.375rem] text-lg font-bold">
                 {eventPackage?.weekDaysPrice}
               </span>{" "}
               <span>Plus Tax</span>
@@ -66,15 +66,15 @@ const PackageCard: React.FC<CardProps> = ({
           </div>
         </div>
 
-        <div className="mt-[3.5625rem] px-6">
+        <div className="xs:px-6 xs:mt-12 mt-7 px-2">
           <ul
-            className={`max-h-[14.8125rem] list-outside list-disc space-y-6 overflow-y-scroll pl-4 ${scrollbarClass}`}
+            className={`xs:space-y-6 xs:h-full h-52 max-h-[14.8125rem]  list-outside list-disc space-y-3 overflow-y-scroll px-5 ${scrollbarClass}`}
           >
             {eventPackage?.packageFeatures?.map(
               (item: string, index: number) => <li key={index}>{item}</li>,
             )}
           </ul>
-          <h4 className="mb-2 mt-10 text-center text-xs leading-none">
+          <h4 className="xs:mt-8 mb-2 mt-6 text-center text-xs leading-none">
             <span className="text-base font-bold">
               {eventPackage?.weekEndPrices}
             </span>{" "}

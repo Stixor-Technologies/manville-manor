@@ -7,9 +7,10 @@ import NavLinks from "../nav-links";
 import { Button } from "../button";
 
 const Header = () => {
+  // bg-[#2B2A26]
   return (
     <header className="fixed z-50 w-full">
-      <div className="mx-5 bg-[#2B2A26] py-[1.1875rem]">
+      <div className=" bg-secondary/10 py-2.5 backdrop-blur-xl md:py-[1.1875rem]">
         <div className="container flex  items-center justify-between">
           <Link href={"/"}>
             <Image src={Logo} width={150} height={46} alt="manville-logo" />

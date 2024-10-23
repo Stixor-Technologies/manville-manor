@@ -18,6 +18,10 @@ const config: Config = {
         "gradient-sand": "linear-gradient(90deg, #E5C39F66 0% ,#7F6C58 100%)",
       },
 
+      screens: {
+        xs: "430px",
+      },
+
       colors: {
         primary: "#1A1A1A",
         secondary: "#E8CFB5",
@@ -47,14 +51,14 @@ const config: Config = {
       addComponents({
         ".container": {
           width: "100%",
-          paddingLeft: "1rem",
-          paddingRight: "1rem",
+          paddingLeft: "2rem",
+          paddingRight: "2rem",
           marginLeft: "auto",
           marginRight: "auto",
           "@screen sm": {
             maxWidth: "100%",
-            paddingLeft: "1rem",
-            paddingRight: "1rem",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
           },
           "@screen md": {
             maxWidth: "100%",
