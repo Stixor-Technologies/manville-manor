@@ -46,6 +46,12 @@ const PackageCard: React.FC<CardProps> = ({
             "before:package-clip before:absolute before:-top-12 before:left-1/2 before:h-9 before:w-[176px] before:-translate-x-1/2 before:bg-accent before:pt-1 before:text-center before:text-white before:content-['Most_Purchased']",
         )}
       >
+        {variant !== "decor" && (
+          <p className="absolute right-0 text-right text-xs text-secondary underline">
+            Backdrop Choices
+          </p>
+        )}
+
         <div className="flex justify-between pt-[2.4375rem]">
           {children}
 
@@ -68,10 +74,11 @@ const PackageCard: React.FC<CardProps> = ({
               (item: string, index: number) => <li key={index}>{item}</li>,
             )}
           </ul>
-          <h4 className="mb-2 mt-10 text-center leading-none">
+          <h4 className="mb-2 mt-10 text-center text-xs leading-none">
             <span className="text-base font-bold">
               {eventPackage?.weekEndPrices}
             </span>{" "}
+            (Saturday & Sunday)
           </h4>
 
           <Button variant={buttonVariant} size={"full"}>
