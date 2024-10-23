@@ -47,13 +47,13 @@ const Contact = () => {
 
   return (
     <section className="grid grid-cols-1 gap-10 md:grid-cols-[0.66fr,1fr] md:grid-rows-[auto,1fr] lg:-mr-1.5 xl:gap-x-28 xl:gap-y-11">
-      <h4 className="text- text-center font-cormorant text-[2rem] font-bold leading-tight text-white sm:text-5xl md:text-left">
+      <h4 className="text-center font-cormorant text-[2rem] font-bold leading-tight text-white sm:text-5xl md:text-left">
         Let's discuss <br className="hidden md:block" /> on something{" "}
         <span className="text-accent">cool</span> together
       </h4>
 
-      <div className="row-span-2 flex-1 rounded-sm bg-white px-4 py-12 sm:px-6">
-        <span className="block text-center text-[1.375rem]  font-medium text-accent">
+      <div className="row-span-2 rounded-sm bg-white px-4 py-12 sm:px-6">
+        <span className="block text-center text-[1.375rem] font-medium text-accent sm:text-left">
           I'm interested in...
         </span>
 

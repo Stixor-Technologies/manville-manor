@@ -1,9 +1,9 @@
 "use client";
 import { useState, useRef, useEffect, MouseEvent } from "react";
 import Image from "next/image";
-import Arrow from "@/public/assets/icons/arrow-down.svg";
-import { faqItems } from "@/utils/utils";
-import { cn } from "@/lib/utils";
+import Add from "@/public/assets/icons/add.svg";
+import { homefaqItems } from "@/utils/utils";
+import SectionHeader from "@/components/shared/section-header";
 
 const FaqItem = ({
   title,
@@ -30,28 +30,33 @@ const FaqItem = ({
   }, [isOpen]);
   return (
     <div
-      className={`mx-auto border-b border-white/10 py-5 text-white transition-all duration-300`}
+      className={`xs:px-5 mx-auto border-b border-accent px-2.5 py-5 duration-100 sm:py-[3.25rem] md:px-[3.75rem] ${isOpen ? "bg-accent text-white" : "bg-milk text-black"} transition-all duration-300`}
     >
       <button
         onClick={() => toggleAccordion()}
-        className="flex w-full items-start justify-between gap-3 text-left sm:gap-6 md:text-lg"
+        className="flex w-full items-center justify-between gap-3 text-left sm:gap-6 md:text-lg"
       >
-        <div className="text-[1.375rem] capitalize">
-          <span>{title}</span>
+        <div className="xs:gap-5 flex items-center gap-3 uppercase sm:text-4xl md:gap-[3.25rem]">
+          <span
+            className={`xs:text-5xl text-3xl font-bold md:text-[4rem] ${isOpen ? "text-white" : "text-accent"} transition-all duration-300`}
+          >
+            {String(index).padStart(2, "0")}
+          </span>
+
+          <div>
+            <span className="font-semibold">{title}</span>
+          </div>
         </div>
 
-        <Image
-          src={Arrow}
-          alt="expand-question"
-          className={cn(
-            isOpen ? "rotate-180" : "rotate-0",
-            "transition-all duration-300 ease-in-out",
-          )}
-        />
+        <div
+          className={`${isOpen ? "rotate-[135deg] bg-black" : "bg-accent"} shrink-0 rounded-full p-2 transition-all duration-300 md:p-4`}
+        >
+          <Image src={Add} alt="expand-question" />
+        </div>
       </button>
       <div
         ref={contentRef}
-        className="transition-max-height overflow-hidden duration-500 ease-in-out"
+        className="transition-max-height overflow-hidden  duration-500 ease-in-out md:pl-[calc(3.25rem+4rem)]"
         style={{ maxHeight: height }}
       >
         <p className="pt-6 text-xl text-white">{content}</p>
@@ -63,16 +68,10 @@ const FaqItem = ({
 const Faqs = () => {
   return (
     <section>
-      <h2 className="text-center font-cormorant text-5xl font-bold text-white">
-        Frequently asked questions
-      </h2>
-      <p className="mt-4 text-center text-[1.375rem] text-secondary">
-        Can't find the anwser you're looking for ? Reach out to customer support
-        team.
-      </p>
+      <SectionHeader header="FAQ'S" description="Frequently Asked Questions" />
 
-      <div className="mt-[3.75rem] flex flex-col">
-        {faqItems?.map((item, index) => (
+      <div className="mt-8 flex flex-col md:mt-16">
+        {homefaqItems?.map((item, index) => (
           <FaqItem
             key={index}
             index={index + 1}
