@@ -7,7 +7,7 @@ const ContactUs = () => {
   return (
     <>
       <Hero heroImage={AboutHero} heroHeading="Contact us" />
-      <div className="container my-[6.6875rem] px-8 lg:px-16 xl:px-[8.125rem]">
+      <div className="container mb-11 mt-24 px-8 md:my-[6.6875rem] lg:px-16 xl:px-[8.125rem]">
         <Contact />
       </div>
     </>

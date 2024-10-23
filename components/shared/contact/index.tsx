@@ -46,45 +46,18 @@ const Contact = () => {
   };
 
   return (
-    <section className="flex gap-10 lg:-mr-1.5 xl:gap-28">
-      <div className="w-full max-w-[21.25rem] text-white xl:max-w-[26.25rem]">
-        <h4 className="font-cormorant text-5xl font-bold leading-tight">
-          Let's discuss <br /> on something{" "}
-          <span className="text-accent">cool</span> together
-        </h4>
+    <section className="grid grid-cols-1 gap-10 md:grid-cols-[0.66fr,1fr] md:grid-rows-[auto,1fr] lg:-mr-1.5 xl:gap-x-28 xl:gap-y-11">
+      <h4 className="text- text-center font-cormorant text-[2rem] font-bold leading-tight text-white sm:text-5xl md:text-left">
+        Let's discuss <br className="hidden md:block" /> on something{" "}
+        <span className="text-accent">cool</span> together
+      </h4>
 
-        <div className="mt-11 space-y-6">
-          <Link
-            href={"mailto:SaulDesign@gmail.com"}
-            className="flex gap-4 p-6 text-xl"
-          >
-            <Image src={Email} alt="email-icon" />
-            <span>SaulDesign@gmail.com</span>
-          </Link>
-
-          <Link
-            href={"tel:+123 456 789"}
-            className="flex gap-4 rounded-2xl border-2 border-accent bg-accent/50 p-6 text-xl"
-          >
-            <Image src={Phone} alt="call-icon" />
-            <span>+123 456 789</span>
-          </Link>
-
-          <Link
-            href={"mailto:SaulDesign@gmail.com"}
-            className="flex gap-4 p-6 text-xl"
-          >
-            <Image src={Marker} alt="location-icon" />
-            <span>123 Street 456 House</span>
-          </Link>
-        </div>
-      </div>
-      <div className="flex-1 rounded-sm bg-white px-6 py-12">
-        <span className="text-[1.375rem] font-medium text-accent">
+      <div className="row-span-2 flex-1 rounded-sm bg-white px-4 py-12 sm:px-6">
+        <span className="block text-center text-[1.375rem]  font-medium text-accent">
           I'm interested in...
         </span>
 
-        <div className="mb-16 mt-6 flex gap-4">
+        <div className="xs:flex-row xs:mb-16 mb-8 mt-6 flex flex-col gap-4">
           {queries?.map((item) => (
             <div key={item} className="flex-1">
               <input
@@ -150,6 +123,32 @@ const Contact = () => {
             </>
           )}
         </Formik>
+      </div>
+
+      <div className="space-y-6 text-white">
+        <Link
+          href={"mailto:SaulDesign@gmail.com"}
+          className="flex gap-4 p-6 text-xl"
+        >
+          <Image src={Email} alt="email-icon" />
+          <span>SaulDesign@gmail.com</span>
+        </Link>
+
+        <Link
+          href={"tel:+123 456 789"}
+          className="flex gap-4 rounded-2xl border-2 border-accent bg-accent/50 p-6 text-xl"
+        >
+          <Image src={Phone} alt="call-icon" />
+          <span>+123 456 789</span>
+        </Link>
+
+        <Link
+          href={"mailto:SaulDesign@gmail.com"}
+          className="flex gap-4 p-6 text-xl"
+        >
+          <Image src={Marker} alt="location-icon" />
+          <span>123 Street 456 House</span>
+        </Link>
       </div>
     </section>
   );
