@@ -31,7 +31,7 @@ const navBarLinks: Menu[] = [
 
   {
     id: 5,
-    title: "contact",
+    title: "Contact",
     path: "/contact-us",
   },
 ];
