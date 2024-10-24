@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import AboutUs from "@/public/assets/about/about-us.png";
@@ -11,6 +12,11 @@ import Quality from "@/public/assets/icons/quality.svg";
 import Security from "@/public/assets/icons/security.svg";
 import Hero from "@/components/shared/hero";
 import Faqs from "@/components/shared/faq";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const features = [
@@ -29,12 +35,67 @@ const About = () => {
     },
   ];
 
+  useGSAP(() => {
+    // timeline for about section
+    const aboutSection = gsap.timeline({
+      scrollTrigger: {
+        trigger: "[data-animated-about-image]",
+        start: "top 90%",
+      },
+    });
+    aboutSection.from("[data-animated-about-image]", {
+      opacity: 0,
+      scale: 0.9,
+      ease: "power1",
+      duration: 0.8,
+    });
+
+    aboutSection.from(
+      "[data-animated-about-text]",
+      {
+        opacity: 0,
+        y: 30,
+        ease: "power1",
+        duration: 0.8,
+      },
+      0.3,
+    );
+
+    // timeline for feature section
+    const featureSection = gsap.timeline({
+      scrollTrigger: {
+        trigger: "[data-animated-feature-text]",
+        start: "top 85%",
+        markers: true,
+      },
+    });
+    featureSection.from("[data-animated-feature-text]", {
+      opacity: 0,
+      y: 50,
+      ease: "power1",
+      duration: 0.8,
+    });
+    featureSection.from(
+      "[data-animated-feature-box]",
+      {
+        opacity: 0,
+        scale: 0.9,
+        ease: "power1",
+        duration: 0.8,
+      },
+      0.3,
+    );
+  }, []);
+
   return (
     <>
       <Hero heroImage={AboutHero} heroHeading="About us" />
 
       <section className="container mt-12 grid grid-cols-1 flex-col place-items-center px-8 text-center md:mt-[4.375rem] lg:grid-cols-[1fr,0.93fr]  lg:gap-x-16 lg:px-16 lg:text-left xl:px-[8.125rem]">
-        <div className="mb-8 self-end text-white lg:col-start-2 lg:mb-0">
+        <div
+          data-animated-about-text
+          className="mb-8 self-end text-white lg:col-start-2 lg:mb-0"
+        >
           <div className="mb-2 flex items-center justify-center gap-1 lg:justify-start">
             <Image src={Box} alt="" />
             <h2 className="text-lg text-secondary">About Us</h2>
@@ -55,10 +116,11 @@ const About = () => {
         <Image
           src={AboutUs}
           alt="about-us"
+          data-animated-about-image
           className="lg:col-start-1 lg:row-span-2 lg:row-start-1"
         />
 
-        <div className="self-start text-white">
+        <div data-animated-about-text className="self-start text-white">
           <div className="my-8 h-[1px] w-full bg-secondary" />
           <p>
             The meaning of production in Carlio is the creation, development,
@@ -76,8 +138,14 @@ const About = () => {
 
       <section className="my-11 bg-[url('/assets/about/about-bg.png')] bg-cover bg-no-repeat md:my-[4.375rem]">
         <div className="container flex flex-col items-center gap-10 px-8 py-[3.25rem] text-white lg:flex-row lg:px-16 xl:gap-[7.1875rem] xl:px-[8.125rem]">
-          <div className="w-full text-center lg:text-left">
-            <div className="flex items-center justify-center gap-1 lg:justify-start">
+          <div
+            data-animated-feature-text
+            className="w-full text-center lg:text-left"
+          >
+            <div
+              data-animated-about
+              className="flex items-center justify-center gap-1 lg:justify-start"
+            >
               <Image src={BoxFeature} alt="" />
               <h2 className="text-lg">Manville Manor Features</h2>
             </div>
@@ -93,6 +161,7 @@ const About = () => {
             {features?.map((feature) => (
               <div
                 key={feature?.name}
+                data-animated-feature-box
                 className="flex min-w-[10.3125rem] flex-1 flex-col items-center justify-center border border-white px-6 py-8 text-center font-medium"
               >
                 <Image

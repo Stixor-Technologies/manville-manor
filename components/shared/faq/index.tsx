@@ -1,9 +1,13 @@
 "use client";
-import { useState, useRef, useEffect, MouseEvent } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Add from "@/public/assets/icons/add.svg";
-import { homefaqItems } from "@/utils/utils";
+import { faqItems } from "@/utils/utils";
 import SectionHeader from "@/components/shared/section-header";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const FaqItem = ({
   title,
@@ -66,12 +70,25 @@ const FaqItem = ({
 };
 
 const Faqs = () => {
+  useGSAP(() => {
+    gsap.from("[data-animated-faq-container]", {
+      opacity: 0,
+      y: 40,
+      duration: 0.8,
+      ease: "power1",
+      scrollTrigger: {
+        trigger: "[data-animated-faq-container]",
+        start: "top 90%",
+      },
+    });
+  }, []);
+
   return (
     <section>
       <SectionHeader header="FAQ'S" description="Frequently Asked Questions" />
 
-      <div className="mt-8 flex flex-col md:mt-16">
-        {homefaqItems?.map((item, index) => (
+      <div data-animated-faq-container className="mt-8 flex flex-col md:mt-16">
+        {faqItems?.map((item, index) => (
           <FaqItem
             key={index}
             index={index + 1}

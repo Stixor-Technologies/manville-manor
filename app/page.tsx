@@ -8,12 +8,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden">
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
-        <Faqs />
         <Contact />
-
-        <EventPackages fromHome />
         <SportsArticle />
+        <EventPackages fromHome />
         <OfficeLocation />
+        <Faqs />
       </div>
     </main>
   );

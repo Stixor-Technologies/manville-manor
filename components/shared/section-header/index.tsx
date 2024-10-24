@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,14 +11,17 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader: FC<SectionHeaderProps> = ({ header, description }) => {
+  const sectionHeaderContainer = useRef<HTMLDivElement | null>(null);
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "[data-animated-text]",
+        id: "[data-animated-text]",
+        trigger: sectionHeaderContainer.current,
         start: "top 90%",
       },
     });
-    tl.from("[data-animated-text]", {
+    tl.from(sectionHeaderContainer.current, {
       opacity: 0,
       y: 50,
       ease: "power1",
@@ -27,7 +30,7 @@ const SectionHeader: FC<SectionHeaderProps> = ({ header, description }) => {
   }, []);
 
   return (
-    <>
+    <div ref={sectionHeaderContainer}>
       <h2 data-animated-text className="text-center text-xl text-secondary">
         {header}
       </h2>
@@ -37,7 +40,7 @@ const SectionHeader: FC<SectionHeaderProps> = ({ header, description }) => {
       >
         {description}
       </p>
-    </>
+    </div>
   );
 };
 

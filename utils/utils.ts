@@ -67,58 +67,6 @@ const socialLink: SocialLinks[] = [
   },
 ];
 
-const homefaqItems: Faq[] = [
-  {
-    title: "max guest capacity?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-
-  {
-    title: "can i bring my own food?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-
-  {
-    title: "is alcohol allowed",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-
-  {
-    title:
-      "how much extra time do i get for decorating/setting up for my event?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-
-  {
-    title: "am i required to cleanup after my event?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-
-  {
-    title: "what decor items are prohibited?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-
-  {
-    title:
-      "can i select my own unique hours outside of the cool venue time blocks?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-
-  {
-    title: "do you provide decor? how do i book it?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
-  },
-];
-
 const venuePackage: EventPackage = {
   weekDaysPrice: "$1000",
   weekEndPrices: "$1395",
@@ -205,11 +153,4 @@ const faqItems: Faq[] = [
   },
 ];
 
-export {
-  navBarLinks,
-  socialLink,
-  homefaqItems,
-  venuePackage,
-  decorPackage,
-  faqItems,
-};
+export { navBarLinks, socialLink, venuePackage, decorPackage, faqItems };
