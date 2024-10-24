@@ -23,7 +23,6 @@ const EventPackages: FC<EventPackages> = ({ fromHome }) => {
         scrollTrigger: {
           trigger: packagesContainer?.current,
           start: "top 85%",
-          markers: true,
         },
       });
 
