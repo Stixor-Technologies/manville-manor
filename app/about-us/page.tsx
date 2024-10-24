@@ -66,7 +66,6 @@ const About = () => {
       scrollTrigger: {
         trigger: "[data-animated-feature-text]",
         start: "top 85%",
-        markers: true,
       },
     });
     featureSection.from("[data-animated-feature-text]", {

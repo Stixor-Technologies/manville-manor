@@ -11,6 +11,11 @@ import Send from "@/public/assets/icons/send.svg";
 import Link from "next/link";
 import { Button } from "@/components/button";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 type FormValue = {
   name: string;
   email: string;
@@ -25,6 +30,44 @@ const Contact = () => {
     email: "",
     message: "",
   };
+
+  useGSAP(() => {
+    const contactSection = gsap.timeline({
+      scrollTrigger: {
+        trigger: "[data-animated-contact-text]",
+        start: "top 85%",
+      },
+    });
+
+    contactSection.from("[data-animated-contact-text]", {
+      opacity: 0,
+      y: 50,
+      ease: "power1",
+      duration: 0.8,
+    });
+    contactSection.from(
+      "[data-animated-contact-details]",
+      {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: "power1",
+        stagger: 0.3,
+      },
+      0.3,
+    );
+
+    contactSection.from(
+      "[data-animated-contact-form]",
+      {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power1",
+      },
+      ">-1.5",
+    );
+  }, []);
 
   const onSubmit = async (
     values: FormValue,
@@ -47,12 +90,18 @@ const Contact = () => {
 
   return (
     <section className="grid grid-cols-1 gap-10 md:grid-cols-[0.66fr,1fr] md:grid-rows-[auto,1fr] lg:-mr-1.5 xl:gap-x-28 xl:gap-y-11">
-      <h4 className="text-center font-cormorant text-[2rem] font-bold leading-tight text-white sm:text-5xl md:text-left">
+      <h4
+        data-animated-contact-text
+        className="text-center font-cormorant text-[2rem] font-bold leading-tight text-white sm:text-5xl md:text-left"
+      >
         Let's discuss <br className="hidden md:block" /> on something{" "}
         <span className="text-accent">cool</span> together
       </h4>
 
-      <div className="row-span-2 rounded-sm bg-white px-4 py-12 sm:px-6">
+      <div
+        data-animated-contact-form
+        className="row-span-2 rounded-sm bg-white px-4 py-12 sm:px-6"
+      >
         <span className="block text-center text-[1.375rem] font-medium text-accent sm:text-left">
           I'm interested in...
         </span>
@@ -129,6 +178,7 @@ const Contact = () => {
         <Link
           href={"mailto:SaulDesign@gmail.com"}
           className="flex gap-4 p-6 text-xl"
+          data-animated-contact-details
         >
           <Image src={Email} alt="email-icon" />
           <span>SaulDesign@gmail.com</span>
@@ -137,6 +187,7 @@ const Contact = () => {
         <Link
           href={"tel:+123 456 789"}
           className="flex gap-4 rounded-2xl border-2 border-accent bg-accent/50 p-6 text-xl"
+          data-animated-contact-details
         >
           <Image src={Phone} alt="call-icon" />
           <span>+123 456 789</span>
@@ -145,6 +196,7 @@ const Contact = () => {
         <Link
           href={"mailto:SaulDesign@gmail.com"}
           className="flex gap-4 p-6 text-xl"
+          data-animated-contact-details
         >
           <Image src={Marker} alt="location-icon" />
           <span>123 Street 456 House</span>
