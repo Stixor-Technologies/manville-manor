@@ -7,6 +7,18 @@
     text-wrap: balance;
   }
 
+  .metric-container {
+    @apply xs:pr-5 w-full max-w-[25.188rem] border-r border-r-white px-1 py-3.5 pl-2 pr-2 text-right text-white md:py-7 md:!pr-9 md:pl-5;
+  }
+
+  .metric-number {
+    @apply xs:text-3xl text-xl md:!text-5xl;
+  }
+
+  .metric-label {
+    @apply mt-1 inline-block text-xs md:mt-6 md:text-2xl;
+  }
+
   /* Custom scrollbar styles for default variant */
   .scrollbar-default::-webkit-scrollbar {
     width: 5px;
