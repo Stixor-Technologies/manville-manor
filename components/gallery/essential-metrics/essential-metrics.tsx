@@ -27,7 +27,7 @@ const EssentialMetrics = () => {
   return (
     <div
       ref={metricsContainer}
-      className="ml- mx-auto my-10 flex w-full max-w-[46.1875rem] justify-between sm:mt-20 lg:mb-11 lg:mt-[179px]"
+      className="mx-auto my-14 flex w-full max-w-[46.1875rem] justify-between sm:mt-28 lg:mb-11 lg:mt-[12.4375rem]"
     >
       <div className="metric-container !w-fit !pl-0">
         <h5 className="metric-number text-nowrap">

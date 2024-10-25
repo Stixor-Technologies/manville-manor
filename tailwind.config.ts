@@ -38,6 +38,16 @@ const config: Config = {
         cormorant: ["var(--font-cormorant)"],
       },
 
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(30)" },
+          "50%": { transform: "translateY(-50px)" },
+        },
+      },
+      animation: {
+        float: "float 2.5s ease-in-out infinite",
+      },
+
       // fontSize: {
       //   lg: ["4rem", "4.8rem"],
       //   title: ["3rem", "3.6rem"],
