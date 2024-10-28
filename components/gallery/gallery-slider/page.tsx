@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import DummyArticle from "@/public/assets/dummy-article.png";
-import Arrow from "@/public/assets/icons/arrow-brown.svg";
+import Arrow from "@/public/assets/icons/arrow-white.svg";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import Slide1 from "@/public/assets/gallery/slide-1.png";
 import Slide2 from "@/public/assets/gallery/slide-2.png";
@@ -31,16 +31,12 @@ const GallerySlider = () => {
     const isPrevButtonDisabled = swiper.isBeginning;
     const isNextButtonDisabled = swiper.isEnd;
 
-    console.log("isEnd", isNextButtonDisabled);
-
     setIsPrevButtonDisabled(isPrevButtonDisabled);
     setIsNextButtonDisabled(isNextButtonDisabled);
   };
 
-  console.log("isnextdisabled", isNextButtonDisabled);
-
   return (
-    <section>
+    <section className="mx-auto max-w-[96rem]">
       <Swiper
         modules={[Navigation]}
         slidesPerView={"auto"}
@@ -53,9 +49,9 @@ const GallerySlider = () => {
         {[Slide1, Slide2, Slide3, Slide4, Slide5].map((slide, index) => (
           <SwiperSlide
             key={index}
-            className="mr-[1.625rem] last:mr-0 sm:max-w-[18.3125rem]"
+            className="mr-[1.125rem] last:mr-0 sm:max-w-[18.3125rem]"
           >
-            <Image src={slide} alt="" />
+            <Image src={slide} alt={`gallery-slide-${index}`} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -65,29 +61,29 @@ const GallerySlider = () => {
           disabled={isPrevButtonDisabled}
           variant={"icon"}
           size={"icon"}
-          className="size-[1.375rem] justify-center rounded-full border border-accent hover:bg-accent disabled:opacity-60"
+          className="size-[3.625rem] justify-center bg-accent  hover:bg-accent/75 disabled:bg-white/10"
           onClick={() => {
             swiperRef.current?.slidePrev();
           }}
         >
-          <Image
-            src={Arrow}
-            width={10}
-            alt="previous-slide"
-            className=" rotate-180"
-          />
+          <Image src={Arrow} width={24} alt="previous-slide" />
         </Button>
 
         <Button
           disabled={isNextButtonDisabled}
           variant={"icon"}
           size={"icon"}
-          className="size-[1.375rem] justify-center rounded-full border border-accent hover:bg-accent disabled:opacity-60"
+          className="size-[3.625rem] justify-center bg-accent  hover:bg-accent/75 disabled:bg-white/10"
           onClick={() => {
             swiperRef.current?.slideNext();
           }}
         >
-          <Image src={Arrow} width={10} alt="next-slide" className="" />
+          <Image
+            src={Arrow}
+            width={24}
+            alt="next-slide"
+            className=" rotate-180"
+          />
         </Button>
       </div>
     </section>
