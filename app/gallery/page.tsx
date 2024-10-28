@@ -5,6 +5,7 @@ import AboutHero from "@/public/assets/about/about-hero.png";
 import GallerySlider from "@/components/gallery/gallery-slider/page";
 import EssentialMetrics from "@/components/gallery/essential-metrics/essential-metrics";
 import ArrowDown from "@/public/assets/icons/point-down.svg";
+import GalleryHighLight from "@/components/gallery/gallery-highlight";
 
 const Gallery = () => {
   return (
@@ -23,7 +24,7 @@ const Gallery = () => {
             />
           </div>
 
-          <p className="text-center text-xl capitalize text-secondary md:w-[50%] md:max-w-[32rem] md:text-left lg:w-full">
+          <p className="text-center text-xl capitalize leading-relaxed text-secondary md:w-[50%] md:max-w-[32rem] md:text-left lg:w-full">
             Tincidunt sagittis mollis nec suspendisse sed felis massa urna nec.
             Urna quisque blandit turpis ultrices arcu ut sed. Ultricies diam est
             aliquet porta fermentum molestie morbi libero. Ultrices sit in elit
@@ -33,7 +34,9 @@ const Gallery = () => {
 
         <EssentialMetrics />
       </div>
-      {/* <GallerySlider /> */}
+      <GallerySlider />
+
+      <GalleryHighLight />
     </>
   );
 };
