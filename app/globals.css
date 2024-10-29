@@ -8,15 +8,24 @@
   }
 
   .metric-container {
-    @apply xs:pr-5 w-full max-w-[25.188rem] border-r border-r-white px-1 py-3.5 pl-2 pr-2 text-right text-white md:py-7 md:!pr-9 md:pl-5;
+    @apply w-full max-w-[25.188rem] border-r border-r-white px-1 py-3.5 pl-2 pr-2 text-right text-white md:py-7 md:!pr-9 md:pl-5 xs:pr-5;
   }
 
   .metric-number {
-    @apply xs:text-3xl text-xl md:!text-5xl;
+    @apply text-xl md:!text-5xl xs:text-3xl;
   }
 
   .metric-label {
     @apply mt-1 inline-block text-xs md:mt-6 md:text-2xl;
+  }
+
+  scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   /* Custom scrollbar styles for default variant */
@@ -178,5 +187,9 @@
       63.498% 10.969%,
       63.498% 10.969%
     );
+  }
+
+  .ReactGridGallery_tile {
+    /* width: 0; */
   }
 }

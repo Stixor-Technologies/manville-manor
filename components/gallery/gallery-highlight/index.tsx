@@ -1,6 +1,5 @@
 import React from "react";
-import Image, { getImageProps } from "next/image";
-import EventSpotLight from "@/public/assets/gallery/event-spotlight-1.png";
+import Image from "next/image";
 import Venue from "@/public/assets/gallery/venue.png";
 import Venue2 from "@/public/assets/gallery/venue-2.png";
 import HighlightCircle from "@/public/assets/gallery/highlight-circle.svg";
@@ -8,10 +7,8 @@ import HighlightCircle from "@/public/assets/gallery/highlight-circle.svg";
 import Link from "next/link";
 
 const GalleryHighLight = () => {
-  const common = { alt: "Art Direction Example", sizes: "100vw" };
-
   return (
-    <section className="mx-auto max-w-[96rem] overflow-hidden">
+    <section className="mx-auto mb-[50vw] max-w-[96rem] md:!mb-11 xs:mb-40">
       {/* Why us section */}
       <div className="mb-10 flex flex-col gap-11 md:flex-row md:gap-6 lg:gap-9">
         <div className="relative mt-11 flex-1 text-center text-white md:order-1 md:mr-5 md:mt-8 md:text-left lg:mt-20">
@@ -39,15 +36,15 @@ const GalleryHighLight = () => {
         </div>
 
         <div className="relative w-full flex-1 overflow-hidden bg-accent/20 pb-8 pt-20 md:max-w-[39rem] md:pb-10 md:pt-28 lg:pt-44">
-          <div className="xs:text-5xl xs:w-full mx-auto w-[80%] max-w-[302px] font-cormorant text-2xl text-white">
+          <div className="mx-auto w-[80%] max-w-[302px] font-cormorant text-2xl text-white xs:w-full xs:text-5xl">
             <span className="block text-right">Venues By</span>
             <Image src={Venue} width={302} alt="" className="relative z-10" />
-            <span className="xs:-ml-11 xs:-mt-5 -ml-5 -mt-3 block">
+            <span className="-ml-5 -mt-3 block xs:-ml-11 xs:-mt-5">
               Manville
             </span>
           </div>
 
-          <span className="mt-12 block text-center text-secondary">
+          <span className="ml-10 mt-12 block text-center text-secondary md:text-left">
             {new Date().getFullYear()}
           </span>
 

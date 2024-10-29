@@ -13,7 +13,7 @@ const buttonVariants = cva(
         black: "bg-black hover:bg-black/80",
         transparent: "bg-white/10 text-white hover:bg-white/30",
         invert: "bg-white text-accent hover:bg-white/90",
-        icon: "bg-transparent",
+        icon: "bg-transparent text-white capitalize",
       },
       size: {
         default: "h-10 w-[7.5rem]",

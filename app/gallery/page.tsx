@@ -6,6 +6,7 @@ import GallerySlider from "@/components/gallery/gallery-slider/page";
 import EssentialMetrics from "@/components/gallery/essential-metrics/essential-metrics";
 import ArrowDown from "@/public/assets/icons/point-down.svg";
 import GalleryHighLight from "@/components/gallery/gallery-highlight";
+import GalleryPortfolio from "@/components/gallery/gallery-portfolio";
 
 const Gallery = () => {
   return (
@@ -20,7 +21,7 @@ const Gallery = () => {
             <Image
               src={ArrowDown}
               alt="arrow-down"
-              className="animate-float absolute -right-10 top-full hidden -translate-y-[35%] md:block"
+              className="absolute -right-10 top-full hidden -translate-y-[35%] animate-float md:block"
             />
           </div>
 
@@ -35,6 +36,7 @@ const Gallery = () => {
         <EssentialMetrics />
       </div>
       <GallerySlider />
+      <GalleryPortfolio />
 
       <GalleryHighLight />
     </>
