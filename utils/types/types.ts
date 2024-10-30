@@ -17,4 +17,10 @@ type EventPackage = {
   packageFeatures: string[];
 };
 
-export type { Menu, SocialLinks, Faq, EventPackage };
+type VenueDetail = {
+  name: string;
+  list: string[];
+  item: string;
+};
+
+export type { Menu, SocialLinks, Faq, EventPackage, VenueDetail };

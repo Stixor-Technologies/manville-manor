@@ -69,7 +69,7 @@ const EventPackages: FC<EventPackages> = ({ fromHome }) => {
         )}
       >
         <PackageCard variant={"decor"} eventPackage={venuePackage}>
-          <h2 className="xs:text-[1.375rem] text-lg font-semibold leading-none tracking-wider text-white">
+          <h2 className="text-lg font-semibold leading-none tracking-wider text-white xs:text-[1.375rem]">
             Venue Only <br />{" "}
             <span className="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-4 after:bg-white after:content-['']">
               P
@@ -78,7 +78,7 @@ const EventPackages: FC<EventPackages> = ({ fromHome }) => {
           </h2>
         </PackageCard>
         <PackageCard eventPackage={decorPackage}>
-          <h2 className="xs:text-[1.375rem] text-lg font-semibold leading-none tracking-wider text-white">
+          <h2 className="text-lg font-semibold leading-none tracking-wider text-white xs:text-[1.375rem]">
             Venue & <br />{" "}
             <span className="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-4 after:bg-white after:content-['']">
               D
