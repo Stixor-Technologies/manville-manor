@@ -1,4 +1,10 @@
-import { EventPackage, Faq, Menu, SocialLinks } from "./types/types";
+import {
+  EventPackage,
+  Faq,
+  Menu,
+  SocialLinks,
+  VenueDetail,
+} from "./types/types";
 import Instagram from "@/public/assets/icons/instagram.svg";
 import Facebook from "@/public/assets/icons/facebook.svg";
 import Linkedin from "@/public/assets/icons/linkedin.svg";
@@ -153,4 +159,43 @@ const faqItems: Faq[] = [
   },
 ];
 
-export { navBarLinks, socialLink, venuePackage, decorPackage, faqItems };
+const venueDetails: VenueDetail[] = [
+  {
+    name: "Amenities",
+    item: "Venue",
+    list: [
+      "Ceiling Projector with electric drop down screen",
+      "Multiple 75 - 85” Smart Tvs, with Screen Mirroring",
+      "LED Multicolor Reccessed Mood Lighting",
+      "Smart Contract Audits",
+      "Crystal Chandeliers throughout",
+      "10 feet high ceilings and white space",
+      "1600 sq. of event space",
+      "175 sqft Full Service Kitchen for preparations",
+      "Refrigerator, Ice Maker, Water Filter Dispenser, Microwave, Sinks",
+      "Outdoor Paver Patio and large Grass area (Suitable for bouncy houses and otherwise)",
+      "Exterior Display Board to post your event and welcome your Guests",
+    ],
+  },
+
+  {
+    name: "Complimentary",
+    item: "Included",
+    list: [
+      "1600 sq. of event space",
+      "175 sqft Full Service Kitchen for preparations",
+      "Refrigerator, Ice Maker, Water Filter Dispenser, Microwave, Sinks",
+      "Outdoor Paver Patio and large Grass area (Suitable for bouncy houses and otherwise)",
+      "Exterior Display Board to post your event and welcome your Guests",
+    ],
+  },
+];
+
+export {
+  navBarLinks,
+  socialLink,
+  venuePackage,
+  decorPackage,
+  faqItems,
+  venueDetails,
+};
