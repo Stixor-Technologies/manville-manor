@@ -15,6 +15,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Button } from "@/components/button";
+import SwiperButtons from "@/components/shared/swiper-buttons";
 
 const GallerySlider = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -30,7 +31,6 @@ const GallerySlider = () => {
   const handleSlideChange = (swiper: SwiperClass) => {
     const isPrevButtonDisabled = swiper.isBeginning;
     const isNextButtonDisabled = swiper.isEnd;
-
     setIsPrevButtonDisabled(isPrevButtonDisabled);
     setIsNextButtonDisabled(isNextButtonDisabled);
   };
@@ -44,7 +44,7 @@ const GallerySlider = () => {
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
-        onSlideChange={handleSlideChange}
+        // onSlideChange={handleSlideChange}
       >
         {[Slide1, Slide2, Slide3, Slide4, Slide5].map((slide, index) => (
           <SwiperSlide
@@ -56,7 +56,7 @@ const GallerySlider = () => {
         ))}
       </Swiper>
 
-      <div className="mt-8 flex items-center justify-center gap-3">
+      {/* <div className="mt-8 flex items-center justify-center gap-3">
         <Button
           disabled={isPrevButtonDisabled}
           variant={"icon"}
@@ -85,7 +85,17 @@ const GallerySlider = () => {
             className=" rotate-180"
           />
         </Button>
-      </div>
+      </div> */}
+
+      <SwiperButtons
+        swiperRef={swiperRef}
+        nextSlide={() => {
+          swiperRef.current?.slideNext();
+        }}
+        previousSlide={() => {
+          swiperRef.current?.slidePrev();
+        }}
+      />
     </section>
   );
 };
