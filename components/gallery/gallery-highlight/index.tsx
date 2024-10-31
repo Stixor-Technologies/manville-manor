@@ -3,6 +3,7 @@ import Image from "next/image";
 import Venue from "@/public/assets/gallery/venue.png";
 import Venue2 from "@/public/assets/gallery/venue-2.png";
 import HighlightCircle from "@/public/assets/gallery/highlight-circle.svg";
+
 import Link from "next/link";
 
 const GalleryHighLight = () => {
@@ -63,6 +64,7 @@ const GalleryHighLight = () => {
             srcSet="/assets/gallery/event-spotlight.png"
           />
           <source srcSet="/assets/gallery/event-spotlight-mobile.png" />
+          <img />
         </picture>
 
         <div className="lg absolute bottom-0 left-1/2 flex w-[90%] -translate-x-1/2 translate-y-1/2 flex-col justify-center gap-4 bg-accent/80 px-4 py-9 text-center text-white md:bottom-0 md:left-0 md:top-0 md:w-1/2 md:translate-x-0 md:translate-y-0 md:px-7 md:text-left xl:w-[54%] xl:px-14">
