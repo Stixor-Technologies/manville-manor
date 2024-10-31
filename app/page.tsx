@@ -5,16 +5,17 @@ import SportsArticle from "@/components/home-page/sports-article";
 import EventPackages from "@/components/event-packages";
 import HomeGallery from "@/components/home-page/home-gallery";
 import VenueDetails from "@/components/home-page/venue-details";
+import BackDrops from "@/components/home-page/backdrops";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
       <VenueDetails />
-      {/* <HomeGallery /> */}
+      <BackDrops />
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
+        <EventPackages fromHome />
         <Contact />
         <SportsArticle />
-        <EventPackages fromHome />
         <OfficeLocation />
         <Faqs />
       </div>

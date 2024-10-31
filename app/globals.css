@@ -189,7 +189,11 @@
     );
   }
 
-  .ReactGridGallery_tile {
-    /* width: 0; */
+  .media-swiper .swiper-slide {
+    @apply transition-all duration-300 ease-in-out md:h-[30.3125rem];
+  }
+
+  .media-swiper .pre-transition-slide {
+    @apply transition-all duration-300 ease-out md:h-[25rem];
   }
 }
