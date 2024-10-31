@@ -2,6 +2,7 @@ import {
   EventPackage,
   Faq,
   Menu,
+  RecentEvents,
   SocialLinks,
   VenueDetail,
 } from "./types/types";
@@ -10,6 +11,13 @@ import Facebook from "@/public/assets/icons/facebook.svg";
 import Linkedin from "@/public/assets/icons/linkedin.svg";
 import X from "@/public/assets/icons/x.svg";
 import Youtube from "@/public/assets/icons/youtube.svg";
+import Event1 from "@/public/assets/events/event-1.png";
+import Event2 from "@/public/assets/events/event-2.png";
+import Event3 from "@/public/assets/events/event-3.png";
+import Event4 from "@/public/assets/events/event-4.png";
+import Event5 from "@/public/assets/events/event-5.png";
+import Event6 from "@/public/assets/events/event-6.png";
+import Event7 from "@/public/assets/events/event-7.png";
 
 const navBarLinks: Menu[] = [
   {
@@ -191,6 +199,103 @@ const venueDetails: VenueDetail[] = [
   },
 ];
 
+// const recentEvents: RecentEvents[] = [
+//   {
+//     name: "LUMI",
+//     media: Event2,
+//     hostedBy: "Lumi by Roli",
+//     number: "02",
+//   },
+//   {
+//     name: "Type Balance",
+//     media: Event4,
+//     hostedBy: "Antian Lmeri",
+//     number: "04",
+//   },
+//   {
+//     name: "Compositions III",
+//     media: Event6,
+//     hostedBy: "Phillip Luck",
+//     number: "06",
+//   },
+//   {
+//     name: "Dreamy Flowers",
+//     media: Event1,
+//     hostedBy: "Behance: Omar Aqil",
+//     number: "01",
+//   },
+//   {
+//     name: "LUMI",
+//     media: Event3,
+//     hostedBy: "Lumi by Roli",
+//     number: "03",
+//   },
+
+//   {
+//     name: "Type 2021 Edition",
+//     media: Event5,
+//     hostedBy: "Get it Studio",
+//     number: "05",
+//   },
+
+//   {
+//     name: "Abstract Machine",
+//     media: Event7,
+//     hostedBy: "Juanna Mota",
+//     number: "07",
+//   },
+// ];
+
+const recentEvents: RecentEvents[] = [
+  {
+    name: "Dreamy Flowers",
+    media: Event1,
+    hostedBy: "Behance: Omar Aqil",
+    number: "01",
+  },
+
+  {
+    name: "LUMI",
+    media: Event2,
+    hostedBy: "Lumi by Roli",
+    number: "02",
+  },
+  {
+    name: "LUMI",
+    media: Event3,
+    hostedBy: "Lumi by Roli",
+    number: "03",
+  },
+
+  {
+    name: "Type Balance",
+    media: Event4,
+    hostedBy: "Antian Lmeri",
+    number: "04",
+  },
+
+  {
+    name: "Type 2021 Edition",
+    media: Event5,
+    hostedBy: "Get it Studio",
+    number: "05",
+  },
+
+  {
+    name: "Compositions III",
+    media: Event6,
+    hostedBy: "Phillip Luck",
+    number: "06",
+  },
+
+  {
+    name: "Abstract Machine",
+    media: Event7,
+    hostedBy: "Juanna Mota",
+    number: "07",
+  },
+];
+
 export {
   navBarLinks,
   socialLink,
@@ -198,4 +303,5 @@ export {
   decorPackage,
   faqItems,
   venueDetails,
+  recentEvents,
 };

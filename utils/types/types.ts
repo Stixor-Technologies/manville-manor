@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 type Menu = {
   id: number;
   title: string;
@@ -23,4 +25,11 @@ type VenueDetail = {
   item: string;
 };
 
-export type { Menu, SocialLinks, Faq, EventPackage, VenueDetail };
+type RecentEvents = {
+  name: string;
+  media: StaticImageData;
+  hostedBy: string;
+  number: string;
+};
+
+export type { Menu, SocialLinks, Faq, EventPackage, VenueDetail, RecentEvents };

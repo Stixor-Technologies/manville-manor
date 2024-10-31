@@ -10,14 +10,15 @@ import BackDrops from "@/components/home-page/backdrops";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
+      <HomeGallery />
       <VenueDetails />
       <BackDrops />
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
         <EventPackages fromHome />
-        <Contact />
         <SportsArticle />
-        <OfficeLocation />
+        <Contact />
         <Faqs />
+        <OfficeLocation />
       </div>
     </main>
   );
