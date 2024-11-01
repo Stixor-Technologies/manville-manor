@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HomeHero = () => {
   return (
-    <section className="w-full">
+    <section className="mb-10">
       {/* text-section */}
 
       <div className="container sm:px-[2.5625rem]">
