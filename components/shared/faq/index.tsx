@@ -34,15 +34,15 @@ const FaqItem = ({
   }, [isOpen]);
   return (
     <div
-      className={`xs:px-5 mx-auto border-b border-accent px-2.5 py-5 duration-100 sm:py-[3.25rem] md:px-[3.75rem] ${isOpen ? "bg-accent text-white" : "bg-milk text-black"} transition-all duration-300`}
+      className={`mx-auto border-b border-accent px-2.5 py-5 duration-100 sm:py-[3.25rem] md:!px-[3.75rem] xs:px-5 ${isOpen ? "bg-accent text-white" : "bg-milk text-black"} transition-all duration-300`}
     >
       <button
         onClick={() => toggleAccordion()}
         className="flex w-full items-center justify-between gap-3 text-left sm:gap-6 md:text-lg"
       >
-        <div className="xs:gap-5 flex items-center gap-3 uppercase sm:text-4xl md:gap-[3.25rem]">
+        <div className="flex items-center gap-3 uppercase sm:text-4xl md:!gap-[3.25rem] xs:gap-5">
           <span
-            className={`xs:text-5xl text-3xl font-bold md:text-[4rem] ${isOpen ? "text-white" : "text-accent"} transition-all duration-300`}
+            className={`text-3xl font-bold md:text-[4rem] xs:text-5xl ${isOpen ? "text-white" : "text-accent"} transition-all duration-300`}
           >
             {String(index).padStart(2, "0")}
           </span>
@@ -60,7 +60,7 @@ const FaqItem = ({
       </button>
       <div
         ref={contentRef}
-        className="transition-max-height overflow-hidden  duration-500 ease-in-out md:pl-[calc(3.25rem+4rem)]"
+        className="transition-max-height overflow-hidden  duration-500 ease-in-out md:pl-[calc(3.25rem+3.25rem)]"
         style={{ maxHeight: height }}
       >
         <p className="pt-6 text-xl text-white">{content}</p>

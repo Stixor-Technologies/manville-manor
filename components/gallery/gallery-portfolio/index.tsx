@@ -101,7 +101,6 @@ export default function GalleryPortfolio() {
         autoFill
         loop={0}
         pauseOnHover
-        play={false}
         className=" !absolute -bottom-5 z-10 !-rotate-2 bg-secondary"
       >
         <ul className="min-w-auto relative flex flex-1 overflow-hidden">

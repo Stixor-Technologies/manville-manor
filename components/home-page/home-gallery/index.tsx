@@ -47,13 +47,14 @@ const HomeGallery = () => {
           trigger: card,
           start: "top 100%",
           end: "top 50%",
+          toggleActions: "play none none reverse",
         },
       });
     });
   });
 
   return (
-    <section className="container mb-11 mt-24">
+    <section className="container mb-11 mt-24 sm:px-[2.5625rem]">
       <SectionHeader header="Gallery" description="Explore Manville Manor" />
 
       <div className="sec-5-card-wrapper mt-[5.5rem] grid grid-cols-1 flex-col place-items-center gap-11 lg:grid-cols-[0.4fr,1fr] lg:place-items-start lg:gap-16">

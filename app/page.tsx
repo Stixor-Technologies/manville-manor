@@ -10,8 +10,8 @@ import HomeHero from "@/components/home-page/home-hero";
 
 export default function Home() {
   return (
-    <main className=" min-h-screen flex-col items-center justify-between overflow-hidden">
-      <HomeHero />
+    <main className="min-h-screen flex-col items-center justify-between overflow-hidden">
+      {/* <HomeHero />
       <HomeGallery />
       <VenueDetails />
       <BackDrops />
@@ -21,7 +21,7 @@ export default function Home() {
         <Contact />
         <Faqs />
         <OfficeLocation />
-      </div>
+      </div> */}
     </main>
   );
 }

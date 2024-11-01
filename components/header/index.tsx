@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="fixed z-50 w-full">
       <div className=" bg-secondary/10 py-2.5 backdrop-blur-xl md:py-[1.1875rem]">
-        <div className="container flex  items-center justify-between">
+        <div className="container flex items-center  justify-between sm:px-[2.5625rem]">
           <Link href={"/"}>
             <Image src={Logo} width={150} height={46} alt="manville-logo" />
           </Link>

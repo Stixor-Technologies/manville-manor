@@ -12,7 +12,7 @@ const Gallery = () => {
   return (
     <>
       <Hero heroImage={AboutHero} heroHeading="Gallery" />
-      <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
+      <div className="container">
         <div className="mt-11 flex flex-col justify-between gap-6 md:flex-row md:items-start">
           <div className="relative flex justify-center md:justify-start">
             <h3 className="text-5xl text-white">
