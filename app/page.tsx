@@ -18,11 +18,22 @@ export default function Home() {
       <BackDrops />
       <VenueDetails />
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
-        <EventPackages fromHome />
+        <div className="pb-20 pt-24">
+          <EventPackages fromHome />
+        </div>
         <SportsArticle />
-        <Contact />
-        <Faqs />
-        <OfficeLocation />
+
+        <div className="py-16">
+          <Contact />
+        </div>
+
+        <div className="py-11">
+          <Faqs />
+        </div>
+
+        <div className="pb-20 pt-24">
+          <OfficeLocation />
+        </div>
       </div>
     </main>
   );
