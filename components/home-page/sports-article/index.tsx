@@ -31,7 +31,7 @@ const SportsArticle = () => {
   };
 
   return (
-    <section>
+    <section className="py-20">
       {/* <div className="gap-x-7.5 grid grid-cols-1 gap-[1.875rem] gap-y-12 pb-10 pt-24 sm:grid-cols-2 lg:grid-cols-3">
         {[1, 2, 3].map((_, index) => (
           <div key={index} className="relative font-medium text-white">
