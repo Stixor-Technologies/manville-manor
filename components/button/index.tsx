@@ -41,7 +41,7 @@ export interface ButtonProps
 const Button = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
->(({ className, variant, size, href, loading = false, ...props }, ref) => {
+>(({ className, variant, size, href, loading = false, ...props }) => {
   const Comp: React.ElementType = href ? Link : "button";
 
   const combinedStyles = cn(buttonVariants({ variant, size, className }));

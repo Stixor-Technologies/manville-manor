@@ -1,19 +1,11 @@
 "use client";
-import { useState, useRef, useEffect, MouseEvent } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Arrow from "@/public/assets/icons/arrow-down.svg";
 import { faqItems } from "@/utils/utils";
 import { cn } from "@/lib/utils";
 
-const FaqItem = ({
-  title,
-  content,
-  index,
-}: {
-  index: number;
-  title: string;
-  content: string;
-}) => {
+const FaqItem = ({ title, content }: { title: string; content: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState("0px");
   const contentRef = useRef<HTMLDivElement>(null);
@@ -67,18 +59,13 @@ const Faqsss = () => {
         Frequently asked questions
       </h2>
       <p className="mt-4 text-center text-[1.375rem] text-secondary">
-        Can't find the anwser you're looking for ? Reach out to customer support
-        team.
+        Can&apos;t find the anwser you&apos;re looking for ? Reach out to
+        customer support team.
       </p>
 
       <div className="mt-[3.75rem] flex flex-col">
         {faqItems?.map((item, index) => (
-          <FaqItem
-            key={index}
-            index={index + 1}
-            title={item.title}
-            content={item?.content}
-          />
+          <FaqItem key={index} title={item.title} content={item?.content} />
         ))}
       </div>
     </section>

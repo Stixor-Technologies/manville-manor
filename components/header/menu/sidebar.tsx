@@ -73,12 +73,12 @@ const Sidebar = () => {
       </Button>
       <div
         ref={sideBarMenu}
-        className="min-aspect:-mr-[40vw] min-aspect:w-[40vw] fixed right-0 top-0 z-40 -mr-[100vw]
-           h-screen w-screen bg-primary will-change-auto"
+        className="fixed right-0 top-0 z-40 -mr-[100vw] h-screen w-screen
+           bg-primary will-change-auto min-aspect:-mr-[40vw] min-aspect:w-[40vw]"
       >
         <div
-          className=" min-aspect:mx-0 min-aspect:w-full min-aspect:justify-center min-aspect:pt-[6vw] mx-auto flex 
-          h-full w-full flex-col gap-[12.6vw] py-12"
+          className=" mx-auto flex h-full w-full flex-col gap-[12.6vw] 
+          py-12 min-aspect:mx-0 min-aspect:w-full min-aspect:justify-center min-aspect:pt-[6vw]"
         >
           <div className="flex justify-between px-5">
             <div>
@@ -90,14 +90,14 @@ const Sidebar = () => {
             </button>
           </div>
 
-          <ul className="min-aspect:mt-[4vw] min-aspect:space-y-[1.5vw] flex-1  space-y-[9vw] text-xl md:text-left">
+          <ul className="flex-1 space-y-[9vw] text-xl  md:text-left min-aspect:mt-[4vw] min-aspect:space-y-[1.5vw]">
             {navBarLinks?.map((item) => (
               <li key={item?.id}>
                 <Link
                   onClick={toggleMenu}
                   href={item?.path}
                   className={cn(
-                    "min-aspect:text-[2.5vw] relative block rounded-md px-5 py-3.5 text-right text-[5vw] uppercase leading-[1.375rem] text-white/50 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white/50 after:content-['']",
+                    "relative block rounded-md px-5 py-3.5 text-right text-[5vw] uppercase leading-[1.375rem] text-white/50 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white/50 after:content-[''] min-aspect:text-[2.5vw]",
                     item.path === pathUrl && "text-white after:bg-white",
                   )}
                 >

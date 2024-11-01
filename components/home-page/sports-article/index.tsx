@@ -8,7 +8,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { FreeMode, Pagination, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { Button } from "@/components/button";
 
 const SportsArticle = () => {
@@ -115,7 +115,7 @@ const SportsArticle = () => {
 
                 <p>
                   This article was written by Jake Willhoite from
-                  Healthlisted.com Strength in basketball isn't all about a
+                  Healthlisted.com Strength in basketball isn&apos;t all about a
                   massive body mass or ripped muscles.
                 </p>
               </div>
