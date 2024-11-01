@@ -62,14 +62,12 @@ const config: Config = {
       addComponents({
         ".container": {
           width: "100%",
-          paddingLeft: "2rem",
-          paddingRight: "2rem",
+          paddingLeft: "1.375rem",
+          paddingRight: "1.375rem",
           marginLeft: "auto",
           marginRight: "auto",
           "@screen sm": {
             maxWidth: "100%",
-            paddingLeft: "2rem",
-            paddingRight: "2rem",
           },
           "@screen md": {
             maxWidth: "100%",
@@ -81,8 +79,11 @@ const config: Config = {
           },
           "@screen xl": {
             maxWidth: "100%",
-            paddingLeft: "2.5625rem",
-            paddingRight: "2.5625rem",
+            // paddingLeft: "2.5625rem",
+            // paddingRight: "2.5625rem",
+
+            paddingLeft: "8.125rem",
+            paddingRight: "8.125rem",
           },
           "@screen 2xl": {
             maxWidth: "1536px",

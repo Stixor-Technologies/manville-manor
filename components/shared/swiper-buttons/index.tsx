@@ -49,14 +49,6 @@ const SwiperButtons: React.FC<SwiperNavigationProps> = ({
         className="size-[3.625rem] justify-center bg-accent  hover:bg-accent/75 disabled:bg-white/10"
         onClick={() => {
           previousSlide();
-          // swiperRef.current?.slidePrev();
-          // setTimeout(() => {
-          //   const currentSlide =
-          //     swiperRef.current?.slides[swiperRef.current.activeIndex];
-          //   if (currentSlide) {
-          //     currentSlide.classList.add("pre-transition-slide");
-          //   }
-          // }, 10);
         }}
       >
         <Image src={Arrow} width={24} alt="previous-slide" />
@@ -69,16 +61,6 @@ const SwiperButtons: React.FC<SwiperNavigationProps> = ({
         className="size-[3.625rem] justify-center bg-accent  hover:bg-accent/75 disabled:bg-white/10"
         onClick={() => {
           nextSlide();
-
-          // swiperRef.current?.slideNext();
-
-          // setTimeout(() => {
-          //   const currentSlide =
-          //     swiperRef.current?.slides[swiperRef.current.activeIndex];
-          //   if (currentSlide) {
-          //     currentSlide.classList.add("pre-transition-slide");
-          //   }
-          // }, 10);
         }}
       >
         <Image
