@@ -6,10 +6,12 @@ import EventPackages from "@/components/event-packages";
 import HomeGallery from "@/components/home-page/home-gallery";
 import VenueDetails from "@/components/home-page/venue-details";
 import BackDrops from "@/components/home-page/backdrops";
+import HomeHero from "@/components/home-page/home-hero";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
+    <main className=" min-h-screen flex-col items-center justify-between overflow-hidden">
+      <HomeHero />
       <HomeGallery />
       <VenueDetails />
       <BackDrops />

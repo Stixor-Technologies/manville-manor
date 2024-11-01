@@ -13,77 +13,6 @@ import DummyExplore from "@/public/assets/events/event-7.png";
 import { cn } from "@/lib/utils";
 
 const HomeGallery = () => {
-  // useGSAP(() => {
-  //   let scrollTriggerInstance: ScrollTrigger | undefined;
-
-  //   const mediaQuery = window.matchMedia("(min-width: 1024px)");
-
-  //   const setupScrollTrigger = () => {
-  //     // Clean up existing ScrollTrigger instance if it exists
-  //     if (scrollTriggerInstance) {
-  //       scrollTriggerInstance.kill();
-  //     }
-  //     if (mediaQuery.matches) {
-  //       scrollTriggerInstance = ScrollTrigger.create({
-  //         trigger: ".sec-5-left",
-  //         pin: true,
-  //         start: "top 30%",
-  //         end: `${window.innerWidth > 1300 ? "bottom+=100%" : "bottom+=400%"} top`,
-  //         markers: true,
-  //       });
-
-  //       // gsap.to(".sec-5-blur", {
-  //       //   opacity: 1,
-  //       //   zIndex: 20,
-  //       //   duration: 0.3,
-  //       //   scrollTrigger: {
-  //       //     trigger: ".sec-5-left",
-  //       //     start: "top 100%",
-  //       //     end: `${window.innerWidth > 1300 ? "bottom" : "bottom+=200%"} top`,
-  //       //     toggleActions: "play reverse reverse reverse",
-  //       //   },
-  //       // });
-  //     }
-  //   };
-
-  //   const setupAnimations = () => {
-  //     const cards = document.querySelectorAll(".sec-5-card");
-
-  //     cards.forEach((card) => {
-  //       gsap.from(card, {
-  //         opacity: 0,
-  //         y: 50,
-  //         duration: 0.3,
-  //         scrollTrigger: {
-  //           trigger: card,
-  //           start: "top 100%",
-  //           end: "top 50%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       });
-  //     });
-  //   };
-
-  //   // Initial setup
-  //   setupScrollTrigger();
-  //   setupAnimations();
-
-  //   // Handle screen resize
-  //   const handleResize = () => {
-  //     setupScrollTrigger();
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   // Cleanup on component unmount
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //     if (scrollTriggerInstance) {
-  //       scrollTriggerInstance.kill();
-  //     }
-  //   };
-  // }, []);
-
   useGSAP(() => {
     const mm = gsap.matchMedia();
 
@@ -118,8 +47,6 @@ const HomeGallery = () => {
           trigger: card,
           start: "top 100%",
           end: "top 50%",
-          toggleActions: "play none none reverse",
-          // markers: true,
         },
       });
     });
