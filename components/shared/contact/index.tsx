@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ContactFormSchema } from "@/utils/formik-schema";
-import { Form, Formik, FormikHelpers } from "formik";
+import { Form, Formik } from "formik";
 import Input from "@/components/shared/input";
 import Email from "@/public/assets/icons/email.svg";
 import Phone from "@/public/assets/icons/phone.svg";
@@ -69,15 +69,13 @@ const Contact = () => {
     );
   }, []);
 
-  const onSubmit = async (
-    values: FormValue,
-    formikHelpers: FormikHelpers<FormValue>,
-  ) => {
+  const onSubmit = async (values: FormValue) => {
     try {
-      const emailTemplate = `<div>
-              <p>New inquiry from: ${values?.name} - ${values?.email} </p>
-              <p>Message: ${values.message} </p>
-              </div>`;
+      console.log(values);
+      // const emailTemplate = `<div>
+      //         <p>New inquiry from: ${values?.name} - ${values?.email} </p>
+      //         <p>Message: ${values.message} </p>
+      //         </div>`;
     } catch (error) {
       console.error(error);
     } finally {
@@ -94,7 +92,7 @@ const Contact = () => {
         data-animated-contact-text
         className="text-center font-cormorant text-[2rem] font-bold leading-tight text-white sm:text-5xl md:text-left"
       >
-        Let's discuss <br className="hidden md:block" /> on something{" "}
+        Let&apos;s discuss <br className="hidden md:block" /> on something{" "}
         <span className="text-accent">cool</span> together
       </h4>
 
@@ -103,10 +101,10 @@ const Contact = () => {
         className="row-span-2 rounded-sm bg-white px-4 py-12 sm:px-6"
       >
         <span className="block text-center text-[1.375rem] font-medium text-accent sm:text-left">
-          I'm interested in...
+          I&apos;m interested in...
         </span>
 
-        <div className="xs:flex-row xs:mb-16 mb-8 mt-6 flex flex-col gap-4">
+        <div className="mb-8 mt-6 flex flex-col gap-4 xs:mb-16 xs:flex-row">
           {queries?.map((item) => (
             <div key={item} className="flex-1">
               <input

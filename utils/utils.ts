@@ -1,9 +1,23 @@
-import { EventPackage, Faq, Menu, SocialLinks } from "./types/types";
+import {
+  EventPackage,
+  Faq,
+  Menu,
+  RecentEvents,
+  SocialLinks,
+  VenueDetail,
+} from "./types/types";
 import Instagram from "@/public/assets/icons/instagram.svg";
 import Facebook from "@/public/assets/icons/facebook.svg";
 import Linkedin from "@/public/assets/icons/linkedin.svg";
 import X from "@/public/assets/icons/x.svg";
 import Youtube from "@/public/assets/icons/youtube.svg";
+import Event1 from "@/public/assets/events/event-1.png";
+import Event2 from "@/public/assets/events/event-2.png";
+import Event3 from "@/public/assets/events/event-3.png";
+import Event4 from "@/public/assets/events/event-4.png";
+import Event5 from "@/public/assets/events/event-5.png";
+import Event6 from "@/public/assets/events/event-6.png";
+import Event7 from "@/public/assets/events/event-7.png";
 
 const navBarLinks: Menu[] = [
   {
@@ -31,7 +45,7 @@ const navBarLinks: Menu[] = [
 
   {
     id: 5,
-    title: "contact",
+    title: "Contact",
     path: "/contact-us",
   },
 ];
@@ -153,4 +167,141 @@ const faqItems: Faq[] = [
   },
 ];
 
-export { navBarLinks, socialLink, venuePackage, decorPackage, faqItems };
+const venueDetails: VenueDetail[] = [
+  {
+    name: "Amenities",
+    item: "Venue",
+    list: [
+      "Ceiling Projector with electric drop down screen",
+      "Multiple 75 - 85” Smart Tvs, with Screen Mirroring",
+      "LED Multicolor Reccessed Mood Lighting",
+      "Smart Contract Audits",
+      "Crystal Chandeliers throughout",
+      "10 feet high ceilings and white space",
+      "1600 sq. of event space",
+      "175 sqft Full Service Kitchen for preparations",
+      "Refrigerator, Ice Maker, Water Filter Dispenser, Microwave, Sinks",
+      "Outdoor Paver Patio and large Grass area (Suitable for bouncy houses and otherwise)",
+      "Exterior Display Board to post your event and welcome your Guests",
+    ],
+  },
+
+  {
+    name: "Complimentary",
+    item: "Included",
+    list: [
+      "1600 sq. of event space",
+      "175 sqft Full Service Kitchen for preparations",
+      "Refrigerator, Ice Maker, Water Filter Dispenser, Microwave, Sinks",
+      "Outdoor Paver Patio and large Grass area (Suitable for bouncy houses and otherwise)",
+      "Exterior Display Board to post your event and welcome your Guests",
+    ],
+  },
+];
+
+// const recentEvents: RecentEvents[] = [
+//   {
+//     name: "LUMI",
+//     media: Event2,
+//     hostedBy: "Lumi by Roli",
+//     number: "02",
+//   },
+//   {
+//     name: "Type Balance",
+//     media: Event4,
+//     hostedBy: "Antian Lmeri",
+//     number: "04",
+//   },
+//   {
+//     name: "Compositions III",
+//     media: Event6,
+//     hostedBy: "Phillip Luck",
+//     number: "06",
+//   },
+//   {
+//     name: "Dreamy Flowers",
+//     media: Event1,
+//     hostedBy: "Behance: Omar Aqil",
+//     number: "01",
+//   },
+//   {
+//     name: "LUMI",
+//     media: Event3,
+//     hostedBy: "Lumi by Roli",
+//     number: "03",
+//   },
+
+//   {
+//     name: "Type 2021 Edition",
+//     media: Event5,
+//     hostedBy: "Get it Studio",
+//     number: "05",
+//   },
+
+//   {
+//     name: "Abstract Machine",
+//     media: Event7,
+//     hostedBy: "Juanna Mota",
+//     number: "07",
+//   },
+// ];
+
+const recentEvents: RecentEvents[] = [
+  {
+    name: "Dreamy Flowers",
+    media: Event1,
+    hostedBy: "Behance: Omar Aqil",
+    number: "01",
+  },
+
+  {
+    name: "LUMI",
+    media: Event2,
+    hostedBy: "Lumi by Roli",
+    number: "02",
+  },
+  {
+    name: "LUMI",
+    media: Event3,
+    hostedBy: "Lumi by Roli",
+    number: "03",
+  },
+
+  {
+    name: "Type Balance",
+    media: Event4,
+    hostedBy: "Antian Lmeri",
+    number: "04",
+  },
+
+  {
+    name: "Type 2021 Edition",
+    media: Event5,
+    hostedBy: "Get it Studio",
+    number: "05",
+  },
+
+  {
+    name: "Compositions III",
+    media: Event6,
+    hostedBy: "Phillip Luck",
+    number: "06",
+  },
+
+  {
+    name: "Abstract Machine",
+    media: Event7,
+    hostedBy: "Juanna Mota",
+    number: "07",
+  },
+];
+
+export {
+  navBarLinks,
+  socialLink,
+  venuePackage,
+  decorPackage,
+  faqItems,
+  venueDetails,
+  recentEvents,
+};

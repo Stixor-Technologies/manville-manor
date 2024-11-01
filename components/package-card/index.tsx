@@ -43,7 +43,7 @@ const PackageCard: React.FC<CardProps> = ({
         className={cn(
           "relative",
           variant === "decor" &&
-            "before:package-clip before:xs:w-full before:absolute before:-top-12 before:left-1/2 before:h-9 before:w-[80%] before:max-w-[12.375rem] before:-translate-x-1/2 before:bg-accent before:pt-1 before:text-center before:text-white before:content-['Most_Purchased']",
+            "before:package-clip before:absolute before:-top-12 before:left-1/2 before:h-9 before:w-[80%] before:max-w-[12.375rem] before:-translate-x-1/2 before:bg-accent before:pt-1 before:text-center before:text-white before:content-['Most_Purchased'] before:xs:w-full",
         )}
       >
         {variant !== "decor" && (
@@ -52,12 +52,12 @@ const PackageCard: React.FC<CardProps> = ({
           </p>
         )}
 
-        <div className="xs:pt-[2.4375rem] flex justify-between pt-4">
+        <div className="flex justify-between pt-4 xs:pt-[2.4375rem]">
           {children}
 
           <div className="text-right text-xs font-normal">
             <h4>
-              <span className="xs:text-[1.375rem] text-lg font-bold">
+              <span className="text-lg font-bold xs:text-[1.375rem]">
                 {eventPackage?.weekDaysPrice}
               </span>{" "}
               <span>Plus Tax</span>
@@ -66,15 +66,15 @@ const PackageCard: React.FC<CardProps> = ({
           </div>
         </div>
 
-        <div className="xs:px-6 xs:mt-12 mt-7 px-2">
+        <div className="mt-7 px-2 xs:mt-12 xs:px-6">
           <ul
-            className={`xs:space-y-6 xs:h-full h-52 max-h-[14.8125rem]  list-outside list-disc space-y-3 overflow-y-scroll px-5 ${scrollbarClass}`}
+            className={`h-52 max-h-[14.8125rem] list-outside list-disc  space-y-3 overflow-y-scroll px-5 xs:h-full xs:space-y-6 ${scrollbarClass}`}
           >
             {eventPackage?.packageFeatures?.map(
               (item: string, index: number) => <li key={index}>{item}</li>,
             )}
           </ul>
-          <h4 className="xs:mt-8 mb-2 mt-6 text-center text-xs leading-none">
+          <h4 className="mb-2 mt-6 text-center text-xs leading-none xs:mt-8">
             <span className="text-base font-bold">
               {eventPackage?.weekEndPrices}
             </span>{" "}

@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Logo from "@/public/logo.svg";
-import NavLinks from "../nav-links";
-import { socialLink } from "@/utils/utils";
+import NavLinks from "../shared/nav-links";
+import SocialLinks from "../shared/social-links";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -15,19 +14,7 @@ const Footer = () => {
           <Image src={Logo} alt="manville-footer-logo" />
 
           <NavLinks fromFooter />
-
-          <ul className="flex flex-wrap justify-center gap-6">
-            {socialLink?.map((link) => (
-              <li key={link.title}>
-                <Link
-                  href={link?.path}
-                  className="flex size-12 items-center justify-center rounded-sm transition-all duration-300 hover:bg-sand"
-                >
-                  <Image src={link.iconPath} alt={link?.title} />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <SocialLinks />
         </div>
 
         <div>

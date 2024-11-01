@@ -20,6 +20,7 @@ const config: Config = {
 
       screens: {
         xs: "430px",
+        "min-aspect": { raw: "(min-aspect-ratio: 1/1)" },
       },
 
       colors: {
@@ -37,6 +38,16 @@ const config: Config = {
         cormorant: ["var(--font-cormorant)"],
       },
 
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(30)" },
+          "50%": { transform: "translateY(-50px)" },
+        },
+      },
+      animation: {
+        float: "float 2.5s ease-in-out infinite",
+      },
+
       // fontSize: {
       //   lg: ["4rem", "4.8rem"],
       //   title: ["3rem", "3.6rem"],
@@ -51,14 +62,12 @@ const config: Config = {
       addComponents({
         ".container": {
           width: "100%",
-          paddingLeft: "2rem",
-          paddingRight: "2rem",
+          paddingLeft: "1.375rem",
+          paddingRight: "1.375rem",
           marginLeft: "auto",
           marginRight: "auto",
           "@screen sm": {
             maxWidth: "100%",
-            paddingLeft: "2rem",
-            paddingRight: "2rem",
           },
           "@screen md": {
             maxWidth: "100%",
@@ -70,8 +79,11 @@ const config: Config = {
           },
           "@screen xl": {
             maxWidth: "100%",
-            paddingLeft: "2.5625rem",
-            paddingRight: "2.5625rem",
+            // paddingLeft: "2.5625rem",
+            // paddingRight: "2.5625rem",
+
+            paddingLeft: "8.125rem",
+            paddingRight: "8.125rem",
           },
           "@screen 2xl": {
             maxWidth: "1536px",

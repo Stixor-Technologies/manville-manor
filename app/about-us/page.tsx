@@ -90,7 +90,8 @@ const About = () => {
     <>
       <Hero heroImage={AboutHero} heroHeading="About us" />
 
-      <section className="container mt-12 grid grid-cols-1 flex-col place-items-center px-8 text-center md:mt-[4.375rem] lg:grid-cols-[1fr,0.93fr]  lg:gap-x-16 lg:px-16 lg:text-left xl:px-[8.125rem]">
+      {/* about us section*/}
+      <section className="container mt-12 grid grid-cols-1 flex-col place-items-center text-center md:mt-[4.375rem] lg:grid-cols-[1fr,0.93fr] lg:gap-x-16 lg:text-left">
         <div
           data-animated-about-text
           className="mb-8 self-end text-white lg:col-start-2 lg:mb-0"
@@ -135,8 +136,9 @@ const About = () => {
         </div>
       </section>
 
+      {/* features section */}
       <section className="my-11 bg-[url('/assets/about/about-bg.png')] bg-cover bg-no-repeat md:my-[4.375rem]">
-        <div className="container flex flex-col items-center gap-10 px-8 py-[3.25rem] text-white lg:flex-row lg:px-16 xl:gap-[7.1875rem] xl:px-[8.125rem]">
+        <div className="container flex flex-col items-center gap-10 py-[3.25rem] text-white lg:flex-row xl:gap-[7.1875rem]">
           <div
             data-animated-feature-text
             className="w-full text-center lg:text-left"
@@ -175,7 +177,8 @@ const About = () => {
         </div>
       </section>
 
-      <div className="container mb-[4.375rem] px-8 lg:px-16 xl:px-[8.125rem]">
+      {/* faq's section */}
+      <div className="container mb-[4.375rem]">
         <Faqs />
       </div>
     </>
