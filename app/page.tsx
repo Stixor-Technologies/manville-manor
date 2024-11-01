@@ -8,6 +8,7 @@ import VenueDetails from "@/components/home-page/venue-details";
 import BackDrops from "@/components/home-page/backdrops";
 import HomeHero from "@/components/home-page/home-hero";
 import HomeAbout from "@/components/home-page/home-about/home-about";
+import FloorPlans from "@/components/home-page/floor-plans";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <HomeGallery />
       <BackDrops />
       <VenueDetails />
+      <FloorPlans />
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
         <div className="pb-20 pt-24">
           <EventPackages fromHome />
