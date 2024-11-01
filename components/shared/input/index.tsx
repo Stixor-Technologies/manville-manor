@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import React from "react";
 import { Field } from "formik";
 import { cn } from "@/lib/utils";
 
@@ -12,15 +12,6 @@ interface InputProps {
   as: string;
 }
 
-// interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-//   hasError?: string;
-//   isTouched?: boolean;
-//   name: string;
-//   placeholder: string;
-//   errorMessage?: string;
-//   isRequired?: boolean;
-// }
-
 const Input: React.FC<InputProps> = ({
   hasError,
   isTouched,
@@ -28,7 +19,6 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   errorMessage,
   as = "input",
-  isRequired = true,
 }) => {
   return (
     <div>

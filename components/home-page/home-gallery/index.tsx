@@ -9,7 +9,6 @@ import { Button } from "@/components/button";
 import { recentEvents } from "@/utils/utils";
 
 gsap.registerPlugin(ScrollTrigger);
-import DummyExplore from "@/public/assets/events/event-7.png";
 import { cn } from "@/lib/utils";
 
 const HomeGallery = () => {
@@ -75,6 +74,7 @@ const HomeGallery = () => {
           <div className="relative flex flex-1 flex-col items-center gap-11 xl:gap-0">
             {recentEvents?.map((event, index) => (
               <div
+                key={index}
                 className={cn(
                   "sec-5-card relative flex flex-col justify-center overflow-hidden text-white duration-200 lg:max-w-[25rem]",
 

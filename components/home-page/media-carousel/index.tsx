@@ -10,7 +10,6 @@ import { Pagination } from "swiper/modules";
 import Image from "next/image";
 import SwiperButtons from "@/components/shared/swiper-buttons";
 import { cn } from "@/lib/utils";
-import Slide1 from "@/public/assets/gallery/slide-1.png";
 
 interface MediaCarouselProps {
   venues: any;

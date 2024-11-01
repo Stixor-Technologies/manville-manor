@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Logo from "@/public/logo.svg";
 import NavLinks from "../shared/nav-links";
-import { socialLink } from "@/utils/utils";
 import SocialLinks from "../shared/social-links";
 
 const Footer = () => {

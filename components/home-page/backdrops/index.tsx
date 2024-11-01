@@ -24,7 +24,7 @@ const BackDrops = () => {
       venueNumber: "Venue 1",
     },
     {
-      asset: Slide3,
+      asset: Slide4,
       venueName: "Don Carlo Van Houten",
       venueNumber: "Venue 1",
     },

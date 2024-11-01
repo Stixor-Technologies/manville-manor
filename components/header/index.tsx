@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/logo.svg";
-import Hamburger from "@/public/assets/icons/hamburger.svg";
 import NavLinks from "../shared/nav-links";
 import { Button } from "../button";
 import Sidebar from "./menu/sidebar";
