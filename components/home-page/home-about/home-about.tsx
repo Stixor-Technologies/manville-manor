@@ -56,7 +56,7 @@ const HomeAbout = () => {
   ];
 
   return (
-    <section className="container py-24 sm:px-[2.5625rem]">
+    <section className="container py-12 sm:px-[2.5625rem] md:py-24">
       <div className="flex flex-col justify-between gap-11 md:flex-row md:gap-8 lg:gap-16 2xl:gap-0">
         <div className="text-center md:order-1 md:max-w-[25.75rem] md:text-left">
           <h4 className="text-xl text-secondary">About Us</h4>

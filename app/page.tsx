@@ -20,20 +20,20 @@ export default function Home() {
       <VenueDetails />
       <FloorPlans />
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
-        <div className="pb-20 pt-24">
+        <div className="pb-10 pt-12 md:pb-20 md:pt-24">
           <EventPackages fromHome />
         </div>
         <SportsArticle />
 
-        <div className="py-16">
+        <div className="py-8 md:py-16">
           <Contact />
         </div>
 
-        <div className="py-11">
+        <div className="py-5 md:py-11">
           <Faqs />
         </div>
 
-        <div className="pb-20 pt-24">
+        <div className="pb-10 pt-12 md:pb-20 md:pt-24">
           <OfficeLocation />
         </div>
       </div>

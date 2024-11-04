@@ -71,7 +71,7 @@ const FloorPlans = () => {
   };
 
   return (
-    <section className="container overflow-hidden py-24 sm:px-[2.5625rem]">
+    <section className="container overflow-hidden py-12 sm:px-[2.5625rem] md:py-24">
       <div className="flex flex-col justify-between gap-11 md:flex-row md:gap-8 lg:gap-16 2xl:gap-0">
         <div className="text-center md:max-w-[25.75rem] md:text-left">
           <h2 className="font-cormorant text-5xl text-white">
