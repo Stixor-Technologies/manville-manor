@@ -48,7 +48,7 @@ const VenueDetails = () => {
   });
 
   return (
-    <section className="container py-28 sm:px-[2.5625rem]">
+    <section className="container py-12 sm:px-[2.5625rem] md:py-28">
       <div className="flex flex-col justify-between gap-11 md:flex-row md:gap-8 lg:gap-16 xl:gap-0">
         <div className="text-center md:max-w-[20rem] md:text-left">
           <h4 className="text-xl text-secondary">Venue</h4>
