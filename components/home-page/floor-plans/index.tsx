@@ -1,14 +1,10 @@
 "use client";
 import SwiperButtons from "@/components/shared/swiper-buttons";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { Pagination } from "swiper/modules";
 import DummyFloorPlan from "@/public/assets/dummy-floor-plan.png";
-import Slide2 from "@/public/assets/gallery/slide-2.png";
-import Slide3 from "@/public/assets/gallery/slide-3.png";
-import Slide4 from "@/public/assets/gallery/slide-4.png";
-import Slide5 from "@/public/assets/gallery/slide-5.png";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/button";
 
@@ -42,25 +38,7 @@ const venues = [
 
 const FloorPlans = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
-  const [windowSize, setWindowSize] = useState<number>(0);
-  const [containerWidth, setContainerWdith] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      if (containerRef?.current) {
-        setContainerWdith(containerRef?.current?.clientWidth);
-      }
-      setWindowSize(window.innerWidth);
-    };
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-
-  console.log("wodth", containerWidth);
 
   const handleSlideChange = (swiper: SwiperClass) => {
     setTimeout(() => {
