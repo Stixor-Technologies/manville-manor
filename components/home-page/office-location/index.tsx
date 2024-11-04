@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Location from "@/public/assets/location.png";
 import SMS from "@/public/assets/icons/sms.svg";
 import Call from "@/public/assets/icons/call.svg";
 import Link from "next/link";

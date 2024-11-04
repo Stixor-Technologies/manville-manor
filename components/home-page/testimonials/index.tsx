@@ -3,17 +3,12 @@ import React, { useRef } from "react";
 import SectionHeader from "@/components/shared/section-header";
 import Image from "next/image";
 import DummyProfile from "@/public/assets/dummy-profile.png";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Button } from "@/components/button";
 import { cn } from "@/lib/utils";
 
 const Testimonials = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const tabsRefs = useRef<(HTMLElement | null)[]>([]);
-
-  const headerref = useRef;
 
   const { contextSafe } = useGSAP();
 
