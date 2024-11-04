@@ -10,12 +10,16 @@ import { Pagination } from "swiper/modules";
 import Image from "next/image";
 import SwiperButtons from "@/components/shared/swiper-buttons";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import Instagram from "@/public/assets/icons/instagram.svg";
+import Facebook from "@/public/assets/icons/facebook.svg";
 
 interface MediaCarouselProps {
   venues: any;
+  showSocial?: boolean;
 }
 
-const MediaCarousel: FC<MediaCarouselProps> = ({ venues }) => {
+const MediaCarousel: FC<MediaCarouselProps> = ({ venues, showSocial }) => {
   const swiperRef = useRef<SwiperClass | null>(null);
   const [windowSize, setWindowSize] = useState<number>(0);
 
@@ -106,9 +110,28 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ venues }) => {
                   fill={windowSize >= 768}
                 />
 
-                <div className="absolute bottom-0 w-[90%] rounded-sm bg-accent px-4 py-2.5 text-white opacity-0 transition-all duration-300 ease-in-out group-hover:bottom-8 group-hover:opacity-100">
-                  <p>{venue?.venueName}</p>
-                  <p>{venue?.venueNumber}</p>
+                <div className="absolute bottom-0 flex w-[90%] items-end gap-3 opacity-0 transition-all duration-300 ease-in-out group-hover:bottom-8 group-hover:opacity-100 sm:w-[80%] sm:gap-8">
+                  <div className="flex-1 rounded-sm bg-accent px-4 py-2.5 text-white">
+                    <p>{venue?.venueName}</p>
+                    <p>{venue?.venueNumber}</p>
+                  </div>
+
+                  {showSocial && (
+                    <div className="flex flex-col items-center bg-accent">
+                      <Link
+                        href={venue?.social?.facebook}
+                        className="mb-3 inline-block p-3"
+                      >
+                        <Image src={Facebook} alt="facebook-icon" />
+                      </Link>
+                      <Link
+                        href={venue?.social?.facebook}
+                        className="inline-block bg-white/30 p-3"
+                      >
+                        <Image src={Instagram} alt="instagram-icon" />
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             </SwiperSlide>

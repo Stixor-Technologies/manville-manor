@@ -196,4 +196,21 @@
   .media-swiper .pre-transition-slide {
     @apply transition-all duration-300 ease-out md:h-[25rem];
   }
+
+  .floor-swiper .swiper-wrapper {
+    @apply items-end;
+  }
+
+  .floor-swiper .swiper-slide {
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+  }
+
+  .floor-swiper .swiper-slide-active {
+    @apply origin-[center_center] transition-all duration-[0.3s] ease-[ease] lg:!scale-100;
+  }
+
+  .floor-swiper .swiper-slide:not(.swiper-slide-active) {
+    @apply origin-[right_520px] transition-all duration-[0.3s] ease-[ease] xl:scale-[0.85];
+  }
 }
