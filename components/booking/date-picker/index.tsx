@@ -8,8 +8,8 @@ import { checkSlotAvailability } from "@/utils/api-calls";
 
 import Label from "../label";
 import { useFormikContext } from "formik";
-import { FormValues } from "../booking-form";
 import moment, { Moment } from "moment";
+import { FormValues } from "@/utils/types/types";
 
 interface DatePickerProps {
   placeholder: string;
@@ -40,7 +40,7 @@ const DatePicker: FC<DatePickerProps> = ({
   const getAvailableSlots = (
     slots: Array<{ time: string; available: boolean }>,
   ) => {
-    return slots?.filter((slot) => slot?.available).map((slot) => slot?.time);
+    return slots?.filter((slot) => slot?.available)?.map((slot) => slot?.time);
   };
 
   const handleDateSelection = async (dateValue: any) => {

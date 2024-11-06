@@ -32,4 +32,34 @@ type RecentEvents = {
   number: string;
 };
 
-export type { Menu, SocialLinks, Faq, EventPackage, VenueDetail, RecentEvents };
+type ListItemOption = {
+  value: number | string;
+  label: string;
+};
+
+type FormValues = {
+  fullName: string;
+  phone: string;
+  email: string;
+  routine: string;
+  date: string;
+  venue: string;
+  peopleCount: string;
+  catering: string;
+  floorOption: string;
+  additionalServices: number[];
+  backDrop: string;
+  package: string;
+  message: string;
+};
+
+export type {
+  Menu,
+  SocialLinks,
+  Faq,
+  EventPackage,
+  VenueDetail,
+  RecentEvents,
+  ListItemOption,
+  FormValues,
+};

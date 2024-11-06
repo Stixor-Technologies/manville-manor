@@ -1,6 +1,7 @@
 import { BASE_URL } from "./contants";
+import { FormValues, ListItemOption } from "./types/types";
 
-export const getVenues = async () => {
+export const getVenues = async (): Promise<ListItemOption[]> => {
   try {
     const resp = await fetch(`${BASE_URL}/api/venues`, {
       cache: "no-store",
@@ -12,10 +13,11 @@ export const getVenues = async () => {
     }));
   } catch (error) {
     console.error("There was an error getting venues", error);
+    return [];
   }
 };
 
-export const getPeopleCount = async () => {
+export const getPeopleCount = async (): Promise<ListItemOption[]> => {
   try {
     const resp = await fetch(`${BASE_URL}/api/people-counts`, {
       cache: "no-store",
@@ -27,10 +29,11 @@ export const getPeopleCount = async () => {
     }));
   } catch (error) {
     console.error("There was an error getting people counts", error);
+    return [];
   }
 };
 
-export const getCatering = async () => {
+export const getCatering = async (): Promise<ListItemOption[]> => {
   try {
     const resp = await fetch(`${BASE_URL}/api/caterings`, {
       cache: "no-store",
@@ -42,26 +45,27 @@ export const getCatering = async () => {
     }));
   } catch (error) {
     console.error("There was an error getting catering", error);
+    return [];
   }
 };
 
-export const getAdditionalServices = async () => {
+export const getAdditionalServices = async (): Promise<ListItemOption[]> => {
   try {
     const resp = await fetch(`${BASE_URL}/api/additional-services`, {
       cache: "no-store",
     });
     const services = await resp.json();
-    console.log("Sss", services?.data);
     return services?.data.map((item: any) => ({
       value: item?.id,
       label: item?.attributes?.name,
     }));
   } catch (error) {
     console.error("There was an error getting additional services", error);
+    return [];
   }
 };
 
-export const getFloorPlans = async () => {
+export const getFloorPlans = async (): Promise<ListItemOption[]> => {
   try {
     const resp = await fetch(`${BASE_URL}/api/floor-options`, {
       cache: "no-store",
@@ -73,10 +77,11 @@ export const getFloorPlans = async () => {
     }));
   } catch (error) {
     console.error("There was an error getting floor options", error);
+    return [];
   }
 };
 
-export const getBackdrops = async () => {
+export const getBackdrops = async (): Promise<ListItemOption[]> => {
   try {
     const resp = await fetch(`${BASE_URL}/api/back-drops`, {
       cache: "no-store",
@@ -88,6 +93,7 @@ export const getBackdrops = async () => {
     }));
   } catch (error) {
     console.error("There was an error getting Backdrops", error);
+    return [];
   }
 };
 
@@ -106,7 +112,7 @@ export const checkSlotAvailability = async (selectedDate: string) => {
   }
 };
 
-export const createBooking = async (values: any) => {
+export const createBooking = async (values: FormValues) => {
   const requestData = {
     data: values,
   };

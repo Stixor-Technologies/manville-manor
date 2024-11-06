@@ -8,31 +8,16 @@ import Select from "../select";
 import DatePicker from "../date-picker";
 import { createBooking } from "@/utils/api-calls";
 import { toast } from "react-toastify";
+import { FormValues, ListItemOption } from "@/utils/types/types";
 
 interface BookingFormProps {
-  venues: any;
-  peopleCount: any;
-  floorPlans: any;
-  services: any;
-  catering: any;
-  backDrops: any;
+  venues: ListItemOption[];
+  peopleCount: ListItemOption[];
+  floorPlans: ListItemOption[];
+  services: ListItemOption[];
+  catering: ListItemOption[];
+  backDrops: ListItemOption[];
 }
-
-export type FormValues = {
-  fullName: string;
-  phone: string;
-  email: string;
-  routine: string;
-  date: string;
-  venue: string;
-  peopleCount: string;
-  catering: string;
-  floorOption: string;
-  additionalServices: number[];
-  backDrop: string;
-  package: string;
-  message: string;
-};
 
 const BookingForm: FC<BookingFormProps> = ({
   venues,
@@ -74,8 +59,10 @@ const BookingForm: FC<BookingFormProps> = ({
     values: FormValues,
     formikHelpers: FormikHelpers<FormValues>,
   ) => {
-    const { additionalServices, ...otherValues } = values;
-    const formData = additionalServices?.[0] === 0 ? otherValues : values;
+    const formData = {
+      ...values,
+      ...(values.additionalServices.length === 0 && { additionalServices: [] }),
+    };
 
     setBookingRequest(true);
     const resp = await createBooking(formData);

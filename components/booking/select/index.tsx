@@ -1,13 +1,11 @@
 import React, { FC } from "react";
-import { Field, useField, useFormikContext } from "formik";
-import Image from "next/image";
-import ArrowDown from "@/public/assets/icons/arrow-down.svg";
+import { useFormikContext } from "formik";
 import Label from "../label";
 import Select from "react-select";
-import { FormValues } from "../booking-form";
+import { FormValues, ListItemOption } from "@/utils/types/types";
 
 interface SelectOptions {
-  options: any;
+  options: ListItemOption[];
   placeholder: string;
   name: string;
   label: string;

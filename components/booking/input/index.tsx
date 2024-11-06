@@ -61,7 +61,7 @@ const Input: React.FC<InputProps> = ({
   );
 
   return (
-    <div className={`${as === "textarea" && "col-span-3"} w-full`}>
+    <div className={`${as === "textarea" && "col-span-full"} relative w-full`}>
       {variant === "underlineWithLabel" && (
         <Label labelFor={name}> {label}</Label>
       )}
