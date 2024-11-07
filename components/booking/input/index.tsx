@@ -32,7 +32,6 @@ interface InputProps
   errorMessage?: string;
   label?: string;
   as?: string;
-  rows?: number;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -45,7 +44,6 @@ const Input: React.FC<InputProps> = ({
   errorMessage,
   label,
   as = "input",
-  rows,
   ...props
 }) => {
   const combinedStyles = cn(

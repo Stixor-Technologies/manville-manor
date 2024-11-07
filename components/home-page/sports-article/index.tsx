@@ -16,12 +16,6 @@ const SportsArticle = () => {
   const [isPrevButtonDisabled, setIsPrevButtonDisabled] = useState(true);
   const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(false);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      handleSlideChange(swiperRef.current);
-    }
-  }, []);
-
   const handleSlideChange = (swiper: SwiperClass) => {
     const isPrevButtonDisabled = swiper.isBeginning;
     const isNextButtonDisabled = swiper.isEnd;
@@ -29,6 +23,12 @@ const SportsArticle = () => {
     setIsPrevButtonDisabled(isPrevButtonDisabled);
     setIsNextButtonDisabled(isNextButtonDisabled);
   };
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      handleSlideChange(swiperRef.current);
+    }
+  }, []);
 
   return (
     <section className="py-20">

@@ -1,6 +1,6 @@
 "use client";
 import React, { FC, useState } from "react";
-import { Formik, Form, FormikHelpers } from "formik";
+import { Formik, Form } from "formik";
 import { BookingFormSchema } from "@/utils/formik-schema";
 import Input from "../input";
 import { Button } from "@/components/button";
@@ -57,10 +57,7 @@ const BookingForm: FC<BookingFormProps> = ({
     message: "",
   };
 
-  const makeBooking = async (
-    values: FormValues,
-    formikHelpers: FormikHelpers<FormValues>,
-  ) => {
+  const makeBooking = async (values: FormValues) => {
     const formData = {
       ...values,
       ...(values.additionalServices.length === 0 && { additionalServices: [] }),

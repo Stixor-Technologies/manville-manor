@@ -4,7 +4,7 @@ import Hero from "@/components/shared/hero";
 import AboutHero from "@/public/assets/about/about-hero.png";
 import ContactBlob from "@/public/assets/contact-blob.png";
 import BookingHandler from "@/components/booking/booking-handler";
-import Spinner from "@/components/shared/spinner.tsx";
+import Spinner from "@/components/shared/spinner";
 
 const Booking = () => {
   return (
@@ -14,7 +14,9 @@ const Booking = () => {
         <div className="border-accent md:rounded-md md:border md:p-4">
           <div className="relative overflow-hidden rounded-xl bg-accent p-10 text-white">
             <div className="relative z-10 mb-32 text-center sm:mb-0 sm:max-w-96 sm:text-left">
-              <h2 className="font-cormorant text-5xl">Let's Book Your Venue</h2>
+              <h2 className="font-cormorant text-5xl">
+                Let&apos;s Book Your Venue
+              </h2>
               <p className="mt-5 text-xl">
                 Create a Event That no one Can forget
               </p>
