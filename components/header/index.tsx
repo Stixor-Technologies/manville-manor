@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/logo.svg";
 import NavLinks from "../shared/nav-links";
-import { Button } from "../button";
 import Sidebar from "./menu/sidebar";
 
 const Header = () => {
@@ -17,9 +16,16 @@ const Header = () => {
           </Link>
 
           <NavLinks />
-          <Button variant={"transparent"} className="hidden md:inline-flex">
+          {/* <Button variant={"transparent"} className="hidden md:inline-flex">
             Booking
-          </Button>
+          </Button> */}
+
+          <Link
+            href={"/booking"}
+            className="hidden h-10 w-[7.5rem] items-center justify-center whitespace-nowrap rounded-sm bg-white/10 text-base text-white transition-all duration-300 hover:bg-white/30 md:inline-flex"
+          >
+            Booking
+          </Link>
 
           <Sidebar />
         </div>

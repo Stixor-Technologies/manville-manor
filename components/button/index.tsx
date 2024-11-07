@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Spinner from "../shared/spinner";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-sm text-base ring-offset-background transition-colors duration-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -49,7 +50,7 @@ const Button = React.forwardRef<
   return (
     <Comp className={combinedStyles} {...props} {...(href && { href })}>
       {loading ? (
-        <span className={`flex items-center justify-center`}>loading</span>
+        <Spinner color="text-white" size="size-4" />
       ) : (
         <>{props.children}</>
       )}

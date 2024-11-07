@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { ContactFormSchema } from "@/utils/formik-schema";
 import { Form, Formik } from "formik";
-import Input from "@/components/shared/input";
+// import Input from "@/components/shared/input";
 import Email from "@/public/assets/icons/email.svg";
 import Phone from "@/public/assets/icons/phone.svg";
 import Marker from "@/public/assets/icons/marker.svg";
 import Send from "@/public/assets/icons/send.svg";
 import Link from "next/link";
+import Input from "@/components/booking/input";
+
 import { Button } from "@/components/button";
 
 import gsap from "gsap";
@@ -134,9 +136,18 @@ const Contact = () => {
             <>
               <Form>
                 <div className="space-y-16">
-                  <Input
+                  {/* <Input
                     as="input"
                     hasError={errors.name}
+                    isTouched={touched.name}
+                    name={"name"}
+                    placeholder={"Your name"}
+                    errorMessage={errors.name}
+                  /> */}
+
+                  <Input
+                    // as="input"
+                    hasError={!!errors.name}
                     isTouched={touched.name}
                     name={"name"}
                     placeholder={"Your name"}
@@ -144,8 +155,8 @@ const Contact = () => {
                   />
 
                   <Input
-                    as="input"
-                    hasError={errors.email}
+                    // as="input"
+                    hasError={!!errors.email}
                     isTouched={touched.email}
                     name={"email"}
                     placeholder={"Your email"}
@@ -154,7 +165,7 @@ const Contact = () => {
 
                   <Input
                     as="textarea"
-                    hasError={errors.message}
+                    hasError={!!errors.message}
                     isTouched={touched.message}
                     name={"message"}
                     placeholder={"Your message"}

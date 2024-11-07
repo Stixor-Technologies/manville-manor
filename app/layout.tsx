@@ -4,6 +4,9 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "./globals.css";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -33,6 +36,7 @@ export default function RootLayout({
         <Header />
         <main className="pt-28 md:pt-[8.875rem]">{children}</main>
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   );

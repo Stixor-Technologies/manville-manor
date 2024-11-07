@@ -70,7 +70,7 @@ const HomeGallery = () => {
         </div>
 
         {/* event images */}
-        <div className="relative flex w-full max-w-[800px] flex-col gap-10 sm:mb-20 sm:flex-row md:mb-0 lg:flex-col lg:justify-self-end xl:shrink-0 xl:flex-row">
+        <div className="relative flex w-full max-w-[50rem] flex-col gap-10 sm:mb-20 sm:flex-row md:mb-0 lg:flex-col lg:justify-self-end xl:shrink-0 xl:flex-row">
           <div className="relative flex flex-1 flex-col items-center gap-11 xl:gap-0">
             {recentEvents?.map((event, index) => (
               <div
@@ -90,7 +90,7 @@ const HomeGallery = () => {
                     <h3>{event.name}</h3>
                     <p className="text-xs">{event?.hostedBy}</p>
                   </div>
-                  <p className="text-[4rem] ">{event?.number}</p>
+                  <p className="text-[4rem]">{event?.number}</p>
                 </div>
                 <Image src={event?.media} width={450} height={320} alt="" />
               </div>
