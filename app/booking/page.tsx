@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import Hero from "@/components/shared/hero";
 import AboutHero from "@/public/assets/about/about-hero.png";
 import ContactBlob from "@/public/assets/contact-blob.png";
 import BookingHandler from "@/components/booking/booking-handler";
+import Spinner from "@/components/shared/spinner.tsx";
 
 const Booking = () => {
   return (
@@ -27,7 +28,15 @@ const Booking = () => {
             />
           </div>
 
-          <BookingHandler />
+          <Suspense
+            fallback={
+              <div className="h-[50vh]">
+                <Spinner />
+              </div>
+            }
+          >
+            <BookingHandler />
+          </Suspense>
         </div>
       </section>
     </>

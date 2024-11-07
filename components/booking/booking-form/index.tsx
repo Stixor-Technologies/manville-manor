@@ -9,6 +9,7 @@ import DatePicker from "../date-picker";
 import { createBooking } from "@/utils/api-calls";
 import { toast } from "react-toastify";
 import { FormValues, ListItemOption } from "@/utils/types/types";
+import { useRouter } from "next/navigation";
 
 interface BookingFormProps {
   venues: ListItemOption[];
@@ -27,6 +28,7 @@ const BookingForm: FC<BookingFormProps> = ({
   catering,
   backDrops,
 }) => {
+  const route = useRouter();
   const [bookignRequest, setBookingRequest] = useState<boolean>(false);
 
   const routine = [
@@ -64,17 +66,20 @@ const BookingForm: FC<BookingFormProps> = ({
       ...(values.additionalServices.length === 0 && { additionalServices: [] }),
     };
 
-    setBookingRequest(true);
-    const resp = await createBooking(formData);
-
-    toast.success("Booking request successfull", {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: true,
-    });
-
-    setBookingRequest(false);
-    console.log("resp", resp);
+    try {
+      setBookingRequest(true);
+      const resp = await createBooking(formData);
+      console.log("myRes", resp);
+      toast.success("Booking request successfull", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
+      route.push("/");
+      setBookingRequest(false);
+    } catch (error) {
+      console.log("error creating booking", error);
+    }
   };
 
   return (
