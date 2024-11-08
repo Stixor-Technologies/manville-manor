@@ -33,6 +33,22 @@ export const getPeopleCount = async (): Promise<ListItemOption[]> => {
   }
 };
 
+export const getPackages = async (): Promise<ListItemOption[]> => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/packages`, {
+      cache: "no-store",
+    });
+    const peopleCount = await resp.json();
+    return peopleCount?.data.map((item: any) => ({
+      value: item?.id,
+      label: item?.attributes?.name,
+    }));
+  } catch (error) {
+    console.error("There was an error getting packages", error);
+    return [];
+  }
+};
+
 export const getCatering = async (): Promise<ListItemOption[]> => {
   try {
     const resp = await fetch(`${BASE_URL}/api/caterings`, {
@@ -126,9 +142,52 @@ export const createBooking = async (values: FormValues) => {
       body: JSON.stringify(requestData),
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const resp = await response.json();
     return resp;
   } catch (error) {
     console.error("Error creating reservation:", error);
+    throw error;
+  }
+};
+
+export const postContract = async (bookingId: any, pdfFile: any) => {
+  try {
+    // Upload PDF to Strapi media library
+    const uploadPdf = await fetch(`${BASE_URL}/api/upload`, {
+      method: "POST",
+      body: pdfFile,
+    });
+    const resp = await uploadPdf.json();
+    const pdfId = resp?.[0]?.id;
+    console.log("res", pdfId);
+
+    const requestData = {
+      data: {
+        contract: pdfId,
+      },
+    };
+
+    // add reference to uploaded PDF file to collection
+    const addPdf = await fetch(`${BASE_URL}/api/post-contract/${bookingId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestData),
+    });
+
+    if (!addPdf.ok) {
+      throw new Error(`HTTP error! Status: ${addPdf?.status}`);
+    }
+
+    const addPdfResp = await addPdf.json();
+    return addPdfResp;
+  } catch (error) {
+    console.error("Error creating reservation:", error);
+    throw error;
   }
 };
