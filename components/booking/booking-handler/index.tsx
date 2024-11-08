@@ -6,6 +6,7 @@ import {
   getFloorPlans,
   getAdditionalServices,
   getBackdrops,
+  getPackages,
 } from "@/utils/api-calls";
 import BookingForm from "../booking-form";
 
@@ -17,6 +18,7 @@ const BookingWrapper = async () => {
     floorPlans,
     additonalServices,
     backDrops,
+    packages,
   ] = await Promise.all([
     getVenues(),
     getPeopleCount(),
@@ -24,6 +26,7 @@ const BookingWrapper = async () => {
     getFloorPlans(),
     getAdditionalServices(),
     getBackdrops(),
+    getPackages(),
   ]);
 
   return (
@@ -34,6 +37,7 @@ const BookingWrapper = async () => {
       services={additonalServices}
       catering={caterings}
       backDrops={backDrops}
+      packages={packages}
     />
   );
 };

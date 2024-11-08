@@ -57,3 +57,16 @@ export const BookingFormSchema = Yup.object().shape({
     .min(10, "Message should be atleast 10 characters long.")
     .max(500, "Message should be at most 500 characters long."),
 });
+
+const FILE_SIZE = 5 * 1024 * 1024;
+export const ContractFormSchema = Yup.object().shape({
+  clientSignature: Yup.mixed()
+    .required("Please add you signatures")
+
+    .test("fileSize", "Image file should not exceed 5MB", function (value) {
+      if (!value) return true;
+      return value && value instanceof File && value?.size <= FILE_SIZE;
+    }),
+
+  dateClient: Yup.string().required("Please select a date"),
+});

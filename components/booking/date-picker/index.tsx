@@ -75,7 +75,8 @@ const DatePicker: FC<DatePickerProps> = ({
 
   const inputProps = {
     placeholder: `${placeholder}`,
-    className: `w-full appearance-none border-b bg-transparent text-xs capitalize h-[1.7rem] text-gray outline-none placeholder:text-gray ${isTouched && hasError ? "border-b-red-600" : "border-b-white"}`,
+    className: `w-full appearance-none border-b bg-transparent text-xs capitalize h-[1.7rem] text-gray outline-none cursor-pointer placeholder:text-gray ${isTouched && hasError ? "border-b-red-600" : "border-b-white"}`,
+    readOnly: true,
   };
 
   return (
