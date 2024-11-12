@@ -6,32 +6,73 @@ import DummyProfile from "@/public/assets/dummy-profile.png";
 import { useGSAP } from "@gsap/react";
 import { Button } from "@/components/button";
 import { cn } from "@/lib/utils";
+import gsap from "gsap";
 
 const Testimonials = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const tabsRefs = useRef<(HTMLElement | null)[]>([]);
 
   const { contextSafe } = useGSAP();
 
-  const performAnimation = contextSafe(() => {
-    console.log("asas");
+  const performAnimation = contextSafe((index: number) => {
+    const clickedItem = tabsRefs?.current[index];
+
+    if (clickedItem) {
+      console.log("clcked", clickedItem);
+      const elem = document.querySelector(`.active`);
+      console.log("activeElem", elem);
+      gsap.to(clickedItem, {
+        width: "500px",
+        // duration: 2,
+      });
+
+      gsap.to(clickedItem?.getElementsByTagName("p"), {
+        display: "block",
+        opacity: 1,
+        // duration: 2,
+      });
+
+      gsap.to(clickedItem?.querySelector(".myText"), {
+        rotate: "0",
+        transformOrigin: "top left",
+        // duration: 2,
+      });
+
+      gsap.to(clickedItem?.getElementsByTagName("div"), {
+        flexDirection: "row",
+        alignItems: "center",
+      });
+
+      gsap.to(elem, {
+        width: "144px",
+      });
+      console.log("clickedItem", clickedItem);
+    }
   });
 
   return (
     <section className="container">
       <SectionHeader header="TESTIMONY" description="Our Participants Say" />
 
-      <Button onClick={performAnimation}>Perform Animation</Button>
-
-      <div ref={containerRef} className="flex gap-1">
+      <div ref={containerRef} className="flex gap-0.5">
         {[1, 2, 4, 5, 5].map((_, index) => (
           <div
             key={index}
+            onClick={() => {
+              performAnimation(index);
+            }}
+            ref={(el) => (tabsRefs.current[index] = el)}
             className={cn(
-              "relative bg-secondary/10 p-12",
-              index !== 0 ? "w-36 px-10 py-12" : "w-[55%]",
+              "relative cursor-pointer bg-secondary/10 p-12",
+              index !== 0 ? "w-36 px-10 py-12" : "active w-[55%]",
             )}
           >
-            <div className="flex flex-col gap-8">
+            <div
+              className={cn(
+                "flex gap-8",
+                index !== 0 ? "flex-col" : "items-center",
+              )}
+            >
               <Image
                 src={DummyProfile}
                 width={140}
@@ -41,7 +82,7 @@ const Testimonials = () => {
               <div>
                 <h3
                   className={cn(
-                    "text-[1.375rem] font-medium text-white",
+                    "myText text-[1.375rem] font-medium text-white",
 
                     index !== 0 && " rotate-90 text-nowrap text-base",
                   )}
@@ -50,7 +91,7 @@ const Testimonials = () => {
                 </h3>
                 <h4
                   className={cn(
-                    "text-white/60",
+                    " text-white/60",
                     index !== 0 && "hidden opacity-0",
                   )}
                 >
@@ -63,7 +104,7 @@ const Testimonials = () => {
               className={cn(
                 "mt-10",
 
-                index !== 0 && " hidden",
+                index !== 0 && " hidden opacity-0",
               )}
             >
               I would also like to take this opportunity to thank Conference
