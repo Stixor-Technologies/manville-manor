@@ -14,9 +14,6 @@ import BlogsSection from "@/components/home-page/blogs";
 export default function Home() {
   return (
     <main className="min-h-screen flex-col items-center justify-between overflow-hidden">
-      {/* <SportsArticle /> */}
-      {/* <BlogsSection /> */}
-
       <HomeHero />
       <HomeAbout />
       <HomeGallery />
@@ -27,7 +24,6 @@ export default function Home() {
         <div className="pb-10 pt-12 md:pb-20 md:pt-24">
           <EventPackages fromHome />
         </div>
-        {/* <SportsArticle /> */}
         <BlogsSection />
 
         <div className="py-8 md:py-16">
