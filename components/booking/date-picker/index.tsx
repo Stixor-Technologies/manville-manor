@@ -53,7 +53,6 @@ const DatePicker: FC<DatePickerProps> = ({
       try {
         setCustomError(null);
         const slotData = await checkSlotAvailability(date);
-        console.log(slotData?.slots);
         if (slotData?.slots) {
           const availableSlots = getAvailableSlots(slotData.slots);
           const selectedTime = selectedDate.format("HH:mm");

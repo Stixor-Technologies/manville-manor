@@ -1,6 +1,8 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { getBlogs } from "@/utils/api-calls";
+import Link from "next/link";
 import DummyArticle from "@/public/assets/dummy-article.png";
 import DummyAvatar from "@/public/assets/dummy-avatar.png";
 import Arrow from "@/public/assets/icons/arrow.svg";
@@ -10,8 +12,15 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Button } from "@/components/button";
+import { Blogs } from "@/utils/types/types";
+import { BASE_URL } from "@/utils/contants";
+import moment from "moment";
 
-const SportsArticle = () => {
+interface BlogsArticleProps {
+  blogsData: Blogs[];
+}
+
+const BlogsArticle: FC<BlogsArticleProps> = ({ blogsData }) => {
   const swiperRef = useRef<SwiperClass | null>(null);
   const [isPrevButtonDisabled, setIsPrevButtonDisabled] = useState(true);
   const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(false);
@@ -74,7 +83,7 @@ const SportsArticle = () => {
       </h2>
       {/* </div> */}
 
-      <Swiper
+      {/* <Swiper
         modules={[Navigation]}
         slidesPerView={"auto"}
         freeMode={true}
@@ -120,6 +129,69 @@ const SportsArticle = () => {
                 </p>
               </div>
             </article>
+          </SwiperSlide>
+        ))}
+      </Swiper> */}
+
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView={"auto"}
+        freeMode={true}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        onSlideChange={handleSlideChange}
+      >
+        {blogsData?.map((blog, index) => (
+          <SwiperSlide
+            key={index}
+            className="mr-[1.875rem] last:mr-0 sm:max-w-[23.3125rem]"
+          >
+            <Link href={`/blogs/${blog.attributes?.title}`}>
+              <article className="relative font-medium text-white">
+                <span className="absolute right-3 top-3 rounded-[.25rem] border border-white px-2.5 py-1.5 text-xs">
+                  {blog?.attributes?.tag}
+                </span>
+
+                <Image
+                  src={`${BASE_URL}${blog?.attributes?.media?.data?.attributes?.url}`}
+                  alt=""
+                  className="mb-7"
+                  width={370}
+                  height={248}
+                />
+
+                <div>
+                  <div className="flex items-center gap-4">
+                    <div className="relative size-11 overflow-hidden rounded-full">
+                      <Image
+                        src={`${BASE_URL}${blog?.attributes?.auhtorImage?.data?.attributes?.url}`}
+                        alt=""
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h4>{blog?.attributes?.authorName}</h4>
+                  </div>
+
+                  <span className="my-5 inline-block text-white/60">
+                    {moment(blog?.attributes?.date).format("DD-MM-YYYY")}
+                  </span>
+                </div>
+
+                <div>
+                  <h2 className="mb-3 font-cormorant text-[1.375rem] font-normal leading-tight">
+                    {blog?.attributes?.title}
+                  </h2>
+
+                  <p>
+                    This article was written by Jake Willhoite from
+                    Healthlisted.com Strength in basketball isn&apos;t all about
+                    a massive body mass or ripped muscles.
+                  </p>
+                </div>
+              </article>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -204,4 +276,4 @@ const SportsArticle = () => {
   );
 };
 
-export default SportsArticle;
+export default BlogsArticle;
