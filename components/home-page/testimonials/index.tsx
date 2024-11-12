@@ -17,9 +17,7 @@ const Testimonials = () => {
     const clickedItem = tabsRefs?.current[index];
 
     if (clickedItem) {
-      console.log("clcked", clickedItem);
       const elem = document.querySelector(`.active`);
-      console.log("activeElem", elem);
       gsap.to(clickedItem, {
         width: "500px",
         // duration: 2,

@@ -68,7 +68,6 @@ const BookingForm: FC<BookingFormProps> = ({
     try {
       setBookingRequest(true);
       const resp = await createBooking(formData);
-
       toast.success("Booking request successfull", {
         position: "bottom-right",
         autoClose: 2000,
@@ -84,7 +83,6 @@ const BookingForm: FC<BookingFormProps> = ({
         autoClose: 2000,
         hideProgressBar: true,
       });
-      console.log("error creating booking", error);
     } finally {
       setBookingRequest(false);
     }

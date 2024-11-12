@@ -163,7 +163,6 @@ export const postContract = async (bookingId: any, pdfFile: any) => {
     });
     const resp = await uploadPdf.json();
     const pdfId = resp?.[0]?.id;
-    console.log("res", pdfId);
 
     const requestData = {
       data: {
@@ -189,5 +188,38 @@ export const postContract = async (bookingId: any, pdfFile: any) => {
   } catch (error) {
     console.error("Error creating reservation:", error);
     throw error;
+  }
+};
+
+export const getBlogs = async () => {
+  try {
+    const resp = await fetch(
+      `${BASE_URL}/api/blogs?populate=*&pagination[limit]=6`,
+      {
+        next: { revalidate: 7200 },
+      },
+    );
+    const blogs = await resp.json();
+    return blogs?.data;
+  } catch (error) {
+    console.error("There was an error getting blogs", error);
+    return [];
+  }
+};
+
+export const getBlogDetail = async (title: string) => {
+  const formattedTitle = title.replace(/%20/g, " ");
+
+  try {
+    const resp = await fetch(
+      `${BASE_URL}/api/blogs?populate=*&filters[title][$eq]=${formattedTitle}`,
+      {
+        cache: "no-store",
+      },
+    );
+    const data = await resp.json();
+    return data?.data;
+  } catch (error) {
+    console.error("There was an error getting the Property List", error);
   }
 };

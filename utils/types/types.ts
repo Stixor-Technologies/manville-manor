@@ -53,6 +53,26 @@ type FormValues = {
   message: string;
 };
 
+type Images = {
+  data: {
+    attributes: {
+      url: string;
+    };
+  };
+};
+
+type Blogs = {
+  attributes: {
+    authorName: string;
+    date: string;
+    tag: string;
+    title: string;
+    media: Images;
+    auhtorImage: Images;
+    description: any;
+  };
+};
+
 export type {
   Menu,
   SocialLinks,
@@ -62,4 +82,5 @@ export type {
   RecentEvents,
   ListItemOption,
   FormValues,
+  Blogs,
 };

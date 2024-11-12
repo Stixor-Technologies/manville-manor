@@ -40,7 +40,6 @@ const SignatureDropzone: FC<SignatureDropzoneProps> = ({
 
   const processFile = (file: File | undefined) => {
     if (file && allowedTypes.includes(file.type)) {
-      console.log("File accepted:", file);
       setFieldValue(name, file);
       setFieldTouched(name, true, false);
       setPreview(URL.createObjectURL(file));
