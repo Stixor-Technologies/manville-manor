@@ -62,7 +62,7 @@ export default function GalleryPortfolio() {
       : images.filter((image) => image.category === selectedFilter);
 
   return (
-    <section className="relative">
+    <section className="relative px-[1.375rem] md:px-0">
       <div className="container my-11 overflow-hidden lg:mb-[6.6875rem] lg:mt-[8.75rem]">
         <h2 className="mb-11 text-center font-cormorant text-5xl text-white md:text-right lg:mb-24">
           Portfolio

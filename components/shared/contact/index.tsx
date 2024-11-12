@@ -100,7 +100,7 @@ const Contact = () => {
 
       <div
         data-animated-contact-form
-        className="row-span-2 rounded-sm bg-white px-4 py-12 sm:px-6"
+        className="row-span-2 rounded-sm bg-[#EEEEEE] px-4 py-12 sm:px-6"
       >
         <span className="block text-center text-[1.375rem] font-medium text-accent sm:text-left">
           I&apos;m interested in...

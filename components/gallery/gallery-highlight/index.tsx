@@ -57,7 +57,7 @@ const GalleryHighLight = () => {
       </div>
 
       {/* Event section */}
-      <div className="relative md:py-7 xl:py-12">
+      <div className="relative px-[1.375rem] md:px-0 md:py-7 xl:py-12">
         <picture>
           <source
             media="(min-width: 640px)"
@@ -67,7 +67,7 @@ const GalleryHighLight = () => {
           <img />
         </picture>
 
-        <div className="lg absolute bottom-0 left-1/2 flex w-[90%] -translate-x-1/2 translate-y-1/2 flex-col justify-center gap-4 bg-accent/80 px-4 py-9 text-center text-white md:bottom-0 md:left-0 md:top-0 md:w-1/2 md:translate-x-0 md:translate-y-0 md:px-7 md:text-left xl:w-[54%] xl:px-14">
+        <div className="lg absolute bottom-0 left-1/2 flex w-[80%] -translate-x-1/2 translate-y-1/2 flex-col justify-center gap-4 bg-accent/80 px-4 py-9 text-center text-white md:bottom-0 md:left-0 md:top-0 md:w-1/2 md:translate-x-0 md:translate-y-0 md:px-7 md:text-left xl:w-[54%] xl:px-14">
           <h3 className=" mx-auto max-w-48 text-[1.375rem] capitalize leading-tight md:mx-0 md:max-w-[590px] md:text-4xl md:uppercase lg:text-5xl lg:leading-none xl:text-[4rem]">
             We create an event <br /> that everyone will <br /> remember.
           </h3>
