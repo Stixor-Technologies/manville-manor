@@ -73,6 +73,20 @@ type Blogs = {
   };
 };
 
+type Backdrops = {
+  id: number;
+  attributes: {
+    name: string;
+    price: number;
+    tag: string;
+    backDropMedia: Images;
+    social?: {
+      facebook: "/";
+      instagram: "/";
+    };
+  };
+};
+
 export type {
   Menu,
   SocialLinks,
@@ -83,4 +97,5 @@ export type {
   ListItemOption,
   FormValues,
   Blogs,
+  Backdrops,
 };

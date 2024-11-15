@@ -19,6 +19,7 @@ const SectionHeader: FC<SectionHeaderProps> = ({ header, description }) => {
         id: "[data-animated-text]",
         trigger: sectionHeaderContainer.current,
         start: "top 90%",
+        markers: true,
       },
     });
     tl.from(sectionHeaderContainer.current, {

@@ -190,11 +190,11 @@
   }
 
   .media-swiper .swiper-slide {
-    @apply transition-all duration-300 ease-in-out md:h-[30.3125rem];
+    @apply transition-all duration-300 ease-in-out xl:h-[30.3125rem];
   }
 
   .media-swiper .pre-transition-slide {
-    @apply transition-all duration-300 ease-out md:h-[25rem];
+    @apply transition-all duration-300 ease-out xl:h-[25rem];
   }
 
   .floor-swiper .swiper-wrapper {
