@@ -81,21 +81,21 @@ export const getAdditionalServices = async (): Promise<ListItemOption[]> => {
   }
 };
 
-export const getFloorPlans = async (): Promise<ListItemOption[]> => {
-  try {
-    const resp = await fetch(`${BASE_URL}/api/floor-options`, {
-      cache: "no-store",
-    });
-    const floorOptions = await resp.json();
-    return floorOptions?.data.map((item: any) => ({
-      value: item?.id,
-      label: item?.attributes?.name,
-    }));
-  } catch (error) {
-    console.error("There was an error getting floor options", error);
-    return [];
-  }
-};
+// export const getFloorPlans = async (): Promise<ListItemOption[]> => {
+//   try {
+//     const resp = await fetch(`${BASE_URL}/api/floor-options`, {
+//       cache: "no-store",
+//     });
+//     const floorOptions = await resp.json();
+//     return floorOptions?.data.map((item: any) => ({
+//       value: item?.id,
+//       label: item?.attributes?.name,
+//     }));
+//   } catch (error) {
+//     console.error("There was an error getting floor options", error);
+//     return [];
+//   }
+// };
 
 // export const getBackdrops = async (): Promise<ListItemOption[]> => {
 //   try {
@@ -112,6 +112,26 @@ export const getFloorPlans = async (): Promise<ListItemOption[]> => {
 //     return [];
 //   }
 // };
+
+export const getFloorPlans = async (returnMappedList = false) => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/floor-options?populate=*`, {
+      cache: "no-store",
+    });
+    const floorOptions = await resp.json();
+    if (returnMappedList) {
+      return floorOptions?.data.map((item: any) => ({
+        value: item?.id,
+        label: item?.attributes?.name,
+      }));
+    }
+
+    return floorOptions?.data;
+  } catch (error) {
+    console.error("There was an error getting floor options", error);
+    return [];
+  }
+};
 
 export const getBackdrops = async (returnMappedList = false) => {
   try {
@@ -224,7 +244,6 @@ export const getBlogs = async () => {
     return blogs?.data;
   } catch (error) {
     console.error("There was an error getting blogs", error);
-    return [];
   }
 };
 

@@ -1,12 +1,10 @@
-"use client";
-import SwiperButtons from "@/components/shared/swiper-buttons";
-import React, { useRef } from "react";
-import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
-import Image from "next/image";
-import { Pagination } from "swiper/modules";
+import React from "react";
+
 import DummyFloorPlan from "@/public/assets/dummy-floor-plan.png";
-import { cn } from "@/lib/utils";
+
 import { Button } from "@/components/button";
+import { getFloorPlans } from "@/utils/api-calls";
+import FloorSlider from "./slider";
 
 const venues = [
   {
@@ -36,39 +34,8 @@ const venues = [
   },
 ];
 
-const FloorPlans = () => {
-  const swiperRef = useRef<SwiperClass | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const handleSlideChange = (swiper: SwiperClass) => {
-    setTimeout(() => {
-      const currentSlide = swiper.slides[swiper.activeIndex];
-      if (currentSlide) currentSlide.classList.add("pre-transition-slide");
-    }, 50);
-  };
-
-  const nextSlide = () => {
-    swiperRef.current?.slideNext();
-
-    setTimeout(() => {
-      const currentSlide =
-        swiperRef.current?.slides[swiperRef.current.activeIndex];
-      if (currentSlide) {
-        currentSlide.classList.add("pre-transition-slide");
-      }
-    }, 10);
-  };
-
-  const previousSlide = () => {
-    swiperRef.current?.slidePrev();
-    setTimeout(() => {
-      const currentSlide =
-        swiperRef.current?.slides[swiperRef.current.activeIndex];
-      if (currentSlide) {
-        currentSlide.classList.add("pre-transition-slide");
-      }
-    }, 10);
-  };
+const FloorPlans = async () => {
+  const floorPlans = await getFloorPlans();
 
   return (
     <section className="container overflow-hidden py-12 sm:px-[2.5625rem] md:py-24">
@@ -89,50 +56,7 @@ const FloorPlans = () => {
         </div>
 
         <>
-          <div
-            ref={containerRef}
-            className="relative md:max-w-[25rem] lg:max-w-[500px] xl:max-w-[51.5rem]"
-          >
-            <Swiper
-              modules={[Pagination]}
-              spaceBetween={22}
-              speed={500}
-              slidesPerView={1}
-              onSlideChange={handleSlideChange}
-              onInit={(swiper) => (swiperRef.current = swiper)}
-              breakpoints={{
-                480: {
-                  slidesPerView: 1,
-                },
-
-                1280: {
-                  slidesPerView: 2,
-                },
-              }}
-              className="floor-swiper"
-            >
-              {venues.map((venue: any, index: number) => (
-                <SwiperSlide key={index} className={cn("!overflow-hidden ")}>
-                  <div className={cn("slide-content h-full")}>
-                    <Image
-                      src={venue?.asset}
-                      alt=""
-                      className="w-full object-cover"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            <div className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 md:bottom-0 md:left-auto md:right-0 md:block md:-translate-x-0 xl:right-[7%] xl:top-0">
-              <SwiperButtons
-                swiperRef={swiperRef}
-                nextSlide={nextSlide}
-                previousSlide={previousSlide}
-                fromPlans
-              />
-            </div>
-          </div>
+          <FloorSlider floorPlans={floorPlans} />
         </>
         <Button className="mx-auto w-[12.75rem] md:hidden lg:mt-14">
           Design Your Event
