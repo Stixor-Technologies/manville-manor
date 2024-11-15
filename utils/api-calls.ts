@@ -97,16 +97,37 @@ export const getFloorPlans = async (): Promise<ListItemOption[]> => {
   }
 };
 
-export const getBackdrops = async (): Promise<ListItemOption[]> => {
+// export const getBackdrops = async (): Promise<ListItemOption[]> => {
+//   try {
+//     const resp = await fetch(`${BASE_URL}/api/back-drops`, {
+//       cache: "no-store",
+//     });
+//     const backDrops = await resp.json();
+//     return backDrops?.data.map((item: any) => ({
+//       value: item?.id,
+//       label: item?.attributes?.name,
+//     }));
+//   } catch (error) {
+//     console.error("There was an error getting Backdrops", error);
+//     return [];
+//   }
+// };
+
+export const getBackdrops = async (returnMappedList = false) => {
   try {
-    const resp = await fetch(`${BASE_URL}/api/back-drops`, {
+    const resp = await fetch(`${BASE_URL}/api/back-drops?populate=*`, {
       cache: "no-store",
     });
     const backDrops = await resp.json();
-    return backDrops?.data.map((item: any) => ({
-      value: item?.id,
-      label: item?.attributes?.name,
-    }));
+
+    if (returnMappedList) {
+      return backDrops?.data.map((item: any) => ({
+        value: item?.id,
+        label: item?.attributes?.name,
+      }));
+    }
+
+    return backDrops?.data;
   } catch (error) {
     console.error("There was an error getting Backdrops", error);
     return [];

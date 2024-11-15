@@ -25,9 +25,11 @@ const BookingWrapper = async () => {
     getCatering(),
     getFloorPlans(),
     getAdditionalServices(),
-    getBackdrops(),
+    getBackdrops(true),
     getPackages(),
   ]);
+
+  console.log("bad", backDrops);
 
   return (
     <BookingForm

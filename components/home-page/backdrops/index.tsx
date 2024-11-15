@@ -1,39 +1,10 @@
 import React from "react";
 import MediaCarousel from "../media-carousel";
-import Slide1 from "@/public/assets/gallery/slide-1.png";
-import Slide2 from "@/public/assets/gallery/slide-2.png";
-import Slide3 from "@/public/assets/gallery/slide-3.png";
-import Slide4 from "@/public/assets/gallery/slide-4.png";
-import Slide5 from "@/public/assets/gallery/slide-5.png";
+import { getBackdrops } from "@/utils/api-calls";
+import { Backdrops } from "@/utils/types/types";
 
-const BackDrops = () => {
-  const venues = [
-    {
-      asset: Slide1,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-    },
-    {
-      asset: Slide2,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-    },
-    {
-      asset: Slide3,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-    },
-    {
-      asset: Slide4,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-    },
-    {
-      asset: Slide5,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-    },
-  ];
+const BackDrops = async () => {
+  const backDrops: Backdrops[] = await getBackdrops();
 
   return (
     <section className="container my-12 sm:px-[2.5625rem] md:my-24">
@@ -45,7 +16,7 @@ const BackDrops = () => {
           </h2>
         </div>
 
-        <MediaCarousel venues={venues} />
+        <MediaCarousel backdrops={backDrops} />
       </div>
     </section>
   );
