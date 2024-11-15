@@ -52,7 +52,7 @@ const BlogDetail = async ({ params }: BlogDetailProps) => {
             width={1636}
             height={800}
           />
-          <div className="prose lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-h4:text-white prose-h5:text-white prose-h6:text-white prose-img:mx-auto prose-code:text-white prose-blockquote:text-white prose-p:my-0 my-14 w-full max-w-screen-2xl !text-base text-white md:!text-lg">
+          <div className="prose my-14 w-full max-w-screen-2xl !text-base text-white lg:prose-xl prose-h1:text-white prose-h2:text-white prose-h3:text-white prose-h4:text-white prose-h5:text-white prose-h6:text-white prose-p:my-0 prose-blockquote:text-white prose-code:text-white prose-img:mx-auto md:!text-lg">
             <BlocksRenderer content={data?.[0]?.attributes?.description} />
           </div>
         </>

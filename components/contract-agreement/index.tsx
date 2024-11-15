@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, RefObject, useRef, useState } from "react";
+import React, { ChangeEvent, FC, RefObject, useState } from "react";
 import { ContractFormSchema } from "@/utils/formik-schema";
 import { Field, Form, Formik, useFormikContext } from "formik";
 import { Button } from "@/components/button";
@@ -7,8 +7,10 @@ import "react-datetime/css/react-datetime.css";
 import Dropzone from "react-dropzone";
 import moment, { Moment } from "moment";
 import Image from "next/image";
-import generatePDF, { Margin } from "react-to-pdf";
+import generatePDF from "react-to-pdf";
 import { postContract } from "@/utils/api-calls";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface ContractAgreementProps {
   bookingId: any;
@@ -110,6 +112,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
   targetRef,
 }) => {
   const [isPostingContract, setisPostingContract] = useState<boolean>(false);
+  const router = useRouter();
 
   const yesterday = moment().subtract(1, "day");
   const disablePastDt = (current: Moment) => {
@@ -126,7 +129,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
     try {
       setisPostingContract(true);
 
-      if (targetRef?.current) {
+      if (targetRef?.current && bookingId) {
         const createPdf = await generatePDF(targetRef, {
           filename: "contract.pdf",
           method: "build",
@@ -136,8 +139,17 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
         const formData = new FormData();
         formData.append("files", pdfBlob);
 
-        // const resp = await postContract(103, formData);
-        // console.log("resp", resp);
+        const resp = await postContract(bookingId, formData);
+        if (resp) {
+          toast.success("Booking Updated Contract", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+          });
+
+          router.push("/payment");
+        }
+        console.log("resp", resp);
       }
     } catch (error) {
       console.error("Error generating or uploading contract", error);
@@ -154,7 +166,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
           dateClient: "",
         }}
         onSubmit={submitContract}
-        // validationSchema={ContractFormSchema}
+        validationSchema={ContractFormSchema}
       >
         {({ errors, touched, setFieldValue }) => (
           <>
