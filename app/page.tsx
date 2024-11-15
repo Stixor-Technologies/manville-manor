@@ -8,8 +8,7 @@ import BackDrops from "@/components/home-page/backdrops";
 import HomeHero from "@/components/home-page/home-hero";
 import HomeAbout from "@/components/home-page/home-about/home-about";
 import FloorPlans from "@/components/home-page/floor-plans";
-// import BlogsSection from "@/components/home-page/blogs";
-// import { Suspense } from "react";
+import BlogsSection from "@/components/home-page/blogs";
 
 export default function Home() {
   return (
@@ -25,9 +24,7 @@ export default function Home() {
           <EventPackages fromHome />
         </div>
 
-        {/* <Suspense> */}
-        {/* <BlogsSection /> */}
-        {/* </Suspense> */}
+        <BlogsSection />
 
         <div className="py-8 md:py-16">
           <Contact />
