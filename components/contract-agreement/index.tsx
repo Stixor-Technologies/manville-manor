@@ -31,7 +31,7 @@ const SignatureDropzone: FC<SignatureDropzoneProps> = ({
   errorMessage,
 }) => {
   const { setFieldValue, setFieldTouched } = useFormikContext();
-  const [preview, setPreview] = useState(null);
+  const [preview, setPreview] = useState<string>("");
 
   const allowedTypes = [
     "image/svg+xml",
