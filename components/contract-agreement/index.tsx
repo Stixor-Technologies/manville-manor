@@ -147,9 +147,8 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
             hideProgressBar: true,
           });
 
-          router.push("/payment");
+          router.replace("/payment");
         }
-        console.log("resp", resp);
       }
     } catch (error) {
       console.error("Error generating or uploading contract", error);
