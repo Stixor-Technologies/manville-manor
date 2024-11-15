@@ -74,71 +74,25 @@ const FloorPlans = () => {
     <section className="container overflow-hidden py-12 sm:px-[2.5625rem] md:py-24">
       <div className="flex flex-col justify-between gap-11 md:flex-row md:gap-8 lg:gap-16 2xl:gap-0">
         <div className="text-center md:max-w-[25.75rem] md:text-left">
-          <h2 className="font-cormorant text-5xl text-white">
-            Recent Events held at Manville Manor
+          <h4 className="text-xl text-secondary">Floor Plans</h4>
+          <h2 className="my-4 text-5xl text-white">
+            Let&apos;s View Our Floor Plans
           </h2>
-
-          <p className="my-6 text-[1.375rem] text-secondary">
-            Explore our gallery to see unforgettable moments from past events.
-            Get inspired for your next celebration!
+          <p className="text-[1.375rem] text-secondary">
+            Let&apos;s view our floor plans and discover versatile layouts
+            tailored to suit any event, from intimate gatherings to grand
+            celebrations. Find the perfect setup to bring your vision to life!
           </p>
-          <Button className="hidden lg:block">View All</Button>
+          <Button className="hidden w-[12.75rem] md:mt-4 md:block lg:mt-14">
+            Design Your Event
+          </Button>
         </div>
 
-        {/* Swiper */}
         <>
-          <div className="md:hidden">
-            <SwiperButtons
-              swiperRef={swiperRef}
-              nextSlide={nextSlide}
-              previousSlide={previousSlide}
-            />
-          </div>
-
           <div
             ref={containerRef}
-            className="relative  md:max-w-[400px] lg:max-w-[500px] xl:max-w-[51.5rem]"
+            className="relative md:max-w-[25rem] lg:max-w-[500px] xl:max-w-[51.5rem]"
           >
-            {/* <Swiper
-              modules={[Pagination]}
-              spaceBetween={22}
-              speed={500}
-              slidesPerView={1}
-              onSlideChange={handleSlideChange}
-              onInit={(swiper) => (swiperRef.current = swiper)}
-              breakpoints={{
-                480: {
-                  slidesPerView: 1,
-                },
-
-                1280: {
-                  slidesPerView: 2,
-                },
-              }}
-              className="floor-swiper"
-            >
-              {venues.map((venue: any, index: number) => (
-                <SwiperSlide
-                  key={index}
-                  className={cn(
-                    " !overflow-hidden lg:!w-[361px] lg:max-w-[475px]",
-
-                    index === 0 && "md:pre-transition-slide",
-                  )}
-                >
-                  <div className={cn("slide-content h-full")}>
-                    <Image
-                      src={venue?.asset}
-                      alt=""
-                      className="w-full object-cover"
-                      //   className="md:absolute md:object-cover"
-                      //   fill={windowSize >= 768}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper> */}
-
             <Swiper
               modules={[Pagination]}
               spaceBetween={22}
@@ -170,7 +124,7 @@ const FloorPlans = () => {
               ))}
             </Swiper>
 
-            <div className="absolute bottom-0 right-0 z-10 hidden md:block xl:right-[7%] xl:top-0">
+            <div className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 md:bottom-0 md:left-auto md:right-0 md:block md:-translate-x-0 xl:right-[7%] xl:top-0">
               <SwiperButtons
                 swiperRef={swiperRef}
                 nextSlide={nextSlide}
@@ -180,6 +134,9 @@ const FloorPlans = () => {
             </div>
           </div>
         </>
+        <Button className="mx-auto w-[12.75rem] md:hidden lg:mt-14">
+          Design Your Event
+        </Button>
       </div>
     </section>
   );
