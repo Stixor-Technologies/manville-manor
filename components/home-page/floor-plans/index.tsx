@@ -1,38 +1,8 @@
 import React from "react";
 
-import DummyFloorPlan from "@/public/assets/dummy-floor-plan.png";
-
 import { Button } from "@/components/button";
 import { getFloorPlans } from "@/utils/api-calls";
 import FloorSlider from "./slider";
-
-const venues = [
-  {
-    asset: DummyFloorPlan,
-    venueName: "Don Carlo Van Houten",
-    venueNumber: "Venue 1",
-  },
-  {
-    asset: DummyFloorPlan,
-    venueName: "Don Carlo Van Houten",
-    venueNumber: "Venue 1",
-  },
-  {
-    asset: DummyFloorPlan,
-    venueName: "Don Carlo Van Houten",
-    venueNumber: "Venue 1",
-  },
-  {
-    asset: DummyFloorPlan,
-    venueName: "Don Carlo Van Houten",
-    venueNumber: "Venue 1",
-  },
-  {
-    asset: DummyFloorPlan,
-    venueName: "Don Carlo Van Houten",
-    venueNumber: "Venue 1",
-  },
-];
 
 const FloorPlans = async () => {
   const floorPlans = await getFloorPlans();
