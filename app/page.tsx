@@ -16,9 +16,9 @@ export default function Home() {
       <HomeHero />
       <HomeAbout />
       <HomeGallery />
-      <BackDrops />
-      <VenueDetails />
       <FloorPlans />
+      <VenueDetails />
+      <BackDrops />
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
         <div className="pb-10 pt-12 md:pb-20 md:pt-24">
           <EventPackages fromHome />
