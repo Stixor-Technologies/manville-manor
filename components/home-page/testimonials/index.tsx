@@ -1,10 +1,9 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import SectionHeader from "@/components/shared/section-header";
 import Image from "next/image";
 import DummyProfile from "@/public/assets/dummy-profile.png";
 import { useGSAP } from "@gsap/react";
-import { Button } from "@/components/button";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 
@@ -52,7 +51,7 @@ const Testimonials = () => {
     }
   });
 
-  const firstItemWidthRef = useRef(0); // Store the first item width
+  // const firstItemWidthRef = useRef(0); // Store the first item width
 
   // useEffect(() => {
   //   if (containerRef.current) {

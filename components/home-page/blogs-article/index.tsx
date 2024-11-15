@@ -1,10 +1,7 @@
 "use client";
 import React, { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { getBlogs } from "@/utils/api-calls";
 import Link from "next/link";
-import DummyArticle from "@/public/assets/dummy-article.png";
-import DummyAvatar from "@/public/assets/dummy-avatar.png";
 import Arrow from "@/public/assets/icons/arrow.svg";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";

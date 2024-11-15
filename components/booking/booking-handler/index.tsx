@@ -29,8 +29,6 @@ const BookingWrapper = async () => {
     getPackages(),
   ]);
 
-  console.log("adata", venues);
-
   return (
     <BookingForm
       venues={venues}

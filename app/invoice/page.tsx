@@ -34,9 +34,10 @@ const InvoicePage = () => {
             Manville Manor Event Space Rental Agreement
           </h2>
           <p className="text-[1.375rem] md:text-[2.25rem]">
-            This Event Space Rental Agreement ("Agreement") is entered into on
-            [Date] by and between Manville Manor, located at 39 South St,
-            Manville, NJ ("Owner"), and [Client's Full Name] ("Client").
+            This Event Space Rental Agreement (&quot;Agreement&quot;) is entered
+            into on [Date] by and between Manville Manor, located at 39 South
+            St, Manville, NJ (&quot;Owner&quot;), and [Client&apos;s Full Name]
+            (&quot;Client&quot;).
           </p>
 
           <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
@@ -124,8 +125,8 @@ const InvoicePage = () => {
               The Client agrees to indemnify, defend, and hold harmless Manville
               Manor, its owners, employees, and agents from and against any and
               all claims, damages, losses, liabilities, and expenses (including
-              reasonable attorney's fees) arising from the Client’s use of the
-              event space, including but not limited to:
+              reasonable attorney&apos;s fees) arising from the Client&apos;s
+              use of the event space, including but not limited to:
             </li>
             <li className="ml-10">
               Personal injury or property damage occurring on the premises

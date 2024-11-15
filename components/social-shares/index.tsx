@@ -15,11 +15,7 @@ import { BASE_URL } from "@/utils/contants";
 const ShareButtons = () => {
   const path = usePathname();
 
-  console.log("rpass", path);
-
-  //   const url = `${BASE_URL}${path}`;
-
-  const url = `https://www.transparentvoip.com/nam-truong`;
+  const url = `${BASE_URL}${path}`;
 
   return (
     <div className="flex items-center gap-3">
