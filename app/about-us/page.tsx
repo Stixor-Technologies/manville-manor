@@ -88,7 +88,7 @@ const About = () => {
 
   return (
     <>
-      <Hero heroImage={AboutHero} heroHeading="About us" />
+      <Hero heroImage={AboutHero} heroHeading="About Us" />
 
       {/* about us section*/}
       <section className="container mt-12 grid grid-cols-1 flex-col place-items-center text-center md:mt-[4.375rem] lg:grid-cols-[1fr,0.93fr] lg:gap-x-16 lg:text-left">
@@ -117,7 +117,7 @@ const About = () => {
           src={AboutUs}
           alt="about-us"
           data-animated-about-image
-          className="lg:col-start-1 lg:row-span-2 lg:row-start-1"
+          className="rounded-lg md:rounded-none lg:col-start-1 lg:row-span-2 lg:row-start-1"
         />
 
         <div data-animated-about-text className="self-start text-white">
@@ -158,12 +158,12 @@ const About = () => {
             <Button variant={"invert"}>Contact Us Now</Button>
           </div>
 
-          <div className="flex w-full max-w-[34rem] flex-wrap justify-center  gap-6 md:items-start lg:flex-nowrap">
+          <div className="flex w-full max-w-[34rem] flex-wrap justify-center gap-6  sm:flex-nowrap md:items-start">
             {features?.map((feature) => (
               <div
                 key={feature?.name}
                 data-animated-feature-box
-                className="flex min-w-[10.3125rem] flex-1 flex-col items-center justify-center border border-white px-6 py-8 text-center font-medium"
+                className="flex h-[10.158rem] w-[10.366rem] flex-col items-center justify-center border border-white px-6 py-8 text-center font-medium"
               >
                 <Image
                   src={feature?.icon}

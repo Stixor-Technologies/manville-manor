@@ -25,34 +25,32 @@ const EssentialMetrics = () => {
   );
 
   return (
-    <div
-      ref={metricsContainer}
-      className="mx-auto my-14 flex w-full max-w-[46.1875rem] justify-between sm:mt-28 lg:mb-11 lg:mt-[12.4375rem]"
-    >
-      <div className="metric-container !w-fit !pl-0">
-        <h5 className="metric-number text-nowrap">
-          +<span className="metric">10</span> Years
-        </h5>
+   <div
+  ref={metricsContainer}
+  className="mx-auto my-14 flex w-full max-w-[46.1875rem] justify-between"
+>
+  <div className="metric-container pr-2 sm:pr-4 text-center [@media(max-width:430px)]:pr-4">
+    <h5 className="metric-number whitespace-nowrap">
+      +<span className="metric">10</span> Years
+    </h5>
+    <span className="metric-label">Experience</span>
+  </div>
 
-        <span className="metric-label">Experience</span>
-      </div>
+  <div className="metric-container pr-2 sm:pr-4 text-center [@media(max-width:430px)]:pr-4">
+    <h5 className="metric-number whitespace-nowrap">
+      +<span className="metric">450</span>
+    </h5>
+    <span className="metric-label">Customers</span>
+  </div>
 
-      <div className="metric-container">
-        <h5 className="metric-number">
-          +<span className="metric">450</span>
-        </h5>
+  <div className="metric-container pr-2 sm:pr-4 text-center [@media(max-width:430px)]:pr-4">
+    <h5 className="metric-number whitespace-nowrap">
+      +<span className="metric">15</span>K
+    </h5>
+    <span className="metric-label">Portfolio Photos</span>
+  </div>
+</div>
 
-        <span className="metric-label">Customers</span>
-      </div>
-
-      <div className="metric-container">
-        <h5 className="metric-number">
-          +<span className="metric">15</span>K
-        </h5>
-
-        <span className="metric-label">Portfolio Photos</span>
-      </div>
-    </div>
   );
 };
 

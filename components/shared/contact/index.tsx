@@ -203,7 +203,7 @@ const Contact = () => {
         </Link>
 
         <Link
-          href={"mailto:SaulDesign@gmail.com"}
+          href={"https://maps.app.goo.gl/YGc6dHBHDEkmjpTh9"}
           className="flex gap-4 p-6 text-xl"
           data-animated-contact-details
         >
