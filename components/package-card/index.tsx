@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Button } from "../button";
-import { EventPackage } from "@/utils/types/types";
+import { EventPackage, EventPackagesType } from "@/utils/types/types";
 
 const cardVariants = cva(
   "transition-all max-w-[23.3125rem] w-full text-white rounded-sm px-3 xs:px-5 py-5 relative z-10",
@@ -24,7 +24,8 @@ const cardVariants = cva(
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
-  eventPackage: EventPackage;
+  // eventPackage: EventPackage;
+  eventPackage: EventPackagesType;
 }
 
 const PackageCard: React.FC<CardProps> = ({
@@ -34,6 +35,7 @@ const PackageCard: React.FC<CardProps> = ({
   children,
   ...props
 }) => {
+  console.log("packagessss", eventPackage);
   const buttonVariant = variant === "decor" ? "black" : "default";
   const scrollbarClass =
     variant === "decor" ? "scrollbar-decor" : "scrollbar-default";
@@ -53,12 +55,16 @@ const PackageCard: React.FC<CardProps> = ({
         )}
 
         <div className="flex justify-between pt-4 xs:pt-[2.4375rem]">
-          {children}
+          {/* {children} */}
+          <h2 className="relative max-w-[9.0625rem] text-lg font-semibold leading-none tracking-wider text-white xs:text-[1.375rem]">
+            {eventPackage?.attributes.name}
+            <span className="after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-4 after:bg-white after:content-['']" />
+          </h2>
 
           <div className="text-right text-xs font-normal">
             <h4>
               <span className="text-lg font-bold xs:text-[1.375rem]">
-                {eventPackage?.weekDaysPrice}
+                {/* {eventPackage?.weekDaysPrice} */}
               </span>{" "}
               <span>Plus Tax</span>
             </h4>
@@ -70,13 +76,13 @@ const PackageCard: React.FC<CardProps> = ({
           <ul
             className={`h-52 max-h-[14.8125rem] list-outside list-disc  space-y-3 overflow-y-scroll px-5 xs:h-full xs:space-y-6 ${scrollbarClass}`}
           >
-            {eventPackage?.packageFeatures?.map(
-              (item: string, index: number) => <li key={index}>{item}</li>,
-            )}
+            {eventPackage?.attributes?.features?.map((feature) => (
+              <li key={feature.id}>{feature.feature}</li>
+            ))}
           </ul>
           <h4 className="mb-2 mt-6 text-center text-xs leading-none xs:mt-8">
             <span className="text-base font-bold">
-              {eventPackage?.weekEndPrices}
+              {`$${eventPackage?.attributes?.weekendPrice}`}
             </span>{" "}
             (Saturday & Sunday)
           </h4>
