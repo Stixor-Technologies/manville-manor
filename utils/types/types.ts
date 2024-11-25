@@ -87,6 +87,19 @@ type Backdrops = {
   };
 };
 
+type EventPackagesType = {
+  id: number;
+  attributes: {
+    name: string;
+    price: number;
+    weekendPrice: number;
+    features: {
+      id: number;
+      feature: string;
+    }[];
+  };
+};
+
 export type {
   Menu,
   SocialLinks,
@@ -98,4 +111,5 @@ export type {
   FormValues,
   Blogs,
   Backdrops,
+  EventPackagesType,
 };

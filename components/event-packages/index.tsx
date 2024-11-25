@@ -1,55 +1,63 @@
-"use client";
-import React, { FC, useRef } from "react";
-import { PackageCard } from "../package-card";
+// "use client";
+import React, { FC } from "react";
+// import { PackageCard } from "../package-card";
 import SectionHeader from "../shared/section-header";
-import { venuePackage, decorPackage } from "@/utils/utils";
-import { cn } from "@/lib/utils";
-
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { venuePackage, decorPackage } from "@/utils/utils";
+// import { cn } from "@/lib/utils";
+import { getPackages } from "@/utils/api-calls";
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PackagesList from "./packages-list";
+import { EventPackagesType } from "@/utils/types/types";
+// gsap.registerPlugin(ScrollTrigger);
 
 interface EventPackages {
   fromHome?: boolean;
 }
 
-const EventPackages: FC<EventPackages> = ({ fromHome }) => {
-  const packagesContainer = useRef<HTMLDivElement | null>(null);
+// const EventPackages: FC<EventPackages> = ({ fromHome }) => {
+const EventPackages: FC<EventPackages> = async ({ fromHome }) => {
+  const packages: EventPackagesType[] = await getPackages();
 
-  useGSAP(
-    () => {
-      const packageSection = gsap.timeline({
-        scrollTrigger: {
-          trigger: packagesContainer?.current,
-          start: "top 85%",
-        },
-      });
+  console.log("packages", packages);
 
-      packageSection.from("[data-animated-package-text]", {
-        opacity: 0,
-        y: 50,
-        ease: "power1",
-        duration: 0.8,
-      });
+  // const packagesContainer = useRef<HTMLDivElement | null>(null);
 
-      packageSection.from(
-        "[data-animated-package-card]",
-        {
-          opacity: 0,
-          y: 50,
-          duration: 0.8,
-          ease: "power1",
-          stagger: 0.3,
-        },
-        0.3,
-      );
-    },
-    { scope: packagesContainer },
-  );
+  // useGSAP(
+  //   () => {
+  //     const packageSection = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: packagesContainer?.current,
+  //         start: "top 85%",
+  //       },
+  //     });
+
+  //     packageSection.from("[data-animated-package-text]", {
+  //       opacity: 0,
+  //       y: 50,
+  //       ease: "power1",
+  //       duration: 0.8,
+  //     });
+
+  //     packageSection.from(
+  //       "[data-animated-package-card]",
+  //       {
+  //         opacity: 0,
+  //         y: 50,
+  //         duration: 0.8,
+  //         ease: "power1",
+  //         stagger: 0.3,
+  //       },
+  //       0.3,
+  //     );
+  //   },
+  //   { scope: packagesContainer },
+  // );
 
   return (
-    <div ref={packagesContainer}>
+    // <div ref={packagesContainer}>
+    <div>
       {fromHome ? (
         <SectionHeader header="Pricing" description="Event Packages" />
       ) : (
@@ -60,8 +68,8 @@ const EventPackages: FC<EventPackages> = ({ fromHome }) => {
           Best Plans For Events
         </h2>
       )}
-
-      <div
+      <PackagesList packages={packages} fromHome />
+      {/* <div
         data-animated-package-card
         className={cn(
           "flex flex-col items-center justify-center gap-9 md:flex-row",
@@ -86,7 +94,7 @@ const EventPackages: FC<EventPackages> = ({ fromHome }) => {
             ecor Package
           </h2>
         </PackageCard>
-      </div>
+      </div> */}
     </div>
   );
 };

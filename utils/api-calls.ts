@@ -33,16 +33,36 @@ export const getPeopleCount = async (): Promise<ListItemOption[]> => {
   }
 };
 
-export const getPackages = async (): Promise<ListItemOption[]> => {
+// export const getPackages = async (): Promise<ListItemOption[]> => {
+//   try {
+//     const resp = await fetch(`${BASE_URL}/api/packages`, {
+//       cache: "no-store",
+//     });
+//     const peopleCount = await resp.json();
+//     return peopleCount?.data.map((item: any) => ({
+//       value: item?.id,
+//       label: item?.attributes?.name,
+//     }));
+//   } catch (error) {
+//     console.error("There was an error getting packages", error);
+//     return [];
+//   }
+// };
+
+export const getPackages = async (returnMappedList = false) => {
   try {
-    const resp = await fetch(`${BASE_URL}/api/packages`, {
+    const resp = await fetch(`${BASE_URL}/api/packages?populate=*`, {
       cache: "no-store",
     });
-    const peopleCount = await resp.json();
-    return peopleCount?.data.map((item: any) => ({
-      value: item?.id,
-      label: item?.attributes?.name,
-    }));
+    const packages = await resp.json();
+
+    if (returnMappedList) {
+      return packages?.data.map((item: any) => ({
+        value: item?.id,
+        label: item?.attributes?.name,
+      }));
+    }
+    return packages?.data;
   } catch (error) {
     console.error("There was an error getting packages", error);
     return [];

@@ -26,7 +26,7 @@ const BookingWrapper = async () => {
     getFloorPlans(true),
     getAdditionalServices(),
     getBackdrops(true),
-    getPackages(),
+    getPackages(true),
   ]);
 
   console.log("bad", backDrops);
