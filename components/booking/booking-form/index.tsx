@@ -72,7 +72,7 @@ const BookingForm: FC<BookingFormProps> = ({
         sessionStorage.setItem("bookingData", JSON.stringify(resp));
       }
       console.log("res", resp);
-      // route.push("/invoice");
+      route.push("/invoice");
     } catch (error) {
       toast.error("Error creating booking, try again later", {
         position: "bottom-right",
