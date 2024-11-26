@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useRef } from "react";
 
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,26 +13,16 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Instagram from "@/public/assets/icons/instagram.svg";
 import Facebook from "@/public/assets/icons/facebook.svg";
+import { BASE_URL } from "@/utils/contants";
+import { Backdrops } from "@/utils/types/types";
 
 interface MediaCarouselProps {
-  venues: any;
+  backdrops: Backdrops[];
   showSocial?: boolean;
 }
 
-const MediaCarousel: FC<MediaCarouselProps> = ({ venues, showSocial }) => {
+const MediaCarousel: FC<MediaCarouselProps> = ({ backdrops, showSocial }) => {
   const swiperRef = useRef<SwiperClass | null>(null);
-  const [windowSize, setWindowSize] = useState<number>(0);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
 
   const handleSlideChange = (swiper: SwiperClass) => {
     setTimeout(() => {
@@ -74,7 +64,7 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ venues, showSocial }) => {
         />
       </div>
 
-      <div className="relative max-w-[51.5rem] overflow-hidden">
+      <div className="relative overflow-hidden md:max-w-[25rem] lg:max-w-[31.25rem] xl:max-w-[51.5rem]">
         <Swiper
           modules={[Pagination]}
           spaceBetween={24}
@@ -84,7 +74,7 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ venues, showSocial }) => {
           onInit={(swiper) => (swiperRef.current = swiper)}
           breakpoints={{
             480: {
-              slidesPerView: "auto",
+              slidesPerView: 1,
             },
 
             1280: {
@@ -93,39 +83,44 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ venues, showSocial }) => {
           }}
           className="media-swiper"
         >
-          {venues.map((venue: any, index: number) => (
+          {backdrops?.map((backdrop, index) => (
             <SwiperSlide
               key={index}
               className={cn(
-                "max-w-[25rem] !overflow-hidden",
+                "!overflow-hidden xl:max-w-[25rem]",
 
                 index === 0 && "md:pre-transition-slide",
               )}
             >
-              <div className="slide-content group relative flex cursor-pointer justify-center md:h-full md:w-[25rem]">
+              <div className="slide-content group relative flex aspect-[400/500] cursor-pointer  justify-center md:aspect-[400/400] md:h-full xl:aspect-auto xl:w-[25rem]">
                 <Image
-                  src={venue?.asset}
-                  alt=""
-                  className="md:absolute md:object-cover"
-                  fill={windowSize >= 768}
+                  src={
+                    !showSocial
+                      ? `${BASE_URL}${backdrop?.attributes?.backDropMedia?.data?.attributes?.url}`
+                      : backdrop?.attributes?.backDropMedia?.data?.attributes
+                          ?.url
+                  }
+                  alt={backdrop?.attributes?.name}
+                  className="absolute rounded-sm object-cover"
+                  fill
                 />
 
-                <div className="absolute bottom-0 flex w-[90%] items-end gap-3 opacity-0 transition-all duration-300 ease-in-out group-hover:bottom-8 group-hover:opacity-100 sm:w-[80%] sm:gap-8">
+                <div className="absolute bottom-0 flex w-[90%] items-end gap-3 opacity-0 transition-all duration-500 ease-in-out group-hover:bottom-8 group-hover:opacity-100 sm:w-[80%] sm:gap-8">
                   <div className="flex-1 rounded-sm bg-accent px-4 py-2.5 text-white">
-                    <p>{venue?.venueName}</p>
-                    <p>{venue?.venueNumber}</p>
+                    <p>{backdrop?.attributes?.name}</p>
+                    <p>{backdrop?.attributes?.tag}</p>
                   </div>
 
-                  {showSocial && (
+                  {showSocial && backdrop.attributes?.social && (
                     <div className="flex flex-col items-center bg-accent">
                       <Link
-                        href={venue?.social?.facebook}
+                        href={backdrop?.attributes.social?.facebook}
                         className="mb-3 inline-block p-3"
                       >
                         <Image src={Facebook} alt="facebook-icon" />
                       </Link>
                       <Link
-                        href={venue?.social?.facebook}
+                        href={backdrop?.attributes?.social?.facebook}
                         className="inline-block bg-white/30 p-3"
                       >
                         <Image src={Instagram} alt="instagram-icon" />
@@ -138,11 +133,12 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ venues, showSocial }) => {
           ))}
         </Swiper>
 
-        <div className="absolute bottom-0 left-[calc(397px-8rem)] z-10 hidden md:block">
+        <div className="absolute bottom-0 right-0 z-10 hidden md:block xl:left-[calc(397px-8rem)] xl:right-auto">
           <SwiperButtons
             swiperRef={swiperRef}
             nextSlide={nextSlide}
             previousSlide={previousSlide}
+            fromPlans
           />
         </div>
       </div>

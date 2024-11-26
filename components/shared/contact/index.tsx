@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { ContactFormSchema } from "@/utils/formik-schema";
 import { Form, Formik } from "formik";
-// import Input from "@/components/shared/input";
 import Email from "@/public/assets/icons/email.svg";
 import Phone from "@/public/assets/icons/phone.svg";
 import Marker from "@/public/assets/icons/marker.svg";
@@ -100,7 +99,7 @@ const Contact = () => {
 
       <div
         data-animated-contact-form
-        className="row-span-2 rounded-sm bg-white px-4 py-12 sm:px-6"
+        className="row-span-2 rounded-sm bg-[#EEEEEE] px-4 py-12 sm:px-6"
       >
         <span className="block text-center text-[1.375rem] font-medium text-accent sm:text-left">
           I&apos;m interested in...

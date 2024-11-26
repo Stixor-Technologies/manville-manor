@@ -1,56 +1,102 @@
 import React from "react";
-import Slide1 from "@/public/assets/gallery/slide-1.png";
-import Slide2 from "@/public/assets/gallery/slide-2.png";
-import Slide3 from "@/public/assets/gallery/slide-3.png";
-import Slide4 from "@/public/assets/gallery/slide-4.png";
-import Slide5 from "@/public/assets/gallery/slide-5.png";
 import MediaCarousel from "../media-carousel";
+import { Backdrops } from "@/utils/types/types";
 
 const HomeAbout = () => {
-  const venues = [
+  const venues: Backdrops[] = [
     {
-      asset: Slide1,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-      social: {
-        facebook: "/",
-        instagram: "/",
+      id: 1,
+      attributes: {
+        name: "Don Carlo Van Houten",
+        price: 2000,
+        tag: "Venue 1",
+        backDropMedia: {
+          data: {
+            attributes: {
+              url: "/assets/gallery/slide-1.png",
+            },
+          },
+        },
+        social: {
+          facebook: "/",
+          instagram: "/",
+        },
       },
     },
     {
-      asset: Slide2,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-      social: {
-        facebook: "/",
-        instagram: "/",
+      id: 2,
+      attributes: {
+        name: "Don Carlo Van Houten",
+        price: 2000,
+        tag: "Venue 1",
+        backDropMedia: {
+          data: {
+            attributes: {
+              url: "/assets/gallery/slide-2.png",
+            },
+          },
+        },
+        social: {
+          facebook: "/",
+          instagram: "/",
+        },
       },
     },
     {
-      asset: Slide3,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-      social: {
-        facebook: "/",
-        instagram: "/",
+      id: 3,
+      attributes: {
+        name: "Don Carlo Van Houten",
+        price: 2000,
+        tag: "Venue 1",
+        backDropMedia: {
+          data: {
+            attributes: {
+              url: "/assets/gallery/slide-3.png",
+            },
+          },
+        },
+        social: {
+          facebook: "/",
+          instagram: "/",
+        },
       },
     },
     {
-      asset: Slide4,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-      social: {
-        facebook: "/",
-        instagram: "/",
+      id: 4,
+      attributes: {
+        name: "Don Carlo Van Houten",
+        price: 2000,
+        tag: "Venue 1",
+        backDropMedia: {
+          data: {
+            attributes: {
+              url: "/assets/gallery/slide-4.png",
+            },
+          },
+        },
+        social: {
+          facebook: "/",
+          instagram: "/",
+        },
       },
     },
     {
-      asset: Slide5,
-      venueName: "Don Carlo Van Houten",
-      venueNumber: "Venue 1",
-      social: {
-        facebook: "/",
-        instagram: "/",
+      id: 5,
+      attributes: {
+        name: "Don Carlo Van Houten",
+        price: 2000,
+        tag: "Venue 1",
+        backDropMedia: {
+          data: {
+            attributes: {
+              url: "/assets/gallery/slide-5.png",
+            },
+          },
+        },
+        social: {
+          facebook: "/",
+          instagram: "/",
+        },
       },
     },
   ];
@@ -70,7 +116,7 @@ const HomeAbout = () => {
           </p>
         </div>
 
-        <MediaCarousel venues={venues} showSocial />
+        <MediaCarousel backdrops={venues} showSocial />
       </div>
     </section>
   );

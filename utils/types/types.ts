@@ -53,6 +53,53 @@ type FormValues = {
   message: string;
 };
 
+type Images = {
+  data: {
+    attributes: {
+      url: string;
+    };
+  };
+};
+
+type Blogs = {
+  attributes: {
+    authorName: string;
+    date: string;
+    tag: string;
+    title: string;
+    media: Images;
+    auhtorImage: Images;
+    description: any;
+  };
+};
+
+type Backdrops = {
+  id: number;
+  attributes: {
+    name: string;
+    price: number;
+    tag: string;
+    backDropMedia: Images;
+    social?: {
+      facebook: "/";
+      instagram: "/";
+    };
+  };
+};
+
+type EventPackagesType = {
+  id: number;
+  attributes: {
+    name: string;
+    price: number;
+    weekendPrice: number;
+    features: {
+      id: number;
+      feature: string;
+    }[];
+  };
+};
+
 export type {
   Menu,
   SocialLinks,
@@ -62,4 +109,7 @@ export type {
   RecentEvents,
   ListItemOption,
   FormValues,
+  Blogs,
+  Backdrops,
+  EventPackagesType,
 };

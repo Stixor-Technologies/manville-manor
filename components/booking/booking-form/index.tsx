@@ -18,6 +18,7 @@ interface BookingFormProps {
   services: ListItemOption[];
   catering: ListItemOption[];
   backDrops: ListItemOption[];
+  packages: ListItemOption[];
 }
 
 const BookingForm: FC<BookingFormProps> = ({
@@ -27,6 +28,7 @@ const BookingForm: FC<BookingFormProps> = ({
   services,
   catering,
   backDrops,
+  packages,
 }) => {
   const route = useRouter();
   const [bookignRequest, setBookingRequest] = useState<boolean>(false);
@@ -34,11 +36,6 @@ const BookingForm: FC<BookingFormProps> = ({
   const routine = [
     { value: "am", label: "Am" },
     { value: "pm", label: "Pm" },
-  ];
-
-  const packages = [
-    { value: "Venue Only Package", label: "Venue Only Package" },
-    { value: "Venue & Decor Package", label: "Venue & Decor Package" },
   ];
 
   const initialValues = {
@@ -60,22 +57,31 @@ const BookingForm: FC<BookingFormProps> = ({
   const makeBooking = async (values: FormValues) => {
     const formData = {
       ...values,
-      ...(values.additionalServices.length === 0 && { additionalServices: [] }),
+      ...(values.additionalServices?.[0] === 0 && { additionalServices: [] }),
     };
 
     try {
       setBookingRequest(true);
       const resp = await createBooking(formData);
-      console.log("myRes", resp);
       toast.success("Booking request successfull", {
         position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: true,
       });
-      route.push("/");
-      setBookingRequest(false);
+      if (resp) {
+        sessionStorage.setItem("bookingData", JSON.stringify(resp));
+      }
+      console.log("res", resp);
+      route.push("/invoice");
     } catch (error) {
-      console.log("error creating booking", error);
+      toast.error("Error creating booking, try again later", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
+      console.log("error", error);
+    } finally {
+      setBookingRequest(false);
     }
   };
 

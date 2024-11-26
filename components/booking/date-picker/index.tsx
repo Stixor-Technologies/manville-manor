@@ -53,7 +53,6 @@ const DatePicker: FC<DatePickerProps> = ({
       try {
         setCustomError(null);
         const slotData = await checkSlotAvailability(date);
-        console.log(slotData?.slots);
         if (slotData?.slots) {
           const availableSlots = getAvailableSlots(slotData.slots);
           const selectedTime = selectedDate.format("HH:mm");
@@ -75,12 +74,13 @@ const DatePicker: FC<DatePickerProps> = ({
 
   const inputProps = {
     placeholder: `${placeholder}`,
-    className: `w-full appearance-none border-b bg-transparent text-xs capitalize h-[1.7rem] text-gray outline-none placeholder:text-gray ${isTouched && hasError ? "border-b-red-600" : "border-b-white"}`,
+    className: `w-full appearance-none border-b bg-transparent text-xs capitalize h-[1.7rem] text-gray outline-none cursor-pointer placeholder:text-gray ${isTouched && hasError ? "border-b-red-600" : "border-b-white"}`,
+    readOnly: true,
   };
 
   return (
     <div className="relative w-full">
-      <Label labelFor={name}> {label}</Label>
+      <Label labelFor={name}>{label}</Label>
 
       <Datetime
         inputProps={inputProps}
