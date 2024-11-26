@@ -2,7 +2,10 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Button } from "../button";
-import { EventPackage, EventPackagesType } from "@/utils/types/types";
+import { EventPackagesType } from "@/utils/types/types";
+import Image from "next/image";
+import Close from "@/public/assets/icons/close-dark.svg";
+import { link } from "fs";
 
 const cardVariants = cva(
   "transition-all max-w-[23.3125rem] w-full text-white rounded-sm px-3 xs:px-5 py-5 relative z-10",
@@ -24,7 +27,6 @@ const cardVariants = cva(
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
-  // eventPackage: EventPackage;
   eventPackage: EventPackagesType;
 }
 
@@ -32,13 +34,18 @@ const PackageCard: React.FC<CardProps> = ({
   className,
   eventPackage,
   variant,
-  children,
   ...props
 }) => {
-  console.log("packagessss", eventPackage);
+  const [openBackdropChoices, setopenBackdropChoices] =
+    React.useState<boolean>(false);
   const buttonVariant = variant === "decor" ? "black" : "default";
   const scrollbarClass =
     variant === "decor" ? "scrollbar-decor" : "scrollbar-default";
+
+  const toggleBackdropChoices = () => {
+    setopenBackdropChoices(!openBackdropChoices);
+  };
+
   return (
     <div className={cn(cardVariants({ variant }), className)} {...props}>
       <div
@@ -49,13 +56,52 @@ const PackageCard: React.FC<CardProps> = ({
         )}
       >
         {variant !== "decor" && (
-          <p className="absolute right-0 text-right text-xs text-secondary underline">
-            Backdrop Choices
-          </p>
+          <>
+            <button
+              onClick={toggleBackdropChoices}
+              className="absolute right-0 text-right text-xs text-secondary underline"
+            >
+              Backdrop Choices
+            </button>
+
+            {openBackdropChoices && (
+              <div className="absolute right-0 top-6 z-20 max-h-[450px] w-full overflow-y-scroll rounded-[.375rem]  bg-secondary bg-[url('/assets/bg-backdrop-choices.svg')] bg-contain bg-[right_top_1rem] bg-no-repeat px-3 py-9 text-black md:max-h-[650px] md:w-[170%] md:px-6">
+                <div className="flex justify-between">
+                  <h3 className="text-lg font-medium leading-tight xs:text-[1.375rem]">
+                    Choices Of Backdrop Sign
+                  </h3>
+                  <button onClick={toggleBackdropChoices}>
+                    <Image src={Close} alt="close" width={23} height={23} />
+                  </button>
+                </div>
+
+                <ul className="mt-3 list-inside list-disc space-y-3 pl-2 xs:mt-6 xs:!space-y-5">
+                  {[1, 2, 3].map(() => (
+                    <li>Happy birthday sign</li>
+                  ))}
+                </ul>
+
+                <div className="mt-8">
+                  <h3 className="text-lg font-medium leading-tight xs:text-[1.375rem]">
+                    Enhance your event with our additional services and rentals:
+                  </h3>
+
+                  <ul className="mt-3 space-y-3 xs:mt-6 xs:space-y-5">
+                    <li> Photo Booth 360 - $500</li>
+                    <li> Photo Booth 360 - $500</li>
+                    <li> Photo Booth 360 - $500</li>
+                    <li> Photo Booth 360 - $500</li>
+                    <li> Photo Booth 360 - $500</li>
+                    <li> Photo Booth 360 - $500</li>
+                    <li> Photo Booth 360 - $500</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
-        <div className="flex justify-between pt-4 xs:pt-[2.4375rem]">
-          {/* {children} */}
+        <div className="flex items-center justify-between pt-[2.4375rem] md:items-stretch">
           <h2 className="relative max-w-[9.0625rem] text-lg font-semibold leading-none tracking-wider text-white xs:text-[1.375rem]">
             {eventPackage?.attributes.name}
             <span className="after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-4 after:bg-white after:content-['']" />
@@ -64,7 +110,7 @@ const PackageCard: React.FC<CardProps> = ({
           <div className="text-right text-xs font-normal">
             <h4>
               <span className="text-lg font-bold xs:text-[1.375rem]">
-                {/* {eventPackage?.weekDaysPrice} */}
+                ${eventPackage?.attributes?.price}
               </span>{" "}
               <span>Plus Tax</span>
             </h4>
@@ -74,7 +120,7 @@ const PackageCard: React.FC<CardProps> = ({
 
         <div className="mt-7 px-2 xs:mt-12 xs:px-6">
           <ul
-            className={`h-52 max-h-[14.8125rem] list-outside list-disc  space-y-3 overflow-y-scroll px-5 xs:h-full xs:space-y-6 ${scrollbarClass}`}
+            className={`h-52 max-h-[14.8125rem] list-outside list-disc  space-y-3 overflow-y-scroll px-5  xs:space-y-6 ${scrollbarClass}`}
           >
             {eventPackage?.attributes?.features?.map((feature) => (
               <li key={feature.id}>{feature.feature}</li>
@@ -87,7 +133,7 @@ const PackageCard: React.FC<CardProps> = ({
             (Saturday & Sunday)
           </h4>
 
-          <Button variant={buttonVariant} size={"full"}>
+          <Button href="/booking" variant={buttonVariant} size={"full"}>
             Book Package
           </Button>
         </div>

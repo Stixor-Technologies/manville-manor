@@ -2,7 +2,12 @@
 import { PackageCard } from "@/components/package-card";
 import { cn } from "@/lib/utils";
 import { EventPackagesType } from "@/utils/types/types";
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface PackagesListProps {
   packages: EventPackagesType[];
@@ -10,45 +15,44 @@ interface PackagesListProps {
 }
 
 const PackagesList: FC<PackagesListProps> = ({ packages, fromHome }) => {
+  const packagesContainer = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(() => {
+    const packageSection = gsap.timeline({
+      scrollTrigger: {
+        trigger: "[data-animated-package-card]",
+        start: "top 85%",
+      },
+    });
+
+    packageSection.from(
+      packagesContainer?.current,
+      {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: "power1",
+      },
+      0.3,
+    );
+  }, {});
+
   return (
     <div
-      data-animated-package-card
+      ref={packagesContainer}
       className={cn(
-        "flex flex-col items-center justify-center gap-9 md:flex-row",
+        "mx-auto grid max-w-[48.8125rem] place-content-center gap-9 md:flex-row",
         fromHome ? "mt-[5.4375rem]" : "mt-[4.25rem]",
+        packages?.length > 1 ? "md:grid-cols-2" : "grid-cols-1",
       )}
     >
-      {packages?.map((eventPackage) => (
+      {packages?.map((eventPackage, index) => (
         <PackageCard
           key={eventPackage?.id}
-          variant={"decor"}
+          variant={index === 0 ? "decor" : "default"}
           eventPackage={eventPackage}
-        >
-          {/* <h2 className="relative max-w-[145px] text-lg font-semibold leading-none tracking-wider text-white xs:text-[1.375rem]">
-            {eventPackage?.attributes.name}
-
-            <span className="after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-4 after:bg-white after:content-['']" />
-          </h2> */}
-        </PackageCard>
+        ></PackageCard>
       ))}
-      {/* <PackageCard variant={"decor"} eventPackage={venuePackage}>
-    <h2 className="text-lg font-semibold leading-none tracking-wider text-white xs:text-[1.375rem]">
-      Venue Only <br />{" "}
-      <span className="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-4 after:bg-white after:content-['']">
-        P
-      </span>
-      ackage
-    </h2>
-  </PackageCard>
-  <PackageCard eventPackage={decorPackage}>
-    <h2 className="text-lg font-semibold leading-none tracking-wider text-white xs:text-[1.375rem]">
-      Venue & <br />{" "}
-      <span className="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-4 after:bg-white after:content-['']">
-        D
-      </span>
-      ecor Package
-    </h2>
-  </PackageCard> */}
     </div>
   );
 };
