@@ -5,7 +5,6 @@ import { Button } from "../button";
 import { EventPackagesType } from "@/utils/types/types";
 import Image from "next/image";
 import Close from "@/public/assets/icons/close-dark.svg";
-import { link } from "fs";
 
 const cardVariants = cva(
   "transition-all max-w-[23.3125rem] w-full text-white rounded-sm px-3 xs:px-5 py-5 relative z-10",
@@ -76,8 +75,8 @@ const PackageCard: React.FC<CardProps> = ({
                 </div>
 
                 <ul className="mt-3 list-inside list-disc space-y-3 pl-2 xs:mt-6 xs:!space-y-5">
-                  {[1, 2, 3].map(() => (
-                    <li>Happy birthday sign</li>
+                  {[1, 2, 3].map((_, index) => (
+                    <li key={index}>Happy birthday sign</li>
                   ))}
                 </ul>
 
