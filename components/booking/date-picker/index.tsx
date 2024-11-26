@@ -78,7 +78,7 @@ const DatePicker: FC<DatePickerProps> = ({
 
   return (
     <div className="relative w-full">
-      <Label labelFor={name}> {label}</Label>
+      <Label labelFor={name}>{label}</Label>
 
       <Datetime
         inputProps={inputProps}
