@@ -221,7 +221,7 @@ const InvoicePage = () => {
         </div>
       </div>
 
-      <ContractAgreement bookingId={1} targetRef={targetRef} />
+      <ContractAgreement bookingId={bookingData?.id} targetRef={targetRef} />
     </div>
   );
 };
