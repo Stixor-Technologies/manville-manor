@@ -256,8 +256,11 @@ export const getBlogs = async () => {
   try {
     const resp = await fetch(
       `${BASE_URL}/api/blogs?populate=*&pagination[limit]=6`,
+      // {
+      //   next: { revalidate: 7200 },
+      // },
       {
-        next: { revalidate: 7200 },
+        cache: "no-store",
       },
     );
     const blogs = await resp.json();

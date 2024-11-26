@@ -78,7 +78,7 @@ const Faqs = () => {
       ease: "power1",
       scrollTrigger: {
         trigger: "[data-animated-faq-container]",
-        start: "top 90%",
+        start: "top 80%",
       },
     });
   }, []);

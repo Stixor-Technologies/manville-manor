@@ -38,11 +38,6 @@ const BookingForm: FC<BookingFormProps> = ({
     { value: "pm", label: "Pm" },
   ];
 
-  // const packages = [
-  //   { value: "Venue Only Package", label: "Venue Only Package" },
-  //   { value: "Venue & Decor Package", label: "Venue & Decor Package" },
-  // ];
-
   const initialValues = {
     fullName: "",
     phone: "",
@@ -76,13 +71,15 @@ const BookingForm: FC<BookingFormProps> = ({
       if (resp) {
         sessionStorage.setItem("bookingData", JSON.stringify(resp));
       }
-      route.push("/invoice");
+      console.log("res", resp);
+      // route.push("/invoice");
     } catch (error) {
       toast.error("Error creating booking, try again later", {
         position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: true,
       });
+      console.log("error", error);
     } finally {
       setBookingRequest(false);
     }

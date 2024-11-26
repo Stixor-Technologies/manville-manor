@@ -30,7 +30,7 @@ export default function Home() {
 
       <div className="container px-8 lg:px-16 xl:px-[8.125rem]">
         <div className="pb-10 pt-12 md:pb-20 md:pt-24">
-          <EventPackages fromHome />
+          <EventPackages />
         </div>
 
         <Suspense>
