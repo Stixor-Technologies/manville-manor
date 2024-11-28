@@ -11,6 +11,7 @@ import GalleryPortfolio from "@/components/gallery/gallery-portfolio";
 const Gallery = () => {
   return (
     <>
+    <div className="overflow-y-hidden">
       <Hero heroImage={AboutHero} heroHeading="Gallery" />
       <div className="container">
         <div className="mt-11 flex flex-col justify-between gap-6 md:flex-row md:items-start">
@@ -39,6 +40,7 @@ const Gallery = () => {
       <GalleryPortfolio />
 
       <GalleryHighLight />
+      </div>
     </>
   );
 };

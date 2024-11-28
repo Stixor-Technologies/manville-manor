@@ -13,7 +13,7 @@ const Testimonials = () => {
   const { contextSafe } = useGSAP();
 
   const performAnimation = contextSafe(() => {
-    console.log("asas");
+ 
   });
 
   return (

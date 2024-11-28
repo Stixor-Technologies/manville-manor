@@ -66,7 +66,7 @@ const BookingForm: FC<BookingFormProps> = ({
     try {
       setBookingRequest(true);
       const resp = await createBooking(formData);
-      console.log("myRes", resp);
+      
       toast.success("Booking request successfull", {
         position: "bottom-right",
         autoClose: 2000,
@@ -75,7 +75,7 @@ const BookingForm: FC<BookingFormProps> = ({
       route.push("/");
       setBookingRequest(false);
     } catch (error) {
-      console.log("error creating booking", error);
+     
     }
   };
 

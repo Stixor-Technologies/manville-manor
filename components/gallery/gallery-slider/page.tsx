@@ -22,7 +22,10 @@ const GallerySlider = () => {
     <section className="mx-auto max-w-[96rem]">
       <Swiper
         modules={[Navigation]}
-        slidesPerView={"auto"}
+       slidesPerView={window.innerWidth < 400 ? 1.3 : "auto"}
+        spaceBetween={20}
+        centeredSlides={window.innerWidth < 400 ? true: false}
+        loop={true}
         freeMode={true}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
@@ -32,7 +35,7 @@ const GallerySlider = () => {
           (slide, index) => (
             <SwiperSlide
               key={index}
-              className="mr-[1.125rem] last:mr-0 sm:max-w-[18.3125rem]"
+              className="last:mr-0 sm:max-w-[18.3125rem]"
             >
               <Image src={slide} alt={`gallery-slide-${index}`} />
             </SwiperSlide>
