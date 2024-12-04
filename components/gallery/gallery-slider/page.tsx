@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
@@ -17,14 +17,26 @@ import SwiperButtons from "@/components/shared/swiper-buttons";
 
 const GallerySlider = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
+  const [windowSize, setWindowSize] = useState<number>(0);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    handleWindowResize();
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   return (
     <section className="mx-auto max-w-[96rem]">
       <Swiper
         modules={[Navigation]}
-        slidesPerView={window.innerWidth < 400 ? 1.3 : "auto"}
+        slidesPerView={windowSize < 400 ? 1.3 : "auto"}
         spaceBetween={20}
-        centeredSlides={window.innerWidth < 400 ? true : false}
+        centeredSlides={windowSize < 400 ? true : false}
         loop={true}
         freeMode={true}
         onBeforeInit={(swiper) => {
