@@ -10,10 +10,12 @@ import HomeAbout from "@/components/home-page/home-about/home-about";
 import FloorPlans from "@/components/home-page/floor-plans";
 import BlogsSection from "@/components/home-page/blogs";
 import { Suspense } from "react";
+import Testimonials from "@/components/home-page/testimonials";
 
 export default function Home() {
   return (
     <main className="min-h-screen flex-col items-center justify-between overflow-hidden">
+      <Testimonials />
       <HomeHero />
       <HomeAbout />
       <HomeGallery />
