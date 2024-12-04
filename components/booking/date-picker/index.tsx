@@ -66,9 +66,7 @@ const DatePicker: FC<DatePickerProps> = ({
         } else {
           setCustomError("No slots available for the selected date.");
         }
-      } catch (error) {
-        console.error("error fethcing time slots");
-      }
+      } catch (error) {}
     }
   };
 

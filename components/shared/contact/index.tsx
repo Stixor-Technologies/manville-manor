@@ -71,14 +71,13 @@ const Contact = () => {
   }, []);
 
   const onSubmit = async (values: FormValue) => {
+    console.log("values", values);
     try {
-      console.log(values);
       // const emailTemplate = `<div>
       //         <p>New inquiry from: ${values?.name} - ${values?.email} </p>
       //         <p>Message: ${values.message} </p>
       //         </div>`;
     } catch (error) {
-      console.error(error);
     } finally {
     }
   };

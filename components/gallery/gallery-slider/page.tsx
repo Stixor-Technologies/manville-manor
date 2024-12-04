@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
@@ -17,12 +17,26 @@ import SwiperButtons from "@/components/shared/swiper-buttons";
 
 const GallerySlider = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
+  const [windowSize, setWindowSize] = useState<number>(0);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    handleWindowResize();
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   return (
     <section className="mx-auto max-w-[96rem]">
       <Swiper
         modules={[Navigation]}
-        slidesPerView={"auto"}
+        slidesPerView={windowSize < 400 ? 1.3 : "auto"}
+        spaceBetween={20}
+        centeredSlides={windowSize < 400 ? true : false}
         freeMode={true}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
@@ -32,7 +46,7 @@ const GallerySlider = () => {
           (slide, index) => (
             <SwiperSlide
               key={index}
-              className="mr-[1.125rem] last:mr-0 sm:max-w-[18.3125rem]"
+              className="last:mr-0 sm:max-w-[18.3125rem]"
             >
               <Image src={slide} alt={`gallery-slide-${index}`} />
             </SwiperSlide>
