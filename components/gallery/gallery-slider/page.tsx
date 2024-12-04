@@ -37,7 +37,6 @@ const GallerySlider = () => {
         slidesPerView={windowSize < 400 ? 1.3 : "auto"}
         spaceBetween={20}
         centeredSlides={windowSize < 400 ? true : false}
-        loop={true}
         freeMode={true}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
