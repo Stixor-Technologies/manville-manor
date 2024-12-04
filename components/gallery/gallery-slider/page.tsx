@@ -22,9 +22,9 @@ const GallerySlider = () => {
     <section className="mx-auto max-w-[96rem]">
       <Swiper
         modules={[Navigation]}
-       slidesPerView={window.innerWidth < 400 ? 1.3 : "auto"}
+        slidesPerView={window.innerWidth < 400 ? 1.3 : "auto"}
         spaceBetween={20}
-        centeredSlides={window.innerWidth < 400 ? true: false}
+        centeredSlides={window.innerWidth < 400 ? true : false}
         loop={true}
         freeMode={true}
         onBeforeInit={(swiper) => {
