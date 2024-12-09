@@ -196,7 +196,12 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button className="mt-12 gap-4" size={"md"}>
+                <Button
+                  loading={loading}
+                  disabled={loading}
+                  className="mt-12 gap-4"
+                  size={"md"}
+                >
                   <Image src={Send} alt="send-message-icon" />
                   Send Mesasge
                 </Button>
