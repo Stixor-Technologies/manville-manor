@@ -39,7 +39,6 @@
     "react-responsive-masonry": "^2.4.1",
     "react-select": "^5.8.2",
     "react-share": "^5.1.1",
-    "react-to-pdf": "^1.0.1",
     "react-toastify": "^10.0.6",
     "stripe": "^17.4.0",
     "swiper": "^11.1.14",

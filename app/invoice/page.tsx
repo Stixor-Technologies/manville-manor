@@ -1,7 +1,7 @@
 "use client";
 import InvoiceCard from "@/components/shared/invoice-card";
 import moment from "moment";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "react-datetime/css/react-datetime.css";
 import ContractAgreement from "@/components/contract-agreement";
@@ -11,7 +11,6 @@ import Spinner from "@/components/shared/spinner";
 
 const InvoicePage = () => {
   const [bookingData, setBookingData] = useState<any>(null);
-  const targetRef = useRef<HTMLDivElement | null>(null);
   const searchParams = useSearchParams();
   const [isLoading, setisLoading] = useState(true);
 
@@ -43,10 +42,7 @@ const InvoicePage = () => {
           <Spinner />
         </div>
       ) : bookingData ? (
-        <div
-          ref={targetRef}
-          className="container bg-primary pb-11 pt-24 md:py-[6.6875rem]"
-        >
+        <div className="container bg-primary pb-11 pt-24 md:py-[6.6875rem]">
           <InvoiceCard invoiceData={bookingData?.invoice} />
 
           <div className="text-white">
@@ -251,7 +247,8 @@ const InvoicePage = () => {
 
           <ContractAgreement
             bookingId={bookingData?.id}
-            targetRef={targetRef}
+            contractDate={bookingData?.contractDate}
+            clientSignature={bookingData?.clientSignature?.url}
           />
         </div>
       ) : (

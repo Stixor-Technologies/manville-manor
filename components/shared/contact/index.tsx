@@ -134,17 +134,7 @@ const Contact = () => {
             <>
               <Form>
                 <div className="space-y-16">
-                  {/* <Input
-                    as="input"
-                    hasError={errors.name}
-                    isTouched={touched.name}
-                    name={"name"}
-                    placeholder={"Your name"}
-                    errorMessage={errors.name}
-                  /> */}
-
                   <Input
-                    // as="input"
                     hasError={!!errors.name}
                     isTouched={touched.name}
                     name={"name"}
@@ -153,7 +143,6 @@ const Contact = () => {
                   />
 
                   <Input
-                    // as="input"
                     hasError={!!errors.email}
                     isTouched={touched.email}
                     name={"email"}

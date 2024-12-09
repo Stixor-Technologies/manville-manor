@@ -2384,7 +2384,7 @@ jsonp@^0.2.1:
   dependencies:
     debug "^2.1.3"
 
-jspdf@^2.5.1, jspdf@^2.5.2:
+jspdf@^2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/jspdf/-/jspdf-2.5.2.tgz#3c35bb1063ee3ad9428e6353852b0d685d1f923a"
   integrity sha512-myeX9c+p7znDWPk0eTrujCzNjT+CXdXyk7YmJq5nD5V7uLLKmSXnlQ/Jn/kuo3X09Op70Apm0rQSnFWyGK8uEQ==
@@ -3103,14 +3103,6 @@ react-share@^5.1.1:
   dependencies:
     classnames "^2.3.2"
     jsonp "^0.2.1"
-
-react-to-pdf@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-to-pdf/-/react-to-pdf-1.0.1.tgz#a9a54ba9af9df4213078bf34eb2ffabb752b7263"
-  integrity sha512-ZsIkY6Z5gg3oBhMbWfl+tYwQ12vpPuuAzvCv+MnXchO8l08tElzRkBNAXxfbQNG/EDOHgE5EvWBlvE7ypt/y9A==
-  dependencies:
-    html2canvas "^1.4.1"
-    jspdf "^2.5.1"
 
 react-toastify@^10.0.6:
   version "10.0.6"
