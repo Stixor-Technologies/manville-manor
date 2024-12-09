@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ContactFormSchema } from "@/utils/formik-schema";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import Email from "@/public/assets/icons/email.svg";
 import Phone from "@/public/assets/icons/phone.svg";
 import Marker from "@/public/assets/icons/marker.svg";
@@ -15,6 +15,7 @@ import { Button } from "@/components/button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { toast } from "react-toastify";
 gsap.registerPlugin(ScrollTrigger);
 
 type FormValue = {
@@ -26,6 +27,8 @@ type FormValue = {
 const Contact = () => {
   const queries = ["Venues", "Birthday", "Weddings"];
   const [selectedQuery, setSelectedQuery] = useState(queries[0]);
+  const [loading, setLoading] = useState<boolean>(false);
+
   const initialValues = {
     name: "",
     email: "",
@@ -70,15 +73,48 @@ const Contact = () => {
     );
   }, []);
 
-  const onSubmit = async (values: FormValue) => {
+  const onSubmit = async (
+    values: FormValue,
+    formikHelpers: FormikHelpers<FormValue>,
+  ) => {
+    setLoading(true);
     try {
-      // const emailTemplate = `<div>
-      //         <p>New inquiry from: ${values?.name} - ${values?.email} </p>
-      //         <p>Message: ${values.message} </p>
-      //         </div>`;
+      const emailTemplate = `<div>
+          <p>New inquiry from: ${values?.name} - ${values?.email} </p>
+          <p>Query: ${selectedQuery} </p>
+          <p>Message: ${values.message} </p>
+          </div>`;
+
+      const res = await fetch("/api/contact", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          message: values.message,
+          htmlContent: emailTemplate,
+        }),
+      });
+      const data = await res.json();
+      if (data === 202) {
+        toast.success("Email has been sent", {
+          position: "bottom-right",
+        });
+
+        setTimeout(() => {
+          formikHelpers.resetForm();
+        }, 1000);
+      } else {
+        toast.error("Error Sending email", {
+          position: "bottom-right",
+        });
+      }
     } catch (error) {
       console.error(error);
     } finally {
+      setLoading(false);
     }
   };
 
