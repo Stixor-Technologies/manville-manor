@@ -15,7 +15,6 @@ import Testimonials from "@/components/home-page/testimonials";
 export default function Home() {
   return (
     <main className="min-h-screen flex-col items-center justify-between overflow-hidden">
-      <Testimonials />
       <HomeHero />
       <HomeAbout />
       <HomeGallery />
@@ -38,6 +37,8 @@ export default function Home() {
         <Suspense>
           <BlogsSection />
         </Suspense>
+
+        <Testimonials />
 
         <div className="py-8 md:py-16">
           <Contact />

@@ -72,7 +72,6 @@ const Contact = () => {
 
   const onSubmit = async (values: FormValue) => {
     try {
-      console.log(values);
       // const emailTemplate = `<div>
       //         <p>New inquiry from: ${values?.name} - ${values?.email} </p>
       //         <p>Message: ${values.message} </p>

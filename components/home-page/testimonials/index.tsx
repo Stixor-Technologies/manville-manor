@@ -19,8 +19,7 @@ const Testimonials = () => {
   useEffect(() => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.offsetWidth;
-      firstItemWidthRef.current = containerWidth * 0.65; // 70% width
-      console.log(firstItemWidthRef.current);
+      firstItemWidthRef.current = containerWidth * 0.65;
 
       const remainingItemWidth =
         (containerWidth * 0.35) / (tabsRefs.current.length - 1);
@@ -33,21 +32,22 @@ const Testimonials = () => {
             index === 0
               ? `${firstItemWidthRef.current}px`
               : `${remainingItemWidth}px`;
-          // tab.style.left =
-          //   index !== 0 ? `${firstItemWidthRef.current}px` : "0px";
         }
       });
     }
   }, []);
-
-  console.log(firstItemWidthRef.current);
 
   const performAnimations = contextSafe((index: number) => {
     const clickedItem = tabsRefs.current[index];
     const activeElement = document.querySelector(".active");
     const isActiveClicked = clickedItem?.classList.contains("active");
 
-    if (clickedItem && activeElement && !isActiveClicked) {
+    if (
+      clickedItem &&
+      activeElement &&
+      !isActiveClicked &&
+      containerRef.current
+    ) {
       const containerWidth = containerRef.current.offsetWidth;
       const newFirstItemWidth =
         (containerWidth * 0.35) / (tabsRefs.current.length - 1);
@@ -161,7 +161,7 @@ const Testimonials = () => {
   });
 
   return (
-    <section className="container hidden lg:block">
+    <section className="container mb-[9rem] mt-[16.75rem] hidden lg:block">
       <SectionHeader header="TESTIMONY" description="Our Participants Say" />
 
       <div ref={containerRef} className="relative mt-16 flex gap-0.5">

@@ -147,7 +147,8 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
             hideProgressBar: true,
           });
 
-          router.replace("/payment");
+          // router.replace("/payment");
+          router.replace(`/payment?bookingId=${bookingId}`);
         }
       }
     } catch (error) {

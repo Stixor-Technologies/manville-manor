@@ -286,3 +286,53 @@ export const getBlogDetail = async (title: string) => {
     console.error("There was an error getting the Property List", error);
   }
 };
+
+export const getInvoice = async (bookingId: number) => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/invoice/${bookingId}`, {
+      cache: "no-store",
+    });
+
+    if (!resp.ok) {
+      throw new Error(`HTTP error! status: ${resp.status}`);
+    }
+
+    const data = await resp.json();
+    return data;
+  } catch (error) {
+    console.error("There was an error getting the invoice", error);
+    throw error;
+  }
+};
+
+export const updatePaymentStatus = async (bookingId: number) => {
+  try {
+    const requestData = {
+      data: {
+        isPaid: true,
+      },
+    };
+
+    // add reference to uploaded PDF file to collection
+    const updateStatus = await fetch(
+      `${BASE_URL}/api/update-payment-status/${bookingId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      },
+    );
+
+    if (!updateStatus.ok) {
+      throw new Error(`HTTP error! Status: ${updateStatus?.status}`);
+    }
+
+    const resp = await updateStatus.json();
+    return resp;
+  } catch (error) {
+    console.error("Error updating payment status:", error);
+    throw error;
+  }
+};

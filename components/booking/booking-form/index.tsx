@@ -69,11 +69,13 @@ const BookingForm: FC<BookingFormProps> = ({
         autoClose: 2000,
         hideProgressBar: true,
       });
-      if (resp) {
-        sessionStorage.setItem("bookingData", JSON.stringify(resp));
-      }
-      console.log("res", resp);
-      route.push("/invoice");
+
+      // console.log("res", resp);
+      // if (resp) {
+      //   sessionStorage.setItem("bookingData", JSON.stringify(resp));
+      // }
+      // console.log("res", resp);
+      route.push(`/invoice?bookingId=${resp?.newData?.id}`);
     } catch (error) {
       toast.error("Error creating booking, try again later", {
         position: "bottom-right",
