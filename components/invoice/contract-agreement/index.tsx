@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, RefObject, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { ContractFormSchema } from "@/utils/formik-schema";
 import { Field, Form, Formik, useFormikContext } from "formik";
 import { Button } from "@/components/button";
@@ -7,14 +7,15 @@ import "react-datetime/css/react-datetime.css";
 import Dropzone from "react-dropzone";
 import moment, { Moment } from "moment";
 import Image from "next/image";
-import generatePDF from "react-to-pdf";
 import { postContract } from "@/utils/api-calls";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { BASE_URL } from "@/utils/contants";
 
 interface ContractAgreementProps {
-  bookingId: any;
-  targetRef: RefObject<HTMLDivElement>;
+  bookingId: number;
+  contractDate: string;
+  clientSignature: string;
 }
 
 interface SignatureDropzoneProps {
@@ -109,11 +110,11 @@ const SignatureDropzone: FC<SignatureDropzoneProps> = ({
 
 const ContractAgreement: FC<ContractAgreementProps> = ({
   bookingId,
-  targetRef,
+  contractDate,
+  clientSignature,
 }) => {
   const [isPostingContract, setisPostingContract] = useState<boolean>(false);
   const router = useRouter();
-
   const yesterday = moment().subtract(1, "day");
   const disablePastDt = (current: Moment) => {
     return current.isAfter(yesterday);
@@ -122,33 +123,23 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
   const inputProps = {
     id: "dateClient",
     className: `w-full appearance-none bg-transparent text-2xl capitalize text-white outline-none cursor-pointer`,
-    readOnly: true,
+    readOnly: !!(contractDate && clientSignature),
   };
 
-  const submitContract = async () => {
+  const submitContract = async (values: any) => {
     try {
       setisPostingContract(true);
+      const { clientSignature, dateClient } = values;
 
-      if (targetRef?.current && bookingId) {
-        const createPdf = await generatePDF(targetRef, {
-          filename: "contract.pdf",
-          method: "build",
+      const resp = await postContract(bookingId, clientSignature, dateClient);
+      if (resp) {
+        toast.success("Booking Updated Contract", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
         });
 
-        const pdfBlob = createPdf.output("blob");
-        const formData = new FormData();
-        formData.append("files", pdfBlob);
-
-        const resp = await postContract(bookingId, formData);
-        if (resp) {
-          toast.success("Booking Updated Contract", {
-            position: "bottom-right",
-            autoClose: 2000,
-            hideProgressBar: true,
-          });
-
-          router.replace("/payment");
-        }
+        router.replace(`/payment?bookingId=${bookingId}`);
       }
     } catch (error) {
       console.error("Error generating or uploading contract", error);
@@ -161,8 +152,8 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
     <div className="mt-8 text-[1.375rem] text-white md:text-[2.25rem]">
       <Formik
         initialValues={{
-          clientSignature: "",
-          dateClient: "",
+          clientSignature: clientSignature || "",
+          dateClient: contractDate || "",
         }}
         onSubmit={submitContract}
         validationSchema={ContractFormSchema}
@@ -173,12 +164,26 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
               <div className="flex items-end gap-2 leading-none ">
                 <span>Client Signature:</span>
 
-                <SignatureDropzone
-                  name="clientSignature"
-                  hasError={!!errors.clientSignature}
-                  isTouched={touched.clientSignature}
-                  errorMessage={errors.clientSignature}
-                />
+                {clientSignature && contractDate ? (
+                  // Display the existing signature if both are present
+                  <div>
+                    <Image
+                      src={BASE_URL + clientSignature}
+                      alt="client-signature"
+                      width={200}
+                      height={200}
+                      className="mx-auto max-h-32 max-w-52 object-contain"
+                    />
+                  </div>
+                ) : (
+                  // Allow uploading if clientSignature or contractDate is missing
+                  <SignatureDropzone
+                    name="clientSignature"
+                    hasError={!!errors.clientSignature}
+                    isTouched={touched.clientSignature}
+                    errorMessage={errors.clientSignature}
+                  />
+                )}
               </div>
 
               <div className="flex items-end gap-2 leading-none ">
@@ -188,6 +193,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
                   <Datetime
                     className="text-auto"
                     closeOnSelect
+                    value={contractDate ? moment(contractDate) : moment()}
                     inputProps={inputProps}
                     isValidDate={disablePastDt}
                     timeFormat={false}
@@ -228,7 +234,9 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
               <Button
                 size={"md"}
                 loading={isPostingContract}
-                disabled={isPostingContract}
+                disabled={
+                  isPostingContract || !!(contractDate && clientSignature)
+                }
                 className="mx-auto mt-4"
               >
                 Submit Contract

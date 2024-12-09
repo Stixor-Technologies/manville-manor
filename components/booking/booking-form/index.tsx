@@ -32,6 +32,7 @@ const BookingForm: FC<BookingFormProps> = ({
 }) => {
   const route = useRouter();
   const [bookignRequest, setBookingRequest] = useState<boolean>(false);
+  const [customError, setCustomError] = useState<string | null>(null); // Move the state here
 
   const routine = [
     { value: "am", label: "Am" },
@@ -59,7 +60,7 @@ const BookingForm: FC<BookingFormProps> = ({
       ...values,
       ...(values.additionalServices?.[0] === 0 && { additionalServices: [] }),
     };
-
+    if (customError) return;
     try {
       setBookingRequest(true);
       const resp = await createBooking(formData);
@@ -68,18 +69,15 @@ const BookingForm: FC<BookingFormProps> = ({
         autoClose: 2000,
         hideProgressBar: true,
       });
-      if (resp) {
-        sessionStorage.setItem("bookingData", JSON.stringify(resp));
-      }
-      console.log("res", resp);
-      route.push("/invoice");
+
+      route.push(`/invoice?bookingId=${resp?.newData?.id}`);
     } catch (error) {
       toast.error("Error creating booking, try again later", {
         position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: true,
       });
-      console.log("error", error);
+      console.error("error", error);
     } finally {
       setBookingRequest(false);
     }
@@ -149,6 +147,8 @@ const BookingForm: FC<BookingFormProps> = ({
                 hasError={!!errors.date}
                 isTouched={touched.date}
                 errorMessage={errors.date}
+                customError={customError}
+                setCustomError={setCustomError}
               />
 
               <Select

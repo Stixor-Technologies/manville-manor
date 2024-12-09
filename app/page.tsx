@@ -10,6 +10,7 @@ import HomeAbout from "@/components/home-page/home-about/home-about";
 import FloorPlans from "@/components/home-page/floor-plans";
 import BlogsSection from "@/components/home-page/blogs";
 import { Suspense } from "react";
+import Testimonials from "@/components/home-page/testimonials";
 
 export default function Home() {
   return (
@@ -36,6 +37,8 @@ export default function Home() {
         <Suspense>
           <BlogsSection />
         </Suspense>
+
+        <Testimonials />
 
         <div className="py-8 md:py-16">
           <Contact />

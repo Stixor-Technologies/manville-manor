@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
@@ -18,6 +18,8 @@ interface DatePickerProps {
   hasError?: boolean;
   isTouched?: boolean;
   errorMessage?: string;
+  customError: string | null;
+  setCustomError: (error: string | null) => void;
 }
 
 const DatePicker: FC<DatePickerProps> = ({
@@ -27,9 +29,11 @@ const DatePicker: FC<DatePickerProps> = ({
   hasError,
   isTouched,
   errorMessage,
+  customError,
+  setCustomError,
 }) => {
   const { setFieldValue } = useFormikContext<FormValues>();
-  const [customError, setCustomError] = useState<string | null>(null);
+  // const [customError, setCustomError] = useState<string | null>(null);
 
   // for disabling past dates
   const yesterday = moment().subtract(1, "day");

@@ -48,7 +48,7 @@ const FloorSlider: FC<FloorSliderProps> = ({ floorPlans }) => {
   return (
     <div
       ref={containerRef}
-      className="relative md:max-w-[25rem] lg:max-w-[500px] xl:max-w-[51.5rem]"
+      className="relative w-full md:max-w-[25rem] lg:max-w-[500px] xl:max-w-[51.5rem]"
     >
       <Swiper
         modules={[Pagination]}

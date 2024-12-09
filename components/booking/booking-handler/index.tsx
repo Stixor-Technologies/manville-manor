@@ -29,8 +29,6 @@ const BookingWrapper = async () => {
     getPackages(true),
   ]);
 
-  console.log("bad", backDrops);
-
   return (
     <BookingForm
       venues={venues}

@@ -226,6 +226,22 @@
     opacity: 1;
   }
 
+  @media print {
+    .pagebreak {
+      clear: both;
+      page-break-after: always;
+    }
+  }
+
+  /* .pdf-container {
+    transform: scale(0.8);
+    transform-origin: top left;
+  } */
+
+  .pdf-view {
+    display: none !important;
+  }
+
   .react-datetime-picker .react-datetime-picker__wrapper {
     border: 0;
   }

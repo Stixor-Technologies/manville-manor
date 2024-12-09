@@ -1,7 +1,12 @@
-import React from "react";
+import { Suspense } from "react";
+import PaymentPage from "@/components/payment/payment-page";
 
 const Payment = () => {
-  return <div>Payment</div>;
+  return (
+    <Suspense>
+      <PaymentPage />
+    </Suspense>
+  );
 };
 
 export default Payment;
