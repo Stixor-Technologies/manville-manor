@@ -161,7 +161,7 @@ const Testimonials = () => {
   });
 
   return (
-    <section className="container mb-[9rem] mt-[16.75rem] hidden lg:block">
+    <section className="container my-[6rem] hidden lg:block">
       <SectionHeader header="TESTIMONY" description="Our Participants Say" />
 
       <div ref={containerRef} className="relative mt-16 flex gap-0.5">
