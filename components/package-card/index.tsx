@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Button } from "../button";
-import { EventPackagesType } from "@/utils/types/types";
+import { Backdrops, EventPackagesType } from "@/utils/types/types";
 import Image from "next/image";
 import Close from "@/public/assets/icons/close-dark.svg";
 
@@ -27,11 +27,15 @@ export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
   eventPackage: EventPackagesType;
+  backdrops: Backdrops[];
+  additonalServices: any[];
 }
 
 const PackageCard: React.FC<CardProps> = ({
   className,
   eventPackage,
+  backdrops,
+  additonalServices,
   variant,
   ...props
 }) => {
@@ -44,6 +48,8 @@ const PackageCard: React.FC<CardProps> = ({
   const toggleBackdropChoices = () => {
     setopenBackdropChoices(!openBackdropChoices);
   };
+
+  console.log(additonalServices);
 
   return (
     <div className={cn(cardVariants({ variant }), className)} {...props}>
@@ -74,9 +80,9 @@ const PackageCard: React.FC<CardProps> = ({
                   </button>
                 </div>
 
-                <ul className="mt-3 list-inside list-disc space-y-3 pl-2 xs:mt-6 xs:!space-y-5">
-                  {[1, 2, 3].map((_, index) => (
-                    <li key={index}>Happy birthday sign</li>
+                <ul className="mt-3 max-h-[9.375rem] list-inside list-disc space-y-3 overflow-y-scroll pl-2 xs:mt-6 xs:!space-y-5">
+                  {backdrops?.map((backdrop, index) => (
+                    <li key={index}>{backdrop?.attributes?.name}</li>
                   ))}
                 </ul>
 
@@ -85,14 +91,13 @@ const PackageCard: React.FC<CardProps> = ({
                     Enhance your event with our additional services and rentals:
                   </h3>
 
-                  <ul className="mt-3 space-y-3 xs:mt-6 xs:space-y-5">
-                    <li> Photo Booth 360 - $500</li>
-                    <li> Photo Booth 360 - $500</li>
-                    <li> Photo Booth 360 - $500</li>
-                    <li> Photo Booth 360 - $500</li>
-                    <li> Photo Booth 360 - $500</li>
-                    <li> Photo Booth 360 - $500</li>
-                    <li> Photo Booth 360 - $500</li>
+                  <ul className="mt-3 max-h-[18.75rem] space-y-3 overflow-y-scroll xs:mt-6 xs:space-y-5">
+                    {additonalServices?.map((service) => (
+                      <li key={service?.id}>
+                        {service?.attributes?.name} - $
+                        {service?.attributes?.price}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

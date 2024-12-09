@@ -24,7 +24,7 @@ const BookingWrapper = async () => {
     getPeopleCount(),
     getCatering(),
     getFloorPlans(true),
-    getAdditionalServices(),
+    getAdditionalServices(true),
     getBackdrops(true),
     getPackages(true),
   ]);

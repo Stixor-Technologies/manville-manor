@@ -85,21 +85,21 @@ export const getCatering = async (): Promise<ListItemOption[]> => {
   }
 };
 
-export const getAdditionalServices = async (): Promise<ListItemOption[]> => {
-  try {
-    const resp = await fetch(`${BASE_URL}/api/additional-services`, {
-      cache: "no-store",
-    });
-    const services = await resp.json();
-    return services?.data.map((item: any) => ({
-      value: item?.id,
-      label: item?.attributes?.name,
-    }));
-  } catch (error) {
-    console.error("There was an error getting additional services", error);
-    return [];
-  }
-};
+// export const getAdditionalServices = async (): Promise<ListItemOption[]> => {
+//   try {
+//     const resp = await fetch(`${BASE_URL}/api/additional-services`, {
+//       cache: "no-store",
+//     });
+//     const services = await resp.json();
+//     return services?.data.map((item: any) => ({
+//       value: item?.id,
+//       label: item?.attributes?.name,
+//     }));
+//   } catch (error) {
+//     console.error("There was an error getting additional services", error);
+//     return [];
+//   }
+// };
 
 // export const getFloorPlans = async (): Promise<ListItemOption[]> => {
 //   try {
@@ -132,6 +132,26 @@ export const getAdditionalServices = async (): Promise<ListItemOption[]> => {
 //     return [];
 //   }
 // };
+
+export const getAdditionalServices = async (returnMappedList = false) => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/additional-services`, {
+      cache: "no-store",
+    });
+    const services = await resp.json();
+    if (returnMappedList) {
+      return services?.data.map((item: any) => ({
+        value: item?.id,
+        label: item?.attributes?.name,
+      }));
+    }
+
+    return services?.data;
+  } catch (error) {
+    console.error("There was an error getting additional services", error);
+    return [];
+  }
+};
 
 export const getFloorPlans = async (returnMappedList = false) => {
   try {

@@ -1,7 +1,7 @@
 "use client";
 import { PackageCard } from "@/components/package-card";
 import { cn } from "@/lib/utils";
-import { EventPackagesType } from "@/utils/types/types";
+import { Backdrops, EventPackagesType } from "@/utils/types/types";
 import React, { FC, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -11,10 +11,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface PackagesListProps {
   packages: EventPackagesType[];
+  backdrops: Backdrops[];
+  additonalServices: any[];
   fromHome: boolean;
 }
 
-const PackagesList: FC<PackagesListProps> = ({ packages, fromHome }) => {
+const PackagesList: FC<PackagesListProps> = ({
+  packages,
+  fromHome,
+  additonalServices,
+  backdrops,
+}) => {
   const packagesContainer = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
@@ -51,7 +58,9 @@ const PackagesList: FC<PackagesListProps> = ({ packages, fromHome }) => {
           key={eventPackage?.id}
           variant={index === 0 ? "decor" : "default"}
           eventPackage={eventPackage}
-        ></PackageCard>
+          additonalServices={additonalServices}
+          backdrops={backdrops}
+        />
       ))}
     </div>
   );
