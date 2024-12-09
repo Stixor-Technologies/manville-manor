@@ -115,7 +115,6 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
 }) => {
   const [isPostingContract, setisPostingContract] = useState<boolean>(false);
   const router = useRouter();
-  console.log("clientSignature", clientSignature);
   const yesterday = moment().subtract(1, "day");
   const disablePastDt = (current: Moment) => {
     return current.isAfter(yesterday);
@@ -128,7 +127,6 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
   };
 
   const submitContract = async (values: any) => {
-    console.log("values", values);
     try {
       setisPostingContract(true);
       const { clientSignature, dateClient } = values;
