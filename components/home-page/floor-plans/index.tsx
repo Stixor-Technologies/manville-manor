@@ -10,7 +10,10 @@ const FloorPlans = async () => {
   return (
     <>
       {floorPlans?.length > 0 && (
-        <section className="container overflow-hidden py-12 sm:px-[2.5625rem] md:py-24">
+        <section
+          id="floor-plans"
+          className="container overflow-hidden py-12 sm:px-[2.5625rem] md:py-24"
+        >
           <div className="flex flex-col justify-between gap-11 md:flex-row md:gap-8 lg:gap-16 2xl:gap-0">
             <div className="text-center md:max-w-[25.75rem] md:text-left">
               <h4 className="text-xl text-secondary">Floor Plans</h4>

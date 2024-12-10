@@ -3,6 +3,7 @@ import { useFormikContext } from "formik";
 import Label from "../label";
 import Select from "react-select";
 import { FormValues, ListItemOption } from "@/utils/types/types";
+import Link from "next/link";
 
 interface SelectOptions {
   options: ListItemOption[];
@@ -13,6 +14,7 @@ interface SelectOptions {
   hasError?: boolean;
   isTouched?: boolean;
   errorMessage?: string;
+  listing?: string;
 }
 
 const DropwDown: FC<SelectOptions> = ({
@@ -24,6 +26,7 @@ const DropwDown: FC<SelectOptions> = ({
   hasError,
   isTouched,
   errorMessage,
+  listing,
 }) => {
   const { setFieldValue } = useFormikContext<FormValues>();
 
@@ -38,10 +41,26 @@ const DropwDown: FC<SelectOptions> = ({
     }
   };
 
+  const formatListing = (item: string) =>
+    item
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
   return (
     <>
       <div className="relative w-full">
-        <Label labelFor={name}> {label}</Label>
+        <div className="flex items-center justify-between">
+          <Label labelFor={name}> {label}</Label>
+          {listing && (
+            <Link
+              href={`/#${listing}`}
+              className="text-secondary underline underline-offset-4"
+            >
+              {formatListing(listing)}
+            </Link>
+          )}
+        </div>
         <Select
           classNames={{
             control: () =>

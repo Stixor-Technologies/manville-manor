@@ -189,6 +189,7 @@ const BookingForm: FC<BookingFormProps> = ({
                 hasError={!!errors.floorOption}
                 isTouched={touched.floorOption}
                 errorMessage={errors.floorOption}
+                listing="floor-plans"
               />
 
               <Select
@@ -199,6 +200,7 @@ const BookingForm: FC<BookingFormProps> = ({
                 hasError={!!errors.backDrop}
                 isTouched={touched.backDrop}
                 errorMessage={errors.backDrop}
+                listing="back-drops"
               />
 
               <Select
