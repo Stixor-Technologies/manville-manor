@@ -60,16 +60,25 @@ const DatePicker: FC<DatePickerProps> = ({
         console.log("slotsData", slotData?.slots);
         if (slotData?.slots) {
           const availableSlots = getAvailableSlots(slotData?.slots);
-          const latestAvailableTime = moment(
-            availableSlots[availableSlots.length - 1],
-            "HH:mm",
-          ).format("hh:mm A");
+
+          const latestAvailableTime = availableSlots[availableSlots.length - 1];
 
           const selectedTime = selectedDate.format("HH:mm");
-
-          if (selectedTime > latestAvailableTime) {
+          const selectedTime12Hrs = moment(selectedTime, "HH:mm").format(
+            "hh:mm A",
+          );
+          console.log(
+            selectedTime12Hrs > latestAvailableTime,
+            selectedTime12Hrs,
+            latestAvailableTime,
+          );
+          if (
+            moment(selectedTime, "hh:mm A").isAfter(
+              moment(latestAvailableTime, "hh:mm A"),
+            )
+          ) {
             setCustomError(
-              `The selected time is beyond the allowed time range. The latest available time is ${latestAvailableTime}. Please choose a time this time.`,
+              `The selected time is beyond the allowed time range. The latest available time is ${moment(latestAvailableTime, "HH:mm").format("hh:mm A")}. Please choose a time before this.`,
             );
             return;
           }
