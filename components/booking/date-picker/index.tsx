@@ -57,13 +57,28 @@ const DatePicker: FC<DatePickerProps> = ({
       try {
         setCustomError(null);
         const slotData = await checkSlotAvailability(date);
+        console.log("slotsData", slotData?.slots);
         if (slotData?.slots) {
-          const availableSlots = getAvailableSlots(slotData.slots);
+          const availableSlots = getAvailableSlots(slotData?.slots);
+          const latestAvailableTime = moment(
+            availableSlots[availableSlots.length - 1],
+            "HH:mm",
+          ).format("hh:mm A");
+
           const selectedTime = selectedDate.format("HH:mm");
+
+          if (selectedTime > latestAvailableTime) {
+            setCustomError(
+              `The selected time is beyond the allowed time range. The latest available time is ${latestAvailableTime}. Please choose a time this time.`,
+            );
+            return;
+          }
 
           if (!availableSlots.includes(selectedTime)) {
             setCustomError(
-              "The selected time slot is not available. Please choose another time.",
+              `The selected time slot is not available. Please choose another time from the available slots: ${availableSlots
+                ?.map((slot) => moment(slot, "HH:mm").format("hh:mm A"))
+                ?.join(", ")}.`,
             );
             return;
           }
