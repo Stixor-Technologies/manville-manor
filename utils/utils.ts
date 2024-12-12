@@ -117,53 +117,52 @@ const decorPackage: EventPackage = {
 
 const faqItems: Faq[] = [
   {
-    title: "max guest capacity?",
-    content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+    title: "Max guest capacity?",
+    content: "Up to 81 people seated",
   },
 
   {
-    title: "can i bring my own food?",
+    title: "Can I bring my own Food?",
     content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+      "Yes. We do not offer food or beverages. You can bring your own home-cooked food for your event, as long as it is not for sale. Licensed and  insured caterers are also permitted to provide food, but all food must be pre-cooked, and no onsite cooking is allowed.",
   },
 
   {
-    title: "is alcohol allowed",
+    title: "is alcohol allowed?",
     content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+      "Beer, wine and soft drinks are allowed and cannot be resold onsite to guests. A licensed and insured bartender is required if you have to serve liquor. Venue staff will request a copy of the bartender company before liquor will be allowed on our premises. We may add security as needed, based on the event's nature and timing",
   },
 
   {
     title:
       "how much extra time do i get for decorating/setting up for my event?",
     content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+      "Your setup time is included into your 6.5-hour Edison time block for space usage. There is no additional setup time allocated beyond your designated block, given that we host two events daily. For any extra setup time requirements, please get in touch with us for further details.",
   },
 
   {
     title: "am i required to cleanup after my event?",
     content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+      "Ensure the space is returned in a clean state as it was provided, unless you select the $250 cleaning package or a package that already includes cleaning. You will receive breakdown instructions in your final event communication.",
   },
 
   {
     title: "what decor items are prohibited?",
     content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+      "Smoking or vaping is not allowed onsite, on the venue's grounds/patios, or in front of the building. Glitter or confetti (also in balloons) is prohibited. Use of tape on venue walls is not permitted. Real flames are only allowed for warming food and candles for the event cake. Floating candles are allowed as long as they are not exposed flames and are in a container. Helium air balloons are not permitted in our Edison/Sayreville locations due to our high ceilings, but regular balloons are allowed.",
   },
 
   {
     title:
       "can i select my own unique hours outside of the cool venue time blocks?",
     content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+      "We are flexible with event start times on all days except Saturdays. On Saturdays, you can select from two event time blocks. Requesting a time outside of these blocks may require a full-day buyout, as it affects the two scheduled time slots.",
   },
 
   {
     title: "do you provide decor? how do i book it?",
     content:
-      "Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar. Lorem ipsum dolor sit amet consectetur. Donec vitae ut scelerisque mauris mauris aenean congue facilisis pulvinar.",
+      "Yes. We do offer decor services for many of our events. We do require you to first book the venue so your date is reserved then you can email us  to contact you and discuss decor add ons.",
   },
 ];
 

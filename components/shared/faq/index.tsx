@@ -34,7 +34,7 @@ const FaqItem = ({
   }, [isOpen]);
   return (
     <div
-      className={`mx-auto border-b border-accent px-2.5 py-5 duration-100 sm:py-[3.25rem] md:!px-[3.75rem] xs:px-5 ${isOpen ? "bg-accent text-white" : "bg-milk text-black"} transition-all duration-300`}
+      className={`mx-auto w-full border-b border-black px-2.5 py-5 duration-100 sm:py-[3.25rem] md:!px-[3.75rem] xs:px-5 ${isOpen ? "bg-accent text-white" : "bg-milk text-black"} transition-all duration-300`}
     >
       <button
         onClick={() => toggleAccordion()}
