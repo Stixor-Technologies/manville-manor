@@ -155,7 +155,9 @@ const About = () => {
               Elevate your event experience with our exceptional offerings.
             </p>
 
-            <Button variant={"invert"}>Contact Us Now</Button>
+            <Button href="/contact-us" variant={"invert"}>
+              Contact Us Now
+            </Button>
           </div>
 
           <div className="flex w-full max-w-[34rem] flex-wrap justify-center  gap-6 md:items-start lg:flex-nowrap">
