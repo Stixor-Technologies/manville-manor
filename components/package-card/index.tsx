@@ -49,8 +49,6 @@ const PackageCard: React.FC<CardProps> = ({
     setopenBackdropChoices(!openBackdropChoices);
   };
 
-  console.log(additonalServices);
-
   return (
     <div className={cn(cardVariants({ variant }), className)} {...props}>
       <div

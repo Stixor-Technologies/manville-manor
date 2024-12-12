@@ -100,6 +100,15 @@ type EventPackagesType = {
   };
 };
 
+type RecentEvent = {
+  id: number;
+  attributes: {
+    name: string;
+    tag: string;
+    image: Images;
+  };
+};
+
 export type {
   Menu,
   SocialLinks,
@@ -112,4 +121,5 @@ export type {
   Blogs,
   Backdrops,
   EventPackagesType,
+  RecentEvent,
 };

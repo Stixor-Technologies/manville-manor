@@ -2,7 +2,7 @@ import Contact from "@/components/shared/contact";
 import Faqs from "@/components/shared/faq";
 import OfficeLocation from "@/components/home-page/office-location";
 import EventPackages from "@/components/event-packages";
-import HomeGallery from "@/components/home-page/home-gallery";
+import EventsGallery from "@/components/home-page/recent-events/events-gallery";
 import VenueDetails from "@/components/home-page/venue-details";
 import BackDrops from "@/components/home-page/backdrops";
 import HomeHero from "@/components/home-page/home-hero";
@@ -11,13 +11,17 @@ import FloorPlans from "@/components/home-page/floor-plans";
 import BlogsSection from "@/components/home-page/blogs";
 import { Suspense } from "react";
 import Testimonials from "@/components/home-page/testimonials";
+import RecentEvents from "@/components/home-page/recent-events";
 
 export default function Home() {
   return (
     <main className="min-h-screen flex-col items-center justify-between overflow-hidden">
       <HomeHero />
       <HomeAbout />
-      <HomeGallery />
+
+      <Suspense>
+        <RecentEvents />
+      </Suspense>
 
       <Suspense>
         <FloorPlans />

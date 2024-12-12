@@ -199,103 +199,6 @@ const venueDetails: VenueDetail[] = [
   },
 ];
 
-// const recentEvents: RecentEvents[] = [
-//   {
-//     name: "LUMI",
-//     media: Event2,
-//     hostedBy: "Lumi by Roli",
-//     number: "02",
-//   },
-//   {
-//     name: "Type Balance",
-//     media: Event4,
-//     hostedBy: "Antian Lmeri",
-//     number: "04",
-//   },
-//   {
-//     name: "Compositions III",
-//     media: Event6,
-//     hostedBy: "Phillip Luck",
-//     number: "06",
-//   },
-//   {
-//     name: "Dreamy Flowers",
-//     media: Event1,
-//     hostedBy: "Behance: Omar Aqil",
-//     number: "01",
-//   },
-//   {
-//     name: "LUMI",
-//     media: Event3,
-//     hostedBy: "Lumi by Roli",
-//     number: "03",
-//   },
-
-//   {
-//     name: "Type 2021 Edition",
-//     media: Event5,
-//     hostedBy: "Get it Studio",
-//     number: "05",
-//   },
-
-//   {
-//     name: "Abstract Machine",
-//     media: Event7,
-//     hostedBy: "Juanna Mota",
-//     number: "07",
-//   },
-// ];
-
-const recentEvents: RecentEvents[] = [
-  {
-    name: "Dreamy Flowers",
-    media: Event1,
-    hostedBy: "Behance: Omar Aqil",
-    number: "01",
-  },
-
-  {
-    name: "LUMI",
-    media: Event2,
-    hostedBy: "Lumi by Roli",
-    number: "02",
-  },
-  {
-    name: "LUMI",
-    media: Event3,
-    hostedBy: "Lumi by Roli",
-    number: "03",
-  },
-
-  {
-    name: "Type Balance",
-    media: Event4,
-    hostedBy: "Antian Lmeri",
-    number: "04",
-  },
-
-  {
-    name: "Type 2021 Edition",
-    media: Event5,
-    hostedBy: "Get it Studio",
-    number: "05",
-  },
-
-  {
-    name: "Compositions III",
-    media: Event6,
-    hostedBy: "Phillip Luck",
-    number: "06",
-  },
-
-  {
-    name: "Abstract Machine",
-    media: Event7,
-    hostedBy: "Juanna Mota",
-    number: "07",
-  },
-];
-
 export {
   navBarLinks,
   socialLink,
@@ -303,5 +206,4 @@ export {
   decorPackage,
   faqItems,
   venueDetails,
-  recentEvents,
 };

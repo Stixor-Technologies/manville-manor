@@ -1,17 +1,22 @@
 "use client";
 import SectionHeader from "@/components/shared/section-header";
-import React from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Button } from "@/components/button";
-import { recentEvents } from "@/utils/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 import { cn } from "@/lib/utils";
+import { BASE_URL } from "@/utils/contants";
+import { RecentEvent } from "@/utils/types/types";
 
-const HomeGallery = () => {
+interface EventsGalleryProps {
+  recentEvents: RecentEvent[];
+}
+
+const EventsGallery: FC<EventsGalleryProps> = ({ recentEvents }) => {
   useGSAP(() => {
     const mm = gsap.matchMedia();
 
@@ -87,12 +92,21 @@ const HomeGallery = () => {
               >
                 <div className="flex items-center justify-between px-6">
                   <div>
-                    <h3>{event.name}</h3>
-                    <p className="text-xs">{event?.hostedBy}</p>
+                    <h3>{event?.attributes?.name}</h3>
+                    <p className="text-xs">{event?.attributes?.tag}</p>
                   </div>
-                  <p className="text-[4rem]">{event?.number}</p>
+                  <p className="text-[4rem]">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
                 </div>
-                <Image src={event?.media} width={450} height={320} alt="" />
+                <Image
+                  src={
+                    BASE_URL + event?.attributes?.image?.data?.attributes?.url
+                  }
+                  width={450}
+                  height={320}
+                  alt={event?.attributes?.tag}
+                />
               </div>
             ))}
           </div>
@@ -104,4 +118,4 @@ const HomeGallery = () => {
   );
 };
 
-export default HomeGallery;
+export default EventsGallery;

@@ -384,3 +384,16 @@ export const updatePaymentStatus = async (bookingId: number) => {
     throw error;
   }
 };
+
+export const getRecentEvents = async () => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/recent-events?populate=*`, {
+      cache: "no-store",
+    });
+    const recentEvents = await resp.json();
+    return recentEvents?.data;
+  } catch (error) {
+    console.error("There was an error getting recent Events", error);
+    return [];
+  }
+};
