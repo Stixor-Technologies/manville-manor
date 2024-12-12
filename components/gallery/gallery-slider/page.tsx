@@ -3,11 +3,6 @@ import React, { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
-import Slide1 from "@/public/assets/gallery/slide-1.png";
-import Slide2 from "@/public/assets/gallery/slide-2.png";
-import Slide3 from "@/public/assets/gallery/slide-3.png";
-import Slide4 from "@/public/assets/gallery/slide-4.png";
-import Slide5 from "@/public/assets/gallery/slide-5.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
