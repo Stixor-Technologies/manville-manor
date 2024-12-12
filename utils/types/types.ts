@@ -109,6 +109,25 @@ type RecentEvent = {
   };
 };
 
+type Portfolio = {
+  id: number;
+  images: {
+    data: {
+      attributes: {
+        url: string;
+      };
+    }[];
+  };
+  portfolio_filter: {
+    data: {
+      id: number;
+      attributes: {
+        name: string;
+      };
+    };
+  };
+};
+
 export type {
   Menu,
   SocialLinks,
@@ -123,4 +142,5 @@ export type {
   EventPackagesType,
   RecentEvent,
   Images,
+  Portfolio,
 };

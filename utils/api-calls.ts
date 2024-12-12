@@ -410,3 +410,40 @@ export const getGallerySliderImages = async () => {
     return [];
   }
 };
+
+export const getPorfolioFilters = async () => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/portfolio-filters?populate=*`, {
+      cache: "no-store",
+    });
+    const porfolioFilters = await resp.json();
+    return [
+      { value: "all", label: "All" },
+      ...porfolioFilters?.data.map((item: any) => ({
+        value: item?.attributes?.name,
+        label: item?.attributes?.name,
+      })),
+    ];
+    // return porfolioFilters;
+  } catch (error) {
+    console.error("There was an error getting porfolio filters", error);
+    return [];
+  }
+};
+
+export const getPortfolio = async () => {
+  try {
+    const resp = await fetch(
+      `${BASE_URL}/api/potfolio?populate[portfolioCategory][populate]=*`,
+      {
+        cache: "no-store",
+      },
+    );
+    const portfolioData = await resp.json();
+    console.log(portfolioData);
+    return portfolioData?.data;
+  } catch (error) {
+    console.error("There was an error getting portfolio", error);
+    return [];
+  }
+};

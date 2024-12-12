@@ -1,37 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import P1 from "@/public/assets/gallery/portfolio/p1.png";
-import P2 from "@/public/assets/gallery/portfolio/p2.png";
-import P3 from "@/public/assets/gallery/portfolio/p3.png";
-import P4 from "@/public/assets/gallery/portfolio/p4.png";
-import P5 from "@/public/assets/gallery/portfolio/p5.png";
-import P6 from "@/public/assets/gallery/portfolio/p6.png";
-import P7 from "@/public/assets/gallery/portfolio/p7.png";
-import P8 from "@/public/assets/gallery/portfolio/p8.png";
-import P9 from "@/public/assets/gallery/portfolio/p9.png";
 import { Button } from "@/components/button";
 import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
 import Dash from "@/public/assets/gallery/minus.svg";
+import { BASE_URL } from "@/utils/contants";
+import { Portfolio } from "@/utils/types/types";
 
-export default function GalleryPortfolio() {
-  const categories = ["all", "wedding", "events", "shows", "functions"];
+interface GalleryPortfolioProps {
+  portfolio: Portfolio[];
+  portfolioFilters: { value: string; label: string }[];
+}
 
-  const images = [
-    { asset: P1, category: "wedding" },
-    { asset: P2, category: "events" },
-    { asset: P4, category: "shows" },
-    { asset: P6, category: "functions" },
-    { asset: P7, category: "wedding" },
-    { asset: P9, category: "events" },
-    { asset: P3, category: "shows" },
-    { asset: P8, category: "wedding" },
-    { asset: P5, category: "functions" },
-  ];
-
+const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
+  portfolio,
+  portfolioFilters,
+}) => {
   const clientsData = [
     {
       id: 1,
@@ -58,8 +45,11 @@ export default function GalleryPortfolio() {
 
   const filteredImages =
     selectedFilter === "all"
-      ? images
-      : images.filter((image) => image.category === selectedFilter);
+      ? portfolio
+      : portfolio?.filter(
+          (image) =>
+            image?.portfolio_filter?.data?.attributes?.name === selectedFilter,
+        );
 
   return (
     <section className="relative px-[1.375rem] md:px-0">
@@ -71,37 +61,59 @@ export default function GalleryPortfolio() {
         {/* Filters button*/}
 
         <div className="scrollbar-hide flex gap-16 overflow-scroll overflow-x-auto sm:justify-end">
-          {categories.map((filter) => (
+          {portfolioFilters?.map((filter) => (
             <Button
-              key={filter}
+              key={filter?.value}
               variant={"icon"}
               size={"icon"}
-              onClick={() => setSelectedFilter(filter)}
+              onClick={() => setSelectedFilter(filter?.value)}
               className={cn(
                 "text-white/70",
-                selectedFilter === filter && "text-white",
+                selectedFilter === filter?.value && "text-white",
               )}
             >
-              {filter}
+              {filter?.label}
             </Button>
           ))}
         </div>
       </div>
 
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 5 }}>
-        <Masonry gutter="1rem">
-          {filteredImages?.map((image, i) => (
-            <Image key={i} src={image.asset} alt="" className="w-full" />
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
+      {filteredImages?.length > 0 ? (
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 5 }}
+          className="min-h-[12.5rem]"
+        >
+          <Masonry gutter="1rem">
+            {filteredImages?.flatMap((item) =>
+              item?.images?.data?.map((image, i) => (
+                <Image
+                  key={i}
+                  src={BASE_URL + image?.attributes?.url}
+                  alt=""
+                  className="w-full"
+                  width={600}
+                  height={500}
+                />
+              )),
+            )}
+          </Masonry>
+        </ResponsiveMasonry>
+      ) : (
+        <div className="flex h-60 items-center justify-center text-white">
+          <p>No Images Found</p>
+        </div>
+      )}
 
       <Marquee
         speed={120}
         autoFill
         loop={0}
         pauseOnHover
-        className=" !absolute -bottom-5 z-10 !-rotate-2 bg-secondary"
+        className={cn(
+          " -bottom-5 z-10 !-rotate-2 bg-secondary",
+
+          filteredImages?.length > 0 ? "!absolute" : "static",
+        )}
       >
         <ul className="min-w-auto relative flex flex-1 overflow-hidden">
           {clientsData?.map((data) => (
@@ -117,4 +129,6 @@ export default function GalleryPortfolio() {
       </Marquee>
     </section>
   );
-}
+};
+
+export default GalleryPortfolio;

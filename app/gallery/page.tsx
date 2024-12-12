@@ -7,10 +7,17 @@ import EssentialMetrics from "@/components/gallery/essential-metrics/essential-m
 import ArrowDown from "@/public/assets/icons/point-down.svg";
 import GalleryHighLight from "@/components/gallery/gallery-highlight";
 import GalleryPortfolio from "@/components/gallery/gallery-portfolio";
-import { getGallerySliderImages } from "@/utils/api-calls";
+import {
+  getGallerySliderImages,
+  getPorfolioFilters,
+  getPortfolio,
+} from "@/utils/api-calls";
 
 const Gallery = async () => {
   const sliderData = await getGallerySliderImages();
+  const portfolioFilters = await getPorfolioFilters();
+  const portfolio = await getPortfolio();
+
   return (
     <>
       <div className="overflow-y-hidden">
@@ -41,7 +48,13 @@ const Gallery = async () => {
         {sliderData?.attributes?.images?.data && (
           <GallerySlider sliderImages={sliderData?.attributes?.images?.data} />
         )}
-        <GalleryPortfolio />
+
+        {portfolio?.attributes?.portfolioCategory?.length > 0 && (
+          <GalleryPortfolio
+            portfolio={portfolio?.attributes?.portfolioCategory}
+            portfolioFilters={portfolioFilters}
+          />
+        )}
 
         <GalleryHighLight />
       </div>
