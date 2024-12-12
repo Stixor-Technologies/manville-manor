@@ -38,7 +38,9 @@ const Gallery = async () => {
 
           <EssentialMetrics />
         </div>
-        <GallerySlider sliderImages={sliderData?.attributes?.images?.data} />
+        {sliderData?.attributes?.images?.data && (
+          <GallerySlider sliderImages={sliderData?.attributes?.images?.data} />
+        )}
         <GalleryPortfolio />
 
         <GalleryHighLight />
