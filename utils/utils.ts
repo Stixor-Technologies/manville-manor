@@ -2,7 +2,6 @@ import {
   EventPackage,
   Faq,
   Menu,
-  RecentEvents,
   SocialLinks,
   VenueDetail,
 } from "./types/types";
@@ -11,13 +10,6 @@ import Facebook from "@/public/assets/icons/facebook.svg";
 import Linkedin from "@/public/assets/icons/linkedin.svg";
 import X from "@/public/assets/icons/x.svg";
 import Youtube from "@/public/assets/icons/youtube.svg";
-import Event1 from "@/public/assets/events/event-1.png";
-import Event2 from "@/public/assets/events/event-2.png";
-import Event3 from "@/public/assets/events/event-3.png";
-import Event4 from "@/public/assets/events/event-4.png";
-import Event5 from "@/public/assets/events/event-5.png";
-import Event6 from "@/public/assets/events/event-6.png";
-import Event7 from "@/public/assets/events/event-7.png";
 
 const navBarLinks: Menu[] = [
   {

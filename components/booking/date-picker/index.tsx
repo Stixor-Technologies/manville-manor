@@ -57,21 +57,16 @@ const DatePicker: FC<DatePickerProps> = ({
       try {
         setCustomError(null);
         const slotData = await checkSlotAvailability(date);
-        console.log("slotsData", slotData?.slots);
         if (slotData?.slots) {
           const availableSlots = getAvailableSlots(slotData?.slots);
 
           const latestAvailableTime = availableSlots[availableSlots.length - 1];
 
           const selectedTime = selectedDate.format("HH:mm");
-          const selectedTime12Hrs = moment(selectedTime, "HH:mm").format(
-            "hh:mm A",
-          );
-          console.log(
-            selectedTime12Hrs > latestAvailableTime,
-            selectedTime12Hrs,
-            latestAvailableTime,
-          );
+          // const selectedTime12Hrs = moment(selectedTime, "HH:mm").format(
+          //   "hh:mm A",
+          // );
+
           if (
             moment(selectedTime, "hh:mm A").isAfter(
               moment(latestAvailableTime, "hh:mm A"),

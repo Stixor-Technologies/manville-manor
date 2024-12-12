@@ -153,7 +153,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
       <Formik
         initialValues={{
           clientSignature: clientSignature || "",
-          dateClient: contractDate || "",
+          dateClient: contractDate || moment(),
         }}
         onSubmit={submitContract}
         validationSchema={ContractFormSchema}
@@ -164,7 +164,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
               <div className="flex items-end gap-2 leading-none ">
                 <span>Client Signature:</span>
 
-                {clientSignature && contractDate ? (
+                {clientSignature ? (
                   // Display the existing signature if both are present
                   <div>
                     <Image

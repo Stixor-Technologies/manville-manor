@@ -2,7 +2,6 @@ import Contact from "@/components/shared/contact";
 import Faqs from "@/components/shared/faq";
 import OfficeLocation from "@/components/home-page/office-location";
 import EventPackages from "@/components/event-packages";
-import EventsGallery from "@/components/home-page/recent-events/events-gallery";
 import VenueDetails from "@/components/home-page/venue-details";
 import BackDrops from "@/components/home-page/backdrops";
 import HomeHero from "@/components/home-page/home-hero";

@@ -68,5 +68,5 @@ export const ContractFormSchema = Yup.object().shape({
       return value && value instanceof File && value?.size <= FILE_SIZE;
     }),
 
-  dateClient: Yup.string().required("Please select a date"),
+  dateClient: Yup.date().required("Please select a date"),
 });
