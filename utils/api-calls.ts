@@ -397,3 +397,16 @@ export const getRecentEvents = async () => {
     return [];
   }
 };
+
+export const getGallerySliderImages = async () => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/gallery-slider?populate=*`, {
+      cache: "no-store",
+    });
+    const sliderImages = await resp.json();
+    return sliderImages?.data;
+  } catch (error) {
+    console.error("There was an error getting slider images", error);
+    return [];
+  }
+};

@@ -122,4 +122,5 @@ export type {
   Backdrops,
   EventPackagesType,
   RecentEvent,
+  Images,
 };

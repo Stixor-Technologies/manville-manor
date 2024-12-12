@@ -13,7 +13,7 @@ const GalleryHighLight = () => {
       <div className="mb-10 flex flex-col gap-11 md:flex-row md:gap-6 lg:gap-9">
         <div className="relative mt-11 flex-1 text-center text-white md:order-1 md:mr-5 md:mt-8 md:text-left lg:mt-20">
           <h3 className="font-cormorant text-5xl">Why Us</h3>
-          <p className="mt-11 text-xl capitalize leading-relaxed md:mt-5 lg:mt-8">
+          <p className="mt-11 px-[1.375rem] text-xl capitalize leading-relaxed md:mt-5 md:px-0 lg:mt-8">
             We specialize in creating unforgettable events with versatile
             spaces, tailored layouts, and expert coordination. Whether it&apos;s
             a wedding, corporate event, or private celebration, our attention to
