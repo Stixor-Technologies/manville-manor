@@ -70,6 +70,7 @@ type Blogs = {
     media: Images;
     auhtorImage: Images;
     description: any;
+    shortDescription: string;
   };
 };
 

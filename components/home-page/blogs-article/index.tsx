@@ -167,10 +167,8 @@ const BlogsArticle: FC<BlogsArticleProps> = ({ blogsData }) => {
                     {blog?.attributes?.title}
                   </h2>
 
-                  <p>
-                    This article was written by Jake Willhoite from
-                    Healthlisted.com Strength in basketball isn&apos;t all about
-                    a massive body mass or ripped muscles.
+                  <p className="line-clamp-3">
+                    {blog?.attributes?.shortDescription}
                   </p>
                 </div>
               </article>
