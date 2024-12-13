@@ -8,7 +8,7 @@ const TestimonialsSection = async () => {
 
   return (
     <div>
-      <Testimonials testimonials={testimonials} />
+      {testimonials?.length > 0 && <Testimonials testimonials={testimonials} />}
     </div>
   );
 };
