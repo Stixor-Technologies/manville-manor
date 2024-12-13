@@ -50,12 +50,17 @@ export const BookingFormSchema = Yup.object().shape({
   date: Yup.string().required("Please select a desired date"),
   venue: Yup.string().required("Please select a venue"),
   package: Yup.string().required("Please select a Package"),
-  peopleCount: Yup.string().required("Please specify the number of people"),
   catering: Yup.string().required("Please select a catering option"),
   floorOption: Yup.string().required("Please select a floor option"),
   message: Yup.string()
     .min(10, "Message should be atleast 10 characters long.")
     .max(500, "Message should be at most 500 characters long."),
+  adultsCount: Yup.number()
+    .required("Please specify the number of adults")
+    .moreThan(0, "The number of adults must be greater than 0"),
+  childsCount: Yup.number()
+    .required("Please specify the number of children")
+    .moreThan(0, "The number of children must be greater than 0"),
 });
 
 const FILE_SIZE = 5 * 1024 * 1024;

@@ -40,7 +40,7 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
             </li>
             <li className="flex justify-between">
               <span>Catering</span>
-              <span>${invoiceData?.items?.catering}</span>
+              <span>${invoiceData?.items?.cateringTotal}</span>
             </li>
 
             <li className="flex justify-between">
@@ -51,11 +51,6 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
             <li className="flex justify-between">
               <span>Package Price</span>
               <span>${invoiceData?.items?.packagePrice}</span>
-            </li>
-
-            <li className="flex justify-between">
-              <span>Guests</span>
-              <span>${invoiceData?.items?.peopleCount}</span>
             </li>
           </ul>
         </li>

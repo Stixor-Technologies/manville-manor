@@ -17,22 +17,6 @@ export const getVenues = async (): Promise<ListItemOption[]> => {
   }
 };
 
-export const getPeopleCount = async (): Promise<ListItemOption[]> => {
-  try {
-    const resp = await fetch(`${BASE_URL}/api/people-counts`, {
-      cache: "no-store",
-    });
-    const peopleCount = await resp.json();
-    return peopleCount?.data.map((item: any) => ({
-      value: item?.id,
-      label: item?.attributes?.numberOfPeople,
-    }));
-  } catch (error) {
-    console.error("There was an error getting people counts", error);
-    return [];
-  }
-};
-
 // export const getPackages = async (): Promise<ListItemOption[]> => {
 //   try {
 //     const resp = await fetch(`${BASE_URL}/api/packages`, {

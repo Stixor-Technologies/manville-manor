@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  getPeopleCount,
   getVenues,
   getCatering,
   getFloorPlans,
@@ -13,7 +12,6 @@ import BookingForm from "../booking-form";
 const BookingWrapper = async () => {
   const [
     venues,
-    peopleCount,
     caterings,
     floorPlans,
     additonalServices,
@@ -21,7 +19,6 @@ const BookingWrapper = async () => {
     packages,
   ] = await Promise.all([
     getVenues(),
-    getPeopleCount(),
     getCatering(),
     getFloorPlans(true),
     getAdditionalServices(true),
@@ -32,7 +29,6 @@ const BookingWrapper = async () => {
   return (
     <BookingForm
       venues={venues}
-      peopleCount={peopleCount}
       floorPlans={floorPlans}
       services={additonalServices}
       catering={caterings}

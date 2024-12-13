@@ -10,10 +10,10 @@ import { createBooking } from "@/utils/api-calls";
 import { toast } from "react-toastify";
 import { FormValues, ListItemOption } from "@/utils/types/types";
 import { useRouter } from "next/navigation";
+import Label from "../label";
 
 interface BookingFormProps {
   venues: ListItemOption[];
-  peopleCount: ListItemOption[];
   floorPlans: ListItemOption[];
   services: ListItemOption[];
   catering: ListItemOption[];
@@ -23,7 +23,6 @@ interface BookingFormProps {
 
 const BookingForm: FC<BookingFormProps> = ({
   venues,
-  peopleCount,
   floorPlans,
   services,
   catering,
@@ -53,6 +52,8 @@ const BookingForm: FC<BookingFormProps> = ({
     backDrop: "",
     package: "",
     message: "",
+    adultsCount: null,
+    childsCount: null,
   };
 
   const makeBooking = async (values: FormValues) => {
@@ -60,6 +61,17 @@ const BookingForm: FC<BookingFormProps> = ({
       ...values,
       ...(values.additionalServices?.[0] === 0 && { additionalServices: [] }),
     };
+
+    const totalPeople = (values.adultsCount ?? 0) + (values.childsCount ?? 0);
+    if (totalPeople > 81) {
+      toast.error("The total number of people cannot exceed 81.", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
+      return;
+    }
+
     if (customError) return;
     try {
       setBookingRequest(true);
@@ -161,15 +173,29 @@ const BookingForm: FC<BookingFormProps> = ({
                 errorMessage={errors.venue}
               />
 
-              <Select
-                options={peopleCount}
-                placeholder={"Select Number of Peoples"}
-                name={"peopleCount"}
-                label={"Amount Of People"}
-                hasError={!!errors.peopleCount}
-                isTouched={touched.peopleCount}
-                errorMessage={errors.peopleCount}
-              />
+              <div className="">
+                <Label labelFor={""}> Amount Of People</Label>
+                <div className="flex gap-2">
+                  <Input
+                    type="number"
+                    variant={"underlineWithLabel"}
+                    hasError={!!errors.adultsCount}
+                    isTouched={touched.adultsCount}
+                    name={"adultsCount"}
+                    errorMessage={errors.adultsCount}
+                    placeholder="Number of Adults"
+                  />
+                  <Input
+                    type="number"
+                    variant={"underlineWithLabel"}
+                    hasError={!!errors.childsCount}
+                    isTouched={touched.childsCount}
+                    name={"childsCount"}
+                    errorMessage={errors.childsCount}
+                    placeholder="Number of Childs"
+                  />
+                </div>
+              </div>
 
               <Select
                 options={catering}

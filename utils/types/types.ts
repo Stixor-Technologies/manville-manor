@@ -51,6 +51,8 @@ type FormValues = {
   backDrop: string;
   package: string;
   message: string;
+  adultsCount: number | null;
+  childsCount: number | null;
 };
 
 type Images = {

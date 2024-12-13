@@ -66,7 +66,7 @@ const InvoicePage = () => {
                 <li>Event Time: [Start Time] to [End Time]</li>
                 <li>{`Event Type: ${bookingData?.venue?.venue_name}`}</li>
                 <li>
-                  {` Number of Guests: ${bookingData?.peopleCount?.numberOfPeople}`}
+                  {` Number of Guests: ${bookingData?.adultsCount + bookingData?.childsCount}`}
                 </li>
               </ul>
 
