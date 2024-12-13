@@ -131,6 +131,16 @@ type Portfolio = {
   };
 };
 
+type Testimonial = {
+  id: number;
+  attributes: {
+    name: string;
+    designation: string;
+    testimony: string;
+    image: Images;
+  };
+};
+
 export type {
   Menu,
   SocialLinks,
@@ -146,4 +156,5 @@ export type {
   RecentEvent,
   Images,
   Portfolio,
+  Testimonial,
 };

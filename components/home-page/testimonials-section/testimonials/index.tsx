@@ -1,14 +1,19 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import SectionHeader from "@/components/shared/section-header";
 import Image from "next/image";
-import DummyProfile from "@/public/assets/dummy-profile.png";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import Quotes from "@/public/assets/icons/quotes.svg";
+import { Testimonial } from "@/utils/types/types";
+import { BASE_URL } from "@/utils/contants";
 
-const Testimonials = () => {
+interface TestimonialsProps {
+  testimonials: Testimonial[];
+}
+
+const Testimonials: FC<TestimonialsProps> = ({ testimonials }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const tabsRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -165,10 +170,10 @@ const Testimonials = () => {
       <SectionHeader header="TESTIMONY" description="Our Participants Say" />
 
       <div ref={containerRef} className="relative mt-16 flex gap-0.5">
-        {[1, 2, 3, 4].map((_, index) => {
+        {testimonials?.map((testimonial, index) => {
           return (
             <div
-              key={index}
+              key={testimonial?.id}
               onClick={() => performAnimations(index)}
               ref={(el) => (tabsRefs.current[index] = el)}
               className={cn(
@@ -181,12 +186,17 @@ const Testimonials = () => {
                   index !== 0 ? "flex-cols" : "items-center",
                 )}
               >
-                <Image
-                  src={DummyProfile}
-                  width={140}
-                  alt="profile"
-                  className=""
-                />
+                <div className="relative aspect-square w-[8.75rem] overflow-hidden">
+                  <Image
+                    src={
+                      BASE_URL +
+                      testimonial?.attributes?.image?.data?.attributes?.url
+                    }
+                    fill
+                    alt="profile"
+                    className="object-cover"
+                  />
+                </div>
 
                 <h3
                   className={cn(
@@ -196,7 +206,7 @@ const Testimonials = () => {
                       : "left-[172px] top-[25%] -translate-y-[25%]",
                   )}
                 >
-                  Wahid Dwipa Santoso
+                  {testimonial?.attributes?.name}
                 </h3>
                 <div
                   className={cn(
@@ -210,7 +220,7 @@ const Testimonials = () => {
                       index !== 0 && " opacity-0",
                     )}
                   >
-                    House Club Party Organizier
+                    {testimonial?.attributes?.designation}
                   </h4>
                 </div>
               </div>
@@ -231,11 +241,7 @@ const Testimonials = () => {
                   index !== 0 && "opacity-0",
                 )}
               >
-                I would also like to take this opportunity to thank Conference
-                Design for the excellent work both pre-conference and as support
-                during the four days. As usual, flawless organisation and
-                conducted with humour and infinite patience. The Virtual
-                platform was easy to interact with and all features worked well.
+                {testimonial?.attributes?.testimony}
               </p>
             </div>
           );

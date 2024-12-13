@@ -424,10 +424,22 @@ export const getPortfolio = async () => {
       },
     );
     const portfolioData = await resp.json();
-    console.log(portfolioData);
     return portfolioData?.data;
   } catch (error) {
     console.error("There was an error getting portfolio", error);
+    return [];
+  }
+};
+
+export const getTestimonials = async () => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/testimonials?populate=*`, {
+      cache: "no-store",
+    });
+    const testimonialsData = await resp.json();
+    return testimonialsData?.data;
+  } catch (error) {
+    console.error("There was an error getting testimonials", error);
     return [];
   }
 };
