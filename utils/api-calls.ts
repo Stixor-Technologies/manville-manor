@@ -443,3 +443,16 @@ export const getTestimonials = async () => {
     return [];
   }
 };
+
+export const getAbout = async () => {
+  try {
+    const resp = await fetch(`${BASE_URL}/api/abouts?populate=*`, {
+      cache: "no-store",
+    });
+    const aboutData = await resp.json();
+    return aboutData?.data;
+  } catch (error) {
+    console.error("There was an error getting about data", error);
+    return [];
+  }
+};
