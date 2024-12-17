@@ -212,30 +212,31 @@ const Contact = () => {
 
       <div className="space-y-6 text-white">
         <Link
-          href={"mailto:SaulDesign@gmail.com"}
+          href={"mailto:ManvilleManor@outlook.com"}
           className="flex gap-4 p-6 text-xl"
           data-animated-contact-details
         >
           <Image src={Email} alt="email-icon" />
-          <span>SaulDesign@gmail.com</span>
+          <span>ManvilleManor@outlook.com</span>
         </Link>
 
         <Link
-          href={"tel:+123 456 789"}
+          href={"tel:+732-985-5363"}
           className="flex gap-4 rounded-2xl border-2 border-accent bg-accent/50 p-6 text-xl"
           data-animated-contact-details
         >
           <Image src={Phone} alt="call-icon" />
-          <span>+123 456 789</span>
+          <span>732-985-5363</span>
         </Link>
 
         <Link
-          href={"mailto:SaulDesign@gmail.com"}
+          href={"https://maps.app.goo.gl/8GmgDerKmJKkZoCu5"}
           className="flex gap-4 p-6 text-xl"
           data-animated-contact-details
+          target="_blank"
         >
           <Image src={Marker} alt="location-icon" />
-          <span>123 Street 456 House</span>
+          <span>39 South St Manville NJ 08835</span>
         </Link>
       </div>
     </section>
