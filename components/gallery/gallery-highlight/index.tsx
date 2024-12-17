@@ -63,7 +63,7 @@ const GalleryHighLight = () => {
             media="(min-width: 640px)"
             srcSet="/assets/gallery/event-spotlight.png"
           />
-          <source srcSet="/assets/gallery/event-spotlight-mobile.png" />
+          <source srcSet="/assets/gallery/event-spotlight-mobile.jpg" />
           <img />
         </picture>
 

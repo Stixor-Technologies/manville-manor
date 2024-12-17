@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "@/components/shared/hero";
 import Image from "next/image";
-import AboutHero from "@/public/assets/about/about-hero.png";
+import HeroGallery from "@/public/assets/gallery/hero-gallery.png";
 import GallerySlider from "@/components/gallery/gallery-slider/page";
 import EssentialMetrics from "@/components/gallery/essential-metrics/essential-metrics";
 import ArrowDown from "@/public/assets/icons/point-down.svg";
@@ -20,8 +20,8 @@ const Gallery = async () => {
 
   return (
     <>
-      <div className="overflow-y-hidden">
-        <Hero heroImage={AboutHero} heroHeading="Gallery" />
+      <div className="overflow-hidden">
+        <Hero heroImage={HeroGallery} heroHeading="Gallery" />
         <div className="container">
           <div className="mt-11 flex flex-col justify-between gap-6 md:flex-row md:items-start">
             <div className="relative flex justify-center md:justify-start">
