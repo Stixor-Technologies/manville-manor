@@ -17,26 +17,50 @@ const navBarLinks: Menu[] = [
     title: "Home",
     path: "/",
   },
+
   {
     id: 2,
+    title: "Venue",
+    path: "/venue",
+  },
+  {
+    id: 3,
+    title: "Backdrops",
+    path: "/backdrops",
+  },
+
+  {
+    id: 4,
+    title: "Flooplans",
+    path: "/floorplans",
+  },
+
+  {
+    id: 5,
     title: "Gallery",
     path: "/gallery",
   },
 
   {
-    id: 3,
+    id: 6,
     title: "Packages",
     path: "/packages",
   },
 
   {
-    id: 4,
+    id: 7,
+    title: "Faqs",
+    path: "/faqs",
+  },
+
+  {
+    id: 8,
     title: "About Us",
     path: "/about-us",
   },
 
   {
-    id: 5,
+    id: 9,
     title: "Contact",
     path: "/contact-us",
   },

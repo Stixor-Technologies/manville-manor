@@ -66,7 +66,7 @@ const Sidebar = () => {
       <Button
         size={"icon"}
         variant={"icon"}
-        className="inline-flex md:hidden"
+        className="inline-flex lg:hidden"
         onClick={toggleMenu}
       >
         <Image src={Hamburger} alt="hamburger-menu" />
@@ -90,7 +90,7 @@ const Sidebar = () => {
             </button>
           </div>
 
-          <ul className="flex-1 space-y-[9vw] text-xl  md:text-left min-aspect:mt-[4vw] min-aspect:space-y-[1.5vw]">
+          <ul className="flex-1 space-y-[9vw] overflow-y-scroll text-xl md:text-left min-aspect:mt-[4vw] min-aspect:space-y-[1.5vw]">
             {navBarLinks?.map((item) => (
               <li key={item?.id}>
                 <Link
