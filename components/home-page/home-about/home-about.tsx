@@ -1,107 +1,8 @@
 import React from "react";
 import MediaCarousel from "../media-carousel";
-import { Backdrops } from "@/utils/types/types";
 import { getAbout } from "@/utils/api-calls";
 
 const HomeAbout = async () => {
-  const venues: Backdrops[] = [
-    {
-      id: 1,
-      attributes: {
-        name: "Don Carlo Van Houten",
-        price: 2000,
-        tag: "Venue 1",
-        backDropMedia: {
-          data: {
-            attributes: {
-              url: "/assets/gallery/slide-1.png",
-            },
-          },
-        },
-        social: {
-          facebook: "/",
-          instagram: "/",
-        },
-      },
-    },
-    {
-      id: 2,
-      attributes: {
-        name: "Don Carlo Van Houten",
-        price: 2000,
-        tag: "Venue 1",
-        backDropMedia: {
-          data: {
-            attributes: {
-              url: "/assets/gallery/slide-2.png",
-            },
-          },
-        },
-        social: {
-          facebook: "/",
-          instagram: "/",
-        },
-      },
-    },
-    {
-      id: 3,
-      attributes: {
-        name: "Don Carlo Van Houten",
-        price: 2000,
-        tag: "Venue 1",
-        backDropMedia: {
-          data: {
-            attributes: {
-              url: "/assets/gallery/slide-3.png",
-            },
-          },
-        },
-        social: {
-          facebook: "/",
-          instagram: "/",
-        },
-      },
-    },
-    {
-      id: 4,
-      attributes: {
-        name: "Don Carlo Van Houten",
-        price: 2000,
-        tag: "Venue 1",
-        backDropMedia: {
-          data: {
-            attributes: {
-              url: "/assets/gallery/slide-4.png",
-            },
-          },
-        },
-        social: {
-          facebook: "/",
-          instagram: "/",
-        },
-      },
-    },
-    {
-      id: 5,
-      attributes: {
-        name: "Don Carlo Van Houten",
-        price: 2000,
-        tag: "Venue 1",
-        backDropMedia: {
-          data: {
-            attributes: {
-              url: "/assets/gallery/slide-5.png",
-            },
-          },
-        },
-        social: {
-          facebook: "/",
-          instagram: "/",
-        },
-      },
-    },
-  ];
-
   const aboutData = await getAbout();
 
   return (
@@ -121,7 +22,7 @@ const HomeAbout = async () => {
               </p>
             </div>
 
-            <MediaCarousel backdrops={aboutData} />
+            <MediaCarousel data={aboutData} />
           </div>
         </section>
       )}

@@ -446,11 +446,11 @@ export const getTestimonials = async () => {
 
 export const getAbout = async () => {
   try {
-    const resp = await fetch(`${BASE_URL}/api/abouts?populate=*`, {
+    const resp = await fetch(`${BASE_URL}/api/about?populate=*`, {
       cache: "no-store",
     });
     const aboutData = await resp.json();
-    return aboutData?.data;
+    return aboutData?.data?.attributes?.images?.data;
   } catch (error) {
     console.error("There was an error getting about data", error);
     return [];

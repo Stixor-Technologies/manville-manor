@@ -15,13 +15,15 @@ import Instagram from "@/public/assets/icons/instagram.svg";
 import Facebook from "@/public/assets/icons/facebook.svg";
 import { BASE_URL } from "@/utils/contants";
 import { Backdrops } from "@/utils/types/types";
+import backdrops from "../backdrops";
 
 interface MediaCarouselProps {
-  backdrops: Backdrops[];
+  data: any[];
   showSocial?: boolean;
 }
 
-const MediaCarousel: FC<MediaCarouselProps> = ({ backdrops, showSocial }) => {
+const MediaCarousel: FC<MediaCarouselProps> = ({ data, showSocial }) => {
+  console.log("backdrops", data);
   const swiperRef = useRef<SwiperClass | null>(null);
 
   const handleSlideChange = (swiper: SwiperClass) => {
@@ -83,7 +85,7 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ backdrops, showSocial }) => {
           }}
           className="media-swiper"
         >
-          {backdrops?.map((backdrop, index) => (
+          {data?.map((item, index) => (
             <SwiperSlide
               key={index}
               className={cn(
@@ -94,24 +96,21 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ backdrops, showSocial }) => {
             >
               <div className="slide-content group relative flex aspect-[400/500] cursor-pointer  justify-center md:aspect-[400/400] md:h-full xl:aspect-auto xl:w-[25rem]">
                 <Image
-                  src={
-                    !showSocial
-                      ? `${BASE_URL}${backdrop?.attributes?.backDropMedia?.data?.attributes?.url}`
-                      : backdrop?.attributes?.backDropMedia?.data?.attributes
-                          ?.url
-                  }
-                  alt={backdrop?.attributes?.name}
+                  src={BASE_URL + item?.attributes?.url}
+                  alt={item?.attributes?.name}
                   className="absolute rounded-sm object-cover"
                   fill
                 />
 
                 <div className="absolute bottom-0 flex w-[90%] items-end gap-3 opacity-0 transition-all duration-500 ease-in-out group-hover:bottom-8 group-hover:opacity-100 sm:w-[80%] sm:gap-8">
-                  <div className="flex-1 rounded-sm bg-accent px-4 py-2.5 text-white">
-                    <p>{backdrop?.attributes?.name}</p>
-                    <p>{backdrop?.attributes?.tag}</p>
-                  </div>
+                  {/* <div className="flex-1 rounded-sm bg-accent px-4 py-2.5 text-white">
+                    <p>{item?.attributes?.name}</p>
+                    <p>{item?.attributes?.tag}</p>
+                  </div> */}
 
-                  {showSocial && backdrop.attributes?.social && (
+                  {/* We May remove this */}
+
+                  {/* {showSocial && item.attributes?.social && (
                     <div className="flex flex-col items-center bg-accent">
                       <Link
                         href={backdrop?.attributes.social?.facebook}
@@ -126,7 +125,7 @@ const MediaCarousel: FC<MediaCarouselProps> = ({ backdrops, showSocial }) => {
                         <Image src={Instagram} alt="instagram-icon" />
                       </Link>
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </SwiperSlide>
