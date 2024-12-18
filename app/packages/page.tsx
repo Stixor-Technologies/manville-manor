@@ -3,6 +3,7 @@ import AboutHero from "@/public/assets/about/about-hero.png";
 import Hero from "@/components/shared/hero";
 import Venues from "@/components/shared/venues";
 import PackagesList from "@/components/packages-list";
+import AdditionalFeatures from "@/components/addtional-services";
 const Packages = () => {
   return (
     <>
@@ -14,6 +15,7 @@ const Packages = () => {
           <PackagesList />
         </div>
       </div>
+      <AdditionalFeatures />
     </>
   );
 };
