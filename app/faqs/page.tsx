@@ -5,12 +5,12 @@ import Faqs from "@/components/shared/faq";
 
 const FaqsPage = () => {
   return (
-    <div>
+    <>
       <Hero heroImage={HeroFaq} heroHeading="" />
       <div className="container my-10 md:my-20">
         <Faqs />
       </div>
-    </div>
+    </>
   );
 };
 
