@@ -32,7 +32,7 @@ const navBarLinks: Menu[] = [
   {
     id: 4,
     title: "Flooplans",
-    path: "/floorplans",
+    path: "/floor-plans",
   },
 
   {

@@ -1,16 +1,20 @@
 import { BASE_URL } from "./contants";
 import { FormValues, ListItemOption } from "./types/types";
-
-export const getVenues = async (): Promise<ListItemOption[]> => {
+// : Promise<ListItemOption[]>
+export const getVenues = async (returnMappedList = false) => {
   try {
-    const resp = await fetch(`${BASE_URL}/api/venues`, {
+    const resp = await fetch(`${BASE_URL}/api/venues?populate=*`, {
       cache: "no-store",
     });
     const venues = await resp.json();
-    return venues?.data.map((item: any) => ({
-      value: item?.id,
-      label: item?.attributes?.venue_name,
-    }));
+    if (returnMappedList) {
+      return venues?.data.map((item: any) => ({
+        value: item?.id,
+        label: item?.attributes?.venue_name,
+      }));
+    }
+
+    return venues?.data;
   } catch (error) {
     console.error("There was an error getting venues", error);
     return [];
@@ -137,18 +141,44 @@ export const getAdditionalServices = async (returnMappedList = false) => {
   }
 };
 
-export const getFloorPlans = async (returnMappedList = false) => {
+// export const getFloorPlans = async (returnMappedList = false) => {
+//   try {
+//     const resp = await fetch(`${BASE_URL}/api/floor-options?populate=*`, {
+//       cache: "no-store",
+//     });
+//     const floorOptions = await resp.json();
+//     if (returnMappedList) {
+//       return floorOptions?.data.map((item: any) => ({
+//         value: item?.id,
+//         label: item?.attributes?.name,
+//       }));
+//     }
+
+//     return floorOptions?.data;
+//   } catch (error) {
+//     console.error("There was an error getting floor options", error);
+//     return [];
+//   }
+// };
+
+export const getFloorPlans = async (selectedVenue: string | null) => {
+  let url = `${BASE_URL}/api/floor-options?populate=*`;
+
+  if (selectedVenue) {
+    url += `&filters[venue][venue_name]=${encodeURIComponent(selectedVenue)}`;
+  }
+
   try {
-    const resp = await fetch(`${BASE_URL}/api/floor-options?populate=*`, {
+    const resp = await fetch(url, {
       cache: "no-store",
     });
     const floorOptions = await resp.json();
-    if (returnMappedList) {
-      return floorOptions?.data.map((item: any) => ({
-        value: item?.id,
-        label: item?.attributes?.name,
-      }));
-    }
+    // if (returnMappedList) {
+    //   return floorOptions?.data.map((item: any) => ({
+    //     value: item?.id,
+    //     label: item?.attributes?.name,
+    //   }));
+    // }
 
     return floorOptions?.data;
   } catch (error) {
