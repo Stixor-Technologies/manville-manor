@@ -37,9 +37,19 @@ export const getVenues = async (returnMappedList = false) => {
 //   }
 // };
 
-export const getPackages = async (returnMappedList = false) => {
+export const getPackages = async (
+  returnMappedList = false,
+  selectedVenue: string | null,
+) => {
+  let url = `${BASE_URL}/api/packages?populate=*`;
+
+  if (selectedVenue) {
+    url += `&filters[venue][venue_name]=${encodeURIComponent(selectedVenue)}`;
+  }
+
   try {
-    const resp = await fetch(`${BASE_URL}/api/packages?populate=*`, {
+    // const resp = await fetch(`${BASE_URL}/api/packages?populate=*`, {
+    const resp = await fetch(url, {
       cache: "no-store",
     });
     const packages = await resp.json();

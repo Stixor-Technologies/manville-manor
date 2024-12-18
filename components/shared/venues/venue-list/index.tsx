@@ -17,7 +17,6 @@ const VenueList: FC<VenueListProps> = ({ venueList }) => {
   const selectedVenue = searchParams.get("venue");
 
   const handleFilterChange = (activeVenue: string) => {
-    console.log("activeVenue", activeVenue);
     const newUrl = new URL(pathname, window.location.origin);
     newUrl.searchParams.set("venue", activeVenue);
     router.replace(newUrl.toString(), { scroll: false });
@@ -54,7 +53,7 @@ const VenueList: FC<VenueListProps> = ({ venueList }) => {
         </ul>
       </div>
 
-      <div className="md:hidden">
+      <div className="relative z-20 md:hidden">
         <Select
           defaultValue={venueList?.[0]}
           classNames={{

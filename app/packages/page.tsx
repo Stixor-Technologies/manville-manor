@@ -1,13 +1,18 @@
 import React from "react";
 import AboutHero from "@/public/assets/about/about-hero.png";
 import Hero from "@/components/shared/hero";
-import EventPackages from "@/components/event-packages";
+import Venues from "@/components/shared/venues";
+import PackagesList from "@/components/packages-list";
 const Packages = () => {
   return (
     <>
       <Hero heroImage={AboutHero} heroHeading="Packages" />
-      <div className="container my-12 md:my-[4.5625rem]">
-        <EventPackages />
+
+      <div className="container my-10 md:my-20">
+        <div className="flex w-full flex-col gap-12 md:flex-row">
+          <Venues />
+          <PackagesList />
+        </div>
       </div>
     </>
   );

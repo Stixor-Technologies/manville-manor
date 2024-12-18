@@ -35,7 +35,7 @@ const FloorPlans = () => {
   return (
     <div className="flex-1">
       <h2 className="mb-11 text-center text-3xl text-secondary lg:text-5xl">
-        View Our Floor Plan Options
+        View Our Floor Plan options
       </h2>
 
       <div>
