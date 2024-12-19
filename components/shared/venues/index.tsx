@@ -3,7 +3,7 @@ import React from "react";
 import VenueList from "./venue-list";
 
 const Venues = async () => {
-  const venueList = await getVenues(true);
+  const venueList = await getVenues(true, null);
 
   return (
     <>

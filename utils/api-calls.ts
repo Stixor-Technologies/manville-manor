@@ -1,9 +1,19 @@
 import { BASE_URL } from "./contants";
 import { FormValues, ListItemOption } from "./types/types";
 // : Promise<ListItemOption[]>
-export const getVenues = async (returnMappedList = false) => {
+export const getVenues = async (
+  returnMappedList = false,
+  selectedVenue: string | null,
+) => {
+  let url = `${BASE_URL}/api/venues?populate=*`;
+
+  if (selectedVenue) {
+    url += `&filters[venue_name]=${encodeURIComponent(selectedVenue)}`;
+  }
+
   try {
-    const resp = await fetch(`${BASE_URL}/api/venues?populate=*`, {
+    // const resp = await fetch(`${BASE_URL}/api/venues?populate=*`, {
+    const resp = await fetch(url, {
       cache: "no-store",
     });
     const venues = await resp.json();
