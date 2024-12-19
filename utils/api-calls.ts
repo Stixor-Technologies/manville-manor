@@ -148,10 +148,13 @@ export const getAdditionalServices = async (returnMappedList = false) => {
     });
     const services = await resp.json();
     if (returnMappedList) {
-      return services?.data.map((item: any) => ({
-        value: item?.id,
-        label: item?.attributes?.name,
-      }));
+      return services?.data.map((item: any) => {
+        console.log("first", item);
+        return {
+          value: item?.id,
+          label: `${item?.attributes?.name} - $${item?.attributes?.price}`,
+        };
+      });
     }
 
     return services?.data;
@@ -181,7 +184,10 @@ export const getAdditionalServices = async (returnMappedList = false) => {
 //   }
 // };
 
-export const getFloorPlans = async (selectedVenue: string | null) => {
+export const getFloorPlans = async (
+  returnMappedList = false,
+  selectedVenue: string | null,
+) => {
   let url = `${BASE_URL}/api/floor-options?populate=*`;
 
   if (selectedVenue) {
@@ -193,12 +199,12 @@ export const getFloorPlans = async (selectedVenue: string | null) => {
       cache: "no-store",
     });
     const floorOptions = await resp.json();
-    // if (returnMappedList) {
-    //   return floorOptions?.data.map((item: any) => ({
-    //     value: item?.id,
-    //     label: item?.attributes?.name,
-    //   }));
-    // }
+    if (returnMappedList) {
+      return floorOptions?.data.map((item: any) => ({
+        value: item?.id,
+        label: item?.attributes?.name,
+      }));
+    }
 
     return floorOptions?.data;
   } catch (error) {
@@ -207,19 +213,19 @@ export const getFloorPlans = async (selectedVenue: string | null) => {
   }
 };
 
-export const getBackdrops = async (returnMappedList = false) => {
+export const getBackdrops = async () => {
   try {
     const resp = await fetch(`${BASE_URL}/api/back-drops?populate=*`, {
       cache: "no-store",
     });
     const backDrops = await resp.json();
 
-    if (returnMappedList) {
-      return backDrops?.data.map((item: any) => ({
-        value: item?.id,
-        label: item?.attributes?.name,
-      }));
-    }
+    // if (returnMappedList) {
+    //   return backDrops?.data.map((item: any) => ({
+    //     value: item?.id,
+    //     label: item?.attributes?.name,
+    //   }));
+    // }
 
     return backDrops?.data;
   } catch (error) {
@@ -232,6 +238,8 @@ export const checkSlotAvailability = async (selectedDate: string) => {
   try {
     const resp = await fetch(
       `${BASE_URL}/api/strapi-reservations/time-slots/day/${selectedDate}`,
+      // `${BASE_URL}/api/strapi-reservations/time-slots/month/${selectedDate}`,
+
       {
         cache: "no-store",
       },

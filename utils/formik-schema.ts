@@ -45,8 +45,6 @@ export const BookingFormSchema = Yup.object().shape({
   email: Yup.string()
     .matches(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i, "Invalid email address")
     .required("Please enter your email address"),
-  routine: Yup.string().required("Please select a routine"),
-  backDrop: Yup.string().required("Please select a routine"),
   date: Yup.string().required("Please select a desired date"),
   venue: Yup.string().required("Please select a venue"),
   package: Yup.string().required("Please select a Package"),

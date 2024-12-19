@@ -15,6 +15,8 @@ interface SelectOptions {
   isTouched?: boolean;
   errorMessage?: string;
   listing?: string;
+  isVenue?: boolean;
+  fetchVenueData?: (venueName: string) => void; // Pass fetchVenueData as a prop
 }
 
 const DropwDown: FC<SelectOptions> = ({
@@ -27,12 +29,18 @@ const DropwDown: FC<SelectOptions> = ({
   isTouched,
   errorMessage,
   listing,
+  isVenue,
+  fetchVenueData,
 }) => {
   const { setFieldValue } = useFormikContext<FormValues>();
 
   const handleChange = (selectedOption: any) => {
     if (!isMulti) {
       setFieldValue(name, selectedOption?.value);
+
+      if (isVenue && fetchVenueData) {
+        fetchVenueData(selectedOption?.label);
+      }
     } else {
       const selectedValues = selectedOption
         ? selectedOption.map((option: any) => option?.value)

@@ -41,14 +41,11 @@ type FormValues = {
   fullName: string;
   phone: string;
   email: string;
-  routine: string;
   date: string;
   venue: string;
-  peopleCount: string;
   catering: string;
   floorOption: string;
   additionalServices: number[];
-  backDrop: string;
   package: string;
   message: string;
   adultsCount: number | null;

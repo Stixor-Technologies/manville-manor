@@ -25,32 +25,25 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
 
       <ul className="text-[1.375rem]">
         <li className="mt-6 flex justify-between font-semibold text-black">
-          <span className="">Venue</span>
-          <span className="">${invoiceData?.items?.venue}</span>
+          <span className="">Package Price</span>
+          <span className="">${invoiceData?.items?.packagePrice}</span>
         </li>
         <li className="mt-2 flex justify-between font-semibold text-black">
           <span>Extras</span>
-          <span>${invoiceData?.totalPrice - invoiceData?.items?.venue}</span>
+          <span>
+            ${invoiceData?.totalPrice - invoiceData?.items?.packagePrice}
+          </span>
         </li>
         <li className="px-6">
           <ul className="mt-2 space-y-2 text-black/65">
-            <li className="flex justify-between">
-              <span>Back Drop</span>
-              <span>${invoiceData?.items?.backDrop}</span>
-            </li>
             <li className="flex justify-between">
               <span>Catering</span>
               <span>${invoiceData?.items?.cateringTotal}</span>
             </li>
 
             <li className="flex justify-between">
-              <span>Floor Option</span>
-              <span>${invoiceData?.items?.floorOption}</span>
-            </li>
-
-            <li className="flex justify-between">
-              <span>Package Price</span>
-              <span>${invoiceData?.items?.packagePrice}</span>
+              <span>Additional Services</span>
+              <span>${invoiceData?.items?.additionalServices}</span>
             </li>
           </ul>
         </li>
