@@ -1,5 +1,5 @@
 import React from "react";
-import MediaCarousel from "../media-carousel";
+// import MediaCarousel from "../media-carousel";
 import { getBackdrops } from "@/utils/api-calls";
 import { Backdrops } from "@/utils/types/types";
 
@@ -21,7 +21,7 @@ const BackDrops = async () => {
               </h2>
             </div>
 
-            <MediaCarousel backdrops={backDrops} />
+            {/* <MediaCarousel backdrops={backDrops} /> */}
           </div>
         </section>
       )}

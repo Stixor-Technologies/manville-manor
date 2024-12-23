@@ -2,7 +2,7 @@ import Contact from "@/components/shared/contact";
 // import Faqs from "@/components/shared/faq";
 import OfficeLocation from "@/components/home-page/office-location";
 // import EventPackages from "@/components/event-packages";
-import VenueDetails from "@/components/addtional-services";
+import AdditonalServices from "@/components/addtional-services";
 // import BackDrops from "@/components/home-page/backdrops";
 import HomeHero from "@/components/home-page/home-hero";
 import HomeAbout from "@/components/home-page/home-about/home-about";
@@ -32,7 +32,9 @@ export default function Home() {
         <FloorPlans />
       </Suspense> */}
 
-      <VenueDetails />
+      {/* <Suspense> */}
+      <AdditonalServices />
+      {/* </Suspense> */}
 
       {/* <Suspense>
         <BackDrops />
