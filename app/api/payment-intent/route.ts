@@ -6,12 +6,13 @@ const stripe = new Stripe(STRIPE_SECRET_KEY!);
 
 export async function POST(request: NextRequest) {
   try {
-    const { amount } = await request.json();
+    const { amount, bookingId } = await request.json();
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amount,
       currency: "usd",
       automatic_payment_methods: { enabled: true },
+      metadata: { bookingId },
     });
     return NextResponse.json({ clientSecret: paymentIntent.client_secret });
   } catch (error: any) {

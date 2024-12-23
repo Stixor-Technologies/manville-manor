@@ -35,7 +35,10 @@ const PaymentPage = () => {
             const res = await fetch("/api/payment-intent", {
               headers: { "Content-Type": "application/json" },
               method: "POST",
-              body: JSON.stringify({ amount: resp?.invoice?.totalPrice }),
+              body: JSON.stringify({
+                amount: resp?.invoice?.totalPrice,
+                bookingId,
+              }),
             });
             const data = await res.json();
             setClientSecret(data?.clientSecret);
