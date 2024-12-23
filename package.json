@@ -23,6 +23,7 @@
     "@fullcalendar/interaction": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
     "@gsap/react": "^2.1.1",
+    "@react-google-maps/api": "^2.20.3",
     "@sendgrid/mail": "^8.1.4",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@stripe/react-stripe-js": "^3.0.0",
