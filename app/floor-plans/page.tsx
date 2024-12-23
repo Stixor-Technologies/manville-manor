@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import HeaderImage from "@/public/assets/gallery/hero-gallery.png";
 import Hero from "@/components/shared/hero";
 import Venues from "@/components/shared/venues";
@@ -12,7 +12,9 @@ const FloorPlansPage = async () => {
       <div className="container my-10 md:my-20">
         <div className="flex w-full flex-col gap-12 md:flex-row">
           <Venues />
-          <FloorPlans />
+          <Suspense>
+            <FloorPlans />
+          </Suspense>
         </div>
       </div>
     </>

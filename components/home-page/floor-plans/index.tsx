@@ -1,15 +1,15 @@
 import React from "react";
 
-import { Button } from "@/components/button";
-import { getFloorPlans } from "@/utils/api-calls";
-import FloorSlider from "./slider";
+// import { Button } from "@/components/button";
+// import { getFloorPlans } from "@/utils/api-calls";
+// import FloorSlider from "./slider";
 
 const FloorPlans = async () => {
-  const floorPlans = await getFloorPlans();
+  // const floorPlans = await getFloorPlans();
 
   return (
     <>
-      {floorPlans?.length > 0 && (
+      {/* {floorPlans?.length > 0 && (
         <section
           id="floor-plans"
           className="container overflow-hidden py-12 sm:px-[2.5625rem] md:py-24"
@@ -39,7 +39,7 @@ const FloorPlans = async () => {
             </Button>
           </div>
         </section>
-      )}
+      )} */}
     </>
   );
 };

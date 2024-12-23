@@ -1,14 +1,14 @@
 import React from "react";
-import MediaCarousel from "../media-carousel";
-import { getBackdrops } from "@/utils/api-calls";
-import { Backdrops } from "@/utils/types/types";
+// import MediaCarousel from "../media-carousel";
+// import { getBackdrops } from "@/utils/api-calls";
+// import { Backdrops } from "@/utils/types/types";
 
 const BackDrops = async () => {
-  const backDrops: Backdrops[] = await getBackdrops();
+  // const backDrops: Backdrops[] = await getBackdrops();
 
   return (
     <>
-      {backDrops?.length > 0 && (
+      {/* {backDrops?.length > 0 && (
         <section
           id="back-drops"
           className="container my-12 sm:px-[2.5625rem] md:my-24"
@@ -24,7 +24,7 @@ const BackDrops = async () => {
             <MediaCarousel backdrops={backDrops} />
           </div>
         </section>
-      )}
+      )} */}
     </>
   );
 };

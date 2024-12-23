@@ -1,5 +1,5 @@
 import { getVenues } from "@/utils/api-calls";
-import React from "react";
+import React, { Suspense } from "react";
 import VenueList from "./venue-list";
 
 const Venues = async () => {
@@ -7,7 +7,9 @@ const Venues = async () => {
 
   return (
     <>
-      <VenueList venueList={venueList} />
+      <Suspense>
+        <VenueList venueList={venueList} />
+      </Suspense>
     </>
   );
 };

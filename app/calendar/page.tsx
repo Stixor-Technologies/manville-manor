@@ -12,38 +12,13 @@ import { useRouter } from "next/navigation";
 
 const CalendarPage = () => {
   const router = useRouter();
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<any[]>([]);
   const [originalSlots, setOriginalSlots] = useState(null);
   const [filter, setFilter] = useState("AM");
   const lastFetchedDate = useRef("");
   const startMonth = new Date();
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [selectedDateTime, setSelectedDateTime] = useState(null);
-
-  const fetchSlots = async (start: string) => {
-    try {
-      const slotsData = await checkSlotAvailability(start);
-      setOriginalSlots(slotsData);
-      formatEvents(slotsData, filter);
-      lastFetchedDate.current = start;
-    } catch (error) {
-      console.error("Error fetching slot availability:", error);
-    }
-  };
-
-  const handleDatesSet = (info: any) => {
-    const firstDateOfMonth = moment(info.view.currentStart).format(
-      "MM-DD-YYYY",
-    );
-
-    // Avoid redundant API calls if the current month is already fetched
-    if (lastFetchedDate.current === firstDateOfMonth) {
-      return;
-    }
-
-    console.log("Dates set triggered, fetching for:", firstDateOfMonth);
-    fetchSlots(firstDateOfMonth); // Call the API with the new month
-  };
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [selectedDateTime, setSelectedDateTime] = useState<any>(null);
 
   const formatEvents = (slotsData: any, filter: string) => {
     const filteredEvents = Object.values(slotsData)
@@ -75,6 +50,31 @@ const CalendarPage = () => {
     setEvents(filteredEvents);
   };
 
+  const fetchSlots = async (start: string) => {
+    try {
+      const slotsData = await checkSlotAvailability(start);
+      setOriginalSlots(slotsData);
+      formatEvents(slotsData, filter);
+      lastFetchedDate.current = start;
+    } catch (error) {
+      console.error("Error fetching slot availability:", error);
+    }
+  };
+
+  const handleDatesSet = (info: any) => {
+    const firstDateOfMonth = moment(info.view.currentStart).format(
+      "MM-DD-YYYY",
+    );
+
+    // Avoid redundant API calls if the current month is already fetched
+    if (lastFetchedDate.current === firstDateOfMonth) {
+      return;
+    }
+
+    console.log("Dates set triggered, fetching for:", firstDateOfMonth);
+    fetchSlots(firstDateOfMonth); // Call the API with the new month
+  };
+
   const handleFilterChange = (newFilter: string) => {
     setFilter(newFilter);
     if (originalSlots) {
@@ -91,8 +91,8 @@ const CalendarPage = () => {
     const clickedDate = moment(data.date).format("YYYY-MM-DD");
 
     // Find the slot for the clicked date in originalSlots
-    const slotForDate = originalSlots
-      ? Object.values(originalSlots)?.find((slot) =>
+    const slotForDate: any = originalSlots
+      ? Object.values(originalSlots)?.find((slot: any) =>
           slot?.date.startsWith(clickedDate),
         )
       : null;
@@ -103,14 +103,14 @@ const CalendarPage = () => {
     }
 
     // Filter the slots based on the AM/PM filter
-    const filteredSlots = slotForDate?.slots?.filter((timeSlot) => {
+    const filteredSlots = slotForDate?.slots?.filter((timeSlot: any) => {
       const hour = parseInt(timeSlot.time.split(":")[0], 10);
       return filter === "AM" ? hour < 12 : hour >= 12;
     });
 
     // Find the first available time slot
     const firstAvailableSlot = filteredSlots?.find(
-      (timeSlot) => timeSlot.available,
+      (timeSlot: any) => timeSlot.available,
     );
 
     if (!firstAvailableSlot) {
@@ -141,8 +141,8 @@ const CalendarPage = () => {
   const dayCellClassNames = (date: any) => {
     // Check if the current date is in originalSlots and slots is false
     const dateStr = moment(date.date).format("YYYY-MM-DD"); // Format the date to match your keys
-    const slot = originalSlots
-      ? Object.values(originalSlots)?.find((slot) =>
+    const slot: any = originalSlots
+      ? Object.values(originalSlots)?.find((slot: any) =>
           slot?.date?.startsWith(dateStr),
         )
       : null;

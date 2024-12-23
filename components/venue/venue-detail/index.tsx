@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 const VenueDetail = () => {
   const searchParams = useSearchParams();
   const selectedVenue = searchParams.get("venue");
-  const [venueDetail, setVenueDetail] = useState();
+  const [venueDetail, setVenueDetail] = useState<any>();
   const [loading, setisLoading] = useState<boolean>(true);
 
   useEffect(() => {
