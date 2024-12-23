@@ -2,32 +2,208 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .metric-container {
+    @apply w-full max-w-[25.188rem] border-r border-r-white px-1 py-3.5 pl-2 pr-2 text-right text-white md:py-7 md:!pr-9 md:pl-5 xs:pr-5;
+  }
+
+  .metric-number {
+    @apply text-xl md:!text-5xl xs:text-3xl;
+  }
+
+  .metric-label {
+    @apply mt-1 inline-block text-xs md:mt-6 md:text-2xl;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    .scrollbar-decor {
+      scrollbar-width: thin;
+      scrollbar-color: #e8cfb5 #0a0a0a;
+    }
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    .scrollbar-default {
+      scrollbar-width: thin;
+      scrollbar-color: #e8cfb5 #74604b;
+    }
+  }
+
+  .package-clip {
+    clip-path: polygon(
+      14.933% 0%,
+      84.683% 0%,
+      99.799% 99.355%,
+      0% 99.355%,
+      14.933% 0%
+    );
+  }
+
+  .main_clip {
+    clip-path: polygon(
+      0.049% -0.001%,
+      99.98% -0.001%,
+      99.98% 99.994%,
+      68.768% 99.994%,
+      68.768% 99.994%,
+      68.805% 99.982%,
+      68.838% 99.949%,
+      68.864% 99.898%,
+      68.885% 99.833%,
+      68.899% 99.759%,
+      68.906% 99.679%,
+      68.905% 99.596%,
+      68.897% 99.515%,
+      68.879% 99.439%,
+      68.852% 99.373%,
+      63.428% 89.024%,
+      63.428% 89.024%,
+      63.42% 89.01%,
+      63.413% 88.999%,
+      63.405% 88.988%,
+      63.396% 88.979%,
+      63.388% 88.971%,
+      63.379% 88.964%,
+      63.37% 88.959%,
+      63.361% 88.955%,
+      63.352% 88.953%,
+      63.343% 88.952%,
+      36.734% 88.952%,
+      36.734% 88.952%,
+      36.725% 88.953%,
+      36.716% 88.955%,
+      36.707% 88.959%,
+      36.698% 88.964%,
+      36.689% 88.971%,
+      36.681% 88.979%,
+      36.672% 88.989%,
+      36.664% 88.999%,
+      36.656% 89.011%,
+      36.649% 89.025%,
+      31.29% 99.374%,
+      31.29% 99.374%,
+      31.264% 99.441%,
+      31.246% 99.516%,
+      31.237% 99.597%,
+      31.237% 99.68%,
+      31.244% 99.76%,
+      31.258% 99.834%,
+      31.279% 99.898%,
+      31.305% 99.949%,
+      31.338% 99.982%,
+      31.375% 99.994%,
+      0.049% 99.994%,
+      0.049% -0.001%,
+      63.498% 10.969%,
+      68.857% 0.62%,
+      68.883% 0.553%,
+      68.901% 0.478%,
+      68.91% 0.397%,
+      68.91% 0.314%,
+      68.903% 0.234%,
+      68.889% 0.16%,
+      68.868% 0.096%,
+      68.841% 0.045%,
+      68.809% 0.012%,
+      68.772% 0%,
+      68.772% 0%,
+      31.379% 0%,
+      31.342% 0.012%,
+      31.309% 0.045%,
+      31.282% 0.096%,
+      31.262% 0.161%,
+      31.248% 0.235%,
+      31.241% 0.315%,
+      31.241% 0.398%,
+      31.25% 0.479%,
+      31.268% 0.555%,
+      31.295% 0.621%,
+      31.295% 0.621%,
+      36.719% 10.97%,
+      36.727% 10.983%,
+      36.734% 10.995%,
+      36.742% 11.006%,
+      36.751% 11.015%,
+      36.759% 11.023%,
+      36.768% 11.03%,
+      36.776% 11.035%,
+      36.785% 11.039%,
+      36.794% 11.041%,
+      36.804% 11.041%,
+      36.804% 11.041%,
+      63.413% 11.041%,
+      63.422% 11.041%,
+      63.431% 11.038%,
+      63.44% 11.035%,
+      63.449% 11.03%,
+      63.458% 11.023%,
+      63.466% 11.015%,
+      63.475% 11.005%,
+      63.483% 10.995%,
+      63.49% 10.982%,
+      63.498% 10.969%,
+      63.498% 10.969%
+    );
+  }
+
+  .media-swiper .swiper-slide {
+    @apply transition-all duration-300 ease-in-out xl:h-[30.3125rem];
+  }
+
+  .media-swiper .pre-transition-slide {
+    @apply transition-all duration-300 ease-out xl:h-[25rem];
+  }
+
+  .floor-swiper .swiper-wrapper {
+    @apply items-end;
+  }
+
+  .floor-swiper .swiper-slide {
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+  }
+
+  .floor-swiper .swiper-slide-active {
+    @apply origin-[center_center] transition-all duration-[0.3s] ease-[ease] lg:!scale-100;
+  }
+
+  .floor-swiper .swiper-slide:not(.swiper-slide-active) {
+    @apply origin-[right_520px] transition-all duration-[0.3s] ease-[ease] xl:scale-[0.85];
+  }
+
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    opacity: 0.6;
+    filter: invert(0.8);
+  }
+
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+
+  @media print {
+    .pagebreak {
+      clear: both;
+      page-break-after: always;
+    }
+  }
+
+  /* .pdf-container {
+    transform: scale(0.8);
+    transform-origin: top left;
+  } */
+
+  .pdf-view {
+    display: none !important;
+  }
+
+  .react-datetime-picker .react-datetime-picker__wrapper {
+    border: 0;
   }
 }
