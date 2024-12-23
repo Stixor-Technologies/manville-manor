@@ -84,7 +84,7 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
 
       {portfolio?.length > 0 ? (
         <ResponsiveMasonry
-          columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 4, 1280: 5 }}
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 3 }}
           className="min-h-[12.5rem]"
         >
           {/* <Masonry gutter="1rem">

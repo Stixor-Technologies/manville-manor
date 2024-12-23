@@ -52,10 +52,9 @@ const InvoicePage = () => {
                 Manville Manor Event Space Rental Agreement
               </h2>
               <p className="text-[1.375rem] md:text-[2.25rem]">
-                This Event Space Rental Agreement (&quot;Agreement&quot;) is
+                {`This Event Space Rental Agreement is
                 entered into on [Date] by and between Manville Manor, located at
-                39 South St, Manville, NJ (&quot;Owner&quot;), and
-                [Client&apos;s Full Name] (&quot;Client&quot;).
+                39 South St, Manville, NJ and ${bookingData?.fullName}.`}
               </p>
 
               <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
@@ -64,7 +63,6 @@ const InvoicePage = () => {
               <ul className="ml-12  list-disc text-[1.375rem] md:text-[2.25rem]">
                 <li>{`Event Date: ${moment(bookingData?.date).format("DD-MMMM-YYYY")}`}</li>
                 <li>Event Time: [Start Time] to [End Time]</li>
-                <li>{`Event Type: ${bookingData?.venue?.venue_name}`}</li>
                 <li>
                   {` Number of Guests: ${bookingData?.adultsCount + bookingData?.childsCount}`}
                 </li>
@@ -79,9 +77,9 @@ const InvoicePage = () => {
                   {`Rental Fee: The total rental fee for the event space is $${bookingData?.invoice?.totalPrice}.`}
                 </li>
                 <li>
-                  Deposit: A non-refundable deposit of $[Deposit Amount] is due
-                  upon signing this Agreement. This amount will be applied to
-                  the total rental fee.
+                  Deposit: A non-refundable deposit of $250 is due upon signing
+                  this Agreement. This amount will be applied to the total
+                  rental fee.
                 </li>
                 <li>
                   Final Payment: The remaining balance of $[Remaining Amount] is
