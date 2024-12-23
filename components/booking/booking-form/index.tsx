@@ -5,7 +5,7 @@ import { BookingFormSchema } from "@/utils/formik-schema";
 import Input from "../input";
 import { Button } from "@/components/button";
 import Select from "../select";
-import DatePicker from "../date-picker";
+// import DatePicker from "../date-picker";
 import { createBooking, getFloorPlans, getPackages } from "@/utils/api-calls";
 import { toast } from "react-toastify";
 import { FormValues, ListItemOption } from "@/utils/types/types";
@@ -25,7 +25,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
   const selectedDate = searchParams.get("selectedDate");
 
   const [bookignRequest, setBookingRequest] = useState<boolean>(false);
-  const [customError, setCustomError] = useState<string | null>(null);
+  // const [customError, setCustomError] = useState<string | null>(null);
   const [packages, setPackages] = useState([]);
   const [floorPlans, setFloorPlans] = useState([]);
 
@@ -88,7 +88,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
 
     console.log(formData);
 
-    if (customError) return;
+    // if (customError) return;
     try {
       setBookingRequest(true);
       const resp = await createBooking(formData);

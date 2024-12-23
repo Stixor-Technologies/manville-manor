@@ -9,13 +9,13 @@ import GalleryHighLight from "@/components/gallery/gallery-highlight";
 import GalleryPortfolio from "@/components/gallery/gallery-portfolio";
 import {
   getGallerySliderImages,
-  getPorfolioFilters,
+  // getPorfolioFilters,
   getPortfolio,
 } from "@/utils/api-calls";
 
 const Gallery = async () => {
   const sliderData = await getGallerySliderImages();
-  const portfolioFilters = await getPorfolioFilters();
+  // const portfolioFilters = await getPorfolioFilters();
   const portfolio = await getPortfolio();
 
   return (
@@ -49,10 +49,17 @@ const Gallery = async () => {
           <GallerySlider sliderImages={sliderData?.attributes?.images?.data} />
         )}
 
-        {portfolio?.attributes?.portfolioCategory?.length > 0 && (
+        {/* {portfolio?.attributes?.portfolioCategory?.length > 0 && (
           <GalleryPortfolio
             portfolio={portfolio?.attributes?.portfolioCategory}
-            portfolioFilters={portfolioFilters}
+            // portfolioFilters={portfolioFilters}
+          />
+        )} */}
+
+        {portfolio?.length > 0 && (
+          <GalleryPortfolio
+            portfolio={portfolio}
+            // portfolioFilters={portfolioFilters}
           />
         )}
 

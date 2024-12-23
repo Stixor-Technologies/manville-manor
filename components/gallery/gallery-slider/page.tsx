@@ -48,11 +48,8 @@ const GallerySlider: FC<GallerySliderProps> = ({ sliderImages }) => {
       >
         {sliderImages?.map((slide, index) => {
           return (
-            <SwiperSlide
-              key={index}
-              className="last:mr-0 sm:max-w-[18.3125rem]"
-            >
-              <div className="relative aspect-[293/358] overflow-hidden">
+            <SwiperSlide key={index} className="last:mr-0 sm:max-w-[18.75rem]">
+              <div className="relative aspect-[300/400] overflow-hidden">
                 <Image
                   src={BASE_URL + slide?.attributes?.url}
                   alt={`gallery-slide-${index}`}

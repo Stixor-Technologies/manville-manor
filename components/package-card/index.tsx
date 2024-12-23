@@ -75,7 +75,7 @@ const PackageCard: React.FC<CardProps> = ({
           (Saturday & Sunday)
         </h4> */}
       </div>
-      <Button href="/booking" variant={buttonVariant} size={"full"}>
+      <Button href="/calendar" variant={buttonVariant} size={"full"}>
         Book Package
       </Button>
     </div>

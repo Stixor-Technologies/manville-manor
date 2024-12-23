@@ -17,8 +17,10 @@ const HomeAbout = async () => {
               </h2>
               <p className="text-[1.375rem] text-secondary">
                 A seamless experience, from planning to execution with a
-                versatile space suitable for weddings, corporate functions, and
-                private gatherings alike
+                versatile space suitable for Baby showers, birthdays, bridal
+                showers, weddings, corporate functions, pop-up shops, fitness
+                classes, Photo booths, and private gatherings alike (Upto 81
+                Guests)
               </p>
             </div>
 

@@ -219,14 +219,6 @@ export const getBackdrops = async () => {
       cache: "no-store",
     });
     const backDrops = await resp.json();
-
-    // if (returnMappedList) {
-    //   return backDrops?.data.map((item: any) => ({
-    //     value: item?.id,
-    //     label: item?.attributes?.name,
-    //   }));
-    // }
-
     return backDrops?.data;
   } catch (error) {
     console.error("There was an error getting Backdrops", error);
@@ -474,15 +466,25 @@ export const getPorfolioFilters = async () => {
 };
 
 export const getPortfolio = async () => {
+  // try {
+  //   const resp = await fetch(
+  //     `${BASE_URL}/api/potfolio?populate[portfolioCategory][populate]=*`,
+  //     {
+  //       cache: "no-store",
+  //     },
+  //   );
   try {
-    const resp = await fetch(
-      `${BASE_URL}/api/potfolio?populate[portfolioCategory][populate]=*`,
-      {
-        cache: "no-store",
-      },
-    );
+    const resp = await fetch(`${BASE_URL}/api/gallery-portfolio?populate=*`, {
+      cache: "no-store",
+    });
     const portfolioData = await resp.json();
-    return portfolioData?.data;
+    // return portfolioData?.data;
+
+    // console.log(
+    //   "portfolioData?.attributes?.images?.data",
+    //   portfolioData?.data?.attributes?.images?.data,
+    // );
+    return portfolioData?.data?.attributes?.images?.data;
   } catch (error) {
     console.error("There was an error getting portfolio", error);
     return [];

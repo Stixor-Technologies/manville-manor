@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import AboutUs from "@/public/assets/about/about-us.png";
-import AboutHero from "@/public/assets/about/about-hero.png";
+import HeaderImage from "@/public/assets/gallery/hero-gallery.png";
 import { Button } from "@/components/button";
 import Box from "@/public/assets/icons/box.svg";
 import BoxFeature from "@/public/assets/icons/feature-box.svg";
@@ -88,7 +88,7 @@ const About = () => {
 
   return (
     <>
-      <Hero heroImage={AboutHero} heroHeading="About us" />
+      <Hero heroImage={HeaderImage} heroHeading="About us" />
 
       {/* about us section*/}
       <section className="container mt-12 grid grid-cols-1 flex-col place-items-center text-center md:mt-[4.375rem] lg:grid-cols-[1fr,0.93fr] lg:gap-x-16 lg:text-left">
@@ -131,8 +131,6 @@ const About = () => {
             construction of refinery equipment, and the production of various
             motor and industrial lubricants in the year 1390 (2011)
           </p>
-
-          <Button className="mt-6">Learn More</Button>
         </div>
       </section>
 

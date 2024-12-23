@@ -18,7 +18,7 @@ const Header = () => {
           <NavLinks />
 
           <Link
-            href={"/booking"}
+            href={"/calendar"}
             className="hidden h-10 w-[7.5rem] items-center justify-center whitespace-nowrap rounded-sm bg-white/10 text-base text-white transition-all duration-300 hover:bg-white/30 lg:inline-flex"
           >
             Booking

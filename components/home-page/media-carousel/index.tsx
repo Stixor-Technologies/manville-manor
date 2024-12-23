@@ -10,19 +10,19 @@ import { Pagination } from "swiper/modules";
 import Image from "next/image";
 import SwiperButtons from "@/components/shared/swiper-buttons";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import Instagram from "@/public/assets/icons/instagram.svg";
-import Facebook from "@/public/assets/icons/facebook.svg";
+// import Link from "next/link";
+// import Instagram from "@/public/assets/icons/instagram.svg";
+// import Facebook from "@/public/assets/icons/facebook.svg";
 import { BASE_URL } from "@/utils/contants";
-import { Backdrops } from "@/utils/types/types";
-import backdrops from "../backdrops";
+// import { Backdrops } from "@/utils/types/types";
+// import backdrops from "../backdrops";
 
 interface MediaCarouselProps {
   data: any[];
-  showSocial?: boolean;
+  // showSocial?: boolean;
 }
 
-const MediaCarousel: FC<MediaCarouselProps> = ({ data, showSocial }) => {
+const MediaCarousel: FC<MediaCarouselProps> = ({ data }) => {
   console.log("backdrops", data);
   const swiperRef = useRef<SwiperClass | null>(null);
 

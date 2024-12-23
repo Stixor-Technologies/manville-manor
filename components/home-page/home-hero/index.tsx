@@ -1,10 +1,11 @@
 import React from "react";
-import HeroImage from "@/public/assets/home-hero.png";
+import HeaderImage from "@/public/assets/gallery/hero-gallery.png";
+
 import Image from "next/image";
 
 const HomeHero = () => {
   return (
-    <section className="mb-10">
+    <section className="mb-10 mt-12">
       {/* text-section */}
 
       <div className="container sm:px-[2.5625rem]">
@@ -30,10 +31,10 @@ const HomeHero = () => {
 
       {/* image section */}
       <div className="relative flex justify-center">
-        <Image src={HeroImage} alt="hero-image" />
-        <span className="absolute bottom-[0.5vw] text-[clamp(0.5rem,2vw,1.375rem)] uppercase tracking-wider text-white">
+        <Image src={HeaderImage} alt="hero-image" />
+        {/* <span className="absolute bottom-[0.5vw] text-[clamp(0.5rem,2vw,1.375rem)] uppercase tracking-wider text-white">
           View Our Packages
-        </span>
+        </span> */}
       </div>
     </section>
   );

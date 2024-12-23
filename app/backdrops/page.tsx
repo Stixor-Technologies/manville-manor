@@ -1,5 +1,5 @@
 import React from "react";
-import HeroFaq from "@/public/assets/faq-hero.jpg";
+import HeaderImage from "@/public/assets/gallery/hero-gallery.png";
 import { getBackdrops } from "@/utils/api-calls";
 import Hero from "@/components/shared/hero";
 import Image from "next/image";
@@ -9,7 +9,7 @@ const BackdropsPage = async () => {
   const backdrops = await getBackdrops();
   return (
     <>
-      <Hero heroImage={HeroFaq} heroHeading="" />
+      <Hero heroImage={HeaderImage} heroHeading="" />
       <div className="container my-10 md:my-20">
         <div className="mx-auto max-w-[67.5rem] ">
           <h2 className="mb-11 text-center text-3xl text-secondary lg:text-5xl">

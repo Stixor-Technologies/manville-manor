@@ -1,10 +1,8 @@
 "use client";
 import { PackageCard } from "@/components/package-card";
 import { cn } from "@/lib/utils";
-import { Backdrops, EventPackagesType } from "@/utils/types/types";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getPackages } from "@/utils/api-calls";
 import { useSearchParams } from "next/navigation";

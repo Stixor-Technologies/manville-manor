@@ -16,7 +16,7 @@ const FloorPlans = () => {
     const fetchFloorPlans = async () => {
       try {
         setisLoading(true);
-        const plans = await getFloorPlans(selectedVenue);
+        const plans = await getFloorPlans(false, selectedVenue);
         if (plans) {
           setfloorPlans(plans);
         }
@@ -46,7 +46,7 @@ const FloorPlans = () => {
         ) : floorPlans?.length > 0 ? (
           <div className="flex flex-col gap-14">
             {floorPlans?.map((plan: any) => (
-              <div className="flex flex-col items-center gap-8">
+              <div key={plan?.id} className="flex flex-col items-center gap-8">
                 <p className=" bg-accent px-4 py-2 text-xl text-white">
                   {plan?.attributes?.name}
                 </p>

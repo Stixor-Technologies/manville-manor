@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { Button } from "@/components/button";
+// import { Button } from "@/components/button";
 import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
 import Dash from "@/public/assets/gallery/minus.svg";
@@ -12,12 +12,12 @@ import { Portfolio } from "@/utils/types/types";
 
 interface GalleryPortfolioProps {
   portfolio: Portfolio[];
-  portfolioFilters: { value: string; label: string }[];
+  // portfolioFilters: { value: string; label: string }[];
 }
 
 const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
   portfolio,
-  portfolioFilters,
+  // portfolioFilters,
 }) => {
   const clientsData = [
     {
@@ -41,26 +41,30 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
     },
   ];
 
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  console.log("portfolio", portfolio);
 
-  const filteredImages =
-    selectedFilter === "all"
-      ? portfolio
-      : portfolio?.filter(
-          (image) =>
-            image?.portfolio_filter?.data?.attributes?.name === selectedFilter,
-        );
+  // const [selectedFilter, setSelectedFilter] = useState("all");
+
+  // const filteredImages =
+  //   selectedFilter === "all"
+  //     ? portfolio
+  //     : portfolio?.filter(
+  //         (image) =>
+  //           image?.portfolio_filter?.data?.attributes?.name === selectedFilter,
+  //       );
 
   return (
     <section className="relative px-[1.375rem] md:px-0">
-      <div className="container my-11 overflow-hidden lg:mb-[6.6875rem] lg:mt-[8.75rem]">
-        <h2 className="mb-11 text-center font-cormorant text-5xl text-white md:text-right lg:mb-24">
+      {/* lg:mb-[6.6875rem] */}
+      <div className="container my-11 overflow-hidden lg:mb-[4.1875rem] lg:mt-[8.75rem]">
+        {/* mb-11 lg:mb-24 */}
+        <h2 className="text-center font-cormorant text-5xl text-white md:text-right ">
           Portfolio
         </h2>
 
         {/* Filters button*/}
 
-        <div className="scrollbar-hide flex gap-16 overflow-scroll overflow-x-auto sm:justify-end">
+        {/* <div className="scrollbar-hide flex gap-16 overflow-scroll overflow-x-auto sm:justify-end">
           {portfolioFilters?.map((filter) => (
             <Button
               key={filter?.value}
@@ -75,16 +79,16 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
               {filter?.label}
             </Button>
           ))}
-        </div>
+        </div> */}
       </div>
 
-      {filteredImages?.length > 0 ? (
+      {portfolio?.length > 0 ? (
         <ResponsiveMasonry
-          columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 5 }}
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 4, 1280: 5 }}
           className="min-h-[12.5rem]"
         >
-          <Masonry gutter="1rem">
-            {filteredImages?.flatMap((item) =>
+          {/* <Masonry gutter="1rem">
+            {portfolio?.flatMap((item) =>
               item?.images?.data?.map((image, i) => (
                 <Image
                   key={i}
@@ -96,6 +100,19 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
                 />
               )),
             )}
+          </Masonry> */}
+
+          <Masonry gutter="1rem">
+            {portfolio?.flatMap((item: any) => (
+              <Image
+                key={item?.id}
+                src={BASE_URL + item?.attributes?.url}
+                alt=""
+                className="w-full"
+                width={600}
+                height={500}
+              />
+            ))}
           </Masonry>
         </ResponsiveMasonry>
       ) : (
@@ -112,7 +129,7 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
         className={cn(
           " -bottom-5 z-10 !-rotate-2 bg-secondary",
 
-          filteredImages?.length > 0 ? "!absolute" : "static",
+          portfolio?.length > 0 ? "!absolute" : "static",
         )}
       >
         <ul className="min-w-auto relative flex flex-1 overflow-hidden">
