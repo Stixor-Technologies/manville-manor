@@ -237,8 +237,8 @@ export const getBackdrops = async () => {
 export const checkSlotAvailability = async (selectedDate: string) => {
   try {
     const resp = await fetch(
-      `${BASE_URL}/api/strapi-reservations/time-slots/day/${selectedDate}`,
-      // `${BASE_URL}/api/strapi-reservations/time-slots/month/${selectedDate}`,
+      // `${BASE_URL}/api/strapi-reservations/time-slots/day/${selectedDate}`,
+      `${BASE_URL}/api/strapi-reservations/time-slots/month/${selectedDate}`,
 
       {
         cache: "no-store",

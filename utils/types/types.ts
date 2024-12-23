@@ -41,7 +41,7 @@ type FormValues = {
   fullName: string;
   phone: string;
   email: string;
-  date: string;
+  // date: string;
   venue: string;
   catering: string;
   floorOption: string;

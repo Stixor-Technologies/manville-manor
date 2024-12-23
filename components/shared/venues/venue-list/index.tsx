@@ -9,7 +9,6 @@ interface VenueListProps {
 }
 
 const VenueList: FC<VenueListProps> = ({ venueList }) => {
-  console.log("venueList", venueList);
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();

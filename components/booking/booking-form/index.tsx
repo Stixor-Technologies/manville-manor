@@ -9,7 +9,7 @@ import DatePicker from "../date-picker";
 import { createBooking, getFloorPlans, getPackages } from "@/utils/api-calls";
 import { toast } from "react-toastify";
 import { FormValues, ListItemOption } from "@/utils/types/types";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Label from "../label";
 
 interface BookingFormProps {
@@ -20,6 +20,10 @@ interface BookingFormProps {
 
 const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
   const route = useRouter();
+  const searchParams = useSearchParams();
+
+  const selectedDate = searchParams.get("selectedDate");
+
   const [bookignRequest, setBookingRequest] = useState<boolean>(false);
   const [customError, setCustomError] = useState<string | null>(null);
   const [packages, setPackages] = useState([]);
@@ -29,7 +33,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
     fullName: "",
     phone: "",
     email: "",
-    date: "",
+    // date: "",
     venue: "",
     peopleCount: "",
     catering: "",
@@ -42,7 +46,6 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
   };
 
   const fetchVenueData = async (venueName: string) => {
-    console.log(venueName);
     try {
       const packagesResp = await getPackages(true, venueName);
       const floorPlans = await getFloorPlans(true, venueName);
@@ -50,19 +53,24 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
       setPackages(packagesResp);
       setFloorPlans(floorPlans);
     } catch (error) {
-      console.log("error fetching package");
+      console.error("error fetching package");
     } finally {
       setBookingRequest(false);
     }
   };
 
   const makeBooking = async (values: FormValues) => {
-    const formData = {
-      ...values,
-      ...(values.additionalServices?.[0] === 0 && { additionalServices: [] }),
-    };
+    if (!selectedDate) {
+      toast.error("Please select then event date from calendar page", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
+      return;
+    }
 
     const totalPeople = (values.adultsCount ?? 0) + (values.childsCount ?? 0);
+
     if (totalPeople > 81) {
       toast.error("The total number of people cannot exceed 81.", {
         position: "bottom-right",
@@ -71,6 +79,14 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
       });
       return;
     }
+
+    const formData = {
+      ...values,
+      ...(values.additionalServices?.[0] === 0 && { additionalServices: [] }),
+      date: selectedDate,
+    };
+
+    console.log(formData);
 
     if (customError) return;
     try {
@@ -155,7 +171,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
                   errorMessage={errors.package}
                 />
 
-                <DatePicker
+                {/* <DatePicker
                   placeholder={"Check Availability"}
                   name={"date"}
                   label={"Desired Date"}
@@ -164,7 +180,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
                   errorMessage={errors.date}
                   customError={customError}
                   setCustomError={setCustomError}
-                />
+                /> */}
 
                 <div className="">
                   <Label labelFor={""}> Amount Of People</Label>
