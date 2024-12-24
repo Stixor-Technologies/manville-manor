@@ -98,7 +98,6 @@ const CalendarPage = () => {
       : null;
 
     if (!slotForDate || !slotForDate?.slots) {
-      console.log("No available slots for this date.");
       return; // Exit if no slots are available
     }
 
@@ -147,13 +146,17 @@ const CalendarPage = () => {
         )
       : null;
 
-    if (slot && slot?.slots === false) {
+    const today = moment().startOf("day");
+
+    if (
+      moment(date.date).isBefore(today, "day") ||
+      (slot && slot?.slots === false) ||
+      slot?.slots === null
+    ) {
       return ["disabled-cell"];
     }
     return [];
   };
-
-  console.log("dayCellClassNames");
 
   const handleProceed = () => {
     if (selectedDateTime) {

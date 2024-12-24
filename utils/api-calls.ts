@@ -239,7 +239,7 @@ export const checkSlotAvailability = async (selectedDate: string) => {
     const res = await resp.json();
     return res;
   } catch (error) {
-    console.error("There was an error getting floor options", error);
+    console.error("There was an error getting slots data", error);
   }
 };
 
