@@ -73,11 +73,13 @@ const GalleryHighLight = () => {
           </h3>
           <div className="uppercase lg:text-2xl xl:text-[28px]">
             <span>Contact us: </span>
-            <Link href={"mailto:focus@gmail.com"}>focus@gmail.com</Link>
+            <Link href={"mailto:ManvilleManor@outlook.com"}>
+              ManvilleManor@outlook.com
+            </Link>
           </div>
           <div className="uppercase lg:text-2xl xl:text-[28px]">
             <span>Call us 24/7: </span>
-            <Link href={"tel:669-508-6708"}>669-508-6708</Link>
+            <Link href={"tel:732-985-5363"}>732-985-5363</Link>
           </div>
         </div>
       </div>
