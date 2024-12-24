@@ -47,7 +47,7 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
             </li>
 
             <li className="flex justify-between">
-              <span>Incidental Dsposit</span>
+              <span>Incidental Dsposit (Refundable)</span>
               <span>${invoiceData?.items?.incidentalDeposit}</span>
             </li>
           </ul>
