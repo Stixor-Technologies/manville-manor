@@ -269,14 +269,14 @@ import moment, { Moment } from "moment";
 import React, { ChangeEvent, FC, useEffect, useRef, useState } from "react";
 
 import "react-datetime/css/react-datetime.css";
-import ContractAgreement from "@/components/contract-agreement";
+// import ContractAgreement from "@/components/contract-agreement";
 import { Button } from "@/components/button";
 import Datetime from "react-datetime";
 import Dropzone from "react-dropzone";
 import { Field, Form, Formik, useFormikContext } from "formik";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { postContract } from "@/utils/api-calls";
+import { useRouter, useSearchParams } from "next/navigation";
+import { getInvoice, postContract } from "@/utils/api-calls";
 import { toast } from "react-toastify";
 import generatePDF, { Margin } from "react-to-pdf";
 
@@ -374,6 +374,9 @@ const InvoicePage = () => {
   const [bookingData, setBookingData] = useState<any>(null);
   const targetRef = useRef<any | null>(null);
 
+  const searchParams = useSearchParams();
+  const [isLoading, setisLoading] = useState(true);
+  const bookingId = searchParams.get("bookingId");
   const [isPostingContract, setisPostingContract] = useState<boolean>(false);
   const router = useRouter();
 
@@ -389,12 +392,25 @@ const InvoicePage = () => {
   };
 
   // Fetch the invoice data from session storage when the component mounts
+
   useEffect(() => {
-    const bookingData = sessionStorage.getItem("bookingData");
-    if (bookingData) {
-      setBookingData(JSON.parse(bookingData));
-    }
-  }, []);
+    const fetchInvoice = async () => {
+      if (bookingId) {
+        try {
+          const resp = await getInvoice(Number(bookingId));
+          if (resp) {
+            setBookingData(resp);
+          }
+        } catch (error) {
+          console.error("error", error);
+        } finally {
+          setisLoading(false);
+        }
+      }
+    };
+
+    fetchInvoice();
+  }, [bookingId]);
 
   const submitContract = async () => {
     console.log("inside");
@@ -405,7 +421,7 @@ const InvoicePage = () => {
       if (targetRef?.current) {
         const createPdf = await generatePDF(targetRef, {
           filename: "contract.pdf",
-          method: "open",
+          method: "build",
           page: {
             margin: 2,
           },
@@ -419,16 +435,16 @@ const InvoicePage = () => {
 
         console.log("inside", createPdf);
 
-        // const resp = await postContract(bookingData?.id, formData);
-        // if (resp) {
-        //   toast.success("Booking Updated Contract", {
-        //     position: "bottom-right",
-        //     autoClose: 2000,
-        //     hideProgressBar: true,
-        //   });
+        const resp = await postContract(bookingData?.id, formData);
+        if (resp) {
+          toast.success("Booking Updated Contract", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+          });
 
-        //   router.replace("/payment");
-        // }
+          // router.replace("/payment");
+        }
       }
     } catch (error) {
       console.error("Error generating or uploading contract", error);

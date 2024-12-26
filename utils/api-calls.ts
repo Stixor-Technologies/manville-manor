@@ -269,64 +269,101 @@ export const createBooking = async (values: FormValues) => {
   }
 };
 
-export const postContract = async (
-  bookingId: any,
-  imageFile: File,
-  contractDate: string,
-) => {
+// export const postContract = async (
+//   bookingId: any,
+//   imageFile: File,
+//   contractDate: string,
+// ) => {
+//   try {
+//     // Create FormData for image upload
+//     const formData = new FormData();
+//     formData.append("files", imageFile);
+
+//     // Step 1: Upload Image to Strapi
+//     const uploadImageResponse = await fetch(`${BASE_URL}/api/upload`, {
+//       method: "POST",
+//       body: formData,
+//     });
+
+//     if (!uploadImageResponse.ok) {
+//       throw new Error(
+//         `Failed to upload image. Status: ${uploadImageResponse.status}`,
+//       );
+//     }
+
+//     const uploadImageResult = await uploadImageResponse.json();
+//     const imageId = uploadImageResult?.[0]?.id;
+
+//     if (!imageId) {
+//       throw new Error("Image upload failed: No ID returned.");
+//     }
+
+//     // Step 2: Update Contract with Image ID and Date
+//     const requestData = {
+//       data: {
+//         clientSignature: imageId, // Reference the uploaded image
+//         contractDate,
+//       },
+//     };
+
+//     const updateContractResponse = await fetch(
+//       `${BASE_URL}/api/post-contract/${bookingId}`,
+//       {
+//         method: "PUT",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(requestData),
+//       },
+//     );
+
+//     if (!updateContractResponse.ok) {
+//       throw new Error(
+//         `Failed to update contract. Status: ${updateContractResponse.status}`,
+//       );
+//     }
+
+//     const updateContractResult = await updateContractResponse.json();
+//     return updateContractResult;
+//   } catch (error) {
+//     console.error("Error uploading contract data:", error);
+//     throw error;
+//   }
+// };
+
+export const postContract = async (bookingId: any, pdfFile: any) => {
   try {
-    // Create FormData for image upload
-    const formData = new FormData();
-    formData.append("files", imageFile);
-
-    // Step 1: Upload Image to Strapi
-    const uploadImageResponse = await fetch(`${BASE_URL}/api/upload`, {
+    // Upload PDF to Strapi media library
+    const uploadPdf = await fetch(`${BASE_URL}/api/upload`, {
       method: "POST",
-      body: formData,
+      body: pdfFile,
     });
+    const resp = await uploadPdf.json();
+    const pdfId = resp?.[0]?.id;
 
-    if (!uploadImageResponse.ok) {
-      throw new Error(
-        `Failed to upload image. Status: ${uploadImageResponse.status}`,
-      );
-    }
-
-    const uploadImageResult = await uploadImageResponse.json();
-    const imageId = uploadImageResult?.[0]?.id;
-
-    if (!imageId) {
-      throw new Error("Image upload failed: No ID returned.");
-    }
-
-    // Step 2: Update Contract with Image ID and Date
     const requestData = {
       data: {
-        clientSignature: imageId, // Reference the uploaded image
-        contractDate,
+        contract: pdfId,
       },
     };
 
-    const updateContractResponse = await fetch(
-      `${BASE_URL}/api/post-contract/${bookingId}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
+    // add reference to uploaded PDF file to collection
+    const addPdf = await fetch(`${BASE_URL}/api/post-contract/${bookingId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify(requestData),
+    });
 
-    if (!updateContractResponse.ok) {
-      throw new Error(
-        `Failed to update contract. Status: ${updateContractResponse.status}`,
-      );
+    if (!addPdf.ok) {
+      throw new Error(`HTTP error! Status: ${addPdf?.status}`);
     }
 
-    const updateContractResult = await updateContractResponse.json();
-    return updateContractResult;
+    const addPdfResp = await addPdf.json();
+    return addPdfResp;
   } catch (error) {
-    console.error("Error uploading contract data:", error);
+    console.error("Error creating reservation:", error);
     throw error;
   }
 };
