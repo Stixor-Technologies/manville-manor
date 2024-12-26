@@ -55,10 +55,11 @@ export const BookingFormSchema = Yup.object().shape({
     .max(500, "Message should be at most 500 characters long."),
   adultsCount: Yup.number()
     .required("Please specify the number of adults")
-    .moreThan(0, "The number of adults must be greater than 0"),
+    .min(0, "The number of adults must be 0 or greater"),
+
   childsCount: Yup.number()
-    .required("Please specify the number of children")
-    .moreThan(0, "The number of children must be greater than 0"),
+    // .required("Please specify the number of children")
+    .min(0, "The number of children must be 0 or greater"),
 });
 
 const FILE_SIZE = 5 * 1024 * 1024;

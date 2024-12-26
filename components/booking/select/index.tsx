@@ -3,7 +3,8 @@ import { useFormikContext } from "formik";
 import Label from "../label";
 import Select from "react-select";
 import { FormValues, ListItemOption } from "@/utils/types/types";
-import Link from "next/link";
+// import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface SelectOptions {
   options: ListItemOption[];
@@ -14,9 +15,10 @@ interface SelectOptions {
   hasError?: boolean;
   isTouched?: boolean;
   errorMessage?: string;
-  listing?: string;
+  // listing?: string;
   isVenue?: boolean;
   fetchVenueData?: (venueName: string) => void; // Pass fetchVenueData as a prop
+  disabled?: boolean;
 }
 
 const DropwDown: FC<SelectOptions> = ({
@@ -28,9 +30,10 @@ const DropwDown: FC<SelectOptions> = ({
   hasError,
   isTouched,
   errorMessage,
-  listing,
+  // listing,
   isVenue,
   fetchVenueData,
+  disabled,
 }) => {
   const { setFieldValue } = useFormikContext<FormValues>();
 
@@ -49,24 +52,21 @@ const DropwDown: FC<SelectOptions> = ({
     }
   };
 
-  const formatListing = (item: string) =>
-    item
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+  // const formatListing = (item: string) =>
+  //   item
+  //     .split("-")
+  //     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  //     .join(" ");
 
   return (
     <>
-      <div className="relative w-full">
+      <div className={cn("relative w-full", disabled && "opacity-50")}>
         <div className="flex items-center justify-between">
           <Label labelFor={name}> {label}</Label>
-          {listing && (
-            <Link
-              href={`/#${listing}`}
-              className="text-secondary underline underline-offset-4"
-            >
-              {formatListing(listing)}
-            </Link>
+          {disabled && (
+            <p className="text-[.625rem] text-white">
+              Please Select Venu first
+            </p>
           )}
         </div>
         <Select
@@ -91,6 +91,7 @@ const DropwDown: FC<SelectOptions> = ({
           options={options}
           isMulti={isMulti}
           onChange={handleChange}
+          isDisabled={disabled}
         />
 
         {isTouched && hasError && (

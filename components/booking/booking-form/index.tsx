@@ -28,6 +28,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
   // const [customError, setCustomError] = useState<string | null>(null);
   const [packages, setPackages] = useState([]);
   const [floorPlans, setFloorPlans] = useState([]);
+  const [venue, setVenueName] = useState<string>("");
 
   const initialValues = {
     fullName: "",
@@ -42,10 +43,11 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
     package: "",
     message: "",
     adultsCount: null,
-    childsCount: null,
+    childsCount: undefined,
   };
 
   const fetchVenueData = async (venueName: string) => {
+    setVenueName(venueName);
     try {
       const packagesResp = await getPackages(true, venueName);
       const floorPlans = await getFloorPlans(true, venueName);
@@ -83,6 +85,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
     const formData = {
       ...values,
       ...(values.additionalServices?.[0] === 0 && { additionalServices: [] }),
+      childsCount: values.childsCount ?? 0,
       date: selectedDate,
     };
 
@@ -110,6 +113,8 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
       setBookingRequest(false);
     }
   };
+
+  console.log("venue", venue, !!venue);
 
   return (
     <Formik
@@ -169,6 +174,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
                   hasError={!!errors.package}
                   isTouched={touched.package}
                   errorMessage={errors.package}
+                  disabled={!venue}
                 />
 
                 {/* <DatePicker
@@ -224,7 +230,8 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
                   hasError={!!errors.floorOption}
                   isTouched={touched.floorOption}
                   errorMessage={errors.floorOption}
-                  listing="floor-plans"
+                  // listing="floor-plans"
+                  disabled={!venue}
                 />
 
                 <Select

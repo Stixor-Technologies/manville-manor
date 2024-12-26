@@ -49,7 +49,7 @@ type FormValues = {
   package: string;
   message: string;
   adultsCount: number | null;
-  childsCount: number | null;
+  childsCount: number | undefined;
 };
 
 type Images = {

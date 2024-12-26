@@ -10,7 +10,7 @@ const nextConfig = {
 
       {
         protocol: "https",
-        hostname: "ewswk8og44wgowo8kogkocs4.stixor.com",
+        hostname: "b0gssw4oowcgogsgs00kww8w.stixor.com",
         pathname: "/uploads/**",
       },
     ],
