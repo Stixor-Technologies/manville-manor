@@ -331,43 +331,6 @@ export const createBooking = async (values: FormValues) => {
 //   }
 // };
 
-export const postContract = async (bookingId: any, pdfFile: any) => {
-  try {
-    // Upload PDF to Strapi media library
-    const uploadPdf = await fetch(`${BASE_URL}/api/upload`, {
-      method: "POST",
-      body: pdfFile,
-    });
-    const resp = await uploadPdf.json();
-    const pdfId = resp?.[0]?.id;
-
-    const requestData = {
-      data: {
-        contract: pdfId,
-      },
-    };
-
-    // add reference to uploaded PDF file to collection
-    const addPdf = await fetch(`${BASE_URL}/api/post-contract/${bookingId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(requestData),
-    });
-
-    if (!addPdf.ok) {
-      throw new Error(`HTTP error! Status: ${addPdf?.status}`);
-    }
-
-    const addPdfResp = await addPdf.json();
-    return addPdfResp;
-  } catch (error) {
-    console.error("Error creating reservation:", error);
-    throw error;
-  }
-};
-
 export const getBlogs = async () => {
   try {
     const resp = await fetch(
