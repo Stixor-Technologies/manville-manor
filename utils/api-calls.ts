@@ -149,7 +149,6 @@ export const getAdditionalServices = async (returnMappedList = false) => {
     const services = await resp.json();
     if (returnMappedList) {
       return services?.data.map((item: any) => {
-        console.log("first", item);
         return {
           value: item?.id,
           label: `${item?.attributes?.name} - $${item?.attributes?.price}`,
@@ -478,12 +477,7 @@ export const getPortfolio = async () => {
       cache: "no-store",
     });
     const portfolioData = await resp.json();
-    // return portfolioData?.data;
 
-    // console.log(
-    //   "portfolioData?.attributes?.images?.data",
-    //   portfolioData?.data?.attributes?.images?.data,
-    // );
     return portfolioData?.data?.attributes?.images?.data;
   } catch (error) {
     console.error("There was an error getting portfolio", error);

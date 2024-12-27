@@ -564,6 +564,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
           });
           saveAs(pdfBlob, `${bookingData?.fullName}-contract.pdf`);
           setisPostingContract(false);
+          router.replace(`/payment?bookingId=${bookingId}`);
         } else {
           toast.error("Error sending Contract", {
             position: "bottom-right",

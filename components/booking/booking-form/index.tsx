@@ -89,8 +89,6 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
       date: selectedDate,
     };
 
-    console.log(formData);
-
     // if (customError) return;
     try {
       setBookingRequest(true);
@@ -113,8 +111,6 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
       setBookingRequest(false);
     }
   };
-
-  console.log("venue", venue, !!venue);
 
   return (
     <Formik
