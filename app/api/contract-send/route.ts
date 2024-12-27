@@ -8,12 +8,19 @@ export async function POST(request: NextRequest) {
   const data = await request.json();
   try {
     const msg: any = {
-      to: process.env.NEXT_PUBLIC_SENDGRID_EMAIL_TO, //
+      to: process.env.NEXT_PUBLIC_SENDGRID_EMAIL_TO,
       from: process.env.NEXT_PUBLIC_SENDGRID_EMAIL_FROM,
-      replyTo: data?.email,
       body: data?.message,
-      subject: `[Lead from website]`,
+      subject: `Contract for Booking ${data?.bookingId}`,
       html: data?.htmlContent,
+      attachments: [
+        {
+          content: data.fileData,
+          filename: data.fileName,
+          type: data.mimeType,
+          disposition: "attachment",
+        },
+      ],
     };
 
     const res = await sendgrid.send(msg);
