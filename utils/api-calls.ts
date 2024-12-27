@@ -268,75 +268,10 @@ export const createBooking = async (values: FormValues) => {
   }
 };
 
-// export const postContract = async (
-//   bookingId: any,
-//   imageFile: File,
-//   contractDate: string,
-// ) => {
-//   try {
-//     // Create FormData for image upload
-//     const formData = new FormData();
-//     formData.append("files", imageFile);
-
-//     // Step 1: Upload Image to Strapi
-//     const uploadImageResponse = await fetch(`${BASE_URL}/api/upload`, {
-//       method: "POST",
-//       body: formData,
-//     });
-
-//     if (!uploadImageResponse.ok) {
-//       throw new Error(
-//         `Failed to upload image. Status: ${uploadImageResponse.status}`,
-//       );
-//     }
-
-//     const uploadImageResult = await uploadImageResponse.json();
-//     const imageId = uploadImageResult?.[0]?.id;
-
-//     if (!imageId) {
-//       throw new Error("Image upload failed: No ID returned.");
-//     }
-
-//     // Step 2: Update Contract with Image ID and Date
-//     const requestData = {
-//       data: {
-//         clientSignature: imageId, // Reference the uploaded image
-//         contractDate,
-//       },
-//     };
-
-//     const updateContractResponse = await fetch(
-//       `${BASE_URL}/api/post-contract/${bookingId}`,
-//       {
-//         method: "PUT",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(requestData),
-//       },
-//     );
-
-//     if (!updateContractResponse.ok) {
-//       throw new Error(
-//         `Failed to update contract. Status: ${updateContractResponse.status}`,
-//       );
-//     }
-
-//     const updateContractResult = await updateContractResponse.json();
-//     return updateContractResult;
-//   } catch (error) {
-//     console.error("Error uploading contract data:", error);
-//     throw error;
-//   }
-// };
-
 export const getBlogs = async () => {
   try {
     const resp = await fetch(
       `${BASE_URL}/api/blogs?populate=*&pagination[limit]=6`,
-      // {
-      //   next: { revalidate: 7200 },
-      // },
       {
         cache: "no-store",
       },
