@@ -31,7 +31,9 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
         <li className="mt-2 flex justify-between font-semibold text-black">
           <span>Extras</span>
           <span>
-            ${invoiceData?.totalPrice - invoiceData?.items?.packagePrice}
+            $
+            {invoiceData?.totalPriceBeforeTax -
+              invoiceData?.items?.packagePrice}
           </span>
         </li>
         <li className="px-6">
@@ -52,14 +54,24 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
             </li>
           </ul>
         </li>
+
+        <li className="mt-2 flex justify-between font-semibold text-black">
+          <span>NJ sales tax</span>
+          <span>${invoiceData?.salesTax}</span>
+        </li>
+
+        <li className="mt-2 flex justify-between font-semibold text-black">
+          <span>Total</span>
+          <span>${invoiceData?.totalPriceWithTax}</span>
+        </li>
       </ul>
 
       <div className="mx-auto mt-4 h-[0.0625rem] w-full bg-[#B0B0B0]" />
 
       <div className="mt-4 flex justify-between">
-        <h3 className=" text-4xl text-black">Order Total:</h3>
+        <h3 className=" text-4xl text-black">Payable Amount:</h3>
         <p className="text-[1.375rem] font-semibold text-black">
-          ${invoiceData?.totalPrice}
+          {/* ${invoiceData?.totalPrice} */}${invoiceData?.payable}
         </p>
       </div>
     </div>

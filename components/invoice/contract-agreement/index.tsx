@@ -243,7 +243,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
         // Data Rows (Dynamic Data)
         drawRow(
           ["Package Price", `$${bookingData?.invoice?.items?.packagePrice}`],
-          [0, 1],
+          [],
         );
         drawRow(
           ["Catering", `$${bookingData?.invoice?.items?.cateringTotal}`],
@@ -264,9 +264,16 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
           [],
         );
 
+        drawRow(["NJ sales tax", `$${bookingData?.invoice?.salesTax}`], []);
+
+        drawRow(
+          ["Order Total", `$${bookingData?.invoice?.totalPriceWithTax}`],
+          [1],
+        );
+
         // Draw Total Row
         startY -= 10;
-        drawRow(["Order Total:", `$${bookingData?.invoice?.totalPrice}`], [1]);
+        drawRow(["Payable Amount:", `$${bookingData?.invoice?.payable}`], [1]);
 
         startY -= 20;
         y = startY;
