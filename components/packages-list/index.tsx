@@ -61,8 +61,6 @@ const PackagesList = () => {
     }
   }, [searchParams]);
 
-  console.log("packages", packages);
-
   return (
     <div data-animated-package-card className="flex-1">
       <SectionHeader header="Pricing" description="Event Packages" />

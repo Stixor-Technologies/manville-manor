@@ -41,8 +41,6 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
     },
   ];
 
-  console.log("portfolio", portfolio);
-
   // const [selectedFilter, setSelectedFilter] = useState("all");
 
   // const filteredImages =

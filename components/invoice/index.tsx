@@ -2,7 +2,7 @@
 import { getInvoice } from "@/utils/api-calls";
 import moment from "moment";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ContractAgreement from "./contract-agreement";
 import InvoiceCard from "../shared/invoice-card";
 import Spinner from "../shared/spinner";
@@ -13,6 +13,7 @@ const InvoicePage = () => {
   const [isLoading, setisLoading] = useState(true);
 
   const bookingId = searchParams.get("bookingId");
+  const contractRef = useRef(null);
 
   useEffect(() => {
     const fetchInvoice = async () => {
@@ -40,7 +41,10 @@ const InvoicePage = () => {
           <Spinner />
         </div>
       ) : bookingData ? (
-        <div className="container bg-primary pb-11 pt-24 md:py-[6.6875rem]">
+        <div
+          ref={contractRef}
+          className="container bg-primary pb-11 pt-24 md:py-[6.6875rem]"
+        >
           <InvoiceCard invoiceData={bookingData?.invoice} />
 
           <div className="text-white">
@@ -53,8 +57,8 @@ const InvoicePage = () => {
               </h2>
               <p className="text-[1.375rem] md:text-[2.25rem]">
                 {`This Event Space Rental Agreement is
-                entered into on [Date] by and between Manville Manor, located at
-                39 South St, Manville, NJ and ${bookingData?.fullName}.`}
+      entered into on ${moment(bookingData?.date).format("DD-MMMM-YYYY")} by and between Manville Manor, located at
+      39 South St, Manville, NJ and ${bookingData?.fullName}.`}
               </p>
 
               <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
@@ -243,8 +247,9 @@ const InvoicePage = () => {
 
           <ContractAgreement
             bookingId={bookingData?.id}
-            contractDate={bookingData?.contractDate}
-            clientSignature={bookingData?.clientSignature?.url}
+            // contractDate={bookingData?.contractDate}
+            // clientSignature={bookingData?.clientSignature?.url}
+            bookingData={bookingData}
           />
         </div>
       ) : (

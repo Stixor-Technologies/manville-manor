@@ -23,7 +23,6 @@ interface MediaCarouselProps {
 }
 
 const MediaCarousel: FC<MediaCarouselProps> = ({ data }) => {
-  console.log("backdrops", data);
   const swiperRef = useRef<SwiperClass | null>(null);
 
   const handleSlideChange = (swiper: SwiperClass) => {

@@ -71,7 +71,6 @@ const CalendarPage = () => {
       return;
     }
 
-    console.log("Dates set triggered, fetching for:", firstDateOfMonth);
     fetchSlots(firstDateOfMonth); // Call the API with the new month
   };
 
@@ -113,7 +112,6 @@ const CalendarPage = () => {
     );
 
     if (!firstAvailableSlot) {
-      console.log("No available slots in the selected time range.");
       return; // Exit if no slots are available in the selected range
     }
 
