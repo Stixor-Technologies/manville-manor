@@ -247,8 +247,8 @@ const InvoicePage = () => {
 
           <ContractAgreement
             bookingId={bookingData?.id}
-            contractDate={bookingData?.contractDate}
-            clientSignature={bookingData?.clientSignature?.url}
+            // contractDate={bookingData?.contractDate}
+            // clientSignature={bookingData?.clientSignature?.url}
             bookingData={bookingData}
           />
         </div>

@@ -9,14 +9,11 @@ import moment, { Moment } from "moment";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { BASE_URL } from "@/utils/contants";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { saveAs } from "file-saver";
 
 interface ContractAgreementProps {
   bookingId: number;
-  contractDate: string;
-  clientSignature: string;
   bookingData: any;
 }
 
@@ -112,8 +109,6 @@ const SignatureDropzone: FC<SignatureDropzoneProps> = ({
 
 const ContractAgreement: FC<ContractAgreementProps> = ({
   bookingId,
-  contractDate,
-  clientSignature,
   bookingData,
 }) => {
   const [isPostingContract, setisPostingContract] = useState<boolean>(false);
@@ -126,7 +121,6 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
   const inputProps = {
     id: "dateClient",
     className: `w-full appearance-none bg-transparent text-2xl capitalize text-white outline-none cursor-pointer`,
-    readOnly: !!(contractDate && clientSignature),
   };
 
   const submitContract = async (values: any) => {
@@ -593,8 +587,8 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
     <div className="mt-8 text-[1.375rem] text-white md:text-[2.25rem]">
       <Formik
         initialValues={{
-          clientSignature: clientSignature || "",
-          dateClient: contractDate || moment(),
+          clientSignature: "",
+          dateClient: moment(),
         }}
         onSubmit={submitContract}
         validationSchema={ContractFormSchema}
@@ -605,26 +599,12 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
               <div className="flex items-end gap-2 leading-none ">
                 <span>Client Signature:</span>
 
-                {clientSignature ? (
-                  // Display the existing signature if both are present
-                  <div>
-                    <Image
-                      src={BASE_URL + clientSignature}
-                      alt="client-signature"
-                      width={200}
-                      height={200}
-                      className="mx-auto max-h-32 max-w-52 object-contain"
-                    />
-                  </div>
-                ) : (
-                  // Allow uploading if clientSignature or contractDate is missing
-                  <SignatureDropzone
-                    name="clientSignature"
-                    hasError={!!errors.clientSignature}
-                    isTouched={touched.clientSignature}
-                    errorMessage={errors.clientSignature}
-                  />
-                )}
+                <SignatureDropzone
+                  name="clientSignature"
+                  hasError={!!errors.clientSignature}
+                  isTouched={touched.clientSignature}
+                  errorMessage={errors.clientSignature}
+                />
               </div>
 
               <div className="flex items-end gap-2 leading-none ">
@@ -634,7 +614,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
                   <Datetime
                     className="text-auto"
                     closeOnSelect
-                    value={contractDate ? moment(contractDate) : moment()}
+                    value={moment()}
                     inputProps={inputProps}
                     isValidDate={disablePastDt}
                     timeFormat={false}
@@ -652,7 +632,9 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
 
                   {!!errors?.dateClient && touched?.dateClient && (
                     <p className="absolute mt-1 text-xs italic text-red-600">
-                      {errors.dateClient}
+                      {typeof errors.dateClient === "string"
+                        ? errors.dateClient
+                        : ""}
                     </p>
                   )}
                 </div>
@@ -675,9 +657,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
               <Button
                 size={"md"}
                 loading={isPostingContract}
-                disabled={
-                  isPostingContract || !!(contractDate && clientSignature)
-                }
+                disabled={isPostingContract}
                 className="mx-auto mt-4"
               >
                 Submit Contract
