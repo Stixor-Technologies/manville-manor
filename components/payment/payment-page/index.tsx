@@ -36,7 +36,7 @@ const PaymentPage = () => {
               headers: { "Content-Type": "application/json" },
               method: "POST",
               body: JSON.stringify({
-                amount: resp?.invoice?.totalPrice,
+                amount: resp?.invoice?.payable,
                 bookingId,
               }),
             });
