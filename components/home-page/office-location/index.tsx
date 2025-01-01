@@ -8,7 +8,7 @@ import MapComponent from "@/components/map-component";
 const OfficeLocation = () => {
   return (
     <section>
-      <div className="grid grid-cols-1 grid-rows-[1fr_0.4fr_0.4fr_auto] text-white sm:grid-cols-[0.95fr_1fr_0.08fr] sm:!grid-rows-[1fr_0.5fr_0.5fr] xs:grid-rows-[1fr_0.15fr_0.15fr_auto]">
+      <div className="my-24 grid grid-cols-1 grid-rows-[1fr_0.4fr_0.4fr_auto] text-white sm:grid-cols-[0.95fr_1fr_0.08fr] sm:!grid-rows-[1fr_0.5fr_0.5fr] xs:grid-rows-[1fr_0.15fr_0.15fr_auto]">
         {/* <picture className="col-span-3 col-start-1 row-span-2 row-start-1 rounded-sm">
           <source media="(min-width: 640px)" srcSet="/assets/location.png" />
           <source srcSet="/assets/location-mobile.png" />
@@ -17,7 +17,7 @@ const OfficeLocation = () => {
 
         <MapComponent />
 
-        <div className="col-start-2 row-span-2 row-start-2 mx-auto flex w-[90%] max-w-xl flex-col justify-center bg-accent/50 px-4 pr-4 text-center backdrop-blur-lg sm:mx-0 sm:!h-[250px] sm:w-full sm:text-left  lg:pl-12 xs:h-[200px]">
+        <div className="col-start-2 row-span-2 row-start-2 mx-auto flex h-[220px] w-[90%] max-w-xl flex-col justify-center bg-accent/50 px-4 pr-4 text-center backdrop-blur-lg sm:mx-0 sm:!h-[250px] sm:w-full  sm:text-left lg:pl-12">
           <h4 className="text-[clamp(22px,1.4vw,22px)] font-semibold ">
             Location
           </h4>
