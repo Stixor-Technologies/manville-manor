@@ -21,11 +21,6 @@ const navBarLinks: Menu[] = [
     title: "Venue",
     path: "/venue",
   },
-  {
-    id: 3,
-    title: "Backdrops",
-    path: "/backdrops",
-  },
 
   {
     id: 4,

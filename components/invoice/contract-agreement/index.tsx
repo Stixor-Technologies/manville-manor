@@ -239,10 +239,10 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
           ["Package Price", `$${bookingData?.invoice?.items?.packagePrice}`],
           [],
         );
-        drawRow(
-          ["Catering", `$${bookingData?.invoice?.items?.cateringTotal}`],
-          [],
-        );
+        // drawRow(
+        //   ["Catering", `$${bookingData?.invoice?.items?.cateringTotal}`],
+        //   [],
+        // );
         drawRow(
           [
             "Additional Services",
@@ -260,14 +260,14 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
 
         drawRow(["NJ sales tax", `$${bookingData?.invoice?.salesTax}`], []);
 
-        drawRow(
-          ["Order Total", `$${bookingData?.invoice?.totalPriceWithTax}`],
-          [1],
-        );
+        // drawRow(
+        //   ["Order Total", `$${bookingData?.invoice?.totalPriceWithTax}`],
+        //   [1],
+        // );
 
         // Draw Total Row
         startY -= 10;
-        drawRow(["Payable Amount:", `$${bookingData?.invoice?.payable}`], [1]);
+        drawRow(["Total:", `$${bookingData?.invoice?.totalPrice}`], [1]);
 
         startY -= 20;
         y = startY;
@@ -574,8 +574,8 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
         }
       };
 
-      // const pdfUrl = URL.createObjectURL(pdfBlob);
-      // window.open(pdfUrl, "_blank");
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+      window.open(pdfUrl, "_blank");
     } catch (error) {
       console.error("Error generating or sending contract", error);
     } finally {

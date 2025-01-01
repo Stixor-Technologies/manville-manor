@@ -30,13 +30,13 @@ const PaymentPage = () => {
           setisLoading(true);
           const resp = await getInvoice(Number(bookingId));
           if (resp) {
-            setInvoiceAmount(resp?.invoice?.payable);
+            setInvoiceAmount(resp?.invoice?.totalPrice);
             setIsPaid(resp?.isPaid);
             const res = await fetch("/api/payment-intent", {
               headers: { "Content-Type": "application/json" },
               method: "POST",
               body: JSON.stringify({
-                amount: resp?.invoice?.payable,
+                amount: resp?.invoice?.totalPrice,
                 bookingId,
               }),
             });

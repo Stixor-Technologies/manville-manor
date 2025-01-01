@@ -1,15 +1,11 @@
 import React from "react";
-import {
-  getVenues,
-  getCatering,
-  getAdditionalServices,
-} from "@/utils/api-calls";
+import { getVenues, getAdditionalServices } from "@/utils/api-calls";
 import BookingForm from "../booking-form";
 
 const BookingWrapper = async () => {
-  const [venues, caterings, additonalServices] = await Promise.all([
+  const [venues, additonalServices] = await Promise.all([
     getVenues(true, null),
-    getCatering(),
+    // getCatering(),
     getAdditionalServices(true),
   ]);
 
@@ -17,7 +13,7 @@ const BookingWrapper = async () => {
     <BookingForm
       venues={venues}
       services={additonalServices}
-      catering={caterings}
+      // catering={caterings}
     />
   );
 };
