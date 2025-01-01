@@ -48,7 +48,7 @@ export const BookingFormSchema = Yup.object().shape({
   // date: Yup.string().required("Please select a desired date"),
   venue: Yup.string().required("Please select a venue"),
   package: Yup.string().required("Please select a Package"),
-  catering: Yup.string().required("Please select a catering option"),
+  // catering: Yup.string().required("Please select a catering option"),
   floorOption: Yup.string().required("Please select a floor option"),
   message: Yup.string()
     .min(10, "Message should be atleast 10 characters long.")

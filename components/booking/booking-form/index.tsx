@@ -15,10 +15,10 @@ import Label from "../label";
 interface BookingFormProps {
   venues: ListItemOption[];
   services: ListItemOption[];
-  catering: ListItemOption[];
+  // catering: ListItemOption[];
 }
 
-const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
+const BookingForm: FC<BookingFormProps> = ({ venues, services }) => {
   const route = useRouter();
   const searchParams = useSearchParams();
 
@@ -37,7 +37,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
     // date: "",
     venue: "",
     peopleCount: "",
-    catering: "",
+    // catering: "",
     floorOption: "",
     additionalServices: [0],
     package: "",
@@ -207,7 +207,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
                     />
                   </div>
                 </div>
-
+                {/* 
                 <Select
                   options={catering}
                   placeholder={"Select Catering"}
@@ -216,7 +216,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services, catering }) => {
                   hasError={!!errors.catering}
                   isTouched={touched.catering}
                   errorMessage={errors.catering}
-                />
+                /> */}
 
                 <Select
                   options={floorPlans}

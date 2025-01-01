@@ -20,7 +20,7 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
         <h2 className="mt-4 font-cormorant text-[2.25rem] md:text-[2.75rem]">
           Order Summary
         </h2>
-        <p className="ml-3 mt-4 text-[1.5rem] md:text-[1.625rem]">Items (3)</p>
+        {/* <p className="ml-3 mt-4 text-[1.5rem] md:text-[1.625rem]">Items</p> */}
       </div>
 
       <ul className="text-[1.375rem]">
@@ -32,15 +32,17 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
           <span>Extras</span>
           <span>
             $
-            {invoiceData?.totalPriceBeforeTax -
-              invoiceData?.items?.packagePrice}
+            {(
+              invoiceData?.totalPriceBeforeTax -
+              invoiceData?.items?.packagePrice
+            ).toFixed(2)}
           </span>
         </li>
         <li className="px-6">
           <ul className="mt-2 space-y-2 text-black/65">
             <li className="flex justify-between">
-              <span>Catering</span>
-              <span>${invoiceData?.items?.cateringTotal}</span>
+              {/* <span>Catering</span> */}
+              {/* <span>${invoiceData?.items?.cateringTotal}</span> */}
             </li>
 
             <li className="flex justify-between">
@@ -60,18 +62,18 @@ const InvoiceCard: FC<InvoiceCardProps> = ({ invoiceData }) => {
           <span>${invoiceData?.salesTax}</span>
         </li>
 
-        <li className="mt-2 flex justify-between font-semibold text-black">
+        {/* <li className="mt-2 flex justify-between font-semibold text-black">
           <span>Total</span>
           <span>${invoiceData?.totalPriceWithTax}</span>
-        </li>
+        </li> */}
       </ul>
 
       <div className="mx-auto mt-4 h-[0.0625rem] w-full bg-[#B0B0B0]" />
 
       <div className="mt-4 flex justify-between">
-        <h3 className=" text-4xl text-black">Payable Amount:</h3>
+        <h3 className=" text-4xl text-black">Total</h3>
         <p className="text-[1.375rem] font-semibold text-black">
-          {/* ${invoiceData?.totalPrice} */}${invoiceData?.payable}
+          ${invoiceData?.totalPrice}
         </p>
       </div>
     </div>

@@ -43,7 +43,7 @@ type FormValues = {
   email: string;
   // date: string;
   venue: string;
-  catering: string;
+  // catering: string;
   floorOption: string;
   additionalServices: number[];
   package: string;

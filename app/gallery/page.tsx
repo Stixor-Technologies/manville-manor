@@ -2,20 +2,15 @@ import React from "react";
 import Hero from "@/components/shared/hero";
 import Image from "next/image";
 import HeroGallery from "@/public/assets/gallery/hero-gallery.png";
-import GallerySlider from "@/components/gallery/gallery-slider/page";
-import EssentialMetrics from "@/components/gallery/essential-metrics/essential-metrics";
+// import GallerySlider from "@/components/gallery/gallery-slider/page";
+// import EssentialMetrics from "@/components/gallery/essential-metrics/essential-metrics";
 import ArrowDown from "@/public/assets/icons/point-down.svg";
 import GalleryHighLight from "@/components/gallery/gallery-highlight";
 import GalleryPortfolio from "@/components/gallery/gallery-portfolio";
-import {
-  getGallerySliderImages,
-  // getPorfolioFilters,
-  getPortfolio,
-} from "@/utils/api-calls";
+import { getPortfolio } from "@/utils/api-calls";
 
 const Gallery = async () => {
-  const sliderData = await getGallerySliderImages();
-  // const portfolioFilters = await getPorfolioFilters();
+  // const sliderData = await getGallerySliderImages();
   const portfolio = await getPortfolio();
 
   return (
@@ -43,25 +38,13 @@ const Gallery = async () => {
             </p>
           </div>
 
-          <EssentialMetrics />
+          {/* <EssentialMetrics /> */}
         </div>
-        {sliderData?.attributes?.images?.data && (
+        {/* {sliderData?.attributes?.images?.data && (
           <GallerySlider sliderImages={sliderData?.attributes?.images?.data} />
-        )}
-
-        {/* {portfolio?.attributes?.portfolioCategory?.length > 0 && (
-          <GalleryPortfolio
-            portfolio={portfolio?.attributes?.portfolioCategory}
-            // portfolioFilters={portfolioFilters}
-          />
         )} */}
 
-        {portfolio?.length > 0 && (
-          <GalleryPortfolio
-            portfolio={portfolio}
-            // portfolioFilters={portfolioFilters}
-          />
-        )}
+        {portfolio?.length > 0 && <GalleryPortfolio portfolio={portfolio} />}
 
         <GalleryHighLight />
       </div>

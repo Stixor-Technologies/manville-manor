@@ -127,8 +127,9 @@ const Contact = () => {
         data-animated-contact-text
         className="text-center font-cormorant text-[2rem] font-bold leading-tight text-white sm:text-5xl md:text-left"
       >
-        Let&apos;s discuss <br className="hidden md:block" /> on something{" "}
-        <span className="text-accent">cool</span> together
+        {/* Let&apos;s discuss <br className="hidden md:block" /> on something{" "}
+        <span className="text-accent">cool</span> together */}
+        Let&apos;s discuss together
       </h4>
 
       <div

@@ -413,6 +413,7 @@ export const getPortfolio = async () => {
     });
     const portfolioData = await resp.json();
 
+    console.log(portfolioData);
     return portfolioData?.data?.attributes?.images?.data;
   } catch (error) {
     console.error("There was an error getting portfolio", error);

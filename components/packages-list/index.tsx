@@ -62,7 +62,7 @@ const PackagesList = () => {
   }, [searchParams]);
 
   return (
-    <div data-animated-package-card className="flex-1">
+    <div data-animated-package-card className="mt-28 flex-1">
       <SectionHeader header="Pricing" description="Event Packages" />
 
       {loading ? (
