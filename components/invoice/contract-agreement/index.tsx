@@ -574,8 +574,8 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
         }
       };
 
-      const pdfUrl = URL.createObjectURL(pdfBlob);
-      window.open(pdfUrl, "_blank");
+      // const pdfUrl = URL.createObjectURL(pdfBlob);
+      // window.open(pdfUrl, "_blank");
     } catch (error) {
       console.error("Error generating or sending contract", error);
     } finally {
