@@ -10,6 +10,7 @@ const SocialLinks = () => {
         <li key={link.title}>
           <Link
             href={link?.path}
+            target="_blank"
             className="flex size-12 items-center justify-center rounded-sm transition-all duration-300 hover:bg-sand"
           >
             <Image src={link.iconPath} alt={link?.title} />

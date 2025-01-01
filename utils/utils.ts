@@ -7,8 +7,6 @@ import {
 } from "./types/types";
 import Instagram from "@/public/assets/icons/instagram.svg";
 import Facebook from "@/public/assets/icons/facebook.svg";
-import Linkedin from "@/public/assets/icons/linkedin.svg";
-import X from "@/public/assets/icons/x.svg";
 import Youtube from "@/public/assets/icons/youtube.svg";
 
 const navBarLinks: Menu[] = [
@@ -69,25 +67,13 @@ const navBarLinks: Menu[] = [
 const socialLink: SocialLinks[] = [
   {
     title: "instagram",
-    path: "https://www.instagram.com/royalswisshousing/",
+    path: "https://www.instagram.com/manvillemanor/",
     iconPath: Instagram,
   },
   {
     title: "facebook",
-    path: "https://www.facebook.com/OfficialRoyalSwissHousing",
+    path: "https://www.facebook.com",
     iconPath: Facebook,
-  },
-
-  {
-    title: "linkedin",
-    path: "#",
-    iconPath: Linkedin,
-  },
-
-  {
-    title: "twitter",
-    path: "#",
-    iconPath: X,
   },
 
   {
