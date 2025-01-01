@@ -16,11 +16,11 @@ const navBarLinks: Menu[] = [
     path: "/",
   },
 
-  {
-    id: 2,
-    title: "Venue",
-    path: "/venue",
-  },
+  // {
+  //   id: 2,
+  //   title: "Venue",
+  //   path: "/venue",
+  // },
 
   {
     id: 4,

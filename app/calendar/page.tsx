@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -19,6 +19,7 @@ const CalendarPage = () => {
   const startMonth = new Date();
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [selectedDateTime, setSelectedDateTime] = useState<any>(null);
+  const [hasSelectedTime, setHasSelectedTime] = useState(false);
 
   const formatEvents = (slotsData: any, filter: string) => {
     const filteredEvents = Object.values(slotsData)
@@ -61,6 +62,13 @@ const CalendarPage = () => {
     }
   };
 
+  useEffect(() => {
+    const firstDayOfMonth = moment().startOf("month").format("MM-DD-YYYY");
+    fetchSlots(firstDayOfMonth);
+  }, []);
+
+  console.log("aaas");
+
   const handleDatesSet = (info: any) => {
     const firstDateOfMonth = moment(info.view.currentStart).format(
       "MM-DD-YYYY",
@@ -76,6 +84,7 @@ const CalendarPage = () => {
 
   const handleFilterChange = (newFilter: string) => {
     setFilter(newFilter);
+    setHasSelectedTime(true);
     if (originalSlots) {
       formatEvents(originalSlots, newFilter);
     }
@@ -166,56 +175,78 @@ const CalendarPage = () => {
   };
 
   return (
-    <div className="container mb-8">
-      <h2 className="text-center font-cormorant text-[4rem] text-white">
-        Calendar
-      </h2>
-
-      <div className="relative my-8">
-        {originalSlots && (
-          <div className="absolute left-4 top-3.5 flex items-center">
-            <button
-              className={cn(
-                " ",
-                filter === "AM" ? "text-black" : "text-black/40",
-              )}
-              onClick={() => handleFilterChange("AM")}
-            >
-              AM
-            </button>
-
-            <div className="mx-2 h-5 w-0.5 bg-black" />
-            <button
-              className={cn(
-                " ",
-                filter === "PM" ? "text-black" : "text-black/40",
-              )}
-              onClick={() => handleFilterChange("PM")}
-            >
-              PM
-            </button>
+    <div
+      className={cn(
+        "container mb-8",
+        !hasSelectedTime &&
+          "flex min-h-[100vh] flex-col items-center justify-center",
+      )}
+    >
+      {!hasSelectedTime ? (
+        <div className="text-center text-white">
+          <h3 className="mb-6 text-3xl">What time would you like to book?</h3>
+          <div className="flex justify-center gap-4">
+            <Button onClick={() => handleFilterChange("AM")}>Morning</Button>
+            <Button onClick={() => handleFilterChange("PM")}>Evening</Button>
           </div>
-        )}
+        </div>
+      ) : (
+        <>
+          <h2 className="text-center font-cormorant text-[4rem] text-white">
+            Calendar
+          </h2>
 
-        <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin]}
-          initialView="dayGridMonth"
-          events={events}
-          headerToolbar={{
-            left: "",
-            center: "prev,title,next",
-            right: "",
-          }}
-          validRange={{
-            start: new Date(startMonth.getFullYear(), startMonth.getMonth(), 1),
-          }}
-          datesSet={handleDatesSet} // Triggered on initial render and navigation
-          dateClick={handleDateClick}
-          dayCellClassNames={dayCellClassNames} // Add custom classes to cells
-        />
-      </div>
+          <div className="relative my-8">
+            {originalSlots && (
+              <div className="absolute left-4 top-3.5 flex items-center">
+                <button
+                  className={cn(
+                    " ",
+                    filter === "AM" ? "text-black" : "text-black/40",
+                  )}
+                  onClick={() => handleFilterChange("AM")}
+                >
+                  AM
+                </button>
 
-      {originalSlots && (
+                <div className="mx-2 h-5 w-0.5 bg-black" />
+                <button
+                  className={cn(
+                    " ",
+                    filter === "PM" ? "text-black" : "text-black/40",
+                  )}
+                  onClick={() => handleFilterChange("PM")}
+                >
+                  PM
+                </button>
+              </div>
+            )}
+
+            <FullCalendar
+              plugins={[dayGridPlugin, interactionPlugin]}
+              initialView="dayGridMonth"
+              events={events}
+              headerToolbar={{
+                left: "",
+                center: "prev,title,next",
+                right: "",
+              }}
+              validRange={{
+                start: new Date(
+                  startMonth.getFullYear(),
+                  startMonth.getMonth(),
+                  1,
+                ),
+              }}
+              datesSet={handleDatesSet} // Triggered on initial render and navigation
+              dateClick={handleDateClick}
+              dayCellClassNames={dayCellClassNames} // Add custom classes to cells
+            />
+          </div>
+        </>
+      )}
+
+      {originalSlots && hasSelectedTime && (
         <div className="mx-auto w-fit">
           <Button disabled={isButtonDisabled} onClick={handleProceed}>
             Proceed
