@@ -11,7 +11,6 @@ import Star from "@/public/assets/icons/star.svg";
 import Quality from "@/public/assets/icons/quality.svg";
 import Security from "@/public/assets/icons/security.svg";
 import Hero from "@/components/shared/hero";
-import Faqs from "@/components/shared/faq";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -176,11 +175,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* faq's section */}
-      <div className="container mb-[4.375rem]">
-        <Faqs />
-      </div>
     </>
   );
 };
