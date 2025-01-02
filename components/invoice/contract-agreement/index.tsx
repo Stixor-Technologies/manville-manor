@@ -302,10 +302,17 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
       y -= 0;
       drawTextWithPagination(contractDetails, 50);
 
+      const getEventTime = () => {
+        const startTime = moment(bookingData?.date).format("h:mma");
+        const startHour = moment(bookingData?.date).hour();
+        const endTime = startHour < 16 ? "3:30pm" : "11:30pm";
+        return `${startTime} - ${endTime}`;
+      };
+
       // Event Details Section
       const eventDetails = [
         `• Event Date: ${moment(bookingData?.date).format("DD-MMMM-YYYY")}`,
-        `• Event Time: ${moment(bookingData?.date).format("h:mma")}`,
+        `• Event Time: ${getEventTime()}`,
         `• Number of Guests: ${bookingData?.adultsCount + bookingData?.childsCount}`,
       ];
 

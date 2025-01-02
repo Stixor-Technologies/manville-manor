@@ -34,6 +34,13 @@ const InvoicePage = () => {
     fetchInvoice();
   }, [bookingId]);
 
+  const getEventTime = () => {
+    const startTime = moment(bookingData?.date).format("h:mma");
+    const startHour = moment(bookingData?.date).hour();
+    const endTime = startHour < 16 ? "3:30pm" : "11:30pm";
+    return `${startTime} - ${endTime}`;
+  };
+
   return (
     <>
       {isLoading ? (
@@ -66,7 +73,8 @@ const InvoicePage = () => {
               </h2>
               <ul className="ml-12  list-disc text-[1.375rem] md:text-[2.25rem]">
                 <li>{`Event Date: ${moment(bookingData?.date).format("DD-MMMM-YYYY")}`}</li>
-                <li>{`Event Time: ${moment(bookingData?.date).format("h:mma")}`}</li>
+                {/* <li>{`Event Time: ${moment(bookingData?.date).format("h:mma")}`}</li> */}
+                <li>{`Event Time: ${getEventTime()}`}</li>
                 <li>
                   {` Number of Guests: ${bookingData?.adultsCount + bookingData?.childsCount}`}
                 </li>
