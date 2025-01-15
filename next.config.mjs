@@ -13,6 +13,12 @@ const nextConfig = {
         hostname: "b0gssw4oowcgogsgs00kww8w.stixor.com",
         pathname: "/uploads/**",
       },
+
+      {
+        protocol: "https",
+        hostname: "manvillemanorevents.com",
+        pathname: "/uploads/**",
+      },
     ],
   },
 };

@@ -67,8 +67,6 @@ const CalendarPage = () => {
     fetchSlots(firstDayOfMonth);
   }, []);
 
-  console.log("aaas");
-
   const handleDatesSet = (info: any) => {
     const firstDateOfMonth = moment(info.view.currentStart).format(
       "MM-DD-YYYY",

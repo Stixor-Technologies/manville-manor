@@ -1,6 +1,5 @@
 import { BASE_URL } from "./contants";
 import { FormValues, ListItemOption } from "./types/types";
-// : Promise<ListItemOption[]>
 export const getVenues = async (
   returnMappedList = false,
   selectedVenue: string | null,
@@ -12,7 +11,6 @@ export const getVenues = async (
   }
 
   try {
-    // const resp = await fetch(`${BASE_URL}/api/venues?populate=*`, {
     const resp = await fetch(url, {
       cache: "no-store",
     });
@@ -31,22 +29,6 @@ export const getVenues = async (
   }
 };
 
-// export const getPackages = async (): Promise<ListItemOption[]> => {
-//   try {
-//     const resp = await fetch(`${BASE_URL}/api/packages`, {
-//       cache: "no-store",
-//     });
-//     const peopleCount = await resp.json();
-//     return peopleCount?.data.map((item: any) => ({
-//       value: item?.id,
-//       label: item?.attributes?.name,
-//     }));
-//   } catch (error) {
-//     console.error("There was an error getting packages", error);
-//     return [];
-//   }
-// };
-
 export const getPackages = async (
   returnMappedList = false,
   selectedVenue: string | null,
@@ -58,7 +40,6 @@ export const getPackages = async (
   }
 
   try {
-    // const resp = await fetch(`${BASE_URL}/api/packages?populate=*`, {
     const resp = await fetch(url, {
       cache: "no-store",
     });
@@ -93,54 +74,6 @@ export const getCatering = async (): Promise<ListItemOption[]> => {
   }
 };
 
-// export const getAdditionalServices = async (): Promise<ListItemOption[]> => {
-//   try {
-//     const resp = await fetch(`${BASE_URL}/api/additional-services`, {
-//       cache: "no-store",
-//     });
-//     const services = await resp.json();
-//     return services?.data.map((item: any) => ({
-//       value: item?.id,
-//       label: item?.attributes?.name,
-//     }));
-//   } catch (error) {
-//     console.error("There was an error getting additional services", error);
-//     return [];
-//   }
-// };
-
-// export const getFloorPlans = async (): Promise<ListItemOption[]> => {
-//   try {
-//     const resp = await fetch(`${BASE_URL}/api/floor-options`, {
-//       cache: "no-store",
-//     });
-//     const floorOptions = await resp.json();
-//     return floorOptions?.data.map((item: any) => ({
-//       value: item?.id,
-//       label: item?.attributes?.name,
-//     }));
-//   } catch (error) {
-//     console.error("There was an error getting floor options", error);
-//     return [];
-//   }
-// };
-
-// export const getBackdrops = async (): Promise<ListItemOption[]> => {
-//   try {
-//     const resp = await fetch(`${BASE_URL}/api/back-drops`, {
-//       cache: "no-store",
-//     });
-//     const backDrops = await resp.json();
-//     return backDrops?.data.map((item: any) => ({
-//       value: item?.id,
-//       label: item?.attributes?.name,
-//     }));
-//   } catch (error) {
-//     console.error("There was an error getting Backdrops", error);
-//     return [];
-//   }
-// };
-
 export const getAdditionalServices = async (returnMappedList = false) => {
   try {
     const resp = await fetch(`${BASE_URL}/api/additional-services`, {
@@ -162,26 +95,6 @@ export const getAdditionalServices = async (returnMappedList = false) => {
     return [];
   }
 };
-
-// export const getFloorPlans = async (returnMappedList = false) => {
-//   try {
-//     const resp = await fetch(`${BASE_URL}/api/floor-options?populate=*`, {
-//       cache: "no-store",
-//     });
-//     const floorOptions = await resp.json();
-//     if (returnMappedList) {
-//       return floorOptions?.data.map((item: any) => ({
-//         value: item?.id,
-//         label: item?.attributes?.name,
-//       }));
-//     }
-
-//     return floorOptions?.data;
-//   } catch (error) {
-//     console.error("There was an error getting floor options", error);
-//     return [];
-//   }
-// };
 
 export const getFloorPlans = async (
   returnMappedList = false,
@@ -228,7 +141,6 @@ export const getBackdrops = async () => {
 export const checkSlotAvailability = async (selectedDate: string) => {
   try {
     const resp = await fetch(
-      // `${BASE_URL}/api/strapi-reservations/time-slots/day/${selectedDate}`,
       `${BASE_URL}/api/strapi-reservations/time-slots/month/${selectedDate}`,
 
       {
@@ -379,41 +291,12 @@ export const getGallerySliderImages = async () => {
   }
 };
 
-export const getPorfolioFilters = async () => {
-  try {
-    const resp = await fetch(`${BASE_URL}/api/portfolio-filters?populate=*`, {
-      cache: "no-store",
-    });
-    const porfolioFilters = await resp.json();
-    return [
-      { value: "all", label: "All" },
-      ...porfolioFilters?.data.map((item: any) => ({
-        value: item?.attributes?.name,
-        label: item?.attributes?.name,
-      })),
-    ];
-    // return porfolioFilters;
-  } catch (error) {
-    console.error("There was an error getting porfolio filters", error);
-    return [];
-  }
-};
-
 export const getPortfolio = async () => {
-  // try {
-  //   const resp = await fetch(
-  //     `${BASE_URL}/api/potfolio?populate[portfolioCategory][populate]=*`,
-  //     {
-  //       cache: "no-store",
-  //     },
-  //   );
   try {
     const resp = await fetch(`${BASE_URL}/api/gallery-portfolio?populate=*`, {
       cache: "no-store",
     });
     const portfolioData = await resp.json();
-
-    console.log(portfolioData);
     return portfolioData?.data?.attributes?.images?.data;
   } catch (error) {
     console.error("There was an error getting portfolio", error);
