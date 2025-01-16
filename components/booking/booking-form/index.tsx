@@ -138,6 +138,7 @@ const BookingForm: FC<BookingFormProps> = ({ venues, services }) => {
                   isTouched={touched.phone}
                   name={"phone"}
                   label="Phone"
+                  placeholder="1-234-567-8901"
                   errorMessage={errors.phone}
                 />
 
