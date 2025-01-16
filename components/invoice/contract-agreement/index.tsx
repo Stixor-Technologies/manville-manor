@@ -772,7 +772,7 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
       const getEventTime = () => {
         const startTime = moment(bookingData?.date).format("h:mma");
         const startHour = moment(bookingData?.date).hour();
-        const endTime = startHour < 16 ? "3:30pm" : "11:30pm";
+        const endTime = startHour < 16 ? "3:00pm" : "10:30pm";
         return `${startTime} - ${endTime}`;
       };
 
