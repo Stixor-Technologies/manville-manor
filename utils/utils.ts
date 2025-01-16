@@ -24,7 +24,7 @@ const navBarLinks: Menu[] = [
 
   {
     id: 4,
-    title: "Flooplans",
+    title: "Floor Plans",
     path: "/floor-plans",
   },
 
@@ -150,8 +150,7 @@ const faqItems: Faq[] = [
   },
 
   {
-    title:
-      "can i select my own unique hours outside of the cool venue time blocks?",
+    title: "can i select my own unique hours outside of the time blocks?",
     content:
       "We are flexible with event start times on all days except Saturdays. On Saturdays, you can select from two event time blocks. Requesting a time outside of these blocks may require a full-day buyout, as it affects the two scheduled time slots.",
   },

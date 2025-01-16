@@ -65,6 +65,11 @@ const PackagesList = () => {
     <div data-animated-package-card className="mt-28 flex-1">
       <SectionHeader header="Pricing" description="Event Packages" />
 
+      <p className="mt-10 text-center text-white md:text-[22px]">
+        Time Slots: Access to venue space. (Setup & breakdown time included)
+        (8am - 3PM or 4pm -10:30PM)
+      </p>
+
       {loading ? (
         <div className="py-36">
           <Spinner />

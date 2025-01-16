@@ -78,8 +78,13 @@ const GalleryHighLight = () => {
             </Link>
           </div>
           <div className="uppercase lg:text-2xl xl:text-[28px]">
-            <span>Call us 24/7: </span>
+            <span>Call us: </span>
             <Link href={"tel:732-985-5363"}>732-985-5363</Link>
+          </div>
+
+          <div className="uppercase lg:text-2xl xl:text-[28px]">
+            <span>Address: </span>
+            <span>39 South St Manville NJ 08835</span>
           </div>
         </div>
       </div>

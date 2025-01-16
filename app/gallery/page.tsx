@@ -31,10 +31,12 @@ const Gallery = async () => {
             </div>
 
             <p className="text-center text-xl capitalize leading-relaxed text-secondary md:w-[50%] md:max-w-[32rem] md:text-left lg:w-full">
-              Tincidunt sagittis mollis nec suspendisse sed felis massa urna
-              nec. Urna quisque blandit turpis ultrices arcu ut sed. Ultricies
-              diam est aliquet porta fermentum molestie morbi libero. Ultrices
-              sit in elit eget nullam sem. Urna velit imperdiet habitant in.
+              At Manville Manor, we believe every event should be extraordinary.
+              Whether you&apos;re planning a wedding, corporate gathering,
+              social celebration, or private party, our dedication to excellence
+              ensures your vision becomes reality. We pride ourselves on
+              attention to detail, professional service, and creating an
+              atmosphere where lasting memories are made
             </p>
           </div>
 

@@ -41,7 +41,10 @@ export const BookingFormSchema = Yup.object().shape({
     ),
   phone: Yup.string()
     .required("Please enter your phone number")
-    .matches(/^(\+92|0|92)[0-9]{10}$/, "Phone number is not valid"),
+    .matches(
+      /^(\+1|1)?[-.\s]?(\([2-9][0-8][0-9]\)|[2-9][0-8][0-9])[-.\s]?[2-9][0-9]{2}[-.\s]?[0-9]{4}$/,
+      "Phone number is not valid",
+    ),
   email: Yup.string()
     .matches(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i, "Invalid email address")
     .required("Please enter your email address"),

@@ -54,7 +54,7 @@ const InvoicePage = () => {
         >
           <InvoiceCard invoiceData={bookingData?.invoice} />
 
-          <div className="text-white">
+          <div className="mb-28 text-white">
             <h1 className="mt-2 text-center font-cormorant text-[4rem]">
               Contract
             </h1>
@@ -73,183 +73,213 @@ const InvoicePage = () => {
               </h2>
               <ul className="ml-12  list-disc text-[1.375rem] md:text-[2.25rem]">
                 <li>{`Event Date: ${moment(bookingData?.date).format("DD-MMMM-YYYY")}`}</li>
-                {/* <li>{`Event Time: ${moment(bookingData?.date).format("h:mma")}`}</li> */}
                 <li>{`Event Time: ${getEventTime()}`}</li>
                 <li>
                   {` Number of Guests: ${bookingData?.adultsCount + bookingData?.childsCount}`}
                 </li>
               </ul>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                2. Rental Fee and Payment Terms
-              </h2>
+              <div>
+                <h2 className="mt-10 text-[1.675rem] font-semibold md:text-[2.55rem]">
+                  Booking & Reservation
+                </h2>
 
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  {`Rental Fee: The total rental fee for the event space is $${bookingData?.invoice?.totalPrice}.`}
-                </li>
-                <li>
-                  Deposit: A non-refundable deposit of $250 is due upon signing
-                  this Agreement. This amount will be applied to the total
-                  rental fee.
-                </li>
-                <li>
-                  Final Payment: The remaining balance of $[Remaining Amount] is
-                  due no later than [Number of Days] days before the event date.
-                </li>
-                <li>
-                  Late Payments: Late payments will incur a fee of $[Late Fee]
-                  per day.
-                </li>
-              </ul>
+                <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>
+                    A reserved venue requires both confirmed payment and the
+                    signing of a venue agreement. Book on website direct is
+                    fastest way to ensure your party is reserved as our Calendar
+                    is the up to date with availability for day time use and
+                    night time events.
+                  </li>
+                  <li>Person reserving venue must be 25 years and older</li>
+                  <li>
+                    Fill out your information on booking page allowing you to
+                    pick different packages and include any add on as shown.
+                  </li>
+                </ul>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                3. Cancellation Policy
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>Client Cancellation: If the Client cancels the event:</li>
-                <li className="ml-10">
-                  More than [Number of Days] days before the event:
-                  [Percentage]% of the rental fee will be refunded, minus the
-                  deposit.
-                </li>
-                <li className="ml-10">
-                  Less than [Number of Days] days before the event: No refund
-                  will be given.
-                </li>
-                <li>
-                  Owner Cancellation: The Owner reserves the right to cancel the
-                  event for reasons beyond its control (e.g., natural disasters,
-                  venue damage). In such cases, a full refund, including the
-                  deposit, will be issued to the Client.
-                </li>
-              </ul>
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Incidental deposit
+                </h2>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                4. Damage and Liability
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  Client Responsibility: The Client is responsible for any
-                  damage to the property, facilities, or equipment caused by the
-                  Client or their guests during the event.
-                </li>
-                <li>
-                  Damage Deposit: A refundable damage deposit of $[Amount] is
-                  required. The deposit will be refunded within [Number of Days]
-                  days after the event, provided no damage has occurred.
-                </li>
-                <li>
-                  Liability for Damage: If damages exceed the damage deposit,
-                  the Client agrees to pay the additional costs within [Number
-                  of Days] days of receiving an invoice from the Owner.
-                </li>
-              </ul>
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>
+                    A $250 incidental deposit will be included in your final
+                    bill and refunded within 5 days after your event, provided
+                    there is no damage to the venue or its equipment/supplies,
+                    and no overtime use.
+                  </li>
+                </ul>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                5. Indemnification
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  The Client agrees to indemnify, defend, and hold harmless
-                  Manville Manor, its owners, employees, and agents from and
-                  against any and all claims, damages, losses, liabilities, and
-                  expenses (including reasonable attorney&apos;s fees) arising
-                  from the Client&apos;s use of the event space, including but
-                  not limited to:
-                </li>
-                <li className="ml-10">
-                  Personal injury or property damage occurring on the premises
-                  during the event.
-                </li>
-                <li className="ml-10">
-                  Any claims made by third parties or guests in attendance at
-                  the event.
-                </li>
-                <li>
-                  The Owner shall not be held responsible for any loss, theft,
-                  or damage to personal property or equipment brought onto the
-                  premises by the Client or their guests.
-                </li>
-              </ul>
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Sales tax -{" "}
+                  <span className="font-normal">
+                    NJ sales tax of 6.625% will apply to venue rental total.
+                  </span>
+                </h2>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                6. Event Conduct
-              </h2>
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>
+                    Accepted payment methods: Credit cards, bank transfers,
+                    Zelle and certified checks
+                  </li>
+                </ul>
 
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  Compliance with Laws: The Client agrees to comply with all
-                  local, state, and federal laws, including but not limited to
-                  alcohol consumption laws, noise ordinances, and occupancy
-                  limits.
-                </li>
-                <li>
-                  Guest Behavior: The Client is responsible for the behavior of
-                  all guests. The Owner reserves the right to terminate the
-                  event if guests engage in illegal activities or disruptive
-                  behavior, without a refund.
-                </li>
-              </ul>
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Cancellation and Refunds:
+                </h2>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                7. Force Majeure
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  The Owner shall not be liable for any failure or delay in
-                  performing its obligations under this Agreement if such
-                  failure or delay is due to circumstances beyond its reasonable
-                  control, including but not limited to acts of God, war,
-                  terrorism, or government restrictions.
-                </li>
-              </ul>
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>
+                    100% payment due time of booking and fully refundable with
+                    in 90 days
+                  </li>
+                  <li>
+                    Cancellations 45-89 days before: 75% of deposit refunded
+                  </li>
+                  <li>Cancellations less than 45 days before: No refund</li>
+                  <li>
+                    For rescheduling, please inform us before the 6-week mark.
+                    And will credit towards your new date within one year from
+                    the original booking, with applicable rescheduling fees
+                  </li>
+                </ul>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                8. Termination of Agreement
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  Breach by Client: The Owner reserves the right to terminate
-                  this Agreement without notice if the Client breaches any terms
-                  of this Agreement.
-                </li>
-                <li>
-                  Refunds upon Termination: In the event of termination due to
-                  breach by the Client, no refunds will be issued.
-                </li>
-              </ul>
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Payment Methods:
+                </h2>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                9. Miscellaneous
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  Amendments: Any amendments to this Agreement must be made in
-                  writing and signed by both parties.
-                </li>
-                <li>
-                  Entire Agreement: This Agreement constitutes the entire
-                  agreement between the parties and supersedes any prior
-                  agreements, understandings, or representations.
-                </li>
-                <li>
-                  Governing Law: This Agreement shall be governed by and
-                  construed in accordance with the laws of the State of New
-                  Jersey.
-                </li>
-              </ul>
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>
+                    Zelle, Venmo, Bank Transfer and Credit Card. Note: A 3%
+                    credit card processing fee will be added to the payment.
+                  </li>
+                  <li>Best to book directly thru website</li>
+                </ul>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                10. Acceptance of Terms
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  By signing below, the Client acknowledges that they have read,
-                  understood, and agree to the terms and conditions outlined in
-                  this Agreement.
-                </li>
-              </ul>
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Not allowed on our venue premises:
+                </h2>
+
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>Smoking permitted only in designated outdoor areas</li>
+                  <li>
+                    No glitter or confetti including balloons with confetti in
+                    them
+                  </li>
+                  <li>No use of tape on venue walls.</li>
+
+                  <li>
+                    No real flames except for warming food and candles for the
+                    event cake. Floating candles allowed as long as they are not
+                    exposed flames and in a container.
+                  </li>
+                  <li>
+                    No helium air balloons allowed due to our high ceilings and
+                    chandeliers . Regular balloons allowed.
+                  </li>
+
+                  <li>No sparklers allowed</li>
+                </ul>
+
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Capacity & Safety
+                </h2>
+
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>Maximum capacity: 81 guests, 2 Kitchen</li>
+                  <li>Fire exits must remain unobstructed</li>
+                  <li>Emergency procedures must be followed</li>
+
+                  <li>Right to refuse entry for safety concerns</li>
+                  <li>
+                    Compliance with all local fire, noise and safety codes
+                    required
+                  </li>
+                </ul>
+
+                <h2 className="mt-10 text-[1.675rem] font-semibold md:text-[2.55rem]">
+                  Vendor & Service Requirements
+                </h2>
+
+                <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>All vendors must provide proof of insurance</li>
+                  <li>Vendor setup/breakdown times must be coordinated</li>
+                  <li>
+                    Vendors must follow venue loading/unloading procedures
+                  </li>
+                  <li>Certificate of Insurance required before even</li>
+                </ul>
+
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Catering
+                </h2>
+
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>
+                    Licensed and insured caterers only - (liability insurance
+                    required)
+                  </li>
+                  <li>
+                    We can also share some of our set menus from select vendors
+                    to provide add on catering food choices to your event.
+                  </li>
+                </ul>
+
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Alcohol
+                </h2>
+
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>
+                    Alcohol service must end 30 minutes before event conclusion
+                  </li>
+                  <li>
+                    Professional bartenders required for all alcohol service
+                  </li>
+                  <li>Proof of liquor liability insurance required</li>
+                </ul>
+
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Property & Liability
+                </h2>
+
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>Client responsible for guest conduct </li>
+                  <li>Damage to venue or equipment will be billed</li>
+                  <li>Personal items must be removed after event</li>
+                  <li>Venue not responsible for lost/stolen items</li>
+                </ul>
+
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Sound Regulations
+                </h2>
+
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>Music must comply with local noise ordinances</li>
+                  <li>Volume control at management discretion</li>
+                  <li>Live music/DJ must provide own equipment</li>
+                  <li>All entertainment must end by 10:30 PM</li>
+                </ul>
+
+                <h2 className="mt-10 text-base font-semibold md:text-[2.25rem]">
+                  Unforeseen Circumstances
+                </h2>
+
+                <ul className="ml-12 mt-4 list-disc text-[1.375rem] md:text-[2.25rem]">
+                  <li>Venue not liable for events beyond control</li>
+                  <li>
+                    Including but not limited to: natural disasters, pandemics,
+                    government restrictions
+                  </li>
+                  <li>Alternative dates will be offered if possible</li>
+                  <li>Changes to Agreement</li>
+                  <li>Terms subject to change with written notice</li>
+                  <li>Disputes resolved through arbitration</li>
+                  <li>New Jersey law governs all agreements</li>
+                </ul>
+              </div>
             </div>
           </div>
 

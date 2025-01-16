@@ -104,11 +104,11 @@ const About = () => {
             Our Company Overview
           </h3>
           <p>
-            Carlio brand is one of the most reliable motor oil manufacturers,
-            which is engaged in the production of high quality products with a
-            history of more than decades in the industry. In order to get more
-            information about other aspects and products of the Carlio brand,
-            you can use the following buttons:
+            Welcome to Manville Manor, New Jersey&apos;s premier event venue
+            where memorable moments come to life. Nestled in the heart of
+            Manville, our versatile space combines modern elegance with
+            exceptional service to create the perfect setting for your special
+            occasions
           </p>
         </div>
 
@@ -122,13 +122,11 @@ const About = () => {
         <div data-animated-about-text className="self-start text-white">
           <div className="my-8 h-[1px] w-full bg-secondary" />
           <p>
-            The meaning of production in Carlio is the creation, development,
-            and the path to progress, and the starting point to achieve the
-            goals that we all have the Petroforce brand, with over 20 years of
-            experience in the oil and petrochemical industry, we officially
-            started our activities in the field of design, engineering,
-            construction of refinery equipment, and the production of various
-            motor and industrial lubricants in the year 1390 (2011)
+            Founded with a vision to provide an extraordinary event space in New
+            Jersey, Manville Manor stands as a testament to sophisticated design
+            and thoughtful hospitality. Our venue offers a perfect blend of
+            contemporary amenities and flexible configurations, making it ideal
+            for everything from intimate gatherings to grand celebrations.
           </p>
         </div>
       </section>
