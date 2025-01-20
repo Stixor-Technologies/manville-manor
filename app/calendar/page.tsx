@@ -61,7 +61,6 @@ const CalendarPage = () => {
       console.error("Error fetching slot availability:", error);
     }
   };
-
   useEffect(() => {
     const firstDayOfMonth = moment().startOf("month").format("MM-DD-YYYY");
     fetchSlots(firstDayOfMonth);

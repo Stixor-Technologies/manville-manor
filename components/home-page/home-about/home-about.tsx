@@ -13,7 +13,7 @@ const HomeAbout = async () => {
             <div className="text-center md:order-1 md:max-w-[25.75rem] md:text-left">
               <h4 className="text-xl text-secondary">About Us</h4>
               <h2 className="my-4 font-cormorant text-5xl text-white">
-                A Timeless Venue for Unforgettable Events
+                A Timeless Venue for Memorable events
               </h2>
               <p className="text-[1.375rem] text-secondary">
                 A seamless experience, from planning to execution with a

@@ -11,8 +11,8 @@ const MapComponent = () => {
   });
 
   const location = {
-    lat: 40.54377582392924,
-    lng: -74.58894737301489,
+    lat: 40.543629377362734,
+    lng: -74.5889256711641,
   };
 
   const mapOptions = {
@@ -26,8 +26,6 @@ const MapComponent = () => {
     minZoom: 5,
     maxZoom: 40,
   };
-
-  //   className={`sm:pb-1/2 relative h-[21.875rem] w-full md:order-1 md:h-auto md:flex-1`}
 
   return (
     <div

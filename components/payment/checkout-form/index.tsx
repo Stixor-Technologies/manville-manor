@@ -8,6 +8,7 @@ import { StripePaymentElementOptions } from "@stripe/stripe-js";
 import { Button } from "../../button";
 import { toast } from "react-toastify";
 import { REDIRECT_URL } from "@/utils/contants";
+import Link from "next/link";
 
 interface CheckoutFormProps {
   amount: number;
@@ -80,6 +81,17 @@ const CheckoutForm: FC<CheckoutFormProps> = ({ amount, bookingId, isPaid }) => {
       >
         {isPaid ? "Already Paid" : "Pay now"}
       </Button>
+
+      <div className="my-8 text-center">or pay using Auto Book</div>
+      <div className="text-center">
+        <Link
+          className="text-center underline"
+          href={"https://app.autobooks.co/pay/manville-manor"}
+          target="_blank"
+        >
+          Auto Books Payment
+        </Link>
+      </div>
     </form>
   );
 };
