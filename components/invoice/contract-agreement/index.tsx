@@ -663,8 +663,6 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
       // window.open(pdfUrl, "_blank");
     } catch (error) {
       console.error("Error generating or sending contract", error);
-    } finally {
-      setisPostingContract(false);
     }
   };
 
