@@ -546,7 +546,48 @@ const ContractAgreement: FC<ContractAgreementProps> = ({
 
       if (values.clientSignature) {
         const base64String = await convertFileToBase64(values.clientSignature);
-        const signatureImage = await pdfDoc.embedPng(base64String);
+
+        // Extract MIME type from base64 string
+        const mimeType = base64String.split(";")[0].split(":")[1];
+
+        let signatureImage;
+
+        if (mimeType === "image/png") {
+          signatureImage = await pdfDoc.embedPng(base64String);
+        } else if (mimeType === "image/jpeg" || mimeType === "image/jpg") {
+          signatureImage = await pdfDoc.embedJpg(base64String);
+        } else if (mimeType === "image/svg+xml") {
+          // Convert SVG to PNG for embedding
+          const svgToPng = async (svgBase64: string): Promise<string> => {
+            const svg = atob(svgBase64.split(",")[1]);
+            const blob = new Blob([svg], { type: "image/svg+xml" });
+            const url = URL.createObjectURL(blob);
+
+            return new Promise((resolve, reject) => {
+              const img = document.createElement("img") as HTMLImageElement; // ✅ Explicit HTMLImageElement
+              img.onload = () => {
+                const canvas = document.createElement("canvas");
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext("2d");
+                if (ctx) {
+                  ctx.drawImage(img, 0, 0);
+                  resolve(canvas.toDataURL("image/png"));
+                } else {
+                  reject("Failed to get canvas context");
+                }
+              };
+              img.onerror = () => reject("Failed to load SVG image");
+              img.src = url;
+            });
+          };
+
+          const pngBase64 = await svgToPng(base64String);
+          signatureImage = await pdfDoc.embedPng(pngBase64);
+        } else {
+          console.error("Unsupported image format:", mimeType);
+          return;
+        }
 
         // Max dimensions for the signature
         const maxWidth = 150; // Reduce width to 150px
