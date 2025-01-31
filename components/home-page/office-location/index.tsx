@@ -22,7 +22,7 @@ const OfficeLocation = () => {
             Location
           </h4>
           <p className="mt-2 font-cormorant text-[clamp(22px,2.5vw,36px)] leading-tight md:mt-4">
-          39 South St Manville NJ 08835
+            39 South St Manville NJ 08835
           </p>
         </div>
 
