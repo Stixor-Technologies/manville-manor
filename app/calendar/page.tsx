@@ -165,12 +165,7 @@ const CalendarPage = () => {
   const handleProceed = () => {
     if (selectedDateTime) {
       const startTime = selectedDateTime?.start;
-      console.log("startTime", startTime);
       const date = new Date(startTime);
-      console.log("date", date);
-
-      // const formattedDateTime = date.toISOString();
-      // console.log("formattedDateTime", formattedDateTime);
       const formattedDateTime = new Date(
         date.getTime() - date.getTimezoneOffset() * 60000,
       ).toISOString();
