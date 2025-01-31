@@ -121,7 +121,7 @@ const faqItems: Faq[] = [
   {
     title: "Can I bring my own Food?",
     content:
-      "Yes. We do not offer food or beverages. You can bring your own home-cooked food for your event, as long as it is not for sale. Licensed and  insured caterers are also permitted to provide food, but all food must be pre-cooked, and no onsite cooking is allowed.",
+      "Yes. We do not offer food or beverages. You can bring your own home-cooked food for your event, as long as it is not for sale. Licensed and insured caterers are also permitted to provide food, but all food must be pre-cooked, and no onsite cooking is allowed. You can also reach out to us to over preferred vendors for Food options and all inclusive experience.",
   },
 
   {
@@ -134,7 +134,7 @@ const faqItems: Faq[] = [
     title:
       "how much extra time do i get for decorating/setting up for my event?",
     content:
-      "Your setup time is included into your 6.5-hour Edison time block for space usage. There is no additional setup time allocated beyond your designated block, given that we host two events daily. For any extra setup time requirements, please get in touch with us for further details.",
+      "Your setup time is included into your 6.5-hour time block for space usage. There is no additional setup time allocated beyond your designated block, given that we host two events daily. For any extra setup time requirements, please get in touch with us for further details.",
   },
 
   {
@@ -146,7 +146,7 @@ const faqItems: Faq[] = [
   {
     title: "what decor items are prohibited?",
     content:
-      "Smoking or vaping is not allowed onsite, on the venue's grounds/patios, or in front of the building. Glitter or confetti (also in balloons) is prohibited. Use of tape on venue walls is not permitted. Real flames are only allowed for warming food and candles for the event cake. Floating candles are allowed as long as they are not exposed flames and are in a container. Helium air balloons are not permitted in our Edison/Sayreville locations due to our high ceilings, but regular balloons are allowed.",
+      "Glitter or confetti (also in balloons) is prohibited. Use of tape on venue walls is not permitted. Real flames are only allowed for warming food and candles for the event cake. Floating candles are allowed as long as they are not exposed flames and are in a container. No Fireworks or sparklers.",
   },
 
   {
