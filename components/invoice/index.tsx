@@ -134,7 +134,7 @@ const InvoicePage = () => {
                 3. Rules and Regulations
               </h2>
               <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>Capacity: Maximum capacity is [83] persons</li>
+                <li>Capacity: Maximum capacity is [81] persons</li>
                 <li>Hours: All events must end by specified time.</li>
                 <li>
                   Setup/Cleanup: - Setup may begin 2 hours before event start
