@@ -35,8 +35,8 @@ const InvoicePage = () => {
   }, [bookingId]);
 
   const getEventTime = () => {
-    const startTime = moment(bookingData?.date).format("h:mma");
-    const startHour = moment(bookingData?.date).hour();
+    const startTime = moment.utc(bookingData?.date).format("h:mma");
+    const startHour = moment.utc(bookingData?.date).hour();
     const endTime = startHour < 16 ? "3:00pm" : "10:30pm";
     return `${startTime} - ${endTime}`;
   };
@@ -80,43 +80,28 @@ const InvoicePage = () => {
               </ul>
 
               <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                2. Rental Fee and Payment Terms
-              </h2>
-
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  {`Rental Fee: The total rental fee for the event space is $${bookingData?.invoice?.totalPrice}.`}
-                </li>
-                <li>
-                  Deposit: A non-refundable deposit of $250 is due upon signing
-                  this Agreement. This amount will be applied to the total
-                  rental fee.
-                </li>
-                <li>
-                  Final Payment: The remaining balance of $[Remaining Amount] is
-                  due no later than [Number of Days] days before the event date.
-                </li>
-                <li>
-                  Late Payments: Late payments will incur a fee of $[Late Fee]
-                  per day.
-                </li>
-              </ul>
-
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                3. Cancellation Policy
+                2. Cancellation Policy
               </h2>
               <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>Client Cancellation: If the Client cancels the event:</li>
-                <li className="ml-10">
-                  More than [Number of Days] days before the event:
-                  [Percentage]% of the rental fee will be refunded, minus the
-                  deposit.
-                </li>
-                <li className="ml-10">
-                  Less than [Number of Days] days before the event: No refund
-                  will be given.
+                <li>
+                  100% payment due time of booking and fully refundable with in
+                  90 days
                 </li>
                 <li>
+                  Cancellations 45-89 days before: 75% of deposit refunded
+                </li>
+
+                <li className="ml-10">
+                  Cancellations less than 45 days before: No refund
+                </li>
+
+                <li>
+                  For rescheduling, please inform us before the 6-week mark. And
+                  will credit towards your new date within one year from the
+                  original booking, with applicable rescheduling fees
+                </li>
+                <li>Credit Card payments are Final and cannot be disputed.</li>
+                <li className="ml-10">
                   Owner Cancellation: The Owner reserves the right to cancel the
                   event for reasons beyond its control (e.g., natural disasters,
                   venue damage). In such cases, a full refund, including the
@@ -124,8 +109,8 @@ const InvoicePage = () => {
                 </li>
               </ul>
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                4. Damage and Liability
+              {/* <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                3. Damage and Liability
               </h2>
               <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
                 <li>
@@ -143,68 +128,169 @@ const InvoicePage = () => {
                   the Client agrees to pay the additional costs within [Number
                   of Days] days of receiving an invoice from the Owner.
                 </li>
+              </ul> */}
+
+              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                3. Rules and Regulations
+              </h2>
+              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                <li>Capacity: Maximum capacity is [83] persons</li>
+                <li>Hours: All events must end by specified time.</li>
+                <li>
+                  Setup/Cleanup: - Setup may begin 2 hours before event start
+                  time - Cleanup must be completed within 1 hour after event end
+                  time
+                </li>
+                <li>
+                  Decorations: - No nails, screws, staples, or penetrating items
+                  on walls or floors - No glitter or confetti - No open flames
+                  (except catering equipment and birthday candles)
+                </li>
+                <li>Noise levels must comply with local ordinances</li>
+                <li>Smoking & vaping is prohibited inside the building</li>
+                <li>Alcohol service must comply with state and local laws</li>
+              </ul>
+
+              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                4. Categring and Vendores
+              </h2>
+              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                <li>
+                  All vendors must be licensed and insured - Vendor list must be
+                  submitted 14 days prior to event - Certificate of Insurance
+                  required from all vendors Not allowed on our venue premises:
+                  <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                    <li>Smoking permitted only in designated outdoor areas</li>
+                    <li>
+                      No glitter or confetti including balloons with confetti in
+                      them
+                    </li>
+                    <li>No use of tape on venue walls.</li>
+                    <li>
+                      No real flames except for warming food and candles for the
+                      event cake. Floating candles allowed as long as they are
+                      not exposed flames and in a container. And No Sparklers
+                    </li>
+                  </ul>
+                  <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                    Capacity & Safety
+                  </h2>
+                  <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                    <li>
+                      Maximum capacity: 81 guests, 2 Kitchen, Fire exits must
+                      remain unobstructed, Emergency procedures must be
+                      followed, Right to refuse entry for safety concerns,
+                      Compliance with all local fire, noise and safety codes
+                      required
+                    </li>
+                  </ul>
+                  <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                    Alcohol
+                  </h2>
+                  <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                    <li>
+                      A licensed and insured bartender is required and service
+                      must end 30 minutes before event conclusion
+                    </li>
+                    <li>
+                      Professional bartenders required for all alcohol service
+                      and cannot be resold onsite to guests.
+                    </li>
+                    <li>
+                      Proof of liquor liability insurance required , We may add
+                      security as needed, based on the event&apos;s nature and
+                      timing.
+                    </li>
+                  </ul>
+                  <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                    Property & Liability
+                  </h2>
+                  <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                    <li>
+                      Client responsible for guest conduct and subject to event
+                      termination if guests engage in illegal activities or
+                      disruptive behavior, without a refund.
+                    </li>
+                    <li>
+                      Damage in excess of damage deposit to venue or equipment
+                      will be billed separately with in 3 days of invoice.
+                    </li>
+                    <li>
+                      Venue not responsible for lost/stolen items or damage to
+                      personal property or equipment brought onto the premises
+                      by the Client or their guests. Sound Regulations
+                    </li>
+                    <li>
+                      Music must comply with local noise ordinances & Volume
+                      control at management discretion
+                    </li>
+                    <li>
+                      Live music/DJ must provide own equipment & All
+                      entertainment must end by 10:30 PM
+                    </li>
+                  </ul>
+                  <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                    Unforeseen Circumstances
+                  </h2>
+                  <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                    <li>
+                      Venue not liable for circumstances beyond its control
+                    </li>
+                    <li>
+                      Including but not limited to: natural disasters, weather,
+                      pandemics, government restrictions
+                    </li>
+                    <li>Alternative dates will be offered if possible</li>
+                    <li>Changes to Agreement</li>
+                    <li>Terms subject to change with written notice</li>
+                    <li>Disputes resolved through arbitration</li>
+                    <li>New Jersey law governs all agreements</li>
+                  </ul>
+                </li>
               </ul>
 
               <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
                 5. Indemnification
               </h2>
+
               <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
                 <li>
-                  The Client agrees to indemnify, defend, and hold harmless
-                  Manville Manor, its owners, employees, and agents from and
-                  against any and all claims, damages, losses, liabilities, and
-                  expenses (including reasonable attorney&apos;s fees) arising
-                  from the Client&apos;s use of the event space, including but
-                  not limited to:
-                </li>
-                <li className="ml-10">
-                  Personal injury or property damage occurring on the premises
-                  during the event.
-                </li>
-                <li className="ml-10">
+                  The Client (Lessee )agrees to indemnify, defend, and hold
+                  harmless Manville Manor, its owners, employees, and agents
+                  from and against any and all claims, damages, losses,
+                  liabilities, and expenses (including reasonable
+                  attorney&apos;s fees) arising from the Client&apos;s use of
+                  the event space, including but not limited to: Personal injury
+                  or property damage occurring on the premises during the event.
                   Any claims made by third parties or guests in attendance at
                   the event.
                 </li>
-                <li>
-                  The Owner shall not be held responsible for any loss, theft,
-                  or damage to personal property or equipment brought onto the
-                  premises by the Client or their guests.
-                </li>
               </ul>
 
               <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                6. Event Conduct
-              </h2>
-
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  Compliance with Laws: The Client agrees to comply with all
-                  local, state, and federal laws, including but not limited to
-                  alcohol consumption laws, noise ordinances, and occupancy
-                  limits.
-                </li>
-                <li>
-                  Guest Behavior: The Client is responsible for the behavior of
-                  all guests. The Owner reserves the right to terminate the
-                  event if guests engage in illegal activities or disruptive
-                  behavior, without a refund.
-                </li>
-              </ul>
-
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
-                7. Force Majeure
+                6. Force Majeure
               </h2>
               <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
                 <li>
-                  The Owner shall not be liable for any failure or delay in
-                  performing its obligations under this Agreement if such
-                  failure or delay is due to circumstances beyond its reasonable
-                  control, including but not limited to acts of God, war,
-                  terrorism, or government restrictions.
+                  Neither party shall be liable for failure to perform due to
+                  circumstances beyond reasonable control.
                 </li>
               </ul>
 
               <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+                7. Governing Law
+              </h2>
+              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+                <li>
+                  This Agreement shall be governed by the laws of the State of
+                  [NJ]. Any amendments to this Agreement must be made in writing
+                  and signed by both parties. This Agreement constitutes the
+                  entire agreement between the parties and supersedes any prior
+                  agreements, understandings, or representations.
+                </li>
+              </ul>
+
+              {/* <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
                 8. Termination of Agreement
               </h2>
               <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
@@ -217,9 +303,9 @@ const InvoicePage = () => {
                   Refunds upon Termination: In the event of termination due to
                   breach by the Client, no refunds will be issued.
                 </li>
-              </ul>
+              </ul> */}
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+              {/* <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
                 9. Miscellaneous
               </h2>
               <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
@@ -237,24 +323,22 @@ const InvoicePage = () => {
                   construed in accordance with the laws of the State of New
                   Jersey.
                 </li>
-              </ul>
+              </ul> */}
 
-              <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
+              {/* <h2 className="mt-10 text-[1.375rem] font-semibold md:text-[2.25rem]">
                 10. Acceptance of Terms
-              </h2>
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
-                <li>
-                  By signing below, the Client acknowledges that they have read,
-                  understood, and agree to the terms and conditions outlined in
-                  this Agreement.
-                </li>
-              </ul>
+              </h2> */}
+              <p className="mt-12 text-[1.375rem] md:text-[2.25rem]">
+                By signing below, the Client acknowledges that they have read,
+                understood, and agree to the terms and conditions outlined in
+                this Agreement.
+              </p>
 
-              <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
+              {/* <ul className="ml-12 list-disc text-[1.375rem] md:text-[2.25rem]">
                 <li>Terms Subject to change ith written notice</li>
                 <li>Disputes esolved through arbitration</li>
                 <li>New Jersey law governs all agreements</li>
-              </ul>
+              </ul> */}
             </div>
           </div>
 
