@@ -65,15 +65,16 @@ export const BookingFormSchema = Yup.object().shape({
     .min(0, "The number of children must be 0 or greater"),
 });
 
-const FILE_SIZE = 5 * 1024 * 1024;
+// Note Commenting this for now
+// const FILE_SIZE = 5 * 1024 * 1024;
 export const ContractFormSchema = Yup.object().shape({
-  clientSignature: Yup.mixed()
-    .required("Please add you signatures")
+  // clientSignature: Yup.mixed()
+  //   .required("Please add you signatures")
 
-    .test("fileSize", "Image file should not exceed 5MB", function (value) {
-      if (!value) return true;
-      return value && value instanceof File && value?.size <= FILE_SIZE;
-    }),
+  //   .test("fileSize", "Image file should not exceed 5MB", function (value) {
+  //     if (!value) return true;
+  //     return value && value instanceof File && value?.size <= FILE_SIZE;
+  //   }),
 
   dateClient: Yup.date().required("Please select a date"),
 });

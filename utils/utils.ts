@@ -134,7 +134,7 @@ const faqItems: Faq[] = [
     title:
       "how much extra time do i get for decorating/setting up for my event?",
     content:
-      "Your setup time is included into your 6.5-hour Edison time block for space usage. There is no additional setup time allocated beyond your designated block, given that we host two events daily. For any extra setup time requirements, please get in touch with us for further details.",
+      "Your setup time is included into your 6.5-hour time block for space usage. There is no additional setup time allocated beyond your designated block, given that we host two events daily. For any extra setup time requirements,please get in touch with us for further details",
   },
 
   {
@@ -146,7 +146,7 @@ const faqItems: Faq[] = [
   {
     title: "what decor items are prohibited?",
     content:
-      "Smoking or vaping is not allowed onsite, on the venue's grounds/patios, or in front of the building. Glitter or confetti (also in balloons) is prohibited. Use of tape on venue walls is not permitted. Real flames are only allowed for warming food and candles for the event cake. Floating candles are allowed as long as they are not exposed flames and are in a container. Helium air balloons are not permitted in our Edison/Sayreville locations due to our high ceilings, but regular balloons are allowed.",
+      "Use of tape on venue walls is not permitted. Real flames are only allowed for warming food and candles for the event cake. Floating candles are allowed as long as they are not exposed flames and are in a container. Helium air balloons that are not fixed  and strung are not permitted in due to our high ceilings and chandeliers but regular balloons are allowed.",
   },
 
   {
