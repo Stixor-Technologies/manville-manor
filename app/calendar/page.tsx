@@ -21,6 +21,40 @@ const CalendarPage = () => {
   const [selectedDateTime, setSelectedDateTime] = useState<any>(null);
   const [hasSelectedTime, setHasSelectedTime] = useState(false);
 
+  // NOTE: Commenting it for now
+
+  // console.log("slot", originalSlots);
+  // const formatEvents = (slotsData: any, filter: string) => {
+  //   console.log("slotsData", slotsData);
+  //   const filteredEvents = Object.values(slotsData)
+  //     .filter((slot: any) => slot?.reservations && slot?.slots)
+  //     .flatMap((slot: any) =>
+  //       slot?.slots
+  //         .filter((timeSlot: any) => {
+  //           const hour = parseInt(timeSlot.time.split(":")[0], 10);
+  //           return filter === "AM" ? hour < 12 : hour >= 12;
+  //         })
+  //         .filter((timeSlot: any) => !timeSlot?.available)
+  //         .map((timeSlot: any) => {
+  //           const combinedDateTime = moment(slot.date).set({
+  //             hour: parseInt(timeSlot.time.split(":")[0], 10),
+  //             minute: parseInt(timeSlot.time.split(":")[1], 10),
+  //             second: 0,
+  //             millisecond: 0,
+  //           });
+
+  //           return {
+  //             title: `Booked - ${combinedDateTime.format("h:mm A")}`,
+  //             start: combinedDateTime.toISOString(),
+  //             allDay: true,
+  //             color: "green",
+  //           };
+  //         }),
+  //     );
+
+  //   setEvents(filteredEvents);
+  // };
+
   const formatEvents = (slotsData: any, filter: string) => {
     const filteredEvents = Object.values(slotsData)
       .filter((slot: any) => slot?.reservations && slot?.slots)
@@ -32,15 +66,32 @@ const CalendarPage = () => {
           })
           .filter((timeSlot: any) => !timeSlot?.available)
           .map((timeSlot: any) => {
-            const combinedDateTime = moment(slot.date).set({
-              hour: parseInt(timeSlot.time.split(":")[0], 10),
-              minute: parseInt(timeSlot.time.split(":")[1], 10),
-              second: 0,
-              millisecond: 0,
-            });
+            console.log("slot.date", slot.date);
+            const baseDate = new Date(slot.date);
+            const [hours, minutes] = timeSlot.time.split(":").map(Number);
+
+            const combinedDateTime = new Date(baseDate);
+            combinedDateTime.setUTCHours(hours, minutes, 0, 0);
+
+            console.log(
+              "Debug - Combined DateTime:",
+              combinedDateTime.toISOString(),
+            );
+
+            const utcTime = new Date(combinedDateTime).toLocaleTimeString(
+              "en-US",
+              {
+                timeZone: "UTC",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true,
+              },
+            );
+
+            console.log("timeInUTC", utcTime);
 
             return {
-              title: `Booked - ${combinedDateTime.format("h:mm A")}`,
+              title: `Booked - ${utcTime}`,
               start: combinedDateTime.toISOString(),
               allDay: true,
               color: "green",
@@ -226,6 +277,7 @@ const CalendarPage = () => {
               plugins={[dayGridPlugin, interactionPlugin]}
               initialView="dayGridMonth"
               events={events}
+              timeZone="UTC"
               headerToolbar={{
                 left: "",
                 center: "prev,title,next",
