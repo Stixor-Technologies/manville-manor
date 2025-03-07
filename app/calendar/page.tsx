@@ -277,7 +277,6 @@ const CalendarPage = () => {
               plugins={[dayGridPlugin, interactionPlugin]}
               initialView="dayGridMonth"
               events={events}
-              timeZone="UTC"
               headerToolbar={{
                 left: "",
                 center: "prev,title,next",
