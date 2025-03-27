@@ -10,9 +10,9 @@ const HomeHero = () => {
 
       <div className="container sm:px-[2.5625rem]">
         <div className="mx-auto mb-8 flex max-w-[43.75rem] flex-col items-center justify-between text-center lg:mb-4 lg:max-w-none lg:flex-row lg:items-start lg:gap-16 lg:text-left">
-          <h2 className="w-full font-cormorant text-5xl leading-none text-white md:text-[4rem] lg:max-w-[631px] lg:leading-tight">
+          <h1 className="w-full font-cormorant text-5xl leading-none text-white md:text-[4rem] lg:max-w-[631px] lg:leading-tight">
             Create Unforgettable Moments at Manville Manor
-          </h2>
+          </h1>
 
           <p className="mt-6 text-[1.375rem] text-secondary lg:mt-0 lg:max-w-[453px]">
             From intimate gatherings to grand celebrations, Manville Manor
