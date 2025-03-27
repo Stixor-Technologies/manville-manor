@@ -5,6 +5,14 @@ import ContactBlob from "@/public/assets/contact-blob.png";
 import BookingHandler from "@/components/booking/booking-handler";
 import Spinner from "@/components/shared/spinner";
 import HeroGallery from "@/public/assets/gallery/hero-gallery.png";
+import { REDIRECT_URL } from "@/utils/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${REDIRECT_URL}/booking`,
+  },
+};
 
 const Booking = () => {
   return (

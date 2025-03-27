@@ -7,7 +7,7 @@ import {
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
 import { Button } from "../../button";
 import { toast } from "react-toastify";
-import { REDIRECT_URL } from "@/utils/contants";
+import { REDIRECT_URL } from "@/utils/constants";
 import Link from "next/link";
 
 interface CheckoutFormProps {

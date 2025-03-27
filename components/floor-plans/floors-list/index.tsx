@@ -3,7 +3,7 @@ import { getFloorPlans } from "@/utils/api-calls";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { BASE_URL } from "@/utils/contants";
+import { BASE_URL } from "@/utils/constants";
 import Spinner from "@/components/shared/spinner";
 
 const FloorPlans = () => {

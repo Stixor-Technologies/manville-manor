@@ -2,6 +2,14 @@ import React from "react";
 import HeroGallery from "@/public/assets/gallery/hero-gallery.png";
 import Hero from "@/components/shared/hero";
 import Link from "next/link";
+import { REDIRECT_URL } from "@/utils/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${REDIRECT_URL}/term-conditions`,
+  },
+};
 
 const Terms = () => {
   return (

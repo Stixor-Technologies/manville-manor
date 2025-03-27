@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { STRIPE_SECRET_KEY } from "@/utils/contants";
+import { STRIPE_SECRET_KEY } from "@/utils/constants";
 
 const stripe = new Stripe(STRIPE_SECRET_KEY!);
 

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /invoice
+Disallow: /payment
+
+Sitemap: https://www.manvillemanor.com/sitemap.xml

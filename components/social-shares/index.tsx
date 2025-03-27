@@ -10,7 +10,7 @@ import {
 } from "react-share";
 
 import { usePathname } from "next/navigation";
-import { BASE_URL } from "@/utils/contants";
+import { BASE_URL } from "@/utils/constants";
 
 const ShareButtons = () => {
   const path = usePathname();

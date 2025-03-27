@@ -1,4 +1,4 @@
-import { BASE_URL } from "./contants";
+import { BASE_URL } from "./constants";
 import { FormValues, ListItemOption } from "./types/types";
 export const getVenues = async (
   returnMappedList = false,
@@ -121,19 +121,6 @@ export const getFloorPlans = async (
     return floorOptions?.data;
   } catch (error) {
     console.error("There was an error getting floor options", error);
-    return [];
-  }
-};
-
-export const getBackdrops = async () => {
-  try {
-    const resp = await fetch(`${BASE_URL}/api/back-drops?populate=*`, {
-      cache: "no-store",
-    });
-    const backDrops = await resp.json();
-    return backDrops?.data;
-  } catch (error) {
-    console.error("There was an error getting Backdrops", error);
     return [];
   }
 };

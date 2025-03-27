@@ -7,7 +7,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
 import Dash from "@/public/assets/gallery/minus.svg";
-import { BASE_URL } from "@/utils/contants";
+import { BASE_URL } from "@/utils/constants";
 import { Portfolio } from "@/utils/types/types";
 
 interface GalleryPortfolioProps {
@@ -101,11 +101,11 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
           </Masonry> */}
 
           <Masonry gutter="1rem">
-            {portfolio?.flatMap((item: any) => (
+            {portfolio?.flatMap((item: any, index) => (
               <Image
                 key={item?.id}
                 src={BASE_URL + item?.attributes?.url}
-                alt=""
+                alt={`gallery portfolio image - ${index}`}
                 className="w-full"
                 width={600}
                 height={500}
@@ -137,7 +137,7 @@ const GalleryPortfolio: FC<GalleryPortfolioProps> = ({
                 <h4 className="text-nowrap ">{data?.name}</h4>
               </li>
 
-              <Image src={Dash} alt="" className="w-5 md:w-full" />
+              <Image src={Dash} alt="dash" className="w-5 md:w-full" />
             </div>
           ))}
         </ul>
