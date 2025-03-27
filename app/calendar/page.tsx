@@ -9,6 +9,8 @@ import { checkSlotAvailability } from "@/utils/api-calls";
 import "./styles.css";
 import { Button } from "@/components/button";
 import { useRouter } from "next/navigation";
+import Head from "next/head";
+import { REDIRECT_URL } from "@/utils/contants";
 
 const CalendarPage = () => {
   const router = useRouter();
@@ -226,85 +228,91 @@ const CalendarPage = () => {
   };
 
   return (
-    <div
-      className={cn(
-        "container mb-8",
-        !hasSelectedTime &&
-          "flex min-h-[100vh] flex-col items-center justify-center",
-      )}
-    >
-      {!hasSelectedTime ? (
-        <div className="text-center text-white">
-          <h3 className="mb-6 text-3xl">What time would you like to book?</h3>
-          <div className="flex justify-center gap-4">
-            <Button onClick={() => handleFilterChange("AM")}>Morning</Button>
-            <Button onClick={() => handleFilterChange("PM")}>Evening</Button>
+    <>
+      <Head>
+        <link rel="canonical" href={`${REDIRECT_URL}/calendar`} />
+      </Head>
+
+      <div
+        className={cn(
+          "container mb-8",
+          !hasSelectedTime &&
+            "flex min-h-[100vh] flex-col items-center justify-center",
+        )}
+      >
+        {!hasSelectedTime ? (
+          <div className="text-center text-white">
+            <h3 className="mb-6 text-3xl">What time would you like to book?</h3>
+            <div className="flex justify-center gap-4">
+              <Button onClick={() => handleFilterChange("AM")}>Morning</Button>
+              <Button onClick={() => handleFilterChange("PM")}>Evening</Button>
+            </div>
           </div>
-        </div>
-      ) : (
-        <>
-          <h2 className="text-center font-cormorant text-[4rem] text-white">
-            Calendar
-          </h2>
+        ) : (
+          <>
+            <h2 className="text-center font-cormorant text-[4rem] text-white">
+              Calendar
+            </h2>
 
-          <div className="relative my-8">
-            {originalSlots && (
-              <div className="absolute left-4 top-3.5 flex items-center">
-                <button
-                  className={cn(
-                    " ",
-                    filter === "AM" ? "text-black" : "text-black/40",
-                  )}
-                  onClick={() => handleFilterChange("AM")}
-                >
-                  AM
-                </button>
+            <div className="relative my-8">
+              {originalSlots && (
+                <div className="absolute left-4 top-3.5 flex items-center">
+                  <button
+                    className={cn(
+                      " ",
+                      filter === "AM" ? "text-black" : "text-black/40",
+                    )}
+                    onClick={() => handleFilterChange("AM")}
+                  >
+                    AM
+                  </button>
 
-                <div className="mx-2 h-5 w-0.5 bg-black" />
-                <button
-                  className={cn(
-                    " ",
-                    filter === "PM" ? "text-black" : "text-black/40",
-                  )}
-                  onClick={() => handleFilterChange("PM")}
-                >
-                  PM
-                </button>
-              </div>
-            )}
+                  <div className="mx-2 h-5 w-0.5 bg-black" />
+                  <button
+                    className={cn(
+                      " ",
+                      filter === "PM" ? "text-black" : "text-black/40",
+                    )}
+                    onClick={() => handleFilterChange("PM")}
+                  >
+                    PM
+                  </button>
+                </div>
+              )}
 
-            <FullCalendar
-              plugins={[dayGridPlugin, interactionPlugin]}
-              initialView="dayGridMonth"
-              events={events}
-              headerToolbar={{
-                left: "",
-                center: "prev,title,next",
-                right: "",
-              }}
-              validRange={{
-                start: new Date(
-                  startMonth.getFullYear(),
-                  startMonth.getMonth(),
-                  1,
-                ),
-              }}
-              datesSet={handleDatesSet} // Triggered on initial render and navigation
-              dateClick={handleDateClick}
-              dayCellClassNames={dayCellClassNames} // Add custom classes to cells
-            />
+              <FullCalendar
+                plugins={[dayGridPlugin, interactionPlugin]}
+                initialView="dayGridMonth"
+                events={events}
+                headerToolbar={{
+                  left: "",
+                  center: "prev,title,next",
+                  right: "",
+                }}
+                validRange={{
+                  start: new Date(
+                    startMonth.getFullYear(),
+                    startMonth.getMonth(),
+                    1,
+                  ),
+                }}
+                datesSet={handleDatesSet} // Triggered on initial render and navigation
+                dateClick={handleDateClick}
+                dayCellClassNames={dayCellClassNames} // Add custom classes to cells
+              />
+            </div>
+          </>
+        )}
+
+        {originalSlots && hasSelectedTime && (
+          <div className="mx-auto w-fit">
+            <Button disabled={isButtonDisabled} onClick={handleProceed}>
+              Proceed
+            </Button>
           </div>
-        </>
-      )}
-
-      {originalSlots && hasSelectedTime && (
-        <div className="mx-auto w-fit">
-          <Button disabled={isButtonDisabled} onClick={handleProceed}>
-            Proceed
-          </Button>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

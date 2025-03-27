@@ -15,6 +15,9 @@ import Hero from "@/components/shared/hero";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Head from "next/head";
+import { REDIRECT_URL } from "@/utils/contants";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
@@ -87,6 +90,9 @@ const About = () => {
 
   return (
     <>
+      <Head>
+        <link rel="canonical" href={`${REDIRECT_URL}/about-us`} />
+      </Head>
       <Hero heroImage={HeaderImage} heroHeading="About us" />
 
       {/* about us section*/}

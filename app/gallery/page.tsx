@@ -8,6 +8,8 @@ import ArrowDown from "@/public/assets/icons/point-down.svg";
 import GalleryHighLight from "@/components/gallery/gallery-highlight";
 import GalleryPortfolio from "@/components/gallery/gallery-portfolio";
 import { getPortfolio } from "@/utils/api-calls";
+import Head from "next/head";
+import { REDIRECT_URL } from "@/utils/contants";
 
 const Gallery = async () => {
   // const sliderData = await getGallerySliderImages();
@@ -15,6 +17,9 @@ const Gallery = async () => {
 
   return (
     <>
+      <Head>
+        <link rel="canonical" href={`${REDIRECT_URL}/gallery`} />
+      </Head>
       <div className="overflow-hidden">
         <Hero heroImage={HeroGallery} heroHeading="Gallery" />
         <div className="container">

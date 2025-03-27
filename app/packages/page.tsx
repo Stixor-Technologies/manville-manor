@@ -5,9 +5,14 @@ import Venues from "@/components/shared/venues";
 import PackagesList from "@/components/packages-list";
 import AdditionalFeatures from "@/components/addtional-services";
 import VenueDetail from "@/components/venue/venue-detail";
+import Head from "next/head";
+import { REDIRECT_URL } from "@/utils/contants";
 const Packages = () => {
   return (
     <>
+      <Head>
+        <link rel="canonical" href={`${REDIRECT_URL}/packages`} />
+      </Head>
       <Hero heroImage={HeaderImage} heroHeading="Packages" />
 
       <div className="container my-10 md:my-20">

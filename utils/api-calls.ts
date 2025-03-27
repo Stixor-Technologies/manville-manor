@@ -125,19 +125,6 @@ export const getFloorPlans = async (
   }
 };
 
-export const getBackdrops = async () => {
-  try {
-    const resp = await fetch(`${BASE_URL}/api/back-drops?populate=*`, {
-      cache: "no-store",
-    });
-    const backDrops = await resp.json();
-    return backDrops?.data;
-  } catch (error) {
-    console.error("There was an error getting Backdrops", error);
-    return [];
-  }
-};
-
 export const checkSlotAvailability = async (selectedDate: string) => {
   try {
     const resp = await fetch(
