@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "@/components/payment/checkout-form";
 import { Appearance, StripeElementsOptions } from "@stripe/stripe-js";
-import { STRIPE_PUBLISHABLE_KEY } from "@/utils/contants";
+import { STRIPE_PUBLISHABLE_KEY } from "@/utils/constants";
 import { useSearchParams } from "next/navigation";
 import { getInvoice } from "@/utils/api-calls";
 import Spinner from "@/components/shared/spinner";

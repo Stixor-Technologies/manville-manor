@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import SwiperButtons from "@/components/shared/swiper-buttons";
-import { BASE_URL } from "@/utils/contants";
+import { BASE_URL } from "@/utils/constants";
 
 interface GallerySliderProps {
   sliderImages: {

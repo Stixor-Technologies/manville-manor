@@ -1,4 +1,4 @@
-import { BASE_URL } from "./contants";
+import { BASE_URL } from "./constants";
 import { FormValues, ListItemOption } from "./types/types";
 export const getVenues = async (
   returnMappedList = false,

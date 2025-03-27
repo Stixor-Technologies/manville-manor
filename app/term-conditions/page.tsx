@@ -2,15 +2,18 @@ import React from "react";
 import HeroGallery from "@/public/assets/gallery/hero-gallery.png";
 import Hero from "@/components/shared/hero";
 import Link from "next/link";
-import Head from "next/head";
-import { REDIRECT_URL } from "@/utils/contants";
+import { REDIRECT_URL } from "@/utils/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${REDIRECT_URL}/term-conditions`,
+  },
+};
 
 const Terms = () => {
   return (
     <div>
-      <Head>
-        <link rel="canonical" href={`${REDIRECT_URL}/term-conditions`} />
-      </Head>
       <Hero heroImage={HeroGallery} heroHeading="Terms" />
 
       <div className="container">

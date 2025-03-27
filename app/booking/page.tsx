@@ -5,15 +5,18 @@ import ContactBlob from "@/public/assets/contact-blob.png";
 import BookingHandler from "@/components/booking/booking-handler";
 import Spinner from "@/components/shared/spinner";
 import HeroGallery from "@/public/assets/gallery/hero-gallery.png";
-import Head from "next/head";
-import { REDIRECT_URL } from "@/utils/contants";
+import { REDIRECT_URL } from "@/utils/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${REDIRECT_URL}/booking`,
+  },
+};
 
 const Booking = () => {
   return (
     <>
-      <Head>
-        <link rel="canonical" href={`${REDIRECT_URL}/booking`} />
-      </Head>
       <Hero heroImage={HeroGallery} heroHeading="Booking" />
       <section className="container my-11 rounded-md border border-accent py-4 md:rounded-none md:border-none">
         <div className="border-accent md:rounded-md md:border md:p-4">

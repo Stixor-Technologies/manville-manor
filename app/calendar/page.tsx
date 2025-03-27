@@ -9,9 +9,14 @@ import { checkSlotAvailability } from "@/utils/api-calls";
 import "./styles.css";
 import { Button } from "@/components/button";
 import { useRouter } from "next/navigation";
-import Head from "next/head";
-import { REDIRECT_URL } from "@/utils/contants";
+import { REDIRECT_URL } from "@/utils/constants";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${REDIRECT_URL}/calendar`,
+  },
+};
 const CalendarPage = () => {
   const router = useRouter();
   const [events, setEvents] = useState<any[]>([]);
@@ -229,10 +234,6 @@ const CalendarPage = () => {
 
   return (
     <>
-      <Head>
-        <link rel="canonical" href={`${REDIRECT_URL}/calendar`} />
-      </Head>
-
       <div
         className={cn(
           "container mb-8",

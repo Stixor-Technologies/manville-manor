@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { MAP_KEY } from "@/utils/contants";
+import { MAP_KEY } from "@/utils/constants";
 import Spinner from "../shared/spinner";
 
 const MapComponent = () => {

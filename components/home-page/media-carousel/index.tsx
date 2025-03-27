@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 // import Link from "next/link";
 // import Instagram from "@/public/assets/icons/instagram.svg";
 // import Facebook from "@/public/assets/icons/facebook.svg";
-import { BASE_URL } from "@/utils/contants";
+import { BASE_URL } from "@/utils/constants";
 // import { Backdrops } from "@/utils/types/types";
 // import backdrops from "../backdrops";
 

@@ -7,7 +7,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
 import Dash from "@/public/assets/gallery/minus.svg";
-import { BASE_URL } from "@/utils/contants";
+import { BASE_URL } from "@/utils/constants";
 import { Portfolio } from "@/utils/types/types";
 
 interface GalleryPortfolioProps {

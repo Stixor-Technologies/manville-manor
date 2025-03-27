@@ -8,14 +8,16 @@ import ArrowDown from "@/public/assets/icons/point-down.svg";
 import GalleryHighLight from "@/components/gallery/gallery-highlight";
 import GalleryPortfolio from "@/components/gallery/gallery-portfolio";
 import { getPortfolio } from "@/utils/api-calls";
-import Head from "next/head";
-import { REDIRECT_URL } from "@/utils/contants";
+import { REDIRECT_URL } from "@/utils/constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Gallery | Manville Manor - Wedding & Event Photos",
   description:
     "Browse the Manville Manor gallery to see photos of our timelessly elegant event spaces in action. View images of beautiful weddings, outdoor ceremonies, corporate events, and special occasions hosted at our Manville, NJ venue.",
+  alternates: {
+    canonical: `${REDIRECT_URL}/gallery`,
+  },
 };
 
 const Gallery = async () => {
@@ -24,9 +26,6 @@ const Gallery = async () => {
 
   return (
     <>
-      <Head>
-        <link rel="canonical" href={`${REDIRECT_URL}/gallery`} />
-      </Head>
       <div className="overflow-hidden">
         <Hero heroImage={HeroGallery} heroHeading="Gallery" />
         <div className="container">
