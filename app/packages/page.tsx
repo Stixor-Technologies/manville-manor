@@ -7,6 +7,14 @@ import AdditionalFeatures from "@/components/addtional-services";
 import VenueDetail from "@/components/venue/venue-detail";
 import Head from "next/head";
 import { REDIRECT_URL } from "@/utils/contants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Affordable Wedding Venue Packages in Manville, NJ | Manville Manor",
+  description:
+    "Discover our affordable wedding and event packages. Manville Manor offers customizable packages for weddings, corporate retreats (with full AV equipment), and social events - providing exceptional value, modern amenities, and flexibility to suit your budget.",
+};
+
 const Packages = () => {
   return (
     <>

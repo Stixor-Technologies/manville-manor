@@ -4,6 +4,13 @@ import HomeAbout from "@/components/home-page/home-about/home-about";
 import { Suspense } from "react";
 import { REDIRECT_URL } from "@/utils/contants";
 import Head from "next/head";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Wedding & Event Venue in Manville, NJ | Manville Manor",
+  description:
+    "Manville Manor is an elegant event space in Manville, NJ, offering timeless elegance with modern convenience. Host unforgettable weddings, corporate events, baby showers, and more in a versatile venue known as one of NJ's best event venues.",
+};
 
 export default function Home() {
   return (
