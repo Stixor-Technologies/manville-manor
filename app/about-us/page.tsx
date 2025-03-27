@@ -102,7 +102,7 @@ const About = () => {
           className="mb-8 self-end text-white lg:col-start-2 lg:mb-0"
         >
           <div className="mb-2 flex items-center justify-center gap-1 lg:justify-start">
-            <Image src={Box} alt="" />
+            <Image src={Box} alt="square-box" />
             <h2 className="text-lg text-secondary">About Us</h2>
           </div>
 
@@ -148,7 +148,7 @@ const About = () => {
               data-animated-about
               className="flex items-center justify-center gap-1 lg:justify-start"
             >
-              <Image src={BoxFeature} alt="" />
+              <Image src={BoxFeature} alt="square-box" />
               <h2 className="text-lg">Manville Manor Features</h2>
             </div>
 

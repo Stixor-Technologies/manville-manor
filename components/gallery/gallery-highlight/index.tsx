@@ -24,7 +24,7 @@ const GalleryHighLight = () => {
           <Image
             src={Venue2}
             width={168}
-            alt=""
+            alt="event-space"
             className="absolute -bottom-7 hidden md:right-0 md:block"
           />
 
@@ -38,7 +38,12 @@ const GalleryHighLight = () => {
         <div className="relative w-full flex-1 overflow-hidden bg-accent/20 pb-8 pt-20 md:max-w-[39rem] md:pb-10 md:pt-28 lg:pt-44">
           <div className="mx-auto w-[80%] max-w-[302px] font-cormorant text-2xl text-white xs:w-full xs:text-5xl">
             <span className="block text-right">Venues By</span>
-            <Image src={Venue} width={302} alt="" className="relative z-10" />
+            <Image
+              src={Venue}
+              width={302}
+              alt="event-space"
+              className="relative z-10"
+            />
             <span className="-ml-5 -mt-3 block xs:-ml-11 xs:-mt-5">
               Manville
             </span>
@@ -50,7 +55,7 @@ const GalleryHighLight = () => {
 
           <Image
             src={HighlightCircle}
-            alt=""
+            alt="style-cricle"
             className="absolute -right-[10%] -top-[30%] md:-top-[10%] md:right-0 md:block"
           />
         </div>
