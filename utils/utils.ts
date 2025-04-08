@@ -62,18 +62,18 @@ const navBarLinks: Menu[] = [
 const socialLink: SocialLinks[] = [
   {
     title: "instagram",
-    path: "https://www.instagram.com/manvillemanor/",
+    path: "https://www.instagram.com/manvillemanornj/",
     iconPath: Instagram,
   },
   {
     title: "facebook",
-    path: "https://www.facebook.com",
+    path: "https://www.facebook.com/people/Manville-Manor/61573790767237/",
     iconPath: Facebook,
   },
 
   {
     title: "youtube",
-    path: "#",
+    path: "https://www.youtube.com/@ManvilleManor",
     iconPath: Youtube,
   },
 ];
